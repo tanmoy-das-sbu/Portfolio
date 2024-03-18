@@ -10,7 +10,7 @@ const addScheduleMiddleware = async (req, res, next) => {
 
         const savedSchedule = await newSchedule.save();
 
-        res.status(201).json(savedSchedule);
+        res.status(200).json(savedSchedule);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
