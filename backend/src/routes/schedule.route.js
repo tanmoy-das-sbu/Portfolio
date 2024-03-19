@@ -7,6 +7,7 @@ import updateScheduleByIdMiddleware from '../Controllers/updateSchedule.middlewa
 import deleteScheduleByIdMiddleware from '../Controllers/deleteSchedule.middleware.js';
 import addMultipleSchedulesMiddleware from '../Controllers/addMultipleSchedule.middleware.js';
 import deleteMultipleSchedulesByIdMiddleware from '../Controllers/deleteMultipleSchedule.middleware.js';
+import getUpcomingSchedules from '../Controllers/getUpcomingSchedule.middleware.js';
 
 router.get('/Schedule/date/:date', getScheduleByDate, (req, res) => {
   res.json(res.schedule);
@@ -23,5 +24,7 @@ router.delete('/Schedule/DeleteById/:id', deleteScheduleByIdMiddleware);
 router.post('/Schedule/AddMultiple', addMultipleSchedulesMiddleware);
 
 router.delete('/Schedule/DeleteMultiple', deleteMultipleSchedulesByIdMiddleware);
+
+router.get('/Schedule/UpcomingSchedules', getUpcomingSchedules);
 
 export default router;
