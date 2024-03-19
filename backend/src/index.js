@@ -57,7 +57,7 @@ passport.deserializeUser((id, done) => {
 
 connectDB()
   .then(() => {
-    app.use('/schedule', Schedule);
+    app.use('/', Schedule);
 
     app.post('/login',
       passport.authenticate('local', { failureRedirect: '/login-failure' }),

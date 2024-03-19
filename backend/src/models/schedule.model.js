@@ -32,6 +32,8 @@ const scheduleSchema = new mongoose.Schema({
         
     },
     tasks: [taskSchema] 
+},{
+    versionKey: false
 });
 
 const Schedule = mongoose.model('Schedule', scheduleSchema);
