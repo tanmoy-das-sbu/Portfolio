@@ -1,12 +1,12 @@
 import express from 'express';
 const router = express.Router();
-import getScheduleByDate from "../middlewares/getScheduleByDate.middleware.js";
-import addScheduleMiddleware from '../middlewares/addSchedule.middleware.js';
-import getAllSchedule from '../middlewares/getAllSchedule.middleware.js';
-import updateScheduleByIdMiddleware from '../middlewares/updateSchedule.middleware.js';
-import deleteScheduleByIdMiddleware from '../middlewares/deleteSchedule.middleware.js';
-import addMultipleSchedulesMiddleware from '../middlewares/addMultipleSchedule.middleware.js';
-import deleteMultipleSchedulesByIdMiddleware from '../middlewares/deleteMultipleSchedule.middleware.js';
+import getScheduleByDate from "../Controllers/getScheduleByDate.middleware.js";
+import addScheduleMiddleware from '../Controllers/addSchedule.middleware.js';
+import getAllSchedule from '../Controllers/getAllSchedule.middleware.js';
+import updateScheduleByIdMiddleware from '../Controllers/updateSchedule.middleware.js';
+import deleteScheduleByIdMiddleware from '../Controllers/deleteSchedule.middleware.js';
+import addMultipleSchedulesMiddleware from '../Controllers/addMultipleSchedule.middleware.js';
+import deleteMultipleSchedulesByIdMiddleware from '../Controllers/deleteMultipleSchedule.middleware.js';
 
 router.get('/:date', getScheduleByDate, (req, res) => {
   res.json(res.schedule);
