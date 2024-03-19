@@ -47,7 +47,7 @@ const SecondSection = () => {
                 const today = new Date();
                 const todayFormatted = today.toISOString().split('T')[0];
 
-                const todayResponse = await axios.get(`http://localhost:8000/schedule/${todayFormatted}`);
+                const todayResponse = await axios.get(`http://localhost:8000/schedule/date/${todayFormatted}`);
                 console.log('Today Response:', todayResponse.data);
 
                 const todayTasks = todayResponse.data.tasks;
@@ -58,7 +58,7 @@ const SecondSection = () => {
 
                 const tomorrowFormatted = tomorrow.toISOString().split('T')[0];
 
-                const tomorrowResponse = await axios.get(`http://localhost:8000/schedule/${tomorrowFormatted}`);
+                const tomorrowResponse = await axios.get(`http://localhost:8000/schedule/date/${tomorrowFormatted}`);
                 console.log('Tomorrow Response:', tomorrowResponse.data);
 
                 const tomorrowTasks = tomorrowResponse.data.tasks;
