@@ -1,5 +1,3 @@
-
-
 "use client"
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -10,36 +8,11 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css";
-const data = [
-    {
-        "image": "/images/Elearning/top0.png"
-    },
-    {
-        "image": "/images/Elearning/top1.png"
-    },
-    {
-        "image": "/images/Elearning/top2.png"
-    },
-    {
-        "image": "/images/Elearning/top0.png"
-    },
-    {
-        "image": "/images/Elearning/top1.png"
-    },
-    {
-        "image": "/images/Elearning/top2.png"
-    }
-
-]
-
-
-
-
 
 const SecondSection = () => {
     const [todaySchedule, setTodaySchedule] = useState([]);
     const [tomorrowSchedule, setTomorrowSchedule] = useState([]);
-
+    const [upcomingEvent, setUpcomingEvent] = useState([]);
 
     useEffect(() => {
         async function fetchSchedule() {
@@ -48,7 +21,7 @@ const SecondSection = () => {
                 const todayFormatted = today.toISOString().split('T')[0];
 
                 const todayResponse = await axios.get(`http://localhost:8000/schedule/date/${todayFormatted}`);
-                console.log('Today Response:', todayResponse.data);
+                console.log('Today Response:', todayResponse.data.tasks);
 
                 const todayTasks = todayResponse.data.tasks;
                 setTodaySchedule(todayTasks);
@@ -63,6 +36,10 @@ const SecondSection = () => {
 
                 const tomorrowTasks = tomorrowResponse.data.tasks;
                 setTomorrowSchedule(tomorrowTasks);
+
+                const upcomingEvent = await axios.get(`http://localhost:8000/Schedule/UpcomingSchedules`);
+                console.log("upcomingEvent:", upcomingEvent.data);
+                setUpcomingEvent(upcomingEvent.data)
 
             } catch (error) {
                 console.error('Error fetching schedule:', error);
