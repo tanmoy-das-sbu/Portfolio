@@ -2,8 +2,8 @@
 import "./nav.css";
 
 
-const Nav = () => {
-    
+const Nav = ({date,setDate}) => {
+  console.log(date,'date')
     return (
         <div className="nav-div ">
             <div className="container flex flex-row justify-between"><div className="flex flex-row items-center nav-in-div">
