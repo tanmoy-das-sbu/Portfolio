@@ -5,7 +5,7 @@ import axios from 'axios';
 import Image from "next/image";
 import "./page.css"
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper/modules';
 import { CalendarIcon } from "@radix-ui/react-icons"
 import { format } from "date-fns"
 
@@ -117,74 +117,52 @@ const SecondSection = () => {
                     </PopoverContent>
                 </Popover>
             </div>
-            {/* <div className=" mt-12 md:mt-[50px] lg:mt-[0]">
+            <div className=" mt-12 md:mt-[50px] lg:mt-[0]">
                 <div>
                     {!flag ? (
                         <NoScheduleForToday />
-                    ) : <div>
+                    ) : (<div>
                         <div className=" container flex flex-row  m-auto pt-4 md:pt-16">
-                            {flaghead ? <h2 className="font-bold text-5xl md:text-7xl w-full text-center mb-5">Today's Schedule</h2> : <h2 className="font-bold text-5xl md:text-7xl w-full text-center mb-5">{date?.toDateString()} Schedule</h2>} */}
-            {/* </div> */}
-
-            <div className="container">
-                <Swiper
-                    effect={'coverflow'}
-                    grabCursor={true}
-                    centeredSlides={true}
-                    loop={true}
-                    slidesPerView={'auto'}
-                    coverflowEffect={{
-                        rotate: 0,
-                        stretch: 0,
-                        depth: 100,
-                        modifier: 2.5,
-                    }}
-                    pagination={{ el: '.swiper-pagination', clickable: true }}
-                    navigation={{
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                        clickable: true,
-                    }}
-                    modules={[EffectCoverflow, Pagination, Navigation]}
-                    className="swiper_container"
-                >
-                    <SwiperSlide style={{backgroundImage: "url(" + slide_image_1 + ")"}}>
-                        <div style={{border:`1px solid green`}}>
-                            <h3 className="text-base font-medium">Heading </h3>
-                            <p className="text-sm">startTime - EndTime</p>
-                            <p className="text-sm">Short Description</p>
+                            {flaghead ? <h2 className="font-bold text-5xl md:text-7xl w-full text-center mb-5">Today's Schedule</h2> : <h2 className="font-bold text-5xl md:text-7xl w-full text-center mb-5">{date?.toDateString()} Schedule</h2>}
+                            <div className="container">
+                                <Swiper
+                                    effect={'coverflow'}
+                                    grabCursor={true}
+                                    centeredSlides={true}
+                                    loop={true}
+                                    slidesPerView={'auto'}
+                                    autoplay={{
+                                        delay: 10000,
+                                        disableOnInteraction: false
+                                    }}
+                                    coverflowEffect={{
+                                        rotate: 0,
+                                        stretch: 0,
+                                        depth: 100,
+                                        modifier: 2.5,
+                                    }}
+                                    pagination={{ el: '.swiper-pagination', clickable: true }}
+                                    navigation={{
+                                        nextEl: '.swiper-button-next',
+                                        prevEl: '.swiper-button-prev',
+                                        clickable: true,
+                                    }}
+                                    modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+                                    className="swiper_container"
+                                >
+                                    {todaySchedule.map((item, index) => (
+                                        <SwiperSlide key={index}>
+                                            <div>
+                                                <Image src={slide_image_4} alt="slide_image" />
+                                                <h4 className='dateheading'>Date:{item.startTime}{index}</h4>
+                                            </div>
+                                        </SwiperSlide>
+                                    ))}
+                                </Swiper>
+                            </div>
                         </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image src={slide_image_2} alt="slide_image" />
-
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image src={slide_image_3} alt="slide_image" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image src={slide_image_4} alt="slide_image" />
-                    </SwiperSlide>
-                    {/* <SwiperSlide>
-                        <Image src={slide_image_5} alt="slide_image" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image src={slide_image_6} alt="slide_image" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Image src={slide_image_7} alt="slide_image" />
-                    </SwiperSlide> */}
-
-                    <div className="slider-controler">
-                        <div className="swiper-button-prev slider-arrow">
-                            <ion-icon name="arrow-back-outline"></ion-icon>
-                        </div>
-                        <div className="swiper-button-next slider-arrow">
-                            <ion-icon name="arrow-forward-outline"></ion-icon>
-                        </div>
-                        <div className="swiper-pagination"></div>
-                    </div>
-                </Swiper>
+                    </div>)}
+                </div>
             </div>
         </>
     );
