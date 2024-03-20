@@ -3,7 +3,7 @@ import "./nav.css";
 
 
 const Nav = ({date,setDate}) => {
-  console.log(date,'date')
+//   console.log(date,'date')
     return (
         <div className="nav-div ">
             <div className="container flex flex-row justify-between" style={{height:'5em'}}>

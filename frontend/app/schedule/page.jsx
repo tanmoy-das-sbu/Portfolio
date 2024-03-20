@@ -38,7 +38,10 @@ const SecondSection = () => {
     const [flag, setFlag] = useState(false);
     const [flaghead, setFlaghead] = useState(false)
     const [date, setDate] = useState(new Date())
-
+  const setback={
+    border:`1px solid red`,
+    backgroundImage: "url(" + { slide_image_1} + ")"
+  }
     useEffect(() => {
         async function fetchScheduleToday() {
             try {
@@ -121,7 +124,7 @@ const SecondSection = () => {
                     ) : <div>
                         <div className=" container flex flex-row  m-auto pt-4 md:pt-16">
                             {flaghead ? <h2 className="font-bold text-5xl md:text-7xl w-full text-center mb-5">Today's Schedule</h2> : <h2 className="font-bold text-5xl md:text-7xl w-full text-center mb-5">{date?.toDateString()} Schedule</h2>} */}
-{/* </div> */}
+            {/* </div> */}
 
             <div className="container">
                 <Swiper
@@ -145,10 +148,11 @@ const SecondSection = () => {
                     modules={[EffectCoverflow, Pagination, Navigation]}
                     className="swiper_container"
                 >
-                    <SwiperSlide>
-                        <div>
-                            <Image src={slide_image_4} alt="slide_image" />
-                            <h4 className='dateheading'>Date:{"24/03/2024"}</h4>
+                    <SwiperSlide style={{backgroundImage: "url(" + slide_image_1 + ")"}}>
+                        <div style={{border:`1px solid green`}}>
+                            <h3 className="text-base font-medium">Heading </h3>
+                            <p className="text-sm">startTime - EndTime</p>
+                            <p className="text-sm">Short Description</p>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -161,7 +165,7 @@ const SecondSection = () => {
                     <SwiperSlide>
                         <Image src={slide_image_4} alt="slide_image" />
                     </SwiperSlide>
-                    <SwiperSlide>
+                    {/* <SwiperSlide>
                         <Image src={slide_image_5} alt="slide_image" />
                     </SwiperSlide>
                     <SwiperSlide>
@@ -169,7 +173,7 @@ const SecondSection = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <Image src={slide_image_7} alt="slide_image" />
-                    </SwiperSlide>
+                    </SwiperSlide> */}
 
                     <div className="slider-controler">
                         <div className="swiper-button-prev slider-arrow">
@@ -183,7 +187,7 @@ const SecondSection = () => {
                 </Swiper>
             </div>
         </>
-        );
+    );
 }
 
 export default SecondSection;
