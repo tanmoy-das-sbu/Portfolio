@@ -21,6 +21,10 @@ const taskSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    priority: {
+        type: Number,
+        required: true
+    },
     visibility: {
         type: String,
         enum: ['public', 'private'],
