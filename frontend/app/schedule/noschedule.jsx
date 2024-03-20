@@ -1,8 +1,19 @@
+"use client"
+import React from 'react';
+import Image from 'next/image'
+import noContentImage from '../../src/assets/nocontent.jpg';
+import './nav.css';
+
 const NoSchedule = () => {
     return (
-        <div className="container m-auto">
-            <h2 className="font-bold text-3xl text-center mb-5">No Schedule for Tomorrow</h2>
-            {/* Add any additional content or styling as needed */}
+        <div className="container m-auto mb-2">
+            <div className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center">
+                <Image
+                    src={noContentImage}
+                    alt="Picture of the author"
+                    className='no-schedule'
+                />
+            </div>
         </div>
     )
 }
