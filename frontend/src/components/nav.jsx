@@ -1,7 +1,6 @@
 "use client"
 import "./nav.css";
 
-
 const Nav = ({date,setDate}) => {
 //   console.log(date,'date')
     return (
