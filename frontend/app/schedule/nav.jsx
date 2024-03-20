@@ -22,7 +22,7 @@ const Nav = () => {
                 <img src="https://img.freepik.com/free-vector/abstract-logo-gradient-color-style_23-2147507866.jpg?w=740&t=st=1710864530~exp=1710865130~hmac=036b214d7e8461b2be880391376ce89d6a7034f394cf3b4fc53fe315d410dd99" alt="" className="logo" />
                 <h2 style={{ fontSize: '24px', color:'white' }}>Scheduler App</h2>
             </div>
-            <div className="flex items-center">
+            {/* <div className="flex items-center">
                 <Popover>
                     <PopoverTrigger asChild>
                         <Button
@@ -45,7 +45,7 @@ const Nav = () => {
                         />
                     </PopoverContent>
                 </Popover>
-            </div>
+            </div> */}
         </div>
     )
 }

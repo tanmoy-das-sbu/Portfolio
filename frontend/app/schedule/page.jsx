@@ -4,11 +4,19 @@ import axios from 'axios';
 import Image from "next/image";
 import "./page.css"
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "swiper/css";
+import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 import Nav from './nav';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import slide_image_1 from '../../src/assets/images/img_1.jpg';
+import slide_image_2 from '../../src/assets/images/img_2.jpg';
+import slide_image_3 from '../../src/assets/images/img_3.jpg';
+import slide_image_4 from '../../src/assets/images/img_4.jpg';
+import slide_image_5 from '../../src/assets/images/img_5.jpg';
+import slide_image_6 from '../../src/assets/images/img_6.jpg';
+import slide_image_7 from '../../src/assets/images/img_7.jpg';
 
 const SecondSection = () => {
     const [todaySchedule, setTodaySchedule] = useState([]);
@@ -52,133 +60,70 @@ const SecondSection = () => {
 
 
     return (
-        <section  style={{
-            height: "max-content"
-        }}>
+        <>
             <Nav></Nav>
-            <div className=" mt-12 md:mt-[50px] lg:mt-[0]">
-                <div>
-                    <div className=" container flex flex-row  m-auto pt-4 md:pt-16">
-                        <h2 className="font-bold text-5xl md:text-7xl w-full text-center mb-5">Today's Schedule</h2>
 
-                    </div>
-                    <div className="container m-auto ">
-                        <div className=" slider-container">
-                            <Swiper
-                                slidesPerView={1}
-                                spaceBetween={20}
-                                centeredSlides={true}
-                                loop={true}
-                                rewind={true}
-                                autoplay={{
-                                    delay: 3000,
-                                    disableOnInteraction: false,
-                                }}
-                                pagination={{
-                                    clickable: true,
-                                }}
-                                breakpoints={{
-                                    320: {
-                                        slidesPerView: 1,
-                                    },
-                                    480: {
-                                        slidesPerView: 1,
-                                    },
-                                    600: {
-                                        slidesPerView: 1,
-                                    },
-                                    750: {
-                                        slidesPerView: 1,
-                                    },
-                                    900: {
-                                        slidesPerView: 3,
-                                    },
-                                    1100: {
-                                        slidesPerView: 3,
-                                    },
-                                    1330: {
-                                        slidesPerView: 3,
-                                    }
-                                }}
-                                navigation={true}
-                                modules={[Autoplay, Pagination, Navigation]}
-                                className="mySwiper"
-                            >
-                                {todaySchedule.map((event, index) => (
-                                    <SwiperSlide key={index} className='flex flex-col'>
-                                        <div className='event-card rounded-xl w-full h-[400px] bg-white'>
-                                        <h3 className="text-base font-medium">{event.heading}</h3>
-                                        <p className="text-sm">{event.startTime} - {event.endTime}</p>
-                                        <p className="text-sm">{event.shortDescription}</p>
-                                        </div>
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
+            <div className="container">
+                <Swiper
+                    effect={'coverflow'}
+                    grabCursor={true}
+                    centeredSlides={true}
+                    loop={true}
+                    slidesPerView={'auto'}
+                    coverflowEffect={{
+                        rotate: 0,
+                        stretch: 0,
+                        depth: 100,
+                        modifier: 2.5,
+                    }}
+                    pagination={{ el: '.swiper-pagination', clickable: true }}
+                    navigation={{
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                        clickable: true,
+                    }}
+                    modules={[EffectCoverflow, Pagination, Navigation]}
+                    className="swiper_container"
+                >
+                    <SwiperSlide>
+                        <div>
+                            <Image src={slide_image_4} alt="slide_image" />
+                            <h4 className='dateheading'>Date:{"24/03/2024"}</h4>
                         </div>
-                    </div>
-                </div>
-                <div>
-                    <div className=" container flex flex-row  m-auto pt-4 md:pt-16">
-                        <h2 className="font-bold text-5xl md:text-7xl w-full text-center mb-5">Tomorrow's Schedule</h2>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image src={slide_image_2} alt="slide_image" />
 
-                    </div>
-                    <div className="container m-auto ">
-                        <div className=" slider-container">
-                            <Swiper
-                                slidesPerView={1}
-                                spaceBetween={20}
-                                centeredSlides={true}
-                                loop={true}
-                                rewind={true}
-                                autoplay={{
-                                    delay: 3000,
-                                    disableOnInteraction: false,
-                                }}
-                                pagination={{
-                                    clickable: true,
-                                }}
-                                breakpoints={{
-                                    320: {
-                                        slidesPerView: 1,
-                                    },
-                                    480: {
-                                        slidesPerView: 1,
-                                    },
-                                    600: {
-                                        slidesPerView: 1,
-                                    },
-                                    750: {
-                                        slidesPerView: 1,
-                                    },
-                                    900: {
-                                        slidesPerView: 3,
-                                    },
-                                    1100: {
-                                        slidesPerView: 3,
-                                    },
-                                    1330: {
-                                        slidesPerView: 3,
-                                    }
-                                }}
-                                navigation={true}
-                                modules={[Autoplay, Pagination, Navigation]}
-                                className="mySwiper"
-                            >
-                                {tomorrowSchedule.map((event, index) => (
-                                    <SwiperSlide key={index} className='flex flex-col'>
-                                        <div className='event-card rounded-xl w-full h-[400px] bg-white'>
-                                        <h3 className="text-base font-medium">{event.heading}</h3>
-                                        <p className="text-sm">{event.startTime} - {event.endTime}</p>
-                                        <p className="text-sm">{event.shortDescription}</p>
-                                        </div>
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image src={slide_image_3} alt="slide_image" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image src={slide_image_4} alt="slide_image" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image src={slide_image_5} alt="slide_image" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image src={slide_image_6} alt="slide_image" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Image src={slide_image_7} alt="slide_image" />
+                    </SwiperSlide>
+
+                    <div className="slider-controler">
+                        <div className="swiper-button-prev slider-arrow">
+                            <ion-icon name="arrow-back-outline"></ion-icon>
                         </div>
+                        <div className="swiper-button-next slider-arrow">
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </div>
+                        <div className="swiper-pagination"></div>
                     </div>
-                </div>
+                </Swiper>
             </div>
-        </section>);
+        </>
+        );
 }
 
 export default SecondSection;
