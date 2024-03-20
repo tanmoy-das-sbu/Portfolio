@@ -4,7 +4,7 @@ async function getUpcomingSchedules(req, res, next) {
   try {
     const currentDate = new Date();
 
-    const upcomingSchedules = await Schedule.find({ date: { $gte: currentDate } });
+    const upcomingSchedules = await Schedule.find({ startDate: { $gte: currentDate } });
 
     if (upcomingSchedules.length === 0) {
       return res.status(404).json({ message: 'No upcoming schedules found' });

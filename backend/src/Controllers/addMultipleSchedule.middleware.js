@@ -4,7 +4,7 @@ const addMultipleSchedulesMiddleware = async (req, res) => {
     try {
         const schedulesData = req.body;
 
-        const checkDate = await Schedule.find({date});
+        const checkDate = await Schedule.find({startDate});
 
         if(checkDate){
             res.status(404).json({

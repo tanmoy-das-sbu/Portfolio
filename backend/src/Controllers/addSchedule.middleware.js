@@ -1,16 +1,17 @@
 import Schedule from '../models/schedule.model.js';
 
-const addScheduleMiddleware = async (req, res, next) => {
+const addScheduleMiddleware = async (req, res) => {
     try {
-        const { date, tasks } = req.body;
-        const checkDate = await Schedule.findOne({date})
+        const { startDate, endDate, tasks } = req.body;
+        const checkDate = await Schedule.findOne({startDate})
         if(checkDate){
             res.status(404).json({
                 message : 'Date already Exist'
             })
         } else {
             const newSchedule = new Schedule({
-                date,
+                startDate,
+                endDate,
                 tasks
             });
     

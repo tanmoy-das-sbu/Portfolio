@@ -3,9 +3,9 @@ import Schedule from '../models/schedule.model.js';
 const updateScheduleByIdMiddleware = async (req, res) => {
     try {
         const { id } = req.params;
-        const { date, tasks } = req.body;
+        const { startDate, endDate, tasks } = req.body;
 
-        const updatedSchedule = await Schedule.findByIdAndUpdate(id, { date, tasks }, { new: true });
+        const updatedSchedule = await Schedule.findByIdAndUpdate(id, { startDate, endDate, tasks }, { new: true });
 
         if (!updatedSchedule) {
             return res.status(404).json({ message: 'Schedule not found' });
