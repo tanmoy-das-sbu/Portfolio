@@ -5,7 +5,7 @@ import axios from 'axios';
 import Image from "next/image";
 import "./page.css"
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper/modules';
 import { CalendarIcon } from "@radix-ui/react-icons"
 import { format } from "date-fns"
 
@@ -130,6 +130,10 @@ const SecondSection = () => {
                     centeredSlides={true}
                     loop={true}
                     slidesPerView={'auto'}
+                    autoplay={{
+                        delay: 10000,
+                        disableOnInteraction: false
+                    }}
                     coverflowEffect={{
                         rotate: 0,
                         stretch: 0,
@@ -142,16 +146,22 @@ const SecondSection = () => {
                         prevEl: '.swiper-button-prev',
                         clickable: true,
                     }}
-                    modules={[EffectCoverflow, Pagination, Navigation]}
+                    modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
                     className="swiper_container"
                 >
-                    <SwiperSlide>
-                        <div>
-                            <Image src={slide_image_4} alt="slide_image" />
-                            <h4 className='dateheading'>Date:{"24/03/2024"}</h4>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
+                    {todaySchedule.map((item, index) => (
+                        <React.Fragment key={index}>
+                            <SwiperSlide>
+                                <div>
+                                    <Image src={slide_image_4} alt="slide_image" />
+                                    <h4 className='dateheading'>Date:{item.startTime}{index}</h4>
+                                </div>
+                            </SwiperSlide>
+                        </React.Fragment>
+                    ))}
+
+                    
+                    {/* <SwiperSlide>
                         <Image src={slide_image_2} alt="slide_image" />
 
                     </SwiperSlide>
@@ -169,7 +179,7 @@ const SecondSection = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <Image src={slide_image_7} alt="slide_image" />
-                    </SwiperSlide>
+                    </SwiperSlide> */}
 
                     <div className="slider-controler">
                         <div className="swiper-button-prev slider-arrow">
