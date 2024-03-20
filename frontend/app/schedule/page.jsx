@@ -122,7 +122,7 @@ const SecondSection = () => {
                     {!flag ? (
                         <NoScheduleForToday />
                     ) : (<div>
-                        <div className=" container flex flex-row  m-auto pt-4 md:pt-16">
+                        <div className=" container  m-auto pt-4 md:pt-16">
                             {flaghead ? <h2 className="font-bold text-5xl md:text-7xl w-full text-center mb-5">Today's Schedule</h2> : <h2 className="font-bold text-5xl md:text-7xl w-full text-center mb-5">{date?.toDateString()} Schedule</h2>}
                             <div className="container">
                                 <Swiper
