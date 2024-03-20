@@ -9,7 +9,7 @@ import addMultipleSchedulesMiddleware from '../Controllers/addMultipleSchedule.m
 import deleteMultipleSchedulesByIdMiddleware from '../Controllers/deleteMultipleSchedule.middleware.js';
 import getUpcomingSchedules from '../Controllers/getUpcomingSchedule.middleware.js';
 
-router.get('/Schedule/date/:date', getScheduleByDate, (req, res) => {
+router.get('/Schedule/date/:startDate', getScheduleByDate, (req, res) => {
   res.json(res.schedule);
 });
 
