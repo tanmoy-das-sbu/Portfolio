@@ -17,22 +17,32 @@ const taskSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    img: {
+        type: String,
+        required: false
+    },
     visibility: {
         type: String,
-        enum: ['public', 'private'], 
+        enum: ['public', 'private'],
         default: 'public'
     }
 });
 
 const scheduleSchema = new mongoose.Schema({
-    date: {
+    startDate: {
         type: Date,
         required: true,
-        index: true
-        
+        index: true,
+        unique: true
     },
-    tasks: [taskSchema] 
-},{
+    endDate: {
+        type: Date,
+        required: false,
+        index: true,
+        unique: false
+    },
+    tasks: [taskSchema]
+}, {
     versionKey: false
 });
 
