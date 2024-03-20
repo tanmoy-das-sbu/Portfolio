@@ -21,6 +21,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 import NoSchedule from './noschedule';
+import NoScheduleForToday from './noScheduleForToday';
 
 const SecondSection = () => {
     const [todaySchedule, setTodaySchedule] = useState([]);
@@ -110,7 +111,7 @@ const SecondSection = () => {
             <div className=" mt-12 md:mt-[50px] lg:mt-[0]">
                 <div>
                     {!flag ? (
-                        <NoSchedule />
+                        <NoScheduleForToday />
                     ) : <div>
                         <div className=" container flex flex-row  m-auto pt-4 md:pt-16">
                             {flaghead ? <h2 className="font-bold text-5xl md:text-7xl w-full text-center mb-5">Today's Schedule</h2> : <h2 className="font-bold text-5xl md:text-7xl w-full text-center mb-5">{date?.toDateString()} Schedule</h2>}
