@@ -38,10 +38,10 @@ const SecondSection = () => {
     const [flag, setFlag] = useState(false);
     const [flaghead, setFlaghead] = useState(false)
     const [date, setDate] = useState(new Date())
-  const setback={
-    border:`1px solid red`,
-    backgroundImage: "url(" + { slide_image_1} + ")"
-  }
+    const setback = {
+        border: `1px solid red`,
+        backgroundImage: "url(" + { slide_image_1 } + ")"
+    }
     useEffect(() => {
         async function fetchScheduleToday() {
             try {
@@ -158,6 +158,15 @@ const SecondSection = () => {
                                             </div>
                                         </SwiperSlide>
                                     ))}
+                                    <div className="slider-controler">
+                                        <div className="swiper-button-prev slider-arrow">
+                                            <ion-icon name="arrow-back-outline"></ion-icon>
+                                        </div>
+                                        <div className="swiper-button-next slider-arrow">
+                                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                                        </div>
+                                        <div className="swiper-pagination"></div>
+                                    </div>
                                 </Swiper>
                             </div>
                         </div>
