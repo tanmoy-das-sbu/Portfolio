@@ -14,48 +14,54 @@ const SecondSection = () => {
     const [todaySchedule, setTodaySchedule] = useState([]);
     const [tomorrowSchedule, setTomorrowSchedule] = useState([]);
     const [upcomingEvent, setUpcomingEvent] = useState([]);
+    const [date, setDate] = useState(new Date())
 
     useEffect(() => {
-        async function fetchSchedule() {
+        async function fetchScheduleToday() {
             try {
-                const today = new Date();
-                const todayFormatted = today.toISOString().split('T')[0];
+                const today = date;
+                const year = today.getFullYear();
+const month = (today.getMonth() + 1).toString().padStart(2, '0'); // Adding 1 because getMonth returns 0-based index
+const day = today.getDate().toString().padStart(2, '0');
 
+                const todayFormatted = `${year}-${month}-${day}`;
+                console.log(todayFormatted,`todayFormatted`)
                 const todayResponse = await axios.get(`http://localhost:8000/schedule/date/${todayFormatted}`);
-                console.log('Today Response:', todayResponse.data.tasks);
+                console.log('Today Response:', todayResponse.data.tasks,todayFormatted);
 
                 const todayTasks = todayResponse.data.tasks;
                 setTodaySchedule(todayTasks);
 
-                const tomorrow = new Date(today);
-                tomorrow.setDate(tomorrow.getDate() + 1);
-
-                const tomorrowFormatted = tomorrow.toISOString().split('T')[0];
-
-                const tomorrowResponse = await axios.get(`http://localhost:8000/schedule/date/${tomorrowFormatted}`);
-                console.log('Tomorrow Response:', tomorrowResponse.data);
-
-                const tomorrowTasks = tomorrowResponse.data.tasks;
-                setTomorrowSchedule(tomorrowTasks);
-
-                const upcomingEvent = await axios.get(`http://localhost:8000/Schedule/UpcomingSchedules`);
-                console.log("upcomingEvent:", upcomingEvent.data);
-                setUpcomingEvent(upcomingEvent.data)
+                
+               
 
             } catch (error) {
                 console.error('Error fetching schedule:', error);
             }
         }
 
-        fetchSchedule();
-    }, []);
+    async function fetchScheduleUpcoming()
+    {
+        try{
+            const upcomingEvent = await axios.get(`http://localhost:8000/Schedule/UpcomingSchedules`);
+            console.log("upcomingEvent:", upcomingEvent.data[`tasks`]);
+            setUpcomingEvent(upcomingEvent.data[0].tasks)
+               
+                console.log(upcomingEvent.data)
+        }catch(err){
+          console.error('Error Fetching Schedule Tomorrow:',err.error.message)
+        }
+    }
+        fetchScheduleToday();
+        fetchScheduleUpcoming();
+    }, [date]);
 
 
     return (
         <section  style={{
             height: "max-content"
         }}>
-            <Nav></Nav>
+            <Nav date={date} setDate={setDate}></Nav>
             <div className=" mt-12 md:mt-[50px] lg:mt-[0]">
                 <div>
                     <div className=" container flex flex-row  m-auto pt-4 md:pt-16">
@@ -119,7 +125,7 @@ const SecondSection = () => {
                 </div>
                 <div>
                     <div className=" container flex flex-row  m-auto pt-4 md:pt-16">
-                        <h2 className="font-bold text-5xl md:text-7xl w-full text-center mb-5">Tomorrow's Schedule</h2>
+                        <h2 className="font-bold text-5xl md:text-7xl w-full text-center mb-5">Upcoming Schedule</h2>
 
                     </div>
                     <div className="container m-auto ">
@@ -164,7 +170,7 @@ const SecondSection = () => {
                                 modules={[Autoplay, Pagination, Navigation]}
                                 className="mySwiper"
                             >
-                                {tomorrowSchedule.map((event, index) => (
+                                {upcomingEvent.map((event, index) => (
                                     <SwiperSlide key={index} className='flex flex-col'>
                                         <div className='event-card rounded-xl w-full h-[400px] bg-white'>
                                         <h3 className="text-base font-medium">{event.heading}</h3>

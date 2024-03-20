@@ -14,8 +14,8 @@ import {
 } from "@/components/ui/popover"
 
 
-const Nav = () => {
-    const [date, setDate] = React.useState()
+const Nav = ({date,setDate}) => {
+  console.log(date,'date')
     return (
         <div className="nav-div flex flex-row justify-between">
             <div className="flex flex-row items-center nav-in-div">
