@@ -30,6 +30,7 @@ import slide_image_4 from '../../src/assets/images/img_4.jpg';
 import slide_image_5 from '../../src/assets/images/img_5.jpg';
 import slide_image_6 from '../../src/assets/images/img_6.jpg';
 import slide_image_7 from '../../src/assets/images/img_7.jpg';
+import UpcomingSlider from './UpcomingSlider/UpcomingSlider';
 
 const SecondSection = () => {
     const [todaySchedule, setTodaySchedule] = useState([]);
@@ -173,6 +174,7 @@ const SecondSection = () => {
                     </div>)}
                 </div>
             </div>
+            <UpcomingSlider/>
         </>
     );
 }
