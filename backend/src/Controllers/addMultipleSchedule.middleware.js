@@ -4,17 +4,19 @@ const addMultipleSchedulesMiddleware = async (req, res) => {
     try {
         const schedulesData = req.body;
 
-        const checkDate = await Schedule.find({startDate});
+        for (const schedule of schedulesData) {
+            const checkDate = await Schedule.findOne({ startDate: schedule.startDate });
 
-        if(checkDate){
-            res.status(404).json({
-                message : 'Date already Exist'
-            }) 
-        } else {
-            const addMultipleSchedule = await Schedule.insertMany(schedulesData);
-
-            res.status(200).json(addMultipleSchedule);
+            if (checkDate) {
+                return res.status(404).json({
+                    message: 'Date already exists'
+                });
+            }
         }
+
+        const addMultipleSchedule = await Schedule.insertMany(schedulesData);
+
+        res.status(200).json(addMultipleSchedule);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
