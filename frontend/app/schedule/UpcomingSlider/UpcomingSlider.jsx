@@ -50,7 +50,7 @@ const truncateDescription = (description, maxLength) => {
 };
 
 
-const UpcomingSlider = () => {
+const UpcomingSlider = ({data}) => {
     const [todaySchedule, setTodaySchedule] = useState([]);
     const [tomorrowSchedule, setTomorrowSchedule] = useState([]);
     const [upcomingEvent, setUpcomingEvent] = useState([]);
@@ -178,7 +178,7 @@ const UpcomingSlider = () => {
             <Carousel className="container relative z-20 noselect m-auto w-4/5 p-2 md:p-10"  >
                 <div className="text-6xl text-center"><div className={sac.className}>Upcoming Schedule</div></div>
                 <CarouselContent>
-                    {tomorrowSchedule && tomorrowSchedule.map((event, index) => {
+                    {data && data.map((event, index) => {
                         const truncatedDescription = truncateDescription(event.shortDescription, 100);
                         return (
                             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">

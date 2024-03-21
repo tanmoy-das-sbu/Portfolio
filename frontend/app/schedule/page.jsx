@@ -174,7 +174,7 @@ const SecondSection = () => {
                     </div>)}
                 </div>
             </div>
-            <UpcomingSlider/>
+            <UpcomingSlider data={upcomingEvent}/>
         </>
     );
 }
