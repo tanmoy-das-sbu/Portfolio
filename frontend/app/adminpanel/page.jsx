@@ -5,7 +5,6 @@ import { PopoverTrigger, PopoverContent, Popover } from "@/components/ui/popover
 import { Calendar } from "@/components/ui/calendar"
 import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
-import { DatePickerWithRange } from "@/components/components/DateRangePicker/DateRangePicker"
 import { Switch } from "@/components/ui/switch"
 
 
@@ -51,7 +50,6 @@ const page = () => {
                             
                         
                     </div>
-                    <DatePickerWithRange />
                 </div>
                 <div className="rounded-lg border">
                     <Table>
