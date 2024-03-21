@@ -17,8 +17,7 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
-import NoSchedule from './noschedule';
-import NoScheduleForToday from './noScheduleForToday';
+import NoScheduleForToday from '../../src/components/noScheduleForToday';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
