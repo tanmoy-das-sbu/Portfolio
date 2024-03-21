@@ -44,7 +44,6 @@ const page = () => {
                         
                             
                                 <Button className="ml-4" variant="outline">
-
                                     Add Event
                                 </Button>
                             
@@ -70,7 +69,7 @@ const page = () => {
                                 <TableCell className="hidden md:table-cell"> 20-03-2024 - 21-03-2024</TableCell>
                                 <TableCell className="hidden md:table-cell"> 10:00 AM - 11:00 AM</TableCell>
                                 <TableCell className="hidden md:table-cell">
-                                    <Badge variant="info">Live</Badge>
+                                    <Badge variant="info">Public</Badge>
                                 </TableCell>
                                 <TableCell className="hidden md:table-cell">Ranchi</TableCell>
                                 <TableCell>
