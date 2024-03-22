@@ -2,7 +2,7 @@ import Schedule from '../models/schedule.model.js';
 
 const getByIdSchedule = async (req, res) => {
     try {
-        const data = await Schedule.findById({ _id: req.params._id });
+        const data = await Schedule.findById({ _id: req.params.id });
         if (data) {
             res.status(200).json({
                 message: 'success',
