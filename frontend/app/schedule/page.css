@@ -79,7 +79,7 @@ body {
 
 .swiper-slide {
   width: 37rem !important;
-  height: 42rem !important;
+  height: auto !important;
   position: relative;
 }
 
@@ -89,11 +89,11 @@ body {
   }
   .swiper-slide {
     width: 28rem !important;
-    height: 36rem !important;
+    height: auto !important;
   }
   .swiper-slide img {
     width: 28rem !important;
-    height: 36rem !important;
+    height: auto !important;
   }
 }
 .swiper-div{
@@ -104,6 +104,8 @@ body {
   height: 40rem !important;
   border-radius: 2rem;
   object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .swiper-slide-shadow-left,
@@ -189,8 +191,14 @@ body {
 }
 .dateheading{
     position: absolute;
-    top: 10px;
+    top: 50px;
     left: 10px;
+    text-align: center;
+    font-style: italic;
+    line-height: 30px;
+    padding: 20px;
+    height: 100%;
+    
 }
 
 .date-pic-div{

@@ -3,7 +3,61 @@ import mongoose from "mongoose";
 const taskSchema = new mongoose.Schema({
     heading: {
         type: String,
+        required: false
+    },
+    startTime: {
+        type: String,
+        required: false
+    },
+    endTime: {
+        type: String,
+        required: false
+    },
+    shortDescription: {
+        type: String,
+        required: false
+    },
+    img: {
+        type: String,
+        required: false
+    },
+    priority: {
+        type: Number,
+        required: false
+    },
+    visibility: {
+        type: String,
+        enum: ['public', 'private'],
+        default: 'public'
+    }
+});
+
+const visibilityScheduleSchema = new mongoose.Schema({
+    startTime: {
+        type: Date,
         required: true
+    },
+    endTime: {
+        type: Date,
+        required: true
+    },
+    visibility: {
+        type: String,
+        enum: ['public', 'private'],
+        default: 'public'
+    }
+}, {
+    _id: false
+});
+
+const scheduleSchema = new mongoose.Schema({
+    startDate: {
+        type: Date,
+        required: true,
+    },
+    endDate: {
+        type: Date,
+        required: false,
     },
     startTime: {
         type: String,
@@ -13,38 +67,27 @@ const taskSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    shortDescription: {
-        type: String,
-        required: true
-    },
-    img: {
-        type: String,
-        required: false
-    },
     priority: {
         type: Number,
         required: true
     },
-    visibility: {
+    heading: {
         type: String,
-        enum: ['public', 'private'],
-        default: 'public'
-    }
-});
-
-const scheduleSchema = new mongoose.Schema({
-    startDate: {
-        type: Date,
-        required: true,
-        index: true,
-        unique: true
+        required: true
     },
-    endDate: {
-        type: Date,
-        required: false,
-        index: true,
-        unique: false
+    shortDescription: {
+        type: String,
+        required: true
     },
+    location: {
+        type: String,
+        required: true
+    },
+    imageUrl: {
+        type : String,
+        required : false
+    },
+    visibility: [visibilityScheduleSchema],
     tasks: [taskSchema]
 }, {
     versionKey: false
