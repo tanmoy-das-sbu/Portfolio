@@ -123,7 +123,7 @@ const SecondSection = () => {
                         <NoScheduleForToday />
                     ) : (<div>
                         <div className=" container  m-auto pt-4 md:pt-16">
-                            {flaghead ? <h2 className="font-bold text-5xl md:text-7xl w-full text-center mb-5">Today's Schedule</h2> : <h2 className="font-bold text-5xl md:text-7xl w-full text-center mb-5">{date?.toDateString()} Schedule</h2>}
+                            {flaghead ? <h2 className="font-bold text-4xl md:text-5xl w-full text-center " style={{marginBottom:'40px'}}>Today's Schedule</h2> : <h2 className="font-bold text-4xl md:text-5xl w-full text-center " style={{marginBottom:'40px'}}>{date?.toDateString()} Schedule</h2>}
                             <div className="container">
                                 <Swiper
                                     effect={'coverflow'}
@@ -152,10 +152,35 @@ const SecondSection = () => {
                                 >
                                     {todaySchedule.map((item, index) => (
                                         <SwiperSlide key={index}>
-                                            <div>
-                                                <Image src={slide_image_4} alt="slide_image" />
-                                                <h4 className='dateheading'>Date:{item.startTime}{index}</h4>
+
+                                            {/* <Image src={slide_image_4} alt="slide_image" /> */}
+                                            {/* <div className='dateheading'>
+                                                   <div style={{height:'50%',display:'flex',flexDirection:'column',justifyContent:'center'}}>
+                                                    <h3 className='font-bold text-2xl md:text-4xl w-full text-center mb-5'>Heading: {item.heading}</h3>
+                                                    <h3>Timing: {item.startTime} - {item.endTime}</h3>
+                                                    </div>
+                                                    <div>
+                                                    <h5>Descripton:{item.shortDescription}</h5>
+                                                    </div>
+
+                                                </div> */}
+
+                                            {/* <h4 className='dateheading'>Date:{item.startTime}{index}</h4> */}
+                                            <div class="max-w-sm rounded overflow-hidden shadow-md" style={{textAlign:'center'}}>
+                                                <img className="w-full" src="https://tse1.mm.bing.net/th?id=OIP.stuO9HtrREb2xPI9Tlu0LgHaHr&pid=Api&rs=1&c=1&qlt=95&w=119&h=124" alt="Sunset in the mountains" />
+                                                <div className="px-6 py-4">
+                                                    <div className="font-bold text-2xl mb-2">{item.heading}</div>
+                                                    <h4 className='font-bold text-lg mb-2'>Timing: {item.startTime} - {item.endTime}</h4>
+                                                    <p className="text-gray-700 text-base text-lg">
+                                                        {item.shortDescription}</p>
+                                                </div>
+                                                {/* <div className="px-6 pt-4 pb-2">
+                                                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                                                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                                                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+                                                </div> */}
                                             </div>
+
                                         </SwiperSlide>
                                     ))}
                                     <div className="slider-controler">
@@ -173,7 +198,7 @@ const SecondSection = () => {
                     </div>)}
                 </div>
             </div>
-            <UpcomingSlider data={upcomingEvent}/>
+            <UpcomingSlider data={upcomingEvent} />
         </>
     );
 }

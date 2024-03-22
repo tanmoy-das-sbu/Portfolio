@@ -72,14 +72,14 @@ body {
 }
 
 .swiper_container {
-  height: 52rem;
+  height: 24rem;
   padding: 2rem 0;
   position: relative;
 }
 
 .swiper-slide {
   width: 37rem !important;
-  height: 42rem !important;
+  height: auto !important;
   position: relative;
 }
 
@@ -89,21 +89,23 @@ body {
   }
   .swiper-slide {
     width: 28rem !important;
-    height: 36rem !important;
+    height: auto !important;
   }
   .swiper-slide img {
     width: 28rem !important;
-    height: 36rem !important;
+    height: auto !important;
   }
 }
 .swiper-div{
     background: url('../../src/assets/images/img_4.jpg');
 }
 .swiper-slide img {
-  width: 37rem !important;
-  height: 42rem !important;
+  width: 8rem !important;
+  height: auto !important;
   border-radius: 2rem;
   object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .swiper-slide-shadow-left,
@@ -190,8 +192,14 @@ body {
 
 .dateheading{
     position: absolute;
-    top: 10px;
+    top: 50px;
     left: 10px;
+    text-align: center;
+    font-style: italic;
+    line-height: 30px;
+    padding: 20px;
+    height: 100%;
+    
 }
 
 .date-pic-div{
