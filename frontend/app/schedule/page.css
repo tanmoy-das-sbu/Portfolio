@@ -72,7 +72,7 @@ body {
 }
 
 .swiper_container {
-  height: 52rem;
+  height: 48rem;
   padding: 2rem 0;
   position: relative;
 }
@@ -101,7 +101,7 @@ body {
 }
 .swiper-slide img {
   width: 37rem !important;
-  height: 42rem !important;
+  height: 40rem !important;
   border-radius: 2rem;
   object-fit: cover;
 }
@@ -187,7 +187,6 @@ body {
 .swiper-pagination-bullets.swiper-pagination-horizontal{
     width: 100% !important;
 }
-
 .dateheading{
     position: absolute;
     top: 10px;
@@ -200,4 +199,8 @@ body {
 
 .date-pic-div{
     width: 100%;
+}
+.headingTag{
+  position: relative;
+  top: -40px;
 }
