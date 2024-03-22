@@ -1,17 +1,18 @@
 "use client"
 import "./nav.css";
+import Image from "next/image";
+import Logo from "../assets/pkv.png"
 
-const Nav = ({date,setDate}) => {
-//   console.log(date,'date')
+const Nav = () => {
+    const name = 'PRADEEP VERMA';
     return (
-        <div className="nav-div ">
-            <div className="container flex flex-row justify-between" style={{height:'3em'}}>
+        <div className="nav-div sticky top-0 z-30">
+            <div className="container flex flex-row justify-between" style={{ height: '4em' }}>
                 <div className="flex flex-row items-center nav-in-div">
-                    <img src="https://img.freepik.com/free-vector/abstract-logo-gradient-color-style_23-2147507866.jpg?w=740&t=st=1710864530~exp=1710865130~hmac=036b214d7e8461b2be880391376ce89d6a7034f394cf3b4fc53fe315d410dd99" alt="" className="logo" />
-                    <h2 style={{ fontSize: '24px', color:'white' }}>Scheduler App</h2>
+                    <h2 className="font-bold" style={{ fontSize: '24px', color: 'white' }}>{name}</h2>
                 </div>
                 <div className="flex items-center">
-                    
+                    <Image src={Logo} alt="slide_image" className="logo" />
                 </div>
             </div>
         </div>
