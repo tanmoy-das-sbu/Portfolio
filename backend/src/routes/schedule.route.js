@@ -9,25 +9,33 @@ import addMultipleSchedulesMiddleware from '../Controllers/addMultipleSchedule.m
 import deleteMultipleSchedulesByIdMiddleware from '../Controllers/deleteMultipleSchedule.middleware.js';
 import getUpcomingSchedules from '../Controllers/getUpcomingSchedule.middleware.js';
 import getOngoingEvents from '../Controllers/getOngoingEvent.middleware.js';
+import getByIdSchedule from '../Controllers/getByIdSchedule.middleware.js';
+import imageUploadMiddleware from '../Controllers/uploadImage.middleware.js';
 
-router.get('/Schedule/date/:startDate', getScheduleByDate, (req, res) => {
+router.get('/date/:startDate', getScheduleByDate, (req, res) => {
   res.json(res.schedule);
 });
 
-router.post('/Schedule/Add', addScheduleMiddleware);
+router.post('/Add', addScheduleMiddleware);
 
-router.get('/Schedule/GetAll', getAllSchedule);
+router.get('/GetAll', getAllSchedule);
 
-router.put('/Schedule/UpdateById/:id', updateScheduleByIdMiddleware);
+router.put('/UpdateById/:id', updateScheduleByIdMiddleware);
 
-router.delete('/Schedule/DeleteById/:id', deleteScheduleByIdMiddleware);
+router.delete('/DeleteById/:id', deleteScheduleByIdMiddleware);
 
-router.post('/Schedule/AddMultiple', addMultipleSchedulesMiddleware);
+router.post('/AddMultiple', addMultipleSchedulesMiddleware);
 
-router.delete('/Schedule/DeleteMultiple', deleteMultipleSchedulesByIdMiddleware);
+router.delete('/DeleteMultiple', deleteMultipleSchedulesByIdMiddleware);
 
-router.get('/Schedule/UpcomingSchedules', getUpcomingSchedules);
+router.get('/UpcomingSchedules', getUpcomingSchedules);
 
-router.get('/Schedule/OnGoingEvent', getOngoingEvents);
+router.get('/OnGoingEvent', getOngoingEvents);
+
+router.get('/GetById/:id', getByIdSchedule);
+
+router.post('/Upload', imageUploadMiddleware, (req, res) => {
+  res.json({ imageUrl: req.imageUrl });
+});
 
 export default router;

@@ -72,38 +72,41 @@ body {
 }
 
 .swiper_container {
-  height: 52rem;
-  padding: 2rem 0;
+  height: 42rem;
+  padding: 0;
   position: relative;
 }
 
 .swiper-slide {
-  width: 37rem !important;
-  height: 42rem !important;
+  width: 35rem !important;
+  height: auto !important;
   position: relative;
 }
 
 @media (max-width: 500px) {
   .swiper_container {
-    height: 47rem;
+    height: 34rem;
   }
   .swiper-slide {
-    width: 28rem !important;
-    height: 36rem !important;
+    width: 34rem !important;
+    height: 30rem !important;
   }
   .swiper-slide img {
-    width: 28rem !important;
-    height: 36rem !important;
+    width: 25rem !important;
+    height: auto !important;
   }
 }
 .swiper-div{
     background: url('../../src/assets/images/img_4.jpg');
 }
 .swiper-slide img {
-  width: 37rem !important;
-  height: 42rem !important;
+  width: 35rem !important;
+  height: 35rem !important;
   border-radius: 2rem;
   object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.5;
 }
 
 .swiper-slide-shadow-left,
@@ -187,11 +190,15 @@ body {
 .swiper-pagination-bullets.swiper-pagination-horizontal{
     width: 100% !important;
 }
-
 .dateheading{
     position: absolute;
-    top: 10px;
+    top: 50px;
     left: 10px;
+    text-align: center;
+    line-height: 30px;
+    padding: 20px;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .date-pic-div{
@@ -200,4 +207,11 @@ body {
 
 .date-pic-div{
     width: 100%;
+}
+.headingTag{
+  position: relative;
+  top: 0px;
+}
+.discriptioin{
+  background-color: rgb(255, 251, 249);
 }
