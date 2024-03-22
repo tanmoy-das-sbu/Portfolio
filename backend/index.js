@@ -1,9 +1,9 @@
 import dotenv from "dotenv";
-import connectDB from "../src/db/index.js";
-import { app } from "../src/app.js";
+import connectDB from "./src/db/index.js";
+import { app } from "./src/app.js";
 import cors from "cors";
 import bodyParser from "body-parser";
-import Schedule from "../src/routes/schedule.route.js";
+import Schedule from "./src/routes/schedule.route.js";
 import session from 'express-session';
 import passport from 'passport';
 import LocalStrategy from 'passport-local';
