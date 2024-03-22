@@ -6,7 +6,7 @@ async function getScheduleByDate(req, res, next) {
 
     const queryDate = new Date(startDate);
 
-    const schedule = await Schedule.findOne({ startDate: { $eq: queryDate } });
+    const schedule = await Schedule.find({ startDate: { $eq: queryDate } });
 
     if (!schedule) {
       return res.status(204).json({ message: 'Schedule not found' });
