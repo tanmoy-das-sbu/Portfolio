@@ -6,7 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
 import { useState } from 'react';
 
-export default function addevent() {
+export default function Addevent() {
   const [formData, setFormData] = useState({
     startDate: '',
     endDate: '',
