@@ -52,8 +52,8 @@ export default function addevent() {
                 <Label htmlFor="img">Image</Label>
                 <Input id="img" placeholder="Image" type="file" />
               </div>
-              <div className='flex flex-row gap-4 '>
-                <div className="flex flex-col gap-2 p-4">
+              <div className="flex flex-row gap-4 ">
+                <div className="flex flex-col gap-2 p-6">
                   <Label htmlFor="priority">Priority</Label>
                   <div className="flex items-center space-x-2">
                     <Switch id="priority" />
