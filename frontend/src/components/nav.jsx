@@ -18,7 +18,7 @@ const Nav = () => {
                     {/* <h5>{detail}</h5> */}
                 </div>
                 <div className="flex items-center">
-                    <Image src={Logo} alt="slide_image" className="logo" />
+                    <Image src={Logo} alt="slide_image" className="logo h-auto " />
                 </div>
             </div>
         </div>
