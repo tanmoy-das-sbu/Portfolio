@@ -49,7 +49,9 @@ const SecondSection = () => {
                 console.log(todayFormatted, `todayFormatted`)
                 const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
                 setFlag(true)
-                const todayTasks = todayResponse.data.tasks;
+                console.log('Today Response:', todayResponse.data.tasks, todayFormatted,todayResponse);
+
+                const todayTasks = todayResponse.data;
                 setTodaySchedule(todayTasks);
                 while(todayTasks.length < 10){
                     let tempArr = todaySchedule.concat(todaySchedule)
