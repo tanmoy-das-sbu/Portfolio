@@ -1,5 +1,6 @@
 import multer from 'multer';
 import { v2 as cloudinary } from 'cloudinary';
+import streamifier from 'streamifier';
 
 cloudinary.config({
     cloud_name: 'neeleshks',
@@ -7,27 +8,38 @@ cloudinary.config({
     api_secret: 'l10Tf5FDFNapfC-nDh8vQMEb68w'
 });
 
-const upload = multer({ dest: 'uploads/' }).single('image');
+const upload = multer().single('image');
 
 const imageUploadMiddleware = async (req, res, next) => {
     try {
-        await new Promise((resolve, reject) => {
-            upload(req, res, (err) => {
-                if (err) {
-                    return reject(err);
-                }
-                resolve();
-            });
+        upload(req, res, async function (err) {
+            if (err) {
+                return res.status(500).json({ error: 'Error uploading image' });
+            }
+
+            if (!req.file) {
+                return res.status(400).json({ error: 'Please upload a file' });
+            }
+
+            const streamUpload = (buffer) => {
+                return new Promise((resolve, reject) => {
+                    const stream = cloudinary.uploader.upload_stream((error, result) => {
+                        if (result) {
+                            resolve(result);
+                        } else {
+                            reject(error);
+                        }
+                    });
+
+                    streamifier.createReadStream(buffer).pipe(stream);
+                });
+            };
+
+            const result = await streamUpload(req.file.buffer);
+
+            req.imageUrl = result.secure_url;
+            next();
         });
-
-        if (!req.file) {
-            return res.status(400).json({ error: 'Please upload a file' });
-        }
-
-        const result = await cloudinary.uploader.upload(req.file.path);
-
-        req.imageUrl = result.secure_url;
-        next();
     } catch (error) {
         console.error('Upload error:', error);
         res.status(500).json({ error: 'Error uploading image to Cloudinary' });
