@@ -158,7 +158,7 @@ const SecondSection = () => {
                                                 </div>
 
                                             {/* <h4 className='dateheading'>Date:{item.startTime}{index}</h4> */}
-                                            <div class="max-w-sm rounded overflow-hidden shadow-md" style={{ textAlign: 'center' }}>
+                                            {/* <div class="max-w-sm rounded overflow-hidden shadow-md" style={{ textAlign: 'center' }}>
                                                 <img className="w-full" src="https://tse1.mm.bing.net/th?id=OIP.stuO9HtrREb2xPI9Tlu0LgHaHr&pid=Api&rs=1&c=1&qlt=95&w=119&h=124" alt="Sunset in the mountains" />
                                                 <div className="px-6 py-4">
                                                     <div className="font-bold text-2xl mb-2">{item.heading}</div>
@@ -180,7 +180,7 @@ const SecondSection = () => {
                                                             </AlertDialogFooter>
                                                         </AlertDialogContent>
                                                     </AlertDialog>
-                                                </div>
+                                                </div> */}
                                                 {/* <div className="px-6 pt-4 pb-2">
                                                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
                                                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
