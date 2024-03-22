@@ -61,9 +61,9 @@ const SecondSection = () => {
                 console.log(todayFormatted, `todayFormatted`)
                 const todayResponse = await axios.get(`http://localhost:8000/schedule/date/${todayFormatted}`);
                 setFlag(true)
-                console.log('Today Response:', todayResponse.data.tasks, todayFormatted);
+                console.log('Today Response:', todayResponse.data.tasks, todayFormatted,todayResponse);
 
-                const todayTasks = todayResponse.data.tasks;
+                const todayTasks = todayResponse.data;
                 setTodaySchedule(todayTasks);
 
 
