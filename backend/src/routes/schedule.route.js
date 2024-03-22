@@ -10,6 +10,7 @@ import deleteMultipleSchedulesByIdMiddleware from '../Controllers/deleteMultiple
 import getUpcomingSchedules from '../Controllers/getUpcomingSchedule.middleware.js';
 import getOngoingEvents from '../Controllers/getOngoingEvent.middleware.js';
 import getByIdSchedule from '../Controllers/getByIdSchedule.middleware.js';
+import imageUploadMiddleware from '../Controllers/uploadImage.middleware.js';
 
 router.get('/date/:startDate', getScheduleByDate, (req, res) => {
   res.json(res.schedule);
@@ -32,5 +33,9 @@ router.get('/UpcomingSchedules', getUpcomingSchedules);
 router.get('/OnGoingEvent', getOngoingEvents);
 
 router.get('/GetById/:id', getByIdSchedule);
+
+router.post('/Upload', imageUploadMiddleware, (req, res) => {
+  res.json({ imageUrl: req.imageUrl });
+});
 
 export default router;

@@ -51,43 +51,26 @@ const truncateDescription = (description, maxLength) => {
 
 
 const UpcomingSlider = ({data}) => {
-    const [todaySchedule, setTodaySchedule] = useState([]);
-    const [tomorrowSchedule, setTomorrowSchedule] = useState([]);
+    const [ongoing, setOngoing] = useState([]);
     const [upcomingEvent, setUpcomingEvent] = useState([]);
 
     useEffect(() => {
-        async function fetchSchedule() {
+        async function fetchScheduleUpcoming() {
             try {
-                const today = new Date();
-                const todayFormatted = today.toISOString().split('T')[0];
+                const upcomingEvent = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/Schedule/UpcomingSchedules`);
+                console.log("upcomingEvent:", upcomingEvent.data[`tasks`]);
+                setUpcomingEvent(upcomingEvent.data[0].tasks)
 
-                const todayResponse = await axios.get(`http://localhost:8000/schedule/date/${todayFormatted}`);
-                console.log('Today Response:', todayResponse.data.tasks);
-
-                const todayTasks = todayResponse.data.tasks;
-                setTodaySchedule(todayTasks);
-
-                const tomorrow = new Date(today);
-                tomorrow.setDate(tomorrow.getDate() + 1);
-
-                const tomorrowFormatted = tomorrow.toISOString().split('T')[0];
-
-                const tomorrowResponse = await axios.get(`http://localhost:8000/schedule/date/${tomorrowFormatted}`);
-                console.log('Tomorrow Response:', tomorrowResponse.data);
-
-                const tomorrowTasks = tomorrowResponse.data.tasks;
-                setTomorrowSchedule(tomorrowTasks);
-
-                const upcomingEvent = await axios.get(`http://localhost:8000/Schedule/UpcomingSchedules`);
-                console.log("upcomingEvent:", upcomingEvent.data);
-                setUpcomingEvent(upcomingEvent.data)
-
-            } catch (error) {
-                console.error('Error fetching schedule:', error);
+                const ongoingevent = await axios.get('https://portfolio-git-main-tanmoys-projects.vercel.app/Schedule/OnGoingEvent');
+                console.log("Ongoing Event:", ongoingevent);
+                setOngoing(ongoingevent.data.tasks);
+            } catch (err) {
+                console.error('Error Fetching Schedule Tomorrow:', err.error.message)
             }
+
         }
 
-        fetchSchedule();
+        fetchScheduleUpcoming();
     }, []);
 
     const handleContextMenu = (event) => {
@@ -99,7 +82,7 @@ const UpcomingSlider = ({data}) => {
             <Carousel className="container relative z-20 noselect m-auto w-4/5 p-2 md:p-10"  >
                 <div className="text-6xl text-center"><div className={sac.className}>Ongoing Events</div></div>
                 <CarouselContent>
-                    {todaySchedule && todaySchedule.map((event, index) => {
+                    {ongoing && ongoing.map((event, index) => {
                         const truncatedDescription = truncateDescription(event.shortDescription, 100);
                         return (
                             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
@@ -178,7 +161,7 @@ const UpcomingSlider = ({data}) => {
             <Carousel className="container relative z-20 noselect m-auto w-4/5 p-2 md:p-10"  >
                 <div className="text-6xl text-center"><div className={sac.className}>Upcoming Schedule</div></div>
                 <CarouselContent>
-                    {data && data.map((event, index) => {
+                    {upcomingEvent && upcomingEvent.map((event, index) => {
                         const truncatedDescription = truncateDescription(event.shortDescription, 100);
                         return (
                             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
