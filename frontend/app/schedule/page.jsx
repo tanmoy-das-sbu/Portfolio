@@ -62,7 +62,7 @@ const SecondSection = () => {
                 const todayFormatted = `${year}-${month}-${day}`;
                 console.log(todayFormatted, `todayFormatted`)
                 // const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
-                const todayResponse = await axios.get(`http://localhost:8000/schedule/date/${todayFormatted}`);
+                const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
                 setFlag(true)
                 console.log('Today Response:', todayResponse, todayFormatted);
                 if (todayResponse.status == 204 || todayResponse.data.length==0) {
