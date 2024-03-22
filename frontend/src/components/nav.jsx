@@ -11,10 +11,10 @@ const Nav = () => {
     Jharkhand`
     return (
     <>
-        <div className="nav-div sticky top-0 z-30">
+        <div className="nav-div h-fit sticky top-0 z-30">
             <div className="container flex flex-row justify-between" style={{ height: '4em' }}>
                 <div className="flex flex-col items-center nav-in-div">
-                    <h2 className="font-bold" style={{ fontSize: '24px', color: 'white' }}>{name}</h2>
+                    <h2 className="font-bold md:text-4xl text-xl text-white" >{name}</h2>
                     {/* <h5>{detail}</h5> */}
                 </div>
                 <div className="flex items-center">
