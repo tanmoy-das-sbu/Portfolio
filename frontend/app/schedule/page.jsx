@@ -59,7 +59,7 @@ const SecondSection = () => {
 
                 const todayFormatted = `${year}-${month}-${day}`;
                 console.log(todayFormatted, `todayFormatted`)
-                const todayResponse = await axios.get(`http://localhost:8000/schedule/date/${todayFormatted}`);
+                const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
                 setFlag(true)
                 console.log('Today Response:', todayResponse.data.tasks, todayFormatted);
 
@@ -77,7 +77,7 @@ const SecondSection = () => {
 
         async function fetchScheduleUpcoming() {
             try {
-                const upcomingEvent = await axios.get(`http://localhost:8000/Schedule/UpcomingSchedules`);
+                const upcomingEvent = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/Schedule/UpcomingSchedules`);
                 console.log("upcomingEvent:", upcomingEvent.data[`tasks`]);
                 setUpcomingEvent(upcomingEvent.data[0].tasks)
 
