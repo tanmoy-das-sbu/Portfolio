@@ -11,7 +11,7 @@ import { format } from "date-fns"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
-import { Popover, PopoverContent, PopoverTrigger,} from "@/components/ui/popover"
+import { Popover, PopoverContent, PopoverTrigger, } from "@/components/ui/popover"
 import NoScheduleForToday from '../../src/components/noScheduleForToday';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -20,6 +20,17 @@ import 'swiper/css/navigation';
 import slide_image_1 from '../../src/assets/images/img_1.jpg';
 import slide_image_4 from '../../src/assets/images/img_4.jpg';
 import UpcomingSlider from './UpcomingSlider/UpcomingSlider';
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 
 const SecondSection = () => {
     const [todaySchedule, setTodaySchedule] = useState([]);
@@ -32,6 +43,9 @@ const SecondSection = () => {
         border: `1px solid red`,
         backgroundImage: "url(" + { slide_image_1 } + ")"
     }
+    const handleContextMenu = (event) => {
+        event.preventDefault();
+    };
     useEffect(() => {
         async function fetchScheduleToday() {
             try {
@@ -46,18 +60,20 @@ const SecondSection = () => {
                 const day = today.getDate().toString().padStart(2, '0');
 
                 const todayFormatted = `${year}-${month}-${day}`;
-                console.log(todayFormatted, `todayFormatted`)
+                //console.log(todayFormatted, `todayFormatted`)
                 const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
                 setFlag(true)
-                console.log('Today Response:', todayResponse.data.tasks, todayFormatted,todayResponse);
-
-                const todayTasks = todayResponse.data;
-                setTodaySchedule(todayTasks);
-                while(todayTasks.length < 10){
-                    let tempArr = todaySchedule.concat(todaySchedule)
-                    console.log("here10times",todaySchedule,tempArr);
-                    break;
+                console.log('Today Response:', todayResponse, todayFormatted);
+                if (todayResponse.status == 204) {
+                    setFlag(false)
                 }
+                const todayTasks = todayResponse.data;
+                setTodaySchedule([...todayTasks]);
+                // while(todayTasks.length < 10){
+                //     let tempArr = todaySchedule.concat(todaySchedule)
+                //     console.log("here10times",todaySchedule,tempArr);
+                //     break;
+                // }
             } catch (error) {
                 setFlag(false)
             }
@@ -66,8 +82,8 @@ const SecondSection = () => {
         async function fetchScheduleUpcoming() {
             try {
                 const upcomingEvent = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/Schedule/UpcomingSchedules`);
-                console.log("upcomingEvent:", upcomingEvent.data[`tasks`]);
-                setUpcomingEvent(upcomingEvent.data[0].tasks)
+                console.log("upcomingEvent:", upcomingEvent.data);
+                setUpcomingEvent(upcomingEvent.data)
             } catch (err) {
                 console.error('Error Fetching Schedule Tomorrow:', err.error.message)
             }
@@ -76,7 +92,7 @@ const SecondSection = () => {
         fetchScheduleUpcoming();
     }, [date]);
 
-    
+
     return (
         <>
             <div className='date-pic-div flex flex-row justify-end mt-2'>
@@ -152,13 +168,28 @@ const SecondSection = () => {
                                                 </div> */}
 
                                             {/* <h4 className='dateheading'>Date:{item.startTime}{index}</h4> */}
-                                            <div class="max-w-sm rounded overflow-hidden shadow-md" style={{textAlign:'center'}}>
+                                            <div class="max-w-sm rounded overflow-hidden shadow-md" style={{ textAlign: 'center' }}>
                                                 <img className="w-full" src="https://tse1.mm.bing.net/th?id=OIP.stuO9HtrREb2xPI9Tlu0LgHaHr&pid=Api&rs=1&c=1&qlt=95&w=119&h=124" alt="Sunset in the mountains" />
                                                 <div className="px-6 py-4">
                                                     <div className="font-bold text-2xl mb-2">{item.heading}</div>
                                                     <h4 className='font-bold text-lg mb-2'>Timing: {item.startTime} - {item.endTime}</h4>
                                                     <p className="text-gray-700 text-base text-lg">
                                                         {item.shortDescription}</p>
+                                                    <AlertDialog>
+                                                        <AlertDialogTrigger>Know More</AlertDialogTrigger>
+                                                        <AlertDialogContent>
+                                                            <AlertDialogHeader>
+
+                                                                <AlertDialogDescription>
+                                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum earum quae harum illum! Quae natus minima, inventore, ab voluptatum ea praesentium sit fugit mollitia voluptates corporis expedita facilis nobis facere!
+                                                                </AlertDialogDescription>
+                                                            </AlertDialogHeader>
+                                                            <AlertDialogFooter>
+                                                                <AlertDialogCancel>Close</AlertDialogCancel>
+
+                                                            </AlertDialogFooter>
+                                                        </AlertDialogContent>
+                                                    </AlertDialog>
                                                 </div>
                                                 {/* <div className="px-6 pt-4 pb-2">
                                                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
