@@ -6,6 +6,8 @@ import { Calendar } from "@/components/ui/calendar"
 import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
 import { DatePickerWithRange } from "@/components/components/DateRangePicker/DateRangePicker"
+import { Switch } from "@/components/ui/switch"
+
 
 
 
@@ -40,39 +42,37 @@ const page = () => {
                     </div>
 
                     <div>
-                        <Popover>
-                            <PopoverTrigger asChild>
+                        
+                            
                                 <Button className="ml-4" variant="outline">
-                                   
                                     Add Event
                                 </Button>
-                            </PopoverTrigger>
-                            <PopoverContent align="start" className="w-auto p-0">
-                                <Calendar initialFocus mode="single" />
-                            </PopoverContent>
-                        </Popover>
+                            
+                        
                     </div>
-                    <DatePickerWithRange/>
                 </div>
                 <div className="rounded-lg border">
                     <Table>
                         <TableHeader>
                             <TableRow>
                                 <TableHead className="w-[200px]">Event</TableHead>
+                                <TableHead className="hidden md:table-cell">Date</TableHead>
                                 <TableHead className="hidden md:table-cell">Start/End</TableHead>
                                 <TableHead className="hidden md:table-cell">Status</TableHead>
-                                <TableHead className="hidden md:table-cell">Views</TableHead>
+                                <TableHead className="hidden md:table-cell">Location</TableHead>
                                 <TableHead>Actions</TableHead>
+                                <TableHead>Visibility</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
                             <TableRow>
                                 <TableCell className="font-semibold">Onboarding Session</TableCell>
-                                <TableCell className="hidden md:table-cell">10/24/2023 10:00 AM - 10/24/2023 11:00 AM</TableCell>
+                                <TableCell className="hidden md:table-cell"> 20-03-2024 - 21-03-2024</TableCell>
+                                <TableCell className="hidden md:table-cell"> 10:00 AM - 11:00 AM</TableCell>
                                 <TableCell className="hidden md:table-cell">
-                                    <Badge variant="info">Live</Badge>
+                                    <Badge variant="info">Public</Badge>
                                 </TableCell>
-                                <TableCell className="hidden md:table-cell">102</TableCell>
+                                <TableCell className="hidden md:table-cell">Ranchi</TableCell>
                                 <TableCell>
                                     <Button className="mr-2" size="sm" variant="outline">
                                         Edit
@@ -80,9 +80,14 @@ const page = () => {
                                     <Button className="mr-2" size="sm" variant="outline">
                                         Delete
                                     </Button>
-                                    <Button size="sm" variant="outline">
-                                        Change Visibility
-                                    </Button>
+
+                                </TableCell>
+                                <TableCell>
+                                <div className="flex items-center space-x-2">
+                                        <Switch id="visibility" />
+                                        
+                                    </div>
+
                                 </TableCell>
                             </TableRow>
                         </TableBody>
