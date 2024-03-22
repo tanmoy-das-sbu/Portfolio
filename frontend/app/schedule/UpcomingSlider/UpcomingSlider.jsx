@@ -97,7 +97,7 @@ const UpcomingSlider = ({data}) => {
     return (
         <section className="bg-[#FFF8DD]" >
             <Carousel className="container relative z-20 noselect m-auto w-4/5 p-2 md:p-10"  >
-                <div className="text-6xl text-center"><div className={sac.className}>Today's Schedule</div></div>
+                <div className="text-6xl text-center"><div className={sac.className}>Ongoing Events</div></div>
                 <CarouselContent>
                     {todaySchedule && todaySchedule.map((event, index) => {
                         const truncatedDescription = truncateDescription(event.shortDescription, 100);
