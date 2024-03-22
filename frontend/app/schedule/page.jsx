@@ -63,17 +63,8 @@ const SecondSection = () => {
             }
         }
 
-        async function fetchScheduleUpcoming() {
-            try {
-                const upcomingEvent = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/Schedule/UpcomingSchedules`);
-                console.log("upcomingEvent:", upcomingEvent.data[`tasks`]);
-                setUpcomingEvent(upcomingEvent.data[0].tasks)
-            } catch (err) {
-                console.error('Error Fetching Schedule Tomorrow:', err.error.message)
-            }
-        }
+       
         fetchScheduleToday();
-        fetchScheduleUpcoming();
     }, [date]);
 
     
@@ -136,7 +127,7 @@ const SecondSection = () => {
                                     modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
                                     className="swiper_container"
                                 >
-                                    {todaySchedule.map((item, index) => (
+                                    {todaySchedule?.map((item, index) => (
                                         <SwiperSlide key={index}>
 
                                             {/* <Image src={slide_image_4} alt="slide_image" /> */}
@@ -184,7 +175,7 @@ const SecondSection = () => {
                     </div>)}
                 </div>
             </div>
-            <UpcomingSlider data={upcomingEvent} />
+            <UpcomingSlider/>
         </>
     );
 }
