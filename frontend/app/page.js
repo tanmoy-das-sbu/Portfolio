@@ -4,7 +4,7 @@ import Link from "next/link";
 
 function Home() {
 
-  
+  //https://portfolio-xavu.vercel.app/schedule
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1>Hello, Its the Home Route </h1>
