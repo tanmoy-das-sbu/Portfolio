@@ -57,13 +57,13 @@ const UpcomingSlider = ({data}) => {
     useEffect(() => {
         async function fetchScheduleUpcoming() {
             try {
-                const upcomingEvent = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/Schedule/UpcomingSchedules`);
-                console.log("upcomingEvent:", upcomingEvent.data[`tasks`]);
-                setUpcomingEvent(upcomingEvent.data[0].tasks)
+                const upcomingEvent = await axios.get(`http://localhost:8000/schedule/UpcomingSchedules`);
+                console.log("upcomingEvent:", upcomingEvent.data[`tasks`],upcomingEvent.data);
+                setUpcomingEvent(upcomingEvent.data)
 
-                const ongoingevent = await axios.get('https://portfolio-git-main-tanmoys-projects.vercel.app/Schedule/OnGoingEvent');
+                const ongoingevent = await axios.get('http://localhost:8000/schedule/OnGoingEvent');
                 console.log("Ongoing Event:", ongoingevent);
-                setOngoing(ongoingevent.data.tasks);
+                setOngoing(ongoingevent.data[`ongoingEvents`]);
             } catch (err) {
                 console.error('Error Fetching Schedule Tomorrow:', err.error.message)
             }
@@ -78,7 +78,7 @@ const UpcomingSlider = ({data}) => {
     };
 
     return (
-        <section className="bg-[#FFF8DD]" >
+        <section className="bg-[#ffbe6d]" >
             <Carousel className="container relative z-20 noselect m-auto w-4/5 p-2 md:p-10"  >
                 <div className="text-6xl text-center"><div className={sac.className}>Ongoing Events</div></div>
                 <CarouselContent>
