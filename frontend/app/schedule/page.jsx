@@ -8,27 +8,17 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper/modules';
 import { CalendarIcon } from "@radix-ui/react-icons"
 import { format } from "date-fns"
-
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from "@/components/ui/popover"
+import { Popover, PopoverContent, PopoverTrigger,} from "@/components/ui/popover"
 import NoScheduleForToday from '../../src/components/noScheduleForToday';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import slide_image_1 from '../../src/assets/images/img_1.jpg';
-import slide_image_2 from '../../src/assets/images/img_2.jpg';
-import slide_image_3 from '../../src/assets/images/img_3.jpg';
 import slide_image_4 from '../../src/assets/images/img_4.jpg';
-import slide_image_5 from '../../src/assets/images/img_5.jpg';
-import slide_image_6 from '../../src/assets/images/img_6.jpg';
-import slide_image_7 from '../../src/assets/images/img_7.jpg';
 import UpcomingSlider from './UpcomingSlider/UpcomingSlider';
 
 const SecondSection = () => {
@@ -46,9 +36,7 @@ const SecondSection = () => {
         async function fetchScheduleToday() {
             try {
                 const today = date;
-                console.log(date, new Date())
                 if (date.getMonth() + 1 == new Date().getMonth() + 1 && date.getFullYear() == new Date().getFullYear() && date.getDate() == new Date().getDate()) {
-                    console.log('yes')
                     setFlaghead(true)
                 } else {
                     setFlaghead(false)
@@ -59,29 +47,27 @@ const SecondSection = () => {
 
                 const todayFormatted = `${year}-${month}-${day}`;
                 console.log(todayFormatted, `todayFormatted`)
-                const todayResponse = await axios.get(`http://localhost:8000/schedule/date/${todayFormatted}`);
+                const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
                 setFlag(true)
                 console.log('Today Response:', todayResponse.data.tasks, todayFormatted,todayResponse);
 
                 const todayTasks = todayResponse.data;
                 setTodaySchedule(todayTasks);
-
-
-
-
+                while(todayTasks.length < 10){
+                    let tempArr = todaySchedule.concat(todaySchedule)
+                    console.log("here10times",todaySchedule,tempArr);
+                    break;
+                }
             } catch (error) {
-                // console.error('Error fetching schedule:', error);
                 setFlag(false)
             }
         }
 
         async function fetchScheduleUpcoming() {
             try {
-                const upcomingEvent = await axios.get(`http://localhost:8000/Schedule/UpcomingSchedules`);
+                const upcomingEvent = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/Schedule/UpcomingSchedules`);
                 console.log("upcomingEvent:", upcomingEvent.data[`tasks`]);
                 setUpcomingEvent(upcomingEvent.data[0].tasks)
-
-                console.log(upcomingEvent.data)
             } catch (err) {
                 console.error('Error Fetching Schedule Tomorrow:', err.error.message)
             }
@@ -90,7 +76,7 @@ const SecondSection = () => {
         fetchScheduleUpcoming();
     }, [date]);
 
-
+    
     return (
         <>
             <div className='date-pic-div flex flex-row justify-end mt-2'>
@@ -117,13 +103,13 @@ const SecondSection = () => {
                     </PopoverContent>
                 </Popover>
             </div>
-            <div className=" mt-12 md:mt-[50px] lg:mt-[0]">
+            <div >
                 <div>
                     {!flag ? (
                         <NoScheduleForToday />
                     ) : (<div>
-                        <div className=" container  m-auto pt-4 md:pt-16">
-                            {flaghead ? <h2 className="font-bold text-4xl md:text-5xl w-full text-center " style={{marginBottom:'40px'}}>Today's Schedule</h2> : <h2 className="font-bold text-4xl md:text-5xl w-full text-center " style={{marginBottom:'40px'}}>{date?.toDateString()} Schedule</h2>}
+                        <div className=" container  m-auto pt-4 md:pt-8">
+                            {flaghead ? <h2 className="headingTag font-bold text-5xl md:text-4xl w-full text-center mb-5">Today's Schedule</h2> : <h2 className="font-bold text-5xl md:text-4xl w-full text-center mb-5">{date?.toDateString()} Schedule</h2>}
                             <div className="container">
                                 <Swiper
                                     effect={'coverflow'}

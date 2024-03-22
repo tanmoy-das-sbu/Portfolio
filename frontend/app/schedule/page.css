@@ -72,7 +72,7 @@ body {
 }
 
 .swiper_container {
-  height: 24rem;
+  height: 48rem;
   padding: 2rem 0;
   position: relative;
 }
@@ -100,8 +100,8 @@ body {
     background: url('../../src/assets/images/img_4.jpg');
 }
 .swiper-slide img {
-  width: 8rem !important;
-  height: auto !important;
+  width: 37rem !important;
+  height: 40rem !important;
   border-radius: 2rem;
   object-fit: cover;
   margin-left: auto;
@@ -189,7 +189,6 @@ body {
 .swiper-pagination-bullets.swiper-pagination-horizontal{
     width: 100% !important;
 }
-
 .dateheading{
     position: absolute;
     top: 50px;
@@ -208,4 +207,8 @@ body {
 
 .date-pic-div{
     width: 100%;
+}
+.headingTag{
+  position: relative;
+  top: -40px;
 }
