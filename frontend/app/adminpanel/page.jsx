@@ -42,13 +42,13 @@ const page = () => {
                     </div>
 
                     <div>
-                        
-                            
-                                <Button className="ml-4" variant="outline">
-                                    Add Event
-                                </Button>
-                            
-                        
+
+                        <Link href="/addevent">
+                            <Button className="ml-4" variant="outline">
+                                Add Event
+                            </Button>
+                        </Link>
+
                     </div>
                 </div>
                 <div className="rounded-lg border">
@@ -83,9 +83,9 @@ const page = () => {
 
                                 </TableCell>
                                 <TableCell>
-                                <div className="flex items-center space-x-2">
+                                    <div className="flex items-center space-x-2">
                                         <Switch id="visibility" />
-                                        
+
                                     </div>
 
                                 </TableCell>

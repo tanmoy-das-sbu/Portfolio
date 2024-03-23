@@ -65,7 +65,11 @@ const UpcomingSlider = ({data}) => {
                 console.log("Ongoing Event:", ongoingevent);
                 setOngoing(ongoingevent.data[`ongoingEvents`]);
             } catch (err) {
-                console.error('Error Fetching Schedule Tomorrow:', err.error.message)
+                if (err.error && err.error.message) {
+                    console.error('Error Fetching Schedule Tomorrow:', err.error.message);
+                } else {
+                    console.error('Error Fetching Schedule Tomorrow:', err.message);
+                }
             }
 
         }
@@ -91,7 +95,7 @@ const UpcomingSlider = ({data}) => {
                                         <CardHeader>
                                             <div className="flex items-center space-x-2">
                                                 <Avatar>
-                                                    <AvatarImage alt="Chandan-pic" src="images/Educators/image1.png" />
+                                                    <AvatarImage alt="" src="" />
                                                     <AvatarFallback>CH</AvatarFallback>
                                                 </Avatar>
                                                 <div>
@@ -170,7 +174,7 @@ const UpcomingSlider = ({data}) => {
                                         <CardHeader>
                                             <div className="flex items-center space-x-1">
                                                 <Avatar>
-                                                    <AvatarImage alt="Chandan-pic" src="images/Educators/image1.png" />
+                                                    <AvatarImage alt="" src="" />
                                                     <AvatarFallback>CH</AvatarFallback>
                                                 </Avatar>
                                                 <div>

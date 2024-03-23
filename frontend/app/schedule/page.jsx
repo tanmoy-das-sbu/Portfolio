@@ -147,7 +147,7 @@ const SecondSection = () => {
 
 
                                             <div className='w-full flex items-center justify-center'>
-                                            <div class="max-w-sm rounded-xl overflow-hidden text-center w-full" style={{ boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px" }}>
+                                            <div className="max-w-sm rounded-xl overflow-hidden text-center w-full" style={{ boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px" }}>
                                                 <img className="w-full" src="https://tse1.mm.bing.net/th?id=OIP.stuO9HtrREb2xPI9Tlu0LgHaHr&pid=Api&rs=1&c=1&qlt=95&w=119&h=124" alt="Sunset in the mountains" />
                                                 <div className="bg-slate-200 px-6 py-4">
                                                     <div className="font-bold text-2xl mb-2">{item.heading}</div>
