@@ -1,5 +1,5 @@
 "use client"
-import "./nav.css";
+import "./header.css";
 import Image from "next/image";
 import Logo from "../assets/pkv.png"
 import NavigationMenuUI from './navigationBar';
