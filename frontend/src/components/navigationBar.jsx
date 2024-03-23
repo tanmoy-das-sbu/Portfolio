@@ -33,10 +33,10 @@ const NavigationMenuDemo = () => {
         </li>
       </ul>
       <a id="hamburger" href="#navmenu" title="menu" class="nav__hamburger">
-      <HamburgerMenuIcon  height={'22px'} width={'22px'}/>
+      <HamburgerMenuIcon  height={'22px'} width={'22px'} />
       </a>
     </div>
-    <a href="#!" title="close menu" class="nav__hamburgerclose"><Cross1Icon/></a>
+    <a href="#!" title="close menu" class="nav__hamburgerclose"><Cross1Icon height={'22px'} width={'22px'} /></a>
   </div>
 
 </nav>
