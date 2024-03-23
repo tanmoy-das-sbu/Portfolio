@@ -32,23 +32,23 @@ const taskSchema = new mongoose.Schema({
     }
 });
 
-const visibilityScheduleSchema = new mongoose.Schema({
-    date: {
-        type: Date,
-        required: true
-    },
-    time: {
-        type: String,
-        required: true
-    },
-    visibility: {
-        type: String,
-        enum: ['public', 'private'],
-        default: 'public'
-    }
-}, {
-    _id: false
-});
+// const visibilityScheduleSchema = new mongoose.Schema({
+//     date: {
+//         type: Date,
+//         required: true
+//     },
+//     time: {
+//         type: String,
+//         required: true
+//     },
+//     visibility: {
+//         type: String,
+//         enum: ['public', 'private'],
+//         default: 'public'
+//     }
+// }, {
+//     _id: false
+// });
 
 const scheduleSchema = new mongoose.Schema({
     startDate: {
@@ -84,10 +84,29 @@ const scheduleSchema = new mongoose.Schema({
         required: true
     },
     imageUrl: {
-        type : String,
-        required : false
+        type: String,
+        required: false
     },
-    visibility: [visibilityScheduleSchema],
+    visibility: {
+        type: Boolean,
+        required: false,
+        default: 'public',
+        enum: ['public', 'private']
+    },
+    scheduleVisibility: {
+        type: Boolean,
+        required: false,
+        default: 'public',
+        enum: ['public', 'private']
+    },
+    scheduleDate: {
+        type: Date,
+        required: false
+    },
+    scheduleTime: {
+        type: String,
+        required: false
+    },
     tasks: [taskSchema]
 }, {
     versionKey: false
