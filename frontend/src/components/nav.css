@@ -6,7 +6,8 @@
 }
 
 .nav-in-div{
-    gap: 10px;
+    position: relative;
+    bottom: 20px;
 }
 
 .logo{
