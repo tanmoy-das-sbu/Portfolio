@@ -1,3 +1,4 @@
+'use client'
 import Link from "next/link"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -7,11 +8,42 @@ import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@
 import { Badge } from "@/components/ui/badge"
 import { DatePickerWithRange } from "@/components/component/DateRangePicker/DateRangePicker"
 import { Switch } from "@/components/ui/switch"
+import { useEffect, useState } from "react"
+import { cn } from "@/lib/utils"
+import { format } from "date-fns"
+import axios from 'axios';
 
 
 
 
 const page = () => {
+    const [todaySchedule, setTodaySchedule] = useState([]);
+    const [date, setDate] = useState(new Date())
+    useEffect(() => {
+        async function fetchScheduleToday() {
+            try {
+                const today = date;
+                const year = today.getFullYear();
+                const month = (today.getMonth() + 1).toString().padStart(2, '0'); 
+                const day = today.getDate().toString().padStart(2, '0');
+
+                const todayFormatted = `${year}-${month}-${day}`;
+                console.log(todayFormatted, `todayFormatted`)
+               
+                const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
+              
+                console.log('Today Response:', todayResponse, todayFormatted);
+            
+                const todayTasks = todayResponse.data;
+                setTodaySchedule([...todayTasks]);
+
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchScheduleToday();
+    }, [date]);
+    
     return (
         <div className="flex flex-col">
             <header
@@ -42,7 +74,30 @@ const page = () => {
                     </div>
 
                     <div>
-
+                    <div className='container m-auto date-pic-div flex flex-row justify-center mt-2'>
+                <Popover>
+                    <PopoverTrigger asChild>
+                        <Button
+                            variant={"outline"}
+                            className={cn(
+                                "w-fit justify-start text-left font-normal",
+                                !date && "text-muted-foreground"
+                            )}
+                        >
+                            <CalendarIcon className="mr-2 h-4 w-4" />
+                            {date ? format(date, "PPP") : <span>Pick a date</span>}
+                        </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                            mode="single"
+                            selected={date}
+                            onSelect={setDate}
+                            initialFocus
+                        />
+                    </PopoverContent>
+                </Popover>
+            </div>
                         <Link href="/addevent">
                             <Button className="ml-4" variant="outline">
                                 Add Event

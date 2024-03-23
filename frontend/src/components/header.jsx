@@ -8,8 +8,8 @@ const Nav = () => {
     const name = 'Dr. PRADIP VARMA';
 
     return (
-    <>
-        <div className="w-max-md h-fit bg-[#ffbe5d] p-3 sticky top-0 header-main-div">
+    <div style={{marginBottom:"50px"}}>
+        <div className="w-max-md h-fit bg-[#ffbe5d] p-3 sticky top-0 z-30">
             <div className="container flex flex-row justify-around" >
                 <div className="">
                     <u className="text-white"><h2 className="font-bold md:text-4xl text-xl text-white" >{name}</h2></u>    
@@ -22,8 +22,8 @@ const Nav = () => {
                 </div>
             </div>
         </div>
-        <NavigationMenuUI />
-    </>
+        <NavigationMenuUI  />
+    </div>
     )
 }
 
