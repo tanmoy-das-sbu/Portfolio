@@ -65,7 +65,7 @@ const SecondSection = () => {
                 const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
                 setFlag(true)
                 console.log('Today Response:', todayResponse, todayFormatted);
-                if (todayResponse.status == 204 || todayResponse.data.length==0) {
+                if (todayResponse.status == 204 || todayResponse.data.length == 0) {
                     setFlag(false)
                 }
                 const todayTasks = todayResponse.data;
@@ -130,7 +130,7 @@ const SecondSection = () => {
                                     coverflowEffect={{
                                         rotate: 0,
                                         stretch: 0,
-                                        depth: 100,
+                                        depth: 80,
                                         modifier: 2.5,
                                     }}
                                     pagination={{ el: '.swiper-pagination', clickable: true }}
@@ -143,30 +143,19 @@ const SecondSection = () => {
                                     className="swiper_container"
                                 >
                                     {todaySchedule?.map((item, index) => (
-                                        <SwiperSlide key={index}>
+                                        <SwiperSlide className='' key={index}>
 
-                                            {/* <Image src={slide_image_4} alt="slide_image" />
-                                            <div className='dateheading'>
-                                                   <div style={{height:'50%',display:'flex',flexDirection:'column',justifyContent:'center'}}>
-                                                    <h3 className='font-bold text-2xl md:text-4xl w-full text-center mb-5'>{item.heading}</h3>
-                                                    <h3>Timing: {item.startTime} - {item.endTime}</h3>
-                                                    </div>
-                                                    <div className='discriptioin'>
-                                                    <h5>{item.shortDescription}</h5>
-                                                    </div>
 
-                                                </div> */}
-
-                                            {/* <h4 className='dateheading'>Date:{item.startTime}{index}</h4> */}
-                                            <div class="max-w-sm rounded overflow-hidden shadow-md" style={{ textAlign: 'center',width:'100%' }}>
+                                            <div className='w-full flex items-center justify-center'>
+                                            <div class="max-w-sm rounded-xl overflow-hidden text-center w-full" style={{ boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px" }}>
                                                 <img className="w-full" src="https://tse1.mm.bing.net/th?id=OIP.stuO9HtrREb2xPI9Tlu0LgHaHr&pid=Api&rs=1&c=1&qlt=95&w=119&h=124" alt="Sunset in the mountains" />
-                                                <div className="px-6 py-4">
+                                                <div className="bg-slate-200 px-6 py-4">
                                                     <div className="font-bold text-2xl mb-2">{item.heading}</div>
                                                     <h4 className='font-bold text-lg mb-2'>Timing: {item.startTime} - {item.endTime}</h4>
                                                     <p className="text-gray-700 text-base text-lg">
                                                         {item.shortDescription}</p>
                                                     <AlertDialog>
-                                                        <AlertDialogTrigger>Know More</AlertDialogTrigger>
+                                                        <AlertDialogTrigger className='text-sm tracking-tighter'>Know More</AlertDialogTrigger>
                                                         <AlertDialogContent>
                                                             <AlertDialogHeader>
 
@@ -181,22 +170,18 @@ const SecondSection = () => {
                                                         </AlertDialogContent>
                                                     </AlertDialog>
                                                 </div>
-                                                </div>
-                                                {/* <div className="px-6 pt-4 pb-2">
-                                                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                                                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                                                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-                                                </div> */}
-                                            {/* </div> */}
+                                            </div>
+                                            </div>
+
 
                                         </SwiperSlide>
                                     ))}
                                     <div className="slider-controler">
                                         <div className="swiper-button-prev slider-arrow">
-                                            <ion-icon name="arrow-back-outline"></ion-icon>
+                                        <img className='w-fit' src="/images/left.svg"></img>
                                         </div>
                                         <div className="swiper-button-next slider-arrow">
-                                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                                        <img className='w-fit' src="/images/right.svg"></img>
                                         </div>
                                         <div className="swiper-pagination"></div>
                                     </div>
@@ -206,9 +191,24 @@ const SecondSection = () => {
                     </div>)}
                 </div>
             </div>
-            <UpcomingSlider/>
+            <UpcomingSlider />
         </>
     );
 }
 
 export default SecondSection;
+
+
+{/* <Image src={slide_image_4} alt="slide_image" />
+                                            <div className='dateheading'>
+                                                   <div style={{height:'50%',display:'flex',flexDirection:'column',justifyContent:'center'}}>
+                                                    <h3 className='font-bold text-2xl md:text-4xl w-full text-center mb-5'>{item.heading}</h3>
+                                                    <h3>Timing: {item.startTime} - {item.endTime}</h3>
+                                                    </div>
+                                                    <div className='discriptioin'>
+                                                    <h5>{item.shortDescription}</h5>
+                                                    </div>
+
+                                                </div> */}
+
+{/* <h4 className='dateheading'>Date:{item.startTime}{index}</h4> */ }
