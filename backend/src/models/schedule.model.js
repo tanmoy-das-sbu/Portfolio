@@ -33,12 +33,12 @@ const taskSchema = new mongoose.Schema({
 });
 
 const visibilityScheduleSchema = new mongoose.Schema({
-    startTime: {
+    date: {
         type: Date,
         required: true
     },
-    endTime: {
-        type: Date,
+    time: {
+        type: String,
         required: true
     },
     visibility: {
