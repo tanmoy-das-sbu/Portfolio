@@ -1,56 +1,174 @@
-.navigation {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.menu {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
+body {
+  background-color: #f5f5f5;
+  margin: 0;
+  font-family: sans-serif;
 }
 
-.menu li {
-    margin-right: 10px;
-    cursor: pointer;
+a {
+  text-decoration: none;
 }
 
-.menu li:last-child {
-    margin-right: 0;
+/* --- You will know what this is --- */
+#blobSvg {
+  max-width: 520px;
 }
 
-.menu p {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(51, 51, 51, 0.85);
+  color: #efefef;
+  z-index: 5;
+  padding: 1rem;
 }
 
-.separator {
-    color: #fff;
-    margin: 0 5px;
+.nav__logo {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 700;
+  font-size: 1.5rem;
 }
 
-@media (max-width: 768px) {
-    .menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        background-color: #333;
-        width: 100%;
-        padding: 20px;
+.nav__menucontainer {
+  position: relative;
+}
+
+.nav__hamburger {
+  color: inherit;
+  min-width: 32px;
+  min-height: 32px;
+  transition: opacity 80ms linear;
+  /* hiding the hamburger icon on large screen sizes */
+  display: none;
+  opacity: 0;
+}
+
+.nav__hamburgerclose {
+  color: inherit;
+  position: absolute;
+  top: 0;
+  min-width: 32px;
+  min-height: 32px;
+  transition: opacity 150ms linear;
+  /*   hiding the close icon and... */
+  display: none;
+  opacity: 0;
+  z-index: -1; /* pushing it behind the hamburger icon so that hamburger icon can be clicked */
+}
+
+.nav__menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.nav__item {
+  margin-right: 1rem;
+}
+
+.nav__link {
+  color: inherit;
+  text-decoration: none;
+  width: 100%;
+}
+
+.nav__link:hover,
+.nav__link:focus-visible {
+  box-shadow: 0 4px 0 -1px #a2e718;
+}
+
+
+
+@media (max-width: 520px) {
+    .nav__hamburger {
+      /* making the hamburger icon visible on smaller screen sizes */
+      display: flex;
+      opacity: 1;
     }
-
-    .menu.show {
-        display: flex;
+  
+    .nav__menu {
+      /* move menu offscreen */
+      opacity: 0;
+      position: fixed;
+      visibility: none;
+      top: -1000px;
+  
+      /* just some styles */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      color: #25310c;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.19);
+      border: 2px solid rgba(255, 255, 255, 0.2); /* part of glass morphism effect */
+     height: 15rem;
+     width: 10rem;
+      background: rgba(255, 255, 255, 1);
     }
-
-    .menu li {
-        margin: 10px 0;
+  
+    /* uncomment the line below to activate on hover. */
+    /*   .nav__listcontainer:hover .nav__menu, */
+    .nav__listcontainer:focus .nav__menu,
+    .nav__listcontainer:focus-within .nav__menu {
+      position: absolute;
+      visibility: visible;
+      opacity: 1;
+      top: 2rem;
+      right: 1.5rem;
     }
-}
+  
+    /*   if the browser supports backdrop-filter property, 
+    then add it (for the glass morphism effect) */
+    @supports (backdrop-filter: blur(10px)) {
+      /* uncomment the line below to activate on hover. */
+      /*     .nav__listcontainer:hover .nav__menu, */
+      .nav__listcontainer:focus .nav__menu,
+      .nav__listcontainer:focus-within .nav__menu {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+      }
+    }
+  
+    .nav__item {
+      margin-right: 0;
+      padding: 0.5rem 1.5rem;
+    }
+  
+    .nav__link:hover,
+    .nav__link:focus {
+      opacity: 1;
+      color: #121212;
+    }
+  
+    /*  uncomment the line below to activate on hover. */
+    /* NOTE: Hover is not recommended, it will have side effects on this */
+    /*   .nav__listcontainer:hover .nav__hamburger, */
+    .nav__listcontainer:focus .nav__hamburger,
+    .nav__listcontainer:focus-within .nav__hamburger {
+      opacity: 0;
+      z-index: -1;
+    }
+  
+    /* uncomment the line below to activate on hover. */
+    /* NOTE: Hover is not recommended, it will have side effects on this */
+    /*   .nav__listcontainer:hover + .nav__hamburgerclose, */
+    .nav__listcontainer:focus + .nav__hamburgerclose,
+    .nav__listcontainer:focus-within + .nav__hamburgerclose {
+      display: flex;
+      opacity: 1;
+      z-index: 1;
+    }
+  }
