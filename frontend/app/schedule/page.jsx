@@ -85,13 +85,13 @@ const SecondSection = () => {
 
     return (
         <>
-            <div className='date-pic-div flex flex-row justify-end mt-2'>
+            <div className='container m-auto date-pic-div flex flex-row justify-center mt-2'>
                 <Popover>
                     <PopoverTrigger asChild>
                         <Button
                             variant={"outline"}
                             className={cn(
-                                "w-[240px] justify-start text-left font-normal",
+                                "w-fit justify-start text-left font-normal",
                                 !date && "text-muted-foreground"
                             )}
                         >
