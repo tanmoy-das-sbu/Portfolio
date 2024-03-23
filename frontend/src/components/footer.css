@@ -1,0 +1,19 @@
+.footer-main-div{
+    border: 1px solid;
+    width: 100%;
+    height: 11em;
+    background-color: rgba(51, 51, 51, 0.85);
+}
+.footer-section{
+    /* border: 1px solid white; */
+    height: 50px;
+    color: white;
+}
+.quick-links-ul{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    flex-wrap: wrap;
+    height: 120px;
+    margin-top: 10px;
+}
