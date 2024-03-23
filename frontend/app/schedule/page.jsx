@@ -84,7 +84,7 @@ const SecondSection = () => {
 
 
     return (
-        <>
+        <div>
             <div className='container m-auto date-pic-div flex flex-row justify-center mt-2'>
                 <Popover>
                     <PopoverTrigger asChild>
@@ -192,7 +192,7 @@ const SecondSection = () => {
                 </div>
             </div>
             <UpcomingSlider />
-        </>
+        </div>
     );
 }
 

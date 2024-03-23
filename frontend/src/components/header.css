@@ -5,6 +5,10 @@
     padding: 10px;
 }
 
+.header-main-div{
+    z-index: 1000;
+}
+
 .nav-in-div{
     position: relative;
     bottom: 20px;

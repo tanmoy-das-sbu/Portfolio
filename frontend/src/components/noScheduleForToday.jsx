@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image'
 import noContentImage from '../../src/assets/noschedulefortoday.jpg';
-import './nav.css';
+import './header.css';
 
 const NoScheduleForToday = () =>{
     return (
