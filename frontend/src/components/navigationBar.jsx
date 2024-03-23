@@ -14,10 +14,8 @@ const NavigationMenuDemo = () => {
   return (
     <nav className="nav">
       <a href="#" className="nav__logo"></a>
-
-
       <div className="nav__menucontainer">
-        <div className="nav__listcontainer" tabindex="0">
+        <div className="nav__listcontainer" tabIndex="0">
           <ul className="nav__menu" id="navmenu">
             <li className="nav__item">
               <a href="#" className="nav__link">About</a>
@@ -38,7 +36,6 @@ const NavigationMenuDemo = () => {
         </div>
         <a href="#!" title="close menu" className="nav__hamburgerclose"><Cross1Icon /></a>
       </div>
-
     </nav>
 
   );
