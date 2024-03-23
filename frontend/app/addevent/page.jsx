@@ -15,11 +15,12 @@ export default function Addevent() {
     priority: false,
     heading: '',
     shortDescription: '',
-    imgUrl: null,
     visibility: false,
   });
 
-  const [imgUrl, setImgUrl] = useState('');
+  var imageUrlLink = '';
+
+  const [url, setUrl] = useState('');
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -46,7 +47,11 @@ export default function Addevent() {
       }
 
       const data = await response.json();
-      setImgUrl(data.imageUrl);
+      console.log("dta", data)
+      console.log("dimg", data.imageUrl)
+      // setUrl(data.imageUrl);
+      imageUrlLink = data.imageUrl;
+      console.log("Message", url)
     } catch (error) {
       console.error('Error uploading image:', error.message);
     }
@@ -61,7 +66,7 @@ export default function Addevent() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ ...formData, imageUrl: imgUrl }),
+        body: JSON.stringify({ ...formData, imageUrl: imageUrlLink }),
       });
 
       if (!response.ok) {
@@ -77,11 +82,11 @@ export default function Addevent() {
         endTime: '',
         priority: false,
         heading: '',
-        shortDescription: '',
         imgUrl: null,
+        shortDescription: '',
         visibility: false,
       });
-      setImgUrl('');
+      setUrl('');
     } catch (error) {
       console.error('Error adding schedule:', error.message);
     }
@@ -140,7 +145,7 @@ export default function Addevent() {
                   <Label htmlFor="img">Image</Label>
                   <input type="file" name="img" onChange={handleImageUpload} />
                 </div>
-                <div className="flex flex-row gap-4 ">
+                <div className="flex flex-col gap-4 ">
                   <div className="flex flex-col gap-4 p-6">
                     <Label htmlFor="priority">Priority</Label>
                     <div className="flex items-center space-x-2">
@@ -148,22 +153,33 @@ export default function Addevent() {
                       <Label htmlFor="priority">Priority</Label>
                     </div>
                   </div>
-                  <div className="flex flex-row gap-4 p-4">
-                    <Label htmlFor="visibility">Visibility</Label>
-                    <div className="flex items-center space-x-2">
-                      <Switch id="visibility" name="visibility" onChange={handleChange} />
+                  <div className="flex flex-row  justify-around p-4">
+                    <div>
                       <Label htmlFor="visibility">Visibility</Label>
-                    </div>
-                    <div className="flex flex-col sm:flex-row gap-4 items-center justify-center ">
-                      <div className="flex flex-col w-full md:w-1/2 gap-2 ">
-                        <Label htmlFor="startTime">Start Time</Label>
-                        <Input id="startTime" placeholder="Start Time" type="time" name="startTime"  />
-                      </div>
-                      <div className="flex flex-col w-full md:w-1/2 gap-2 ">
-                        <Label htmlFor="endTime">End Time</Label>
-                        <Input id="endTime" placeholder="End Time" type="time" name="endTime"  />
+                      <div className="flex items-center space-x-2">
+                        <Switch id="visibility" name="visibility" onChange={handleChange} />
+                        <Label htmlFor="visibility">Visibility</Label>
                       </div>
                     </div>
+                    <div>
+                      <Label htmlFor="visibility">Schedule Visibility</Label>
+                      <div className="flex justify-center items-center space-x-2">
+                        <Label htmlFor="visibility">Off</Label>
+                        <Switch id="visibility" name="visibility" onChange={handleChange} />
+                        <Label htmlFor="visibility">On</Label>
+                      </div>
+                      <div className="flex flex-col sm:flex-row gap-4 items-center justify-center ">
+                        <div className="flex flex-col w-full md:w-1/2 gap-2 ">
+                          <Label htmlFor="Date">Date</Label>
+                          <Input id="Date" placeholder=" Date" type="date" name="Date" />
+                        </div>
+                        <div className="flex flex-col w-full md:w-1/2 gap-2 ">
+                          <Label htmlFor="Time">Time</Label>
+                          <Input id="Time" placeholder="Time" type="time" name="Time" />
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               </div>
