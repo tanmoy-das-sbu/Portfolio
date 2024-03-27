@@ -40,7 +40,7 @@ const NavigationMenuDemo = () => {
 
  
   <div class="nav__menucontainer">
-    <div class="nav__listcontainer" tabindex="0">
+    <div class="nav__listcontainer" tabIndex="0">
       <ul class="nav__menu" id="navmenu">
         <li class="nav__item">
           <a href="#" class="nav__link">About</a>

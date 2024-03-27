@@ -16,7 +16,7 @@ import axios from 'axios';
 
 
 
-const page = () => {
+const Adminpanel = () => {
     const [todaySchedule, setTodaySchedule] = useState([]);
     const [date, setDate] = useState(new Date())
     useEffect(() => {
@@ -154,7 +154,7 @@ const page = () => {
     )
 }
 
-export default page
+export default Adminpanel
 
 
 function CalendarIcon(props) {
