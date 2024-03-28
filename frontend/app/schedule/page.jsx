@@ -60,11 +60,11 @@ const SecondSection = () => {
                 const day = today.getDate().toString().padStart(2, '0');
 
                 const todayFormatted = `${year}-${month}-${day}`;
-                console.log(todayFormatted, `todayFormatted`)
+                //console.log(todayFormatted, `todayFormatted`)
                 // const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
                 const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
                 setFlag(true)
-                console.log('Today Response:', todayResponse, todayFormatted);
+                //console.log('Today Response:', todayResponse, todayFormatted);
                 if (todayResponse.status == 204 || todayResponse.data.length == 0) {
                     setFlag(false)
                 }
@@ -82,7 +82,78 @@ const SecondSection = () => {
         fetchScheduleToday();
     }, [date]);
 
-
+    function isCurrentDateWithinSchedule(startDate, endDate, startTime, endTime) {
+        // Convert start date/time and end date/time to JavaScript Date objects
+        const startDateObj = new Date(startDate);
+        const endDateObj = new Date(endDate);
+        
+        // Get the current date/time
+        const currentDate = new Date(date);
+        const startTimeParts = startTime.split(':');
+            const endTimeParts = endTime.split(':');
+        const startHours = parseInt(startTimeParts[0], 10);
+        const startMinutes = parseInt(startTimeParts[1], 10);
+        const endHours = parseInt(endTimeParts[0], 10);
+        const endMinutes = parseInt(endTimeParts[1], 10);
+       
+      // if(currentDate >= startDateObj && currentDate <= endDateObj){
+        //console.log(startHours,endHours,startMinutes,endMinutes,currentDate,startDateObj,endDateObj,startDateObj.getDate()>=currentDate.getDate())//}
+        // Check if the current date is within the range of start date and end date
+        if (currentDate.getDate() >= startDateObj.getDate() && currentDate.getDate() <= endDateObj.getDate()) {
+            // If the current date is within the range, check if the current time is within the range of start time and end time
+            const startTimeParts = startTime.split(':');
+            const endTimeParts = endTime.split(':');
+            if( startTime.includes("PM")){
+                const currentHours = new Date().getHours();
+                const currentMinutes = new Date().getMinutes();
+                const startHours = parseInt(startTimeParts[0], 10)+12;
+                const startMinutes = parseInt(startTimeParts[1], 10);
+                const endHours = parseInt(endTimeParts[0], 10);
+                const endMinutes = parseInt(endTimeParts[1], 10);
+                
+            if (
+                (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
+                (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
+            ) {
+                return true; // Current date and time are within the schedule
+            }
+                
+                 
+            }else if(endTime.includes("PM")){
+                const currentHours = new Date().getHours();
+                const currentMinutes = new Date().getMinutes();
+                const startHours = parseInt(startTimeParts[0], 10);
+                const startMinutes = parseInt(startTimeParts[1], 10);
+                const endHours = parseInt(endTimeParts[0], 10)+12;
+                const endMinutes = parseInt(endTimeParts[1], 10);
+                
+            if (
+                (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
+                (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
+            ) {
+                return true; // Current date and time are within the schedule
+            }
+            }else{
+                const currentHours = new Date().getHours();
+                const currentMinutes = new Date().getMinutes();
+                const startHours = parseInt(startTimeParts[0], 10);
+                const startMinutes = parseInt(startTimeParts[1], 10);
+                const endHours = parseInt(endTimeParts[0], 10);
+                const endMinutes = parseInt(endTimeParts[1], 10);
+               
+            if (
+                (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
+                (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
+            ) {
+                return true; // Current date and time are within the schedule
+            }
+            }
+            
+           
+        }
+        
+        return false; // Current date and time are not within the schedule
+    }
     return (
         <div>
             <div className='container m-auto date-pic-div flex flex-row justify-center mt-2'>
@@ -144,12 +215,17 @@ const SecondSection = () => {
                                 >
                                     {todaySchedule?.map((item, index) => (
                                         <SwiperSlide className='' key={index}>
-
+                                        
 
                                             <div className='w-full flex items-center justify-center'>
                                             <div className="max-w-sm rounded-xl overflow-hidden text-center w-full" style={{ boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px" }}>
+                                            
                                                 <img className="w-full" src="https://tse1.mm.bing.net/th?id=OIP.stuO9HtrREb2xPI9Tlu0LgHaHr&pid=Api&rs=1&c=1&qlt=95&w=119&h=124" alt="Sunset in the mountains" />
                                                 <div className="bg-slate-200 px-6 py-4">
+                                                {isCurrentDateWithinSchedule(item.startDate,item.endDate,item.startTime,item.endTime)?<div style={{display:"flex",gap:'10px',justifyContent:'center'}}><span class="relative flex h-3 w-3">
+  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+  <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+</span><div style={{marginTop:'-5px'}}>Live</div></div>:<div></div>}
                                                     <div className="font-bold text-2xl mb-2">{item.heading}</div>
                                                     <h4 className='font-bold text-lg mb-2'>Timing: {item.startTime} - {item.endTime}</h4>
                                                     <p className="text-gray-700 text-base text-lg">
