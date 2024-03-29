@@ -93,10 +93,10 @@ const UpcomingSlider = ({data}) => {
                         const truncatedDescription = truncateDescription(event.shortDescription, 100);
                         return (
                             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                                <CardContent className="flex aspect-square items-center justify-center p-2">
+                                <CardContent className="flex aspect-square items-center justify-center p-1">
                                     <Card className="w-[300px] flex flex-col justify-between">
                                         <CardHeader>
-                                            <div className="flex items-center space-x-2">
+                                            <div className="flex items-center space-x-2" style={{margin:'auto'}}>
                                                 <Avatar>
                                                     <AvatarImage alt="" src="" />
                                                     <AvatarFallback>CH</AvatarFallback>
