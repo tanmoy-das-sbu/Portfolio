@@ -15,7 +15,11 @@ export default function Addevent() {
     priority: false,
     heading: '',
     shortDescription: '',
-    visibility: false,
+    location:'',
+    visibility: true,
+    scheduleVisibility:'',
+    scheduleDate:'',
+    scheduleTime:'',
   });
 
   var imageUrlLink = '';
@@ -24,13 +28,27 @@ export default function Addevent() {
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
-    const val = type === 'file' ? files[0] : value;
-    setFormData({
-      ...formData,
-      [name]: val,
-    });
-  };
+    const val = type === 'file' ? files[0] : type === 'checkbox' ? e.target.checked : value;
 
+    if (name === 'visibility' && val === true) {
+      setFormData({
+        ...formData,
+        visibility: true,
+        scheduleVisibility: false,
+      });
+    } else if (name === 'scheduleVisibility' && val === true) {
+      setFormData({
+        ...formData,
+        visibility: false,
+        scheduleVisibility: true,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: val,
+      });
+    }
+  };
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     const formData = new FormData();
@@ -82,9 +100,12 @@ export default function Addevent() {
         endTime: '',
         priority: false,
         heading: '',
-        imgUrl: null,
         shortDescription: '',
-        visibility: false,
+        location:'',
+        visibility: true,
+        scheduleVisibility:'',
+        scheduleDate:'',
+        scheduleTime:'',
       });
       setUrl('');
     } catch (error) {
@@ -157,25 +178,24 @@ export default function Addevent() {
                     <div>
                       <Label htmlFor="visibility">Visibility</Label>
                       <div className="flex items-center space-x-2">
-                        <Switch id="visibility" name="visibility" onChange={handleChange} />
+                        <Switch id="visibility" name="visibility" checked={formData.visibility} onChange={handleChange} />
                         <Label htmlFor="visibility">Visibility</Label>
                       </div>
                     </div>
                     <div>
-                      <Label htmlFor="visibility">Schedule Visibility</Label>
+                      <Label htmlFor="scheduleVisibility">Schedule Visibility</Label>
                       <div className="flex justify-center items-center space-x-2">
-                        <Label htmlFor="visibility">Off</Label>
-                        <Switch id="visibility" name="visibility" onChange={handleChange} />
-                        <Label htmlFor="visibility">On</Label>
+                        <Switch id="scheduleVisibility" name="scheduleVisibility" checked={formData.scheduleVisibility} onChange={handleChange} />
+                        <Label htmlFor="scheduleVisibility">Schedule Visibility</Label>
                       </div>
                       <div className="flex flex-col sm:flex-row gap-4 items-center justify-center ">
                         <div className="flex flex-col w-full md:w-1/2 gap-2 ">
-                          <Label htmlFor="Date">Date</Label>
-                          <Input id="Date" placeholder=" Date" type="date" name="Date" />
+                          <Label htmlFor="scheduleDate">Date</Label>
+                          <Input id="scheduleDate" placeholder=" Date" type="date" name="scheduleDate" onChange={handleChange} />
                         </div>
                         <div className="flex flex-col w-full md:w-1/2 gap-2 ">
-                          <Label htmlFor="Time">Time</Label>
-                          <Input id="Time" placeholder="Time" type="time" name="Time" />
+                          <Label htmlFor="scheduleTime">Time</Label>
+                          <Input id="scheduleTime" placeholder="Time" type="time" name="scheduleTime" onChange={handleChange} />
                         </div>
                       </div>
                     </div>
@@ -183,9 +203,9 @@ export default function Addevent() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="flex justify-end">
-              <button type="submit">Add Event</button>
+              <div className="flex justify-end">
+                <Button type="submit">Add Event </Button>
+              </div>
             </div>
           </form>
         </div>
