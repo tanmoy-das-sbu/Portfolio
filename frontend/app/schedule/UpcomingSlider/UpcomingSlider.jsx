@@ -178,7 +178,7 @@ const UpcomingSlider = ({data}) => {
                                 <CardContent className="flex aspect-square items-center justify-center p-2">
                                     <Card className="w-[300px] flex flex-col justify-between">
                                         <CardHeader>
-                                            <div className="flex items-center space-x-1">
+                                            <div className="flex items-center space-x-1 " style={{margin:'auto'}}>
                                                 <Avatar>
                                                     <AvatarImage alt="" src="" />
                                                     <AvatarFallback>CH</AvatarFallback>
