@@ -8,7 +8,7 @@ const Nav = () => {
     const name = 'Dr. PRADIP VARMA';
 
     return (
-    <div style={{marginBottom:"50px"}}>
+    <div>
         <div className="w-max-md h-fit bg-[#ffbe5d] p-3 sticky top-0 z-30">
             <div className="container flex flex-row justify-around" >
                 <div className="">
