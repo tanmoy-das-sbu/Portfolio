@@ -32,6 +32,7 @@ const EventDetails = ({ params }) => {
                 <h1 className='font-semibold text-3xl'>{data.heading}</h1>
                 <div className='flex flex-row gap-6 items-center'>
                     <span><span style={{ color: '#0A76F7' }}><PlaceIcon/></span><span>{data.location}</span></span>
+                    <span>&#124;</span>
                     <span>Date: {formatDate(data.startDate)}</span>
                 </div>
                 
@@ -42,8 +43,8 @@ const EventDetails = ({ params }) => {
                     src={data.imageUrl}
                     alt="Picture of the author"
                     className='no-schedule'
-                    width={100}
-                    height={100}
+                    width={1500}
+                    height={500}
                 />
             </div>
             <div className="short-desc">
