@@ -90,14 +90,12 @@ const scheduleSchema = new mongoose.Schema({
     visibility: {
         type: Boolean,
         required: false,
-        default: 'public',
-        enum: ['public', 'private']
+        default: true,
     },
     scheduleVisibility: {
         type: Boolean,
         required: false,
-        default: 'public',
-        enum: ['public', 'private']
+        default: true,
     },
     scheduleDate: {
         type: Date,
