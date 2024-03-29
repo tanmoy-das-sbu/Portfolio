@@ -155,7 +155,7 @@ const SecondSection = () => {
         return false; // Current date and time are not within the schedule
     }
     return (
-        <div>
+        <div  className="bg-[#FFFFE0]">
             <div className='container m-auto date-pic-div flex flex-row justify-center mt-2'>
                 <Popover>
                     <PopoverTrigger asChild>
