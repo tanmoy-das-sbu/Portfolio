@@ -26,6 +26,8 @@ const EventDetails = ({ params }) => {
         return <div>Loading...</div>;
     }
 
+    const isImageFromAllowedDomain = data.imageUrl.startsWith('https://res.cloudinary.com/neeleshks/image/upload');
+
     return (
         <div className='container pt-12 pb-4'>
             <div className='flex flex-row justify-between items-center'>
@@ -39,13 +41,17 @@ const EventDetails = ({ params }) => {
             </div>
             <hr />
             <div className="image-container">
-                <Image
-                    src={data.imageUrl}
-                    alt="Picture of the author"
-                    className='no-schedule'
-                    width={1500}
-                    height={500}
-                />
+            {isImageFromAllowedDomain && (
+                <div className="image-container">
+                    <Image
+                        src={data.imageUrl}
+                        alt="Picture of the author"
+                        className='no-schedule'
+                        width={1500}
+                        height={500}
+                    />
+                </div>
+            )}
             </div>
             <div className="short-desc">
                 <p className='font-semibold text-xl'>{data.shortDescription}</p>
