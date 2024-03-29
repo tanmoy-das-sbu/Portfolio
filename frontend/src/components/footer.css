@@ -32,6 +32,10 @@
     font-size: 12px;
 }
 
+.social-div{
+    margin-top: 30px;
+}
+
 @media (max-width: 4000px) and (min-width: 768px) {
     .quick-links-ul {
         height: 9em;
