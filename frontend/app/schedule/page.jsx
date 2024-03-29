@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Image from "next/image";
+import Link from "next/link"
 import "./page.css"
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper/modules';
@@ -39,6 +40,12 @@ const SecondSection = () => {
     const [flag, setFlag] = useState(false);
     const [flaghead, setFlaghead] = useState(false)
     const [date, setDate] = useState(new Date())
+
+    
+    const handleKnowMore = () => {
+        
+    }
+    
     const setback = {
         border: `1px solid red`,
         backgroundImage: "url(" + { slide_image_1 } + ")"
@@ -156,6 +163,7 @@ const SecondSection = () => {
         }
 
         return false; // Current date and time are not within the schedule
+        
     }
     return (
         <div className="bg-[#FFFFE0]">
@@ -244,7 +252,9 @@ const SecondSection = () => {
                                                                 </AlertDialogHeader>
                                                                 <AlertDialogFooter>
                                                                     <AlertDialogCancel>Close</AlertDialogCancel>
-
+                                                                    <AlertDialogAction>
+                                                                        <Link className="p-5 bg-red-500 text-white" href={`/eventView/${item._id}`}> View More</Link>
+                                                                        </AlertDialogAction>
                                                                 </AlertDialogFooter>
                                                             </AlertDialogContent>
                                                         </AlertDialog>
