@@ -147,11 +147,11 @@ body {
   }
 }
 
-@media (max-width: 520px) {
+/* @media (max-width: 520px) {
   .date-pic-div {
     margin-top: 40px !important;
   }
-}
+} */
 
 @media (max-width: 990px) {
   .slider-controler .swiper-button-prev {
@@ -214,7 +214,7 @@ body {
 
 .date-pic-div {
   width: 100%;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .headingTag {

@@ -82,9 +82,12 @@ const UpcomingSlider = ({data}) => {
     };
 
     return (
-        <section className="bg-[#ffbe6d]" >
+        <section className="bg-[#FFFFE0]" >
+            <hr />
             <Carousel className="container relative z-20 noselect m-auto w-4/5 p-2 md:p-10"  >
-                <div className="text-6xl text-center"><div className={sac.className}>Ongoing Events</div></div>
+                <div className="text-6xl text-center">
+                    <h2 className="headingTag font-bold text-6xl md:text-4xl w-full text-center mb-5">Ongoing Events</h2>    
+                </div>
                 <CarouselContent>
                     {ongoing && ongoing.map((event, index) => {
                         const truncatedDescription = truncateDescription(event.shortDescription, 100);
@@ -162,8 +165,11 @@ const UpcomingSlider = ({data}) => {
                 <CarouselPrevious />
                 <CarouselNext />
             </Carousel>
+            <hr />
             <Carousel className="container relative z-20 noselect m-auto w-4/5 p-2 md:p-10"  >
-                <div className="text-6xl text-center"><div className={sac.className}>Upcoming Schedule</div></div>
+                <div className="text-6xl text-center">
+                    <h2 className="headingTag font-bold text-6xl md:text-4xl w-full text-center mb-5">Upcoming Events</h2>    
+                </div>
                 <CarouselContent>
                     {upcomingEvent && upcomingEvent.map((event, index) => {
                         const truncatedDescription = truncateDescription(event.shortDescription, 100);
