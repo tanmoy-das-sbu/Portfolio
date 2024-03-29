@@ -188,7 +188,7 @@ const SecondSection = () => {
                         <NoScheduleForToday />
                     ) : (<div>
                         <div className=" container  m-auto pt-4 md:pt-8">
-                            {flaghead ? <h2 className="headingTag font-bold text-6xl md:text-4xl w-full text-center mb-5">Todays Schedule</h2> : <h2 className="font-bold text-5xl md:text-4xl w-full text-center mb-5">{date?.toDateString()} Schedule</h2>}
+                            {flaghead ? <h2 className="headingTag font-bold text-6xl md:text-4xl w-full text-center mb-5">Today&apos;s Events</h2> : <h2 className="font-bold text-5xl md:text-4xl w-full text-center mb-5">{date?.toDateString()} Schedule</h2>}
                             <div className="container">
                                 <Swiper
                                     effect={'coverflow'}

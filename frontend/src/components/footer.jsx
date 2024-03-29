@@ -10,13 +10,14 @@ const Footer = () => {
                 <section className="footer-section text-white">
                     <h2 className='font-bold'>Quick Links</h2>
                     <hr />
+                    <br />
                     <ul className='md:text-3lg text-lg flex flex-col flex-wrap quick-links-ul'>
-                        <li><span>🔵</span> Home</li>
-                        <li><span>🔵</span> Photo Gallery</li>
-                        <li><span>🔵</span> Blog</li>
-                        <li><span>🔵</span> Articles</li>
-                        <li><span>🔵</span> Biography</li>
-                        <li><span>🔵</span> Contact Us</li>
+                        <li><span>&gt;&gt;</span> Home</li>
+                        <li><span>&gt;&gt;</span> Photo Gallery</li>
+                        <li><span>&gt;&gt;</span> Blog</li>
+                        <li><span>&gt;&gt;</span> Articles</li>
+                        <li><span>&gt;&gt;</span> Biography</li>
+                        <li><span>&gt;&gt;</span> Contact Us</li>
                     </ul>
                 </section>
                 <section className="footer-section">
@@ -31,6 +32,17 @@ const Footer = () => {
                 <section className="footer-section">
                     <h2 className='font-bold'>Contact</h2>
                     <hr />
+                    <br />
+                    <div className='h-40 contact-section'>
+                        <div className='h-24'>
+                            <p><span className='font-semibold'>Office: </span><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, quam?</span></p>
+                            <p>Email: <u><a href="mailto:example@gmail.com">example@gmail.com</a></u></p>
+                            <p>Tel.- <u><a href="tel:1234567890">1234567890</a></u></p>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
                 </section>
             </div>
         </div>
