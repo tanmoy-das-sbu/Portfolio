@@ -100,7 +100,8 @@ const SecondSection = () => {
         // if(currentDate >= startDateObj && currentDate <= endDateObj){
         //console.log(startHours,endHours,startMinutes,endMinutes,currentDate,startDateObj,endDateObj,startDateObj.getDate()>=currentDate.getDate())//}
         // Check if the current date is within the range of start date and end date
-        if (currentDate.getDate() >= startDateObj.getDate() && currentDate.getDate() <= endDateObj.getDate()||currentDate.getMonth()>=startDateObj.getMonth() && currentDate.getMonth()<=endDateObj.getMonth()||currentDate.getFullYear()>=startDateObj.getFullYear() && currentDate.getFullYear()<=endDateObj.getFullYear()) {
+        //sconsole.log(currentDate>=startDateObj ,currentDate,startDateObj,currentDate<endDateObj,endDate,currentDate,endDateObj)
+        if (currentDate>= startDateObj && currentDate <= endDateObj) {
             // If the current date is within the range, check if the current time is within the range of start time and end time
             
             if (startTime.includes("PM") && endTime.includes('PM')) {
