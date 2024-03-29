@@ -88,7 +88,7 @@ const SecondSection = () => {
         const endDateObj = new Date(endDate);
         
         // Get the current date/time
-        const currentDate = new Date(date);
+        const currentDate = new Date();
         const startTimeParts = startTime.split(':');
             const endTimeParts = endTime.split(':');
         const startHours = parseInt(startTimeParts[0], 10);
@@ -103,14 +103,14 @@ const SecondSection = () => {
             // If the current date is within the range, check if the current time is within the range of start time and end time
             const startTimeParts = startTime.split(':');
             const endTimeParts = endTime.split(':');
-            if( startTime.includes("PM")){
+            if( startTime.includes("PM") && endTime.includes('PM')){
                 const currentHours = new Date().getHours();
                 const currentMinutes = new Date().getMinutes();
                 const startHours = parseInt(startTimeParts[0], 10)+12;
                 const startMinutes = parseInt(startTimeParts[1], 10);
-                const endHours = parseInt(endTimeParts[0], 10);
+                const endHours = parseInt(endTimeParts[0], 10)+12;
                 const endMinutes = parseInt(endTimeParts[1], 10);
-                
+                //console.log(startHours,endHours)
             if (
                 (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
                 (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
@@ -119,14 +119,28 @@ const SecondSection = () => {
             }
                 
                  
-            }else if(endTime.includes("PM")){
+            }else if(endTime.includes("PM") && startTime.includes('AM')){
                 const currentHours = new Date().getHours();
                 const currentMinutes = new Date().getMinutes();
                 const startHours = parseInt(startTimeParts[0], 10);
                 const startMinutes = parseInt(startTimeParts[1], 10);
                 const endHours = parseInt(endTimeParts[0], 10)+12;
                 const endMinutes = parseInt(endTimeParts[1], 10);
-                
+                //console.log(startHours,endHours)
+            if (
+                (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
+                (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
+            ) {
+                return true; // Current date and time are within the schedule
+            }
+            }else if(endTime.includes("AM") && startTime.includes('PM')){
+                const currentHours = new Date().getHours();
+                const currentMinutes = new Date().getMinutes();
+                const startHours = parseInt(startTimeParts[0], 10)+12;
+                const startMinutes = parseInt(startTimeParts[1], 10);
+                const endHours = parseInt(endTimeParts[0], 10);
+                const endMinutes = parseInt(endTimeParts[1], 10);
+               //console.log(startHours,endHours)
             if (
                 (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
                 (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
@@ -140,7 +154,7 @@ const SecondSection = () => {
                 const startMinutes = parseInt(startTimeParts[1], 10);
                 const endHours = parseInt(endTimeParts[0], 10);
                 const endMinutes = parseInt(endTimeParts[1], 10);
-               
+               // console.log(startHours,endHours)
             if (
                 (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
                 (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
