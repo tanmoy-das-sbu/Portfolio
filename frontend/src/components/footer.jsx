@@ -53,7 +53,7 @@ const Footer = () => {
                                 <Tooltip>
                                     <TooltipTrigger>
                                         {/* <FacebookRoundedIcon className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 text-blue-500 social-icons"/> */}
-                                        <i><Image src={facebook} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" /></i>
+                                        <i><Image src={facebook} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></i>
                                     </TooltipTrigger>
                                     <TooltipContent>
                                         <p>Facebook</p>
@@ -62,7 +62,7 @@ const Footer = () => {
                                 <Tooltip>
                                     <TooltipTrigger>
                                         {/* <XIcon className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 text-black social-icons" /> */}
-                                        <i><Image src={twitter} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" /></i>
+                                        <i><Image src={twitter} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></i>
                                     </TooltipTrigger>
                                     <TooltipContent>
                                         <p>Twitter</p>
@@ -71,7 +71,7 @@ const Footer = () => {
                                 <Tooltip>
                                     <TooltipTrigger>
                                         {/* <YouTubeIcon className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 text-red-500 social-icons" /> */}
-                                        <i><Image src={youtube} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" /></i>
+                                        <i><Image src={youtube} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></i>
                                     </TooltipTrigger>
                                     <TooltipContent>
                                         <p>Youtube</p>
@@ -80,7 +80,7 @@ const Footer = () => {
                                 <Tooltip>
                                     <TooltipTrigger>
                                         {/* <InstagramIcon className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons"  style={{ background: 'linear-gradient(115deg, #f9ce34, #ee2a7b, #6228d7)' }} /> */}
-                                        <i><Image src={instagram} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" /></i>
+                                        <i><Image src={instagram} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></i>
                                     </TooltipTrigger>
                                     <TooltipContent>
                                         <p>Instagram</p>
