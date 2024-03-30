@@ -50,7 +50,7 @@ const truncateDescription = (description, maxLength) => {
 };
 
 
-const UpcomingSlider = ({data}) => {
+const UpcomingSlider = ({ data }) => {
     const [ongoing, setOngoing] = useState([]);
     const [upcomingEvent, setUpcomingEvent] = useState([]);
 
@@ -58,7 +58,7 @@ const UpcomingSlider = ({data}) => {
         async function fetchScheduleUpcoming() {
             try {
                 const upcomingEvent = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/UpcomingSchedules`);
-                console.log("upcomingEvent:", upcomingEvent.data[`tasks`],upcomingEvent.data);
+                console.log("upcomingEvent:", upcomingEvent.data[`tasks`], upcomingEvent.data);
                 setUpcomingEvent(upcomingEvent.data)
 
                 const ongoingevent = await axios.get('https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/OnGoingEvent');
@@ -86,7 +86,7 @@ const UpcomingSlider = ({data}) => {
             <hr />
             <Carousel className="container relative z-20 noselect m-auto w-4/5 p-2 md:p-10"  >
                 <div className="text-6xl text-center">
-                    <h2 className="headingTag font-bold text-6xl md:text-4xl w-full text-center mb-5">Ongoing Events</h2>    
+                    <h2 className="headingTag font-bold text-6xl md:text-4xl w-full text-center mb-5">Ongoing Events</h2>
                 </div>
                 <CarouselContent>
                     {ongoing && ongoing.map((event, index) => {
@@ -96,7 +96,7 @@ const UpcomingSlider = ({data}) => {
                                 <CardContent className="flex aspect-square items-center justify-center p-1">
                                     <Card className="w-[300px] flex flex-col justify-between">
                                         <CardHeader>
-                                            <div className="flex items-center space-x-2" style={{margin:'auto'}}>
+                                            <div className="flex items-center space-x-2" style={{ margin: 'auto' }}>
                                                 <Avatar>
                                                     <AvatarImage alt="" src="" />
                                                     <AvatarFallback>CH</AvatarFallback>
@@ -150,6 +150,9 @@ const UpcomingSlider = ({data}) => {
 
                                                         </div>
                                                         <AlertDialogCancel>Close</AlertDialogCancel>
+                                                        <AlertDialogAction>
+                                                            <Link className="p-5 bg-red-500 text-white" href={`/eventView/${event._id}`}> View More</Link>
+                                                        </AlertDialogAction>
 
                                                     </AlertDialogFooter>
                                                 </AlertDialogContent>
@@ -168,7 +171,7 @@ const UpcomingSlider = ({data}) => {
             <hr />
             <Carousel className="container relative z-20 noselect m-auto w-4/5 p-2 md:p-10"  >
                 <div className="text-6xl text-center">
-                    <h2 className="headingTag font-bold text-6xl md:text-4xl w-full text-center mb-5">Upcoming Events</h2>    
+                    <h2 className="headingTag font-bold text-6xl md:text-4xl w-full text-center mb-5">Upcoming Events</h2>
                 </div>
                 <CarouselContent>
                     {upcomingEvent && upcomingEvent.map((event, index) => {
@@ -178,7 +181,7 @@ const UpcomingSlider = ({data}) => {
                                 <CardContent className="flex aspect-square items-center justify-center p-2">
                                     <Card className="w-[300px] flex flex-col justify-between">
                                         <CardHeader>
-                                            <div className="flex items-center space-x-1 " style={{margin:'auto'}}>
+                                            <div className="flex items-center space-x-1 " style={{ margin: 'auto' }}>
                                                 <Avatar>
                                                     <AvatarImage alt="" src="" />
                                                     <AvatarFallback>CH</AvatarFallback>
@@ -190,7 +193,7 @@ const UpcomingSlider = ({data}) => {
                                         </CardHeader>
                                         <CardContent className="text-center">
                                             <div className="p-1 mb-4">
-                                            <p className="text-lg mt-1">{new Date(event.startDate).toLocaleDateString()} - {new Date(event.startDate).toLocaleDateString()}</p>
+                                                <p className="text-lg mt-1">{new Date(event.startDate).toLocaleDateString()} - {new Date(event.startDate).toLocaleDateString()}</p>
                                                 <p className="text-sm">
                                                     Start Time: {event.startTime}
                                                 </p>
@@ -215,7 +218,9 @@ const UpcomingSlider = ({data}) => {
                                                     </AlertDialogHeader>
                                                     <AlertDialogFooter>
                                                         <AlertDialogCancel>Close</AlertDialogCancel>
-
+                                                        <AlertDialogAction>
+                                                            <Link className="p-5 bg-red-500 text-white" href={`/eventView/${event._id}`}> View More</Link>
+                                                        </AlertDialogAction>
                                                     </AlertDialogFooter>
                                                 </AlertDialogContent>
                                             </AlertDialog>

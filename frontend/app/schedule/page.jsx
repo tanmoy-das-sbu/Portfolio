@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Image from "next/image";
+import Link from "next/link"
 import "./page.css"
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper/modules';
@@ -34,11 +35,16 @@ import {
 
 const SecondSection = () => {
     const [todaySchedule, setTodaySchedule] = useState([]);
-    const [tomorrowSchedule, setTomorrowSchedule] = useState([]);
-    const [upcomingEvent, setUpcomingEvent] = useState([]);
+
     const [flag, setFlag] = useState(false);
     const [flaghead, setFlaghead] = useState(false)
     const [date, setDate] = useState(new Date())
+
+
+    const handleKnowMore = () => {
+
+    }
+
     const setback = {
         border: `1px solid red`,
         backgroundImage: "url(" + { slide_image_1 } + ")"
@@ -97,43 +103,41 @@ const SecondSection = () => {
         let endMinutes = parseInt(endTimeParts[1], 10);
         let currentHours = currentDate.getHours();
         let currentMinutes = currentDate.getMinutes();
-        // if(currentDate >= startDateObj && currentDate <= endDateObj){
-        //console.log(startHours,endHours,startMinutes,endMinutes,currentDate,startDateObj,endDateObj,startDateObj.getDate()>=currentDate.getDate())//}
-        // Check if the current date is within the range of start date and end date
-        //sconsole.log(currentDate>=startDateObj ,currentDate,startDateObj,currentDate<endDateObj,endDate,currentDate,endDateObj)
-        if (currentDate>= startDateObj && currentDate <= endDateObj) {
+
+        // console.log(currentDate,startDateObj,endDateObj.getHours(),'mmm',currentDate>= startDateObj && currentDate <= endDateObj)
+        if (currentDate >= startDateObj && currentDate <= endDateObj || currentDate.getDate() == endDateObj.getDate()) {
             // If the current date is within the range, check if the current time is within the range of start time and end time
-            
+
             if (startTime.includes("PM") && endTime.includes('PM')) {
-                
-               startHours =  startHours + 12;
-               
-                 endHours = endHours + 12;
-                
-               console.log(startHours,endHours,currentMinutes,startMinutes)
-                if (
-                    (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
-                    (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
-                ) {
-                    return true; // Current date and time are within the schedule
-                }
 
+                startHours = startHours + 12;
 
-            }else if (endTime.includes("PM") && startTime.includes('AM')) {
                 endHours = endHours + 12;
-                console.log(startHours,endHours,currentMinutes,startMinutes)
+
+                console.log(startHours, endHours, currentMinutes, startMinutes)
                 if (
                     (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
                     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
                 ) {
                     return true; // Current date and time are within the schedule
                 }
-            }else if (endTime.includes("AM") && startTime.includes('PM')) {
-                
-                startHours = startHours+ 12;
-                
-                console.log(startHours,endHours,currentMinutes,startMinutes,(currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
-                (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes)))
+
+
+            } else if (endTime.includes("PM") && startTime.includes('AM')) {
+                endHours = endHours + 12;
+                console.log(startHours, endHours, currentMinutes, startMinutes)
+                if (
+                    (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
+                    (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
+                ) {
+                    return true; // Current date and time are within the schedule
+                }
+            } else if (endTime.includes("AM") && startTime.includes('PM')) {
+
+                startHours = startHours + 12;
+
+                console.log(startHours, endHours, currentMinutes, startMinutes, (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
+                    (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes)))
                 if (
                     (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
                     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
@@ -141,9 +145,9 @@ const SecondSection = () => {
                     return true; // Current date and time are within the schedule
                 }
             } else {
-                
-                console.log(startHours,endHours,currentMinutes,startMinutes,(currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
-                (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes)))
+
+                console.log(startHours, endHours, currentMinutes, startMinutes, (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
+                    (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes)))
                 if (
                     (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
                     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
@@ -156,6 +160,7 @@ const SecondSection = () => {
         }
 
         return false; // Current date and time are not within the schedule
+
     }
     return (
         <div className="bg-[#FFFFE0]">
@@ -244,7 +249,9 @@ const SecondSection = () => {
                                                                 </AlertDialogHeader>
                                                                 <AlertDialogFooter>
                                                                     <AlertDialogCancel>Close</AlertDialogCancel>
-
+                                                                    <AlertDialogAction>
+                                                                        <Link className="p-5 bg-red-500 text-white" href={`/eventView/${item._id}`}> View More</Link>
+                                                                    </AlertDialogAction>
                                                                 </AlertDialogFooter>
                                                             </AlertDialogContent>
                                                         </AlertDialog>
@@ -276,18 +283,3 @@ const SecondSection = () => {
 }
 
 export default SecondSection;
-
-
-{/* <Image src={slide_image_4} alt="slide_image" />
-                                            <div className='dateheading'>
-                                                   <div style={{height:'50%',display:'flex',flexDirection:'column',justifyContent:'center'}}>
-                                                    <h3 className='font-bold text-2xl md:text-4xl w-full text-center mb-5'>{item.heading}</h3>
-                                                    <h3>Timing: {item.startTime} - {item.endTime}</h3>
-                                                    </div>
-                                                    <div className='discriptioin'>
-                                                    <h5>{item.shortDescription}</h5>
-                                                    </div>
-
-                                                </div> */}
-
-{/* <h4 className='dateheading'>Date:{item.startTime}{index}</h4> */ }
