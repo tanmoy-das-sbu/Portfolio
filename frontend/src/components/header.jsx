@@ -2,12 +2,12 @@
 import "./header.css";
 import Image from "next/image";
 import Logo from "../assets/pkv.png"
-import NavigationMenuUI from './navigationBar';import { useEffect } from "react";
+import NavigationMenuUI from './navigationBar';import { useState,useEffect } from "react";
 
 
 const Nav = () => {
     const name = 'Dr. PRADIP VARMA';
-    
+    const [scroll,setScroll]=useState(0);
   
     useEffect(()=>{
   const handlescroll=()=>{
@@ -18,6 +18,10 @@ const Nav = () => {
     } else {
       header.classList.remove("fixed"); // Remove the "fixed" class if not scrolled to the top
     }
+    // if(nav.scrollTop==0){
+    //   nav.style.position='fixed';
+    //   console.log('fixed')
+    // }
   }
   window.addEventListener('scroll',handlescroll)
 

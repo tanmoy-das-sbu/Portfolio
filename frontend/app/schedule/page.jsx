@@ -35,8 +35,7 @@ import {
 
 const SecondSection = () => {
     const [todaySchedule, setTodaySchedule] = useState([]);
-    const [tomorrowSchedule, setTomorrowSchedule] = useState([]);
-    const [upcomingEvent, setUpcomingEvent] = useState([]);
+    
     const [flag, setFlag] = useState(false);
     const [flaghead, setFlaghead] = useState(false)
     const [date, setDate] = useState(new Date())
@@ -106,7 +105,7 @@ const SecondSection = () => {
         let currentMinutes = currentDate.getMinutes();
         
         // console.log(currentDate,startDateObj,endDateObj.getHours(),'mmm',currentDate>= startDateObj && currentDate <= endDateObj)
-        if (currentDate>= startDateObj && currentDate <= endDateObj) {
+        if (currentDate>= startDateObj && currentDate <= endDateObj||currentDate.getDate()==endDateObj.getDate()) {
             // If the current date is within the range, check if the current time is within the range of start time and end time
             
             if (startTime.includes("PM") && endTime.includes('PM')) {
