@@ -4,7 +4,11 @@
     background-color: #ffbe5d;
     padding: 10px;
 }
-
+.fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
 .header-main-div{
     z-index: 1000;
 }

@@ -104,10 +104,8 @@ const SecondSection = () => {
         let endMinutes = parseInt(endTimeParts[1], 10);
         let currentHours = currentDate.getHours();
         let currentMinutes = currentDate.getMinutes();
-        // if(currentDate >= startDateObj && currentDate <= endDateObj){
-        //console.log(startHours,endHours,startMinutes,endMinutes,currentDate,startDateObj,endDateObj,startDateObj.getDate()>=currentDate.getDate())//}
-        // Check if the current date is within the range of start date and end date
-        //sconsole.log(currentDate>=startDateObj ,currentDate,startDateObj,currentDate<endDateObj,endDate,currentDate,endDateObj)
+        
+        // console.log(currentDate,startDateObj,endDateObj.getHours(),'mmm',currentDate>= startDateObj && currentDate <= endDateObj)
         if (currentDate>= startDateObj && currentDate <= endDateObj) {
             // If the current date is within the range, check if the current time is within the range of start time and end time
             

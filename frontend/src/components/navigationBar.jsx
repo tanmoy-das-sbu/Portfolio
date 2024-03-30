@@ -1,12 +1,12 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './navigationBar.css';
 import { Cross1Icon, HamburgerMenuIcon } from '@radix-ui/react-icons';
-Cross1Icon
+
 const NavigationMenuDemo = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
