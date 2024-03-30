@@ -73,6 +73,10 @@
     .icons-div {
         width: 40%;
     }
+
+    .social-icons {
+        padding: 4px !important;
+    }
 }
 
 @media (max-width: 640px) {
