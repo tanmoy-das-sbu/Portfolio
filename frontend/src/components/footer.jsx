@@ -30,6 +30,7 @@ const Footer = () => {
                         <li><span>&gt;&gt;</span> Articles</li>
                         <li><span>&gt;&gt;</span> Biography</li>
                         <Link href={`/contact`}><li><span>&gt;&gt;</span> Contact Us</li></Link>
+                        <Link href={`/aboutUs`}><li><span>&gt;&gt;</span> About</li></Link>
                     </ul>
                 </section>
                 <section className="footer-section">

@@ -47,7 +47,7 @@ const NavigationMenuDemo = () => {
         <Link className="nav__link" href={`/schedule`}>Home</Link>
         </li>
         <li className="nav__item">
-          <a href="#" className="nav__link">About</a>
+        <Link className="nav__link" href={`/aboutUs`}>About</Link>
         </li>
         <li className="nav__item">
           <a href="#" className="nav__link">Projects</a>
