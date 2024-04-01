@@ -114,7 +114,7 @@ const SecondSection = () => {
 
                 endHours = endHours + 12;
 
-                console.log(startHours, endHours, currentMinutes, startMinutes)
+                //console.log(startHours, endHours, currentMinutes, startMinutes)
                 if (
                     (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
                     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
@@ -146,8 +146,8 @@ const SecondSection = () => {
                 }
             } else {
 
-                console.log(startHours, endHours, currentMinutes, startMinutes, (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
-                    (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes)))
+                // console.log(startHours, endHours, currentMinutes, startMinutes, (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
+                //     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes)))
                 if (
                     (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
                     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
@@ -184,6 +184,8 @@ const SecondSection = () => {
                             selected={date}
                             onSelect={setDate}
                             initialFocus
+                            className="bg-green-100 text-gray-700 calender
+                            "
                         />
                     </PopoverContent>
                 </Popover>
