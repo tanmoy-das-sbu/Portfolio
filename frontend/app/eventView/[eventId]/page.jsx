@@ -5,6 +5,7 @@ import axios from 'axios';
 import { formatDate } from '../../../src/utils/dateFormat';
 import Image from 'next/image'
 import PlaceIcon from '@mui/icons-material/Place';
+import Loading from '@/components/loading';
 
 const EventDetails = ({ params }) => {
     const [data, setData] = useState('');
@@ -24,7 +25,11 @@ const EventDetails = ({ params }) => {
     }, [params.eventId]);
 
     if (!data) {
-        return <div>Loading...</div>;
+        return (
+            <div>
+                <Loading />
+            </div>
+        )
     }
 
     const isImageFromAllowedDomain = data.imageUrl.startsWith('https://res.cloudinary.com/neeleshks/image/upload');
