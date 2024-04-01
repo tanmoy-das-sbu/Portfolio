@@ -7,6 +7,7 @@ import Schedule from "./src/routes/schedule.route.js";
 import session from 'express-session';
 import passport from 'passport';
 import LocalStrategy from 'passport-local';
+import Contact from "./src/routes/contact.route.js";
 
 dotenv.config({
   path: "./env",
@@ -58,6 +59,7 @@ passport.deserializeUser((id, done) => {
 connectDB()
   .then(() => {
     app.use('/Schedule', Schedule);
+    app.use('/Contact', Contact);
 
     app.post('/login',
       passport.authenticate('local', { failureRedirect: '/login-failure' }),
