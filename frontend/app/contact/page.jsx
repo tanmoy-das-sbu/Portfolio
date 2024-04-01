@@ -26,7 +26,6 @@ const Contact = () => {
             const payload = { name, subject, email, mobile, message };
             const response = await axios.post('http://localhost:8000/Contact/Add', payload);
             if (response.status === 200) {
-                console.log("Data sent successfully:", response.data);
                 setData({ name: "", subject: "", email: "", mobile: "", message: "" });
                 setError("");
             } else {
@@ -88,7 +87,13 @@ const Contact = () => {
                         <br />
                         <div>
                             <h5 className="text-2xl font-semibold">Office:</h5>
-                            <hr style={{border:"1px solid", margin:"8px 0"}} />
+                            <hr style={{borderColor:"black", margin:"8px 0"}} />
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, nihil!</p>
+                            <p>Email: <u><a href="mailto:example@gmail.com" style={{color:"#FF9500"}}>example@gmail.com</a></u></p>
+                            <p>Tel.- <u><a href="tel:1234567890" style={{color:"#FF9500"}}>1234567890</a></u></p>
+                            <br />
+                            <h5 className="text-2xl font-semibold">Residential:</h5>
+                            <hr style={{borderColor:"black", margin:"8px 0"}} />
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, nihil!</p>
                             <p>Email: <u><a href="mailto:example@gmail.com" style={{color:"#FF9500"}}>example@gmail.com</a></u></p>
                             <p>Tel.- <u><a href="tel:1234567890" style={{color:"#FF9500"}}>1234567890</a></u></p>
