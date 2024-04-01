@@ -5,6 +5,7 @@ import axios from 'axios';
 import { formatDate } from '../../../src/utils/dateFormat';
 import Image from 'next/image'
 import PlaceIcon from '@mui/icons-material/Place';
+import Loading from '@/components/loading';
 
 const EventDetails = ({ params }) => {
     const [data, setData] = useState('');
@@ -24,18 +25,22 @@ const EventDetails = ({ params }) => {
     }, [params.eventId]);
 
     if (!data) {
-        return <div>Loading...</div>;
+        return (
+            <div>
+                <Loading />
+            </div>
+        )
     }
 
     const isImageFromAllowedDomain = data.imageUrl.startsWith('https://res.cloudinary.com/neeleshks/image/upload');
 
     return (
         <div className='container pt-12 pb-4'>
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <h1 class="font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+                <h1 className="font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                     {data.heading}
                 </h1>
-                <div class="flex flex-row gap-6 items-center text-sm md:text-base lg:text-lg xl:text-xl">
+                <div className="flex flex-row gap-6 items-center text-sm md:text-base lg:text-lg xl:text-xl">
                     <span>
                         <span style={{ color: '#0A76F7' }}><PlaceIcon /></span><span>{data.location}</span>
                     </span>

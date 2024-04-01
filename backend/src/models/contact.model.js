@@ -7,11 +7,11 @@ const contactSchema = new mongoose.Schema({
     },
     subject: {
         type: String,
-        required: true
+        required: false
     },
     email: {
         type: String,
-        required: true
+        required: false
     },
     mobile: {
         type: Number,

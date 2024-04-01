@@ -31,7 +31,8 @@ import {
     AlertDialogHeader,
     AlertDialogTitle,
     AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
+} from "@/components/ui/alert-dialog";
+import Loading from '@/components/loading';
 
 const SecondSection = () => {
     const [todaySchedule, setTodaySchedule] = useState([]);
@@ -114,7 +115,7 @@ const SecondSection = () => {
 
                 endHours = endHours + 12;
 
-                console.log(startHours, endHours, currentMinutes, startMinutes)
+                //console.log(startHours, endHours, currentMinutes, startMinutes)
                 if (
                     (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
                     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
@@ -146,8 +147,8 @@ const SecondSection = () => {
                 }
             } else {
 
-                console.log(startHours, endHours, currentMinutes, startMinutes, (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
-                    (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes)))
+                // console.log(startHours, endHours, currentMinutes, startMinutes, (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
+                //     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes)))
                 if (
                     (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
                     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
@@ -162,6 +163,15 @@ const SecondSection = () => {
         return false; // Current date and time are not within the schedule
 
     }
+
+    if (!flag) {
+        return (
+            <div>
+                <Loading />
+            </div>
+        )
+    }
+
     return (
         <div className="bg-[#FFFFE0]">
             <div className='container m-auto date-pic-div flex flex-row justify-center mt-2'>
@@ -184,6 +194,8 @@ const SecondSection = () => {
                             selected={date}
                             onSelect={setDate}
                             initialFocus
+                            className="bg-green-100 text-gray-700 calender
+                            "
                         />
                     </PopoverContent>
                 </Popover>
@@ -230,9 +242,9 @@ const SecondSection = () => {
 
                                                     <img className="w-full" src="https://tse1.mm.bing.net/th?id=OIP.stuO9HtrREb2xPI9Tlu0LgHaHr&pid=Api&rs=1&c=1&qlt=95&w=119&h=124" alt="Sunset in the mountains" />
                                                     <div className="bg-slate-200 px-6 py-4">
-                                                        {isCurrentDateWithinSchedule(item.startDate, item.endDate, item.startTime, item.endTime) ? <div style={{ display: "flex", gap: '10px', justifyContent: 'center' }}><span class="relative flex h-3 w-3">
-                                                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                                                            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                                                        {isCurrentDateWithinSchedule(item.startDate, item.endDate, item.startTime, item.endTime) ? <div style={{ display: "flex", gap: '10px', justifyContent: 'center' }}><span className="relative flex h-3 w-3">
+                                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                                                            <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                                                         </span><div style={{ marginTop: '-5px' }}>Live</div></div> : <div></div>}
                                                         <div className="font-bold text-2xl mb-2">{item.heading}</div>
                                                         <h4 className='font-bold text-lg mb-2'>Timing: {item.startTime} - {item.endTime}</h4>

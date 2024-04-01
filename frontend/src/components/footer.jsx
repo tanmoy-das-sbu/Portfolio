@@ -12,7 +12,7 @@ import twitter from '../assets/icons/twitter.svg';
 import instagram from '../assets/icons/instagram.svg';
 import youtube from '../assets/icons/youtube.svg';
 import facebook from '../assets/icons/facebook.svg';
-
+import Link from 'next/link';
 
 const Footer = () => {
 
@@ -29,7 +29,8 @@ const Footer = () => {
                         <li><span>&gt;&gt;</span> Blog</li>
                         <li><span>&gt;&gt;</span> Articles</li>
                         <li><span>&gt;&gt;</span> Biography</li>
-                        <li><span>&gt;&gt;</span> Contact Us</li>
+                        <Link href={`/contact`}><li><span>&gt;&gt;</span> Contact Us</li></Link>
+                        <Link href={`/aboutUs`}><li><span>&gt;&gt;</span> About</li></Link>
                     </ul>
                 </section>
                 <section className="footer-section">
