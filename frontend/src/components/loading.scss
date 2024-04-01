@@ -1,0 +1,230 @@
+// .center {
+//     height: 50vh;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     background: white;
+//   }
+//   .wave {
+//     width: 5px;
+//     height: 100px;
+//     background: linear-gradient(45deg, #000, #1c1c1c);
+//     margin: 10px;
+//     animation: wave 1s linear infinite;
+//     border-radius: 20px;
+//   }
+//   .wave:nth-child(2) {
+//     animation-delay: 0.1s;
+//   }
+//   .wave:nth-child(3) {
+//     animation-delay: 0.2s;
+//   }
+//   .wave:nth-child(4) {
+//     animation-delay: 0.3s;
+//   }
+//   .wave:nth-child(5) {
+//     animation-delay: 0.4s;
+//   }
+//   .wave:nth-child(6) {
+//     animation-delay: 0.5s;
+//   }
+//   .wave:nth-child(7) {
+//     animation-delay: 0.6s;
+//   }
+//   .wave:nth-child(8) {
+//     animation-delay: 0.7s;
+//   }
+//   .wave:nth-child(9) {
+//     animation-delay: 0.8s;
+//   }
+//   .wave:nth-child(10) {
+//     animation-delay: 0.9s;
+//   }
+
+//   @keyframes wave {
+//     0% {
+//       transform: scale(0);
+//     }
+//     50% {
+//       transform: scale(1);
+//     }
+//     100% {
+//       transform: scale(0);
+//     }
+//   }
+
+
+.loader {
+  --path: #2F3545;
+  --dot: #5628EE;
+  --duration: 3s;
+  width: 44px;
+  height: 44px;
+  position: relative;
+
+  &:before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+    display: block;
+    background: var(--dot);
+    top: 37px;
+    left: 19px;
+    transform: translate(-18px, -18px);
+    animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    rect,
+    polygon,
+    circle {
+      fill: none;
+      stroke: var(--path);
+      stroke-width: 10px;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+    }
+
+    polygon {
+      stroke-dasharray: 145 (221 - 145) 145 (221 - 145);
+      stroke-dashoffset: 0;
+      animation: pathTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+    }
+
+    rect {
+      stroke-dasharray: (256 / 4 * 3) (256 / 4) (256 / 4 * 3) (256 / 4);
+      stroke-dashoffset: 0;
+      animation: pathRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+    }
+
+    circle {
+      stroke-dasharray: (200 / 4 * 3) (200 / 4) (200 / 4 * 3) (200 / 4);
+      stroke-dashoffset: 75;
+      animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+    }
+  }
+
+  &.triangle {
+    width: 48px;
+
+    &:before {
+      left: 21px;
+      transform: translate(-10px, -18px);
+      animation: dotTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+    }
+  }
+}
+
+@keyframes pathTriangle {
+  33% {
+    stroke-dashoffset: 74;
+  }
+
+  66% {
+    stroke-dashoffset: 147;
+  }
+
+  100% {
+    stroke-dashoffset: 221;
+  }
+}
+
+@keyframes dotTriangle {
+  33% {
+    transform: translate(0, 0);
+  }
+
+  66% {
+    transform: translate(10px, -18px);
+  }
+
+  100% {
+    transform: translate(-10px, -18px);
+  }
+}
+
+@keyframes pathRect {
+  25% {
+    stroke-dashoffset: 64;
+  }
+
+  50% {
+    stroke-dashoffset: 128;
+  }
+
+  75% {
+    stroke-dashoffset: 192;
+  }
+
+  100% {
+    stroke-dashoffset: 256;
+  }
+}
+
+@keyframes dotRect {
+  25% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(18px, -18px);
+  }
+
+  75% {
+    transform: translate(0, -36px);
+  }
+
+  100% {
+    transform: translate(-18px, -18px);
+  }
+}
+
+@keyframes pathCircle {
+  25% {
+    stroke-dashoffset: 125;
+  }
+
+  50% {
+    stroke-dashoffset: 175;
+  }
+
+  75% {
+    stroke-dashoffset: 225;
+  }
+
+  100% {
+    stroke-dashoffset: 275;
+  }
+}
+
+.loader {
+  display: inline-block;
+  margin: 0 16px;
+}
+
+// Center & dribbble
+.loading {
+  min-height: 50vh;
+  background: #F5F9FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .dribbble {
+    position: fixed;
+    display: block;
+    right: 20px;
+    bottom: 20px;
+
+    img {
+      display: block;
+      height: 28px;
+    }
+  }
+}
