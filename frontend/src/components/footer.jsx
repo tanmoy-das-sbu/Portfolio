@@ -1,10 +1,6 @@
 "use client"
 import './footer.css';
 import { Input } from '@/components/ui/input';
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
-import XIcon from '@mui/icons-material/X';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import {
     Tooltip,
     TooltipContent,
@@ -52,8 +48,7 @@ const Footer = () => {
                             <TooltipProvider>
                                 <Tooltip>
                                     <TooltipTrigger>
-                                        {/* <FacebookRoundedIcon className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 text-blue-500 social-icons"/> */}
-                                        <i><Image src={facebook} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></i>
+                                        <a href="https://www.facebook.com" target='_blank'><Image src={facebook} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></a>
                                     </TooltipTrigger>
                                     <TooltipContent>
                                         <p>Facebook</p>
@@ -61,8 +56,7 @@ const Footer = () => {
                                 </Tooltip>
                                 <Tooltip>
                                     <TooltipTrigger>
-                                        {/* <XIcon className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 text-black social-icons" /> */}
-                                        <i><Image src={twitter} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></i>
+                                        <a href="https://twitter.com" target='_blank'><Image src={twitter} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></a>
                                     </TooltipTrigger>
                                     <TooltipContent>
                                         <p>Twitter</p>
@@ -70,8 +64,7 @@ const Footer = () => {
                                 </Tooltip>
                                 <Tooltip>
                                     <TooltipTrigger>
-                                        {/* <YouTubeIcon className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 text-red-500 social-icons" /> */}
-                                        <i><Image src={youtube} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></i>
+                                        <a href="https://www.youtube.com" target='_blank'><Image src={youtube} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></a>
                                     </TooltipTrigger>
                                     <TooltipContent>
                                         <p>Youtube</p>
@@ -79,8 +72,7 @@ const Footer = () => {
                                 </Tooltip>
                                 <Tooltip>
                                     <TooltipTrigger>
-                                        {/* <InstagramIcon className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons"  style={{ background: 'linear-gradient(115deg, #f9ce34, #ee2a7b, #6228d7)' }} /> */}
-                                        <i><Image src={instagram} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></i>
+                                        <a href="https://www.instagram.com" target='_blank'><Image src={instagram} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></a>
                                     </TooltipTrigger>
                                     <TooltipContent>
                                         <p>Instagram</p>
@@ -101,7 +93,7 @@ const Footer = () => {
                             <p>Email: <u><a href="mailto:example@gmail.com">example@gmail.com</a></u></p>
                             <p>Tel.- <u><a href="tel:1234567890">1234567890</a></u></p>
                         </div>
-                        <div className='.social-div'>
+                        <div>
 
                         </div>
                     </div>
