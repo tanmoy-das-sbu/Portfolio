@@ -60,10 +60,10 @@ const NavigationMenuDemo = () => {
         </li>
       </ul>
       <a id="hamburger" href="#navmenu" title="menu" className="nav__hamburger">
-      <HamburgerMenuIcon  height={'22px'} width={'22px'} />
+      <HamburgerMenuIcon  height={'22px'} width={'22px'} style={{marginTop:'auto',marginBottom:'auto'}} />
       </a>
     </div>
-    <a href="#!" title="close menu" className="nav__hamburgerclose"><Cross1Icon height={'22px'} width={'22px'} /></a>
+    <a href="#!" title="close menu" className="nav__hamburgerclose"><Cross1Icon height={'22px'} width={'22px'} style={{marginTop:'auto',marginBottom:'auto'}}/></a>
   </div>
 
 </nav>
