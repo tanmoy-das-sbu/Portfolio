@@ -31,7 +31,8 @@ import {
     AlertDialogHeader,
     AlertDialogTitle,
     AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
+} from "@/components/ui/alert-dialog";
+import Loading from '@/components/loading';
 
 const SecondSection = () => {
     const [todaySchedule, setTodaySchedule] = useState([]);
@@ -162,6 +163,15 @@ const SecondSection = () => {
         return false; // Current date and time are not within the schedule
 
     }
+
+    if (!flag) {
+        return (
+            <div>
+                <Loading />
+            </div>
+        )
+    }
+
     return (
         <div className="bg-[#FFFFE0]">
             <div className='container m-auto date-pic-div flex flex-row justify-center mt-2'>
