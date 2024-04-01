@@ -44,6 +44,9 @@ const NavigationMenuDemo = () => {
     <div className="nav__listcontainer" tabIndex="0">
       <ul className="nav__menu" id="navmenu">
         <li className="nav__item">
+        <Link className="nav__link" href={`/schedule`}>Home</Link>
+        </li>
+        <li className="nav__item">
           <a href="#" className="nav__link">About</a>
         </li>
         <li className="nav__item">
