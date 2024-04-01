@@ -58,11 +58,8 @@ const UpcomingSlider = ({ data }) => {
         async function fetchScheduleUpcoming() {
             try {
                 const upcomingEvent = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/UpcomingSchedules`);
-                console.log("upcomingEvent:", upcomingEvent.data[`tasks`], upcomingEvent.data);
                 setUpcomingEvent(upcomingEvent.data)
-
                 const ongoingevent = await axios.get('https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/OnGoingEvent');
-                console.log("Ongoing Event:", ongoingevent);
                 setOngoing(ongoingevent.data[`ongoingEvents`]);
             } catch (err) {
                 if (err.error && err.error.message) {

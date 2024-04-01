@@ -30,7 +30,7 @@ const Nav = () => {
     <div className="header">
         <div className="w-max-md h-fit bg-[#ffbe5d] p-3 sticky top-0 z-30">
             <div className="container flex flex-row justify-around" >
-                <div className="">
+                <div className="mt-auto mb-auto">
                     <u className="text-white"><h2 className="font-bold md:text-4xl text-xl text-white" >{name}</h2></u>    
                     <p className="font-bold md:text-3lg text-lg text-white">Member-Elect, Rajya Sabha</p>
                     <p className="font-bold md:text-3lg text-lg text-white">General Secretary, BJP</p>
