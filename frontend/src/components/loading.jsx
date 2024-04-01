@@ -1,7 +1,5 @@
 "use client";
 import "./loading.scss";
-import Image from "next/image";
-import loader from "../assets/images/loader.gif"
 
 const Loading = () => {
     return (
@@ -36,7 +34,6 @@ const Loading = () => {
                     <rect x="8" y="8" width="64" height="64"></rect>
                 </svg>
             </div>
-            {/* <a className="dribbble" href="https://dribbble.com/shots/5878367-Loaders" target="_blank"><Image src={loader} width={100} height={100} alt="" /></a> */}
         </div>
     )
 }
