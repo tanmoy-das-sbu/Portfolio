@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import './navigationBar.css';
 import { Cross1Icon, HamburgerMenuIcon } from '@radix-ui/react-icons';
+import Link from 'next/link';
 
 const NavigationMenuDemo = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -49,7 +50,7 @@ const NavigationMenuDemo = () => {
           <a href="#" className="nav__link">Projects</a>
         </li>
         <li className="nav__item">
-          <a href="#" className="nav__link">Contact</a>
+        <Link href={`/contact`}>Contact</Link>
         </li>
         <li className="nav__item">
           <a href="#" className="nav__link">Blog</a>
