@@ -9,23 +9,23 @@ const Nav = () => {
     const name = 'Dr. PRADIP VARMA';
     const [scroll,setScroll]=useState(0);
   
-//     useEffect(()=>{
-//   const handlescroll=()=>{
-//     let header=document.getElementsByClassName('header')[0];
-//     var scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-//     if (scrollPosition > header.offsetTop) {
-//       header.classList.add("fixed"); // Add the "fixed" class to make the navbar fixed
-//     } else {
-//       header.classList.remove("fixed"); // Remove the "fixed" class if not scrolled to the top
-//     }
-//     // if(nav.scrollTop==0){
-//     //   nav.style.position='fixed';
-//     //   console.log('fixed')
-//     // }
-//   }
-//   window.addEventListener('scroll',handlescroll)
+    useEffect(()=>{
+  const handlescroll=()=>{
+    let header=document.getElementsByClassName('header')[0];
+    var scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (scrollPosition > header.offsetTop) {
+      header.classList.add("fixed"); // Add the "fixed" class to make the navbar fixed
+    } else {
+      header.classList.remove("fixed"); // Remove the "fixed" class if not scrolled to the top
+    }
+    // if(nav.scrollTop==0){
+    //   nav.style.position='fixed';
+    //   console.log('fixed')
+    // }
+  }
+  window.addEventListener('scroll',handlescroll)
 
-//  },[scroll])
+ },[scroll])
     return (
     <div className="header">
         <div className="w-max-md h-fit bg-[#ffbe5d] p-3 sticky top-0 z-30">
