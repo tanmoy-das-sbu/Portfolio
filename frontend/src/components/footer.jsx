@@ -34,13 +34,13 @@ const Footer = () => {
                     </ul>
                 </section>
                 <section className="footer-section">
-                    <h2 className='font-bold'>Subscribe Newsletter</h2>
+                    {/* <h2 className='font-bold'>Subscribe Newsletter</h2>
                     <hr />
                     <br />
                     <div className="flex items-center">
                         <Input id="email" placeholder="Enter your Email" type="email" name="email" className="h-10" />
                         <button className="ml-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 h-10 text-sm flex justify-center items-center">Subscribe</button>
-                    </div>
+                    </div> */}
 
                     <div className='social-div'>
                         <h2 className='font-bold'>Socials</h2>
