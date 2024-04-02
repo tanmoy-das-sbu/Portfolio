@@ -6,7 +6,9 @@
   height: 44px;
   position: relative;
 }
-
+.header{
+  position: fixed;
+}
 .loader:before {
   content: '';
   width: 6px;
