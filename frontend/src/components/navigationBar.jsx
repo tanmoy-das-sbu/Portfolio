@@ -24,7 +24,10 @@ const NavigationMenuDemo = () => {
               <Link className="nav__link" href={`/aboutUs`}>About</Link>
             </li>
             <li className="nav__item">
-              <a href="#" className="nav__link">Projects</a>
+              <a href="#" className="nav__link">Gallery</a>
+            </li>
+            <li className="nav__item">
+              <a href="#" className="nav__link">Socials</a>
             </li>
             <li className="nav__item">
               <Link className="nav__link" href={`/contact`}>Contact</Link>
