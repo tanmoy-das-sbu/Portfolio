@@ -38,6 +38,7 @@ const SecondSection = () => {
     const [todaySchedule, setTodaySchedule] = useState([]);
 
     const [flag, setFlag] = useState(false);
+    const [load, setLoad] = useState(false);
     const [flaghead, setFlaghead] = useState(false)
     const [date, setDate] = useState(new Date())
 
@@ -70,6 +71,12 @@ const SecondSection = () => {
                 //console.log(todayFormatted, `todayFormatted`)
                 // const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
                 const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
+                if (todayResponse) {
+                    setLoad(true);
+                }
+                else {
+                    setLoad(false);
+                }
                 setFlag(true)
                 //console.log('Today Response:', todayResponse, todayFormatted);
                 if (todayResponse.status == 204 || todayResponse.data.length == 0) {
@@ -164,7 +171,7 @@ const SecondSection = () => {
 
     }
 
-    if (!flag) {
+    if (!load) {
         return (
             <div>
                 <Loading />
