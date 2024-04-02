@@ -79,8 +79,9 @@
     opacity: 0;
     position: fixed;
     visibility: none;
-    top: -1050px;
+    top: -1000px;
     margin-top: 10px;
+    left: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
