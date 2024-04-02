@@ -80,6 +80,7 @@
     position: fixed;
     visibility: none;
     top: -1000px;
+    margin-top: 10px;
     left: 15px;
     display: flex;
     flex-direction: column;
