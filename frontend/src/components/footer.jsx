@@ -49,7 +49,7 @@ const Footer = () => {
                             <TooltipProvider>
                                 <Tooltip>
                                     <TooltipTrigger>
-                                        <a href="https://www.facebook.com" target='_blank'><Image src={facebook} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></a>
+                                        <a href="https://www.facebook.com/pkvarmaranchi" target='_blank'><Image src={facebook} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></a>
                                     </TooltipTrigger>
                                     <TooltipContent>
                                         <p>Facebook</p>
@@ -57,7 +57,7 @@ const Footer = () => {
                                 </Tooltip>
                                 <Tooltip>
                                     <TooltipTrigger>
-                                        <a href="https://twitter.com" target='_blank'><Image src={twitter} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></a>
+                                        <a href="https://twitter.com/pkvarmaranchi" target='_blank'><Image src={twitter} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></a>
                                     </TooltipTrigger>
                                     <TooltipContent>
                                         <p>Twitter</p>
@@ -73,7 +73,7 @@ const Footer = () => {
                                 </Tooltip>
                                 <Tooltip>
                                     <TooltipTrigger>
-                                        <a href="https://www.instagram.com" target='_blank'><Image src={instagram} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></a>
+                                        <a href="https://www.instagram.com/pkvarmaranchi" target='_blank'><Image src={instagram} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></a>
                                     </TooltipTrigger>
                                     <TooltipContent>
                                         <p>Instagram</p>
