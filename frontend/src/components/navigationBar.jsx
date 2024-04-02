@@ -53,7 +53,7 @@ const NavigationMenuDemo = () => {
           <a href="#" className="nav__link">Projects</a>
         </li>
         <li className="nav__item">
-        <Link href={`/contact`}>Contact</Link>
+        <Link className="nav__link" href={`/contact`}>Contact</Link>
         </li>
         <li className="nav__item">
           <a href="#" className="nav__link">Blog</a>
