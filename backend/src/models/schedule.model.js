@@ -105,6 +105,10 @@ const scheduleSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    eventType: {
+        type: String,
+        required: false
+    },
     tasks: [taskSchema]
 }, {
     versionKey: false
