@@ -27,7 +27,7 @@ const NavigationMenuDemo = () => {
               <a href="#" className="nav__link">Gallery</a>
             </li>
             <li className="nav__item">
-              <a href="#" className="nav__link">Socials</a>
+              <Link className="nav__link" href={`/socials`}>Socials</Link>
             </li>
             <li className="nav__item">
               <Link className="nav__link" href={`/contact`}>Contact</Link>

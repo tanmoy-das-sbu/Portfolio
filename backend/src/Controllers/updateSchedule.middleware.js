@@ -3,12 +3,12 @@ import Schedule from '../models/schedule.model.js';
 const updateScheduleByIdMiddleware = async (req, res) => {
     try {
         const { id } = req.params;
-        const { startDate, endDate, startTime, endTime, priority, heading, shortDescription, location, imageUrl, visibility, tasks } = req.body;
+        const { startDate, endDate, startTime, endTime, priority, heading, shortDescription, location, imageUrl, visibility, eventType, tasks } = req.body;
 
         const updatedSchedule = await Schedule.findByIdAndUpdate(id, {
             startDate, endDate, startTime, endTime, priority,
             heading, shortDescription, location, imageUrl,
-            visibility, tasks
+            visibility, tasks, eventType
         }, { new: true });
 
         if (!updatedSchedule) {

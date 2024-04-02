@@ -3,13 +3,13 @@ import Schedule from '../models/schedule.model.js';
 const addScheduleMiddleware = async (req, res) => {
     try {
         const { startDate, endDate, startTime, endTime, priority, heading, shortDescription, location, imageUrl, visibility, scheduleVisibility,
-        scheduleDate, scheduleTime, tasks } = req.body;
+            scheduleDate, scheduleTime, eventType, tasks } = req.body;
 
         const newSchedule = new Schedule({
             startDate, endDate, startTime, endTime, priority,
             heading, shortDescription, location, imageUrl,
-            visibility, scheduleVisibility, scheduleDate, scheduleTime, 
-            tasks
+            visibility, scheduleVisibility, scheduleDate, scheduleTime,
+            tasks, eventType
         });
 
         const savedSchedule = await newSchedule.save();

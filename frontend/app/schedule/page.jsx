@@ -201,8 +201,6 @@ const SecondSection = () => {
                             selected={date}
                             onSelect={setDate}
                             initialFocus
-                            className="bg-green-100 text-gray-700 calender
-                            "
                         />
                     </PopoverContent>
                 </Popover>
