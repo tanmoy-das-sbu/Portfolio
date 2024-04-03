@@ -13,11 +13,11 @@ import { AlignJustify, Globe } from "lucide-react"
 import Link from "next/link";
 
 const Buttons = () => {
-    return (<div className=" fixed right-0 top-[200px] z-30" >
-        <div className="flex items-center justify-center">
+    return (<div className="w-full bg-slate-800 fixed right-0 top-[200px] z-30" >
+        <div className="flex items-center justify-end">
             <div className="lg:hidden">
                 <Sheet>
-                    <SheetTrigger className="p-5"><AlignJustify /></SheetTrigger>
+                    <SheetTrigger className="w-full p-3"><AlignJustify className="text-white" /></SheetTrigger>
                     <SheetContent>
                         <SheetHeader>
                             <SheetDescription>
