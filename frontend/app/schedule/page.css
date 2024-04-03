@@ -34,9 +34,7 @@
   }
 }
 
-.swiper-div {
-  background: url('../../src/assets/images/img_4.jpg');
-}
+
 
 .swiper-slide img {
   width: 20rem !important;
@@ -110,7 +108,7 @@
 .swiper-pagination {
   position: relative;
   width: 15rem !important;
-  bottom: 2rem !important;
+  bottom: -2rem !important;
 }
 
 .swiper-pagination .swiper-pagination-bullet {

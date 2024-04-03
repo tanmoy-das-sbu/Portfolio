@@ -6,7 +6,7 @@ import './page.css';
 import { useState } from "react";
 import axios from "axios";
 import Image from "next/image";
-import LocationIcon from "../../src/assets/icons/location.svg"
+import LocationIcon from "../../public/images/icons/location.svg"
 
 const Contact = () => {
 
@@ -46,7 +46,7 @@ const Contact = () => {
 
     return (
         <div >
-            <section className='container contact-body mx-auto mt-8'>
+            <section className='container contact-body mx-auto mt-[280px]'>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-2'>
                     <div className='contact-form'>
                         <form className="flex flex-col w-full gap-3" onSubmit={submit}>

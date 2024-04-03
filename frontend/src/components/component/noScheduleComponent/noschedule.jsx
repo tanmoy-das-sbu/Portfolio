@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 import Image from 'next/image'
-import noContentImage from '../../src/assets/nocontent.jpg';
+import noContentImage from '../../../../public/images/noScheduleImages/noschedule.jpg';
 import './nav.css';
 
 const NoSchedule = () => {
