@@ -38,6 +38,7 @@ const SecondSection = () => {
     const [todaySchedule, setTodaySchedule] = useState([]);
 
     const [flag, setFlag] = useState(false);
+    const [load, setLoad] = useState(false);
     const [flaghead, setFlaghead] = useState(false)
     const [date, setDate] = useState(new Date())
 
@@ -70,6 +71,12 @@ const SecondSection = () => {
                 //console.log(todayFormatted, `todayFormatted`)
                 // const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
                 const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
+                if (todayResponse) {
+                    setLoad(true);
+                }
+                else {
+                    setLoad(false);
+                }
                 setFlag(true)
                 //console.log('Today Response:', todayResponse, todayFormatted);
                 if (todayResponse.status == 204 || todayResponse.data.length == 0) {
@@ -164,7 +171,7 @@ const SecondSection = () => {
 
     }
 
-    if (!flag) {
+    if (!load) {
         return (
             <div>
                 <Loading />
@@ -174,7 +181,7 @@ const SecondSection = () => {
 
     return (
         <div className="bg-[#FFFFE0]">
-            <div className='container m-auto date-pic-div flex flex-row justify-center mt-2'>
+            <div className='container  date-pic-div flex flex-row justify-center pt-4'>
                 <Popover>
                     <PopoverTrigger asChild>
                         <Button
@@ -194,8 +201,6 @@ const SecondSection = () => {
                             selected={date}
                             onSelect={setDate}
                             initialFocus
-                            className="bg-green-100 text-gray-700 calender
-                            "
                         />
                     </PopoverContent>
                 </Popover>
@@ -237,7 +242,7 @@ const SecondSection = () => {
                                         <SwiperSlide className='' key={index}>
 
 
-                                            <div className='w-full flex items-center justify-center'>
+                                            <div className='w-full flex items-center justify-center pt-8px'>
                                                 <div className="max-w-sm rounded-xl overflow-hidden text-center w-full" style={{ boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px", backgroundColor: "#f7f7f7" }}>
 
                                                     <img className="w-full" src="https://tse1.mm.bing.net/th?id=OIP.stuO9HtrREb2xPI9Tlu0LgHaHr&pid=Api&rs=1&c=1&qlt=95&w=119&h=124" alt="Sunset in the mountains" />
@@ -262,7 +267,7 @@ const SecondSection = () => {
                                                                 <AlertDialogFooter>
                                                                     <AlertDialogCancel>Close</AlertDialogCancel>
                                                                     <AlertDialogAction>
-                                                                        <Link className="p-5 bg-red-500 text-white" href={`/eventView/${item._id}`}> View More</Link>
+                                                                        <Link className="p-5  text-white" href={`/eventView/${item._id}`}> View More</Link>
                                                                     </AlertDialogAction>
                                                                 </AlertDialogFooter>
                                                             </AlertDialogContent>

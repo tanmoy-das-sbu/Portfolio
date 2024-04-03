@@ -12,7 +12,7 @@ const Nav = () => {
     useEffect(()=>{
   const handlescroll=()=>{
     let header=document.getElementsByClassName('header')[0];
-    var scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var scrollPosition = window.pageYOffset ;
     if (scrollPosition > header.offsetTop) {
       header.classList.add("fixed"); // Add the "fixed" class to make the navbar fixed
     } else {
@@ -37,7 +37,7 @@ const Nav = () => {
                     <p className="font-bold md:text-3lg text-lg text-white">Jharkhand</p>
                 </div>
                 <div className="flex items-center bg-white rounded-full p-3 ">
-                    <Image  src={Logo} alt="slide_image" className="w-[80px] h-[80px] rounded-full  border-xl-white-600 " draggable="false"/>
+                    <Image  src={Logo} alt="slide_image" className="header-logo-image border-xl-white-600 " draggable="false"/>
                 </div>
             </div>
         </div>

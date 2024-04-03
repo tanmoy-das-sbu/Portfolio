@@ -1,21 +1,8 @@
 "use client";
-import "./loading.scss";
+import "./loading.css";
 
 const Loading = () => {
     return (
-        // <div className="center">
-        //     <div className="wave"></div>
-        //     <div className="wave"></div>
-        //     <div className="wave"></div>
-        //     <div className="wave"></div>
-        //     <div className="wave"></div>
-        //     <div className="wave"></div>
-        //     <div className="wave"></div>
-        //     <div className="wave"></div>
-        //     <div className="wave"></div>
-        //     <div className="wave"></div>
-        // </div>
-
         <div className="loading">
             <div className="loader">
                 <svg viewBox="0 0 80 80">

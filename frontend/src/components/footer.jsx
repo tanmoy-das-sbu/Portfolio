@@ -24,23 +24,23 @@ const Footer = () => {
                     <hr />
                     <br />
                     <ul className='md:text-3sm text-sm flex flex-col flex-wrap quick-links-ul'>
-                        <li><span>&gt;&gt;</span> Home</li>
-                        <li><span>&gt;&gt;</span> Photo Gallery</li>
+                        <Link href={`/schedule`}><li><span>&gt;&gt;</span> Home</li></Link>
+                        <Link href={`/gallery`}><li><span>&gt;&gt;</span> Photo Gallery</li></Link>
                         <li><span>&gt;&gt;</span> Blog</li>
                         <li><span>&gt;&gt;</span> Articles</li>
-                        <li><span>&gt;&gt;</span> Biography</li>
+                        {/* <li><span>&gt;&gt;</span> Biography</li> */}
                         <Link href={`/contact`}><li><span>&gt;&gt;</span> Contact Us</li></Link>
                         <Link href={`/aboutUs`}><li><span>&gt;&gt;</span> About</li></Link>
                     </ul>
                 </section>
                 <section className="footer-section">
-                    <h2 className='font-bold'>Subscribe Newsletter</h2>
+                    {/* <h2 className='font-bold'>Subscribe Newsletter</h2>
                     <hr />
                     <br />
                     <div className="flex items-center">
                         <Input id="email" placeholder="Enter your Email" type="email" name="email" className="h-10" />
                         <button className="ml-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 h-10 text-sm flex justify-center items-center">Subscribe</button>
-                    </div>
+                    </div> */}
 
                     <div className='social-div'>
                         <h2 className='font-bold'>Socials</h2>
@@ -49,7 +49,7 @@ const Footer = () => {
                             <TooltipProvider>
                                 <Tooltip>
                                     <TooltipTrigger>
-                                        <a href="https://www.facebook.com" target='_blank'><Image src={facebook} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></a>
+                                        <a href="https://www.facebook.com/pkvarmaranchi" target='_blank'><Image src={facebook} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></a>
                                     </TooltipTrigger>
                                     <TooltipContent>
                                         <p>Facebook</p>
@@ -57,7 +57,7 @@ const Footer = () => {
                                 </Tooltip>
                                 <Tooltip>
                                     <TooltipTrigger>
-                                        <a href="https://twitter.com" target='_blank'><Image src={twitter} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></a>
+                                        <a href="https://twitter.com/pkvarmaranchi" target='_blank'><Image src={twitter} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></a>
                                     </TooltipTrigger>
                                     <TooltipContent>
                                         <p>Twitter</p>
@@ -73,7 +73,7 @@ const Footer = () => {
                                 </Tooltip>
                                 <Tooltip>
                                     <TooltipTrigger>
-                                        <a href="https://www.instagram.com" target='_blank'><Image src={instagram} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></a>
+                                        <a href="https://www.instagram.com/pkvarmaranchi" target='_blank'><Image src={instagram} className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 social-icons" draggable='false' /></a>
                                     </TooltipTrigger>
                                     <TooltipContent>
                                         <p>Instagram</p>
