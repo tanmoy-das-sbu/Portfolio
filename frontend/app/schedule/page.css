@@ -95,7 +95,7 @@
 }
 
 .slider-controler .slider-arrow {
-  width: 3.5rem;
+  width: 2.5rem;
   height: 3.5rem;
   border-radius: 50%;
   left: 42%;
@@ -110,7 +110,7 @@
 .swiper-pagination {
   position: relative;
   width: 15rem !important;
-  bottom: 1rem !important;
+  bottom: 2rem !important;
 }
 
 .swiper-pagination .swiper-pagination-bullet {

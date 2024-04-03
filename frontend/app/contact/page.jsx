@@ -50,7 +50,7 @@ const Contact = () => {
                 <h1 className="text-4xl font-semibold">Contact Us</h1>
             </section>
             <section className='container contact-body mx-auto mt-8'>
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-2'>
                     <div className='contact-form'>
                         <form className="flex flex-col w-full gap-3" onSubmit={submit}>
                             <div className="flex flex-col w-full gap-1">
