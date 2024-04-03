@@ -29,7 +29,7 @@
   }
 
   .swiper-slide img {
-    width: 25rem !important;
+    width: 80% !important;
     height: auto !important;
   }
 }
