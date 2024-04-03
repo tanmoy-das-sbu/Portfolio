@@ -38,6 +38,7 @@
     "react-day-picker": "^8.10.0",
     "react-dom": "^18",
     "react-switch": "^7.0.0",
+    "sass": "^1.72.0",
     "swiper": "^11.0.7",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7"
