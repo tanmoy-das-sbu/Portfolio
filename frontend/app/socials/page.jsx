@@ -9,9 +9,6 @@ import Image from "next/image";
 const Socials = () => {
     return (
         <div className="pb-2">
-            <section className="social-heading h-60 flex justify-center items-center w-full">
-                <h1 className="text-4xl font-semibold">Social</h1>
-            </section>
             <section className='container social-body mx-auto mt-8'>
                 <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
                     <div className="social-innerdiv">
