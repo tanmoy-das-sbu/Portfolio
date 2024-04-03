@@ -180,7 +180,7 @@ const SecondSection = () => {
                         />
                     </PopoverContent>
                 </Popover>
-                
+                </div>
             <div >
                 <div>
                     {!flag ? (
