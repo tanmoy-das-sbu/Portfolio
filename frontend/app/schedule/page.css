@@ -20,11 +20,11 @@
 
 @media (max-width: 500px) {
   .swiper_container {
-    height: 33rem;
+    height: 100%;
   }
 
   .swiper-slide {
-    width: 33rem !important;
+    width: 100% !important;
     height: 100% !important;
   }
 
