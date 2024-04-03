@@ -7,9 +7,6 @@ import bulletpoint from "../../src/assets/icons/text-bullet-list-square.svg";
 const AboutUs = () => {
     return (
         <div>
-            <section className="about-heading h-60 flex justify-center items-center w-full">
-                <h1 className="text-4xl font-semibold">About Us</h1>
-            </section>
             <section className='container about-body mx-auto mt-8'>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
                     <div className='about-div-1'>

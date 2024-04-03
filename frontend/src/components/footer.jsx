@@ -24,11 +24,11 @@ const Footer = () => {
                     <hr />
                     <br />
                     <ul className='md:text-3sm text-sm flex flex-col flex-wrap quick-links-ul'>
-                        <li><span>&gt;&gt;</span> Home</li>
-                        <li><span>&gt;&gt;</span> Photo Gallery</li>
+                        <Link href={`/schedule`}><li><span>&gt;&gt;</span> Home</li></Link>
+                        <Link href={`/gallery`}><li><span>&gt;&gt;</span> Photo Gallery</li></Link>
                         <li><span>&gt;&gt;</span> Blog</li>
                         <li><span>&gt;&gt;</span> Articles</li>
-                        <li><span>&gt;&gt;</span> Biography</li>
+                        {/* <li><span>&gt;&gt;</span> Biography</li> */}
                         <Link href={`/contact`}><li><span>&gt;&gt;</span> Contact Us</li></Link>
                         <Link href={`/aboutUs`}><li><span>&gt;&gt;</span> About</li></Link>
                     </ul>
