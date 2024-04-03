@@ -242,10 +242,10 @@ const SecondSection = () => {
                                         <SwiperSlide className='' key={index}>
 
 
-                                            <div className='w-full flex items-center justify-center pt-8px'>
-                                                <div className="max-w-sm rounded-xl overflow-hidden text-center w-full" style={{ boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px", backgroundColor: "#f7f7f7" }}>
+                                            <div className='w-full flex items-center justify-center pt-8px '>
+                                                <div className="max-w-sm rounded-xl overflow-hidden text-center w-full h-30rem" style={{ boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px", backgroundColor: "#f7f7f7" }}>
 
-                                                    <img className="w-full" src="https://tse1.mm.bing.net/th?id=OIP.stuO9HtrREb2xPI9Tlu0LgHaHr&pid=Api&rs=1&c=1&qlt=95&w=119&h=124" alt="Sunset in the mountains" />
+                                                    <img className="w-80 h-auto rounded-lg m-auto" src="https://tse1.mm.bing.net/th?id=OIP.stuO9HtrREb2xPI9Tlu0LgHaHr&pid=Api&rs=1&c=1&qlt=95&w=119&h=124" alt="Sunset in the mountains" />
                                                     <div className="bg-slate-200 px-6 py-4">
                                                         {isCurrentDateWithinSchedule(item.startDate, item.endDate, item.startTime, item.endTime) ? <div style={{ display: "flex", gap: '10px', justifyContent: 'center' }}><span className="relative flex h-3 w-3">
                                                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>

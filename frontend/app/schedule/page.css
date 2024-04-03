@@ -5,14 +5,14 @@
 }
 
 .swiper_container {
-  height: 35rem;
+  height: 33rem;
   padding: 2rem 0;
   position: relative;
 
 }
 
 .swiper-slide {
-  width: 34rem !important;
+  width: 33rem !important;
   height: 100% !important;
   position: relative;
 
@@ -20,11 +20,11 @@
 
 @media (max-width: 500px) {
   .swiper_container {
-    height: 35rem;
+    height: 33rem;
   }
 
   .swiper-slide {
-    width: 34rem !important;
+    width: 33rem !important;
     height: 100% !important;
   }
 
@@ -38,14 +38,14 @@
   background: url('../../src/assets/images/img_4.jpg');
 }
 
-.swiper-slide img {
-  width: 20rem !important;
+/* .swiper-slide img {
+  width: 20rem ;
   height: auto;
   border-radius: 2rem;
   object-fit: cover;
   margin-left: auto;
   margin-right: auto;
-}
+} */
 
 .swiper-slide-shadow-left,
 .swiper-slide-shadow-right {
