@@ -86,6 +86,12 @@
     transform: translateX(-30%) !important;
   }
 }
+@media (max-width: 400px){
+  .swiper-slide {
+    width: 118% !important;
+    height: 100% !important;
+  }
+}
 
 @media (max-width: 450px) {
   .slider-controler .swiper-button-prev {
