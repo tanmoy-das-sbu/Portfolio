@@ -22,7 +22,7 @@ const Socials = () => {
                     </div>
                     <div className="social-innerdiv">
                         <div className="flex items-center gap-3 pb-6">
-                            <Image src={FacebookIcon} className="h-10 w-10 shadow-2xl rounded-full" />
+                            <Image src={FacebookIcon} className="h-10 w-10 shadow-2xl rounded-full" style={{width:'100%'}} />
                             <h4 className="text-3xl font-semibold" style={{ color: "#097EEB" }}>Facebook</h4>
                         </div>
                         <div className="md:row-start-1 md:row-end-2">
