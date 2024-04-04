@@ -1,41 +1,51 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Image from "next/image";
-import Link from "next/link"
-import "./page.css"
+import Link from "next/link";
+import "./page.css";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper/modules';
-import { CalendarIcon } from "@radix-ui/react-icons"
-import { format } from "date-fns"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Calendar } from "@/components/ui/calendar"
-import { Popover, PopoverContent, PopoverTrigger, } from "@/components/ui/popover"
-import NoScheduleForToday from '../../src/components/component/noScheduleComponent/noScheduleForToday';
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
-
-import UpcomingSlider from './UpcomingSlider/UpcomingSlider';
 import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger,
+  EffectCoverflow,
+  Pagination,
+  Navigation,
+  Autoplay,
+} from "swiper/modules";
+import { CalendarIcon } from "@radix-ui/react-icons";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import NoScheduleForToday from "../../src/components/component/noScheduleComponent/noScheduleForToday";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import UpcomingSlider from "./UpcomingSlider/UpcomingSlider";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import Loading from '@/components/component/loader/loading';
+import Loading from "@/components/component/loader/loading";
+import LeftArrow from "../../public/images/sliderArrows/left.svg";
+import RightArrow from "../../public/images/sliderArrows/right.svg";
 
 const SecondSection = () => {
-    const [todaySchedule, setTodaySchedule] = useState([]);
+  const [todaySchedule, setTodaySchedule] = useState([]);
 
     const [flag, setFlag] = useState(false);
     const [load, setLoad] = useState(false);
@@ -43,22 +53,25 @@ const SecondSection = () => {
     const [date, setDate] = useState(new Date())
 
 
-    useEffect(() => {
-        async function fetchScheduleToday() {
-            try {
-                const today = date;
-                if (date.getMonth() + 1 == new Date().getMonth() + 1 && date.getFullYear() == new Date().getFullYear() && date.getDate() == new Date().getDate()) {
-                    setFlaghead(true)
-                } else {
-                    setFlaghead(false)
-                }
-                const year = today.getFullYear();
-                const month = (today.getMonth() + 1).toString().padStart(2, '0'); 
-                const day = today.getDate().toString().padStart(2, '0');
+  useEffect(() => {
+    async function fetchScheduleToday() {
+      try {
+        const today = date;
+        if (
+          date.getMonth() + 1 == new Date().getMonth() + 1 &&
+          date.getFullYear() == new Date().getFullYear() &&
+          date.getDate() == new Date().getDate()
+        ) {
+          setFlaghead(true);
+        } else {
+          setFlaghead(false);
+        }
+        const year = today.getFullYear();
+        const month = (today.getMonth() + 1).toString().padStart(2, "0");
+        const day = today.getDate().toString().padStart(2, "0");
 
                 const todayFormatted = `${year}-${month}-${day}`;
-                //console.log(todayFormatted, `todayFormatted`)
-                // const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
+
                 const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
                 if (todayResponse) {
                     setLoad(true);
@@ -67,7 +80,7 @@ const SecondSection = () => {
                     setLoad(false);
                 }
                 setFlag(true)
-                //console.log('Today Response:', todayResponse, todayFormatted);
+     
                 if (todayResponse.status == 204 || todayResponse.data.length == 0) {
                     setFlag(false)
                 }
@@ -82,11 +95,11 @@ const SecondSection = () => {
     }, [date]);
 
     function isCurrentDateWithinSchedule(startDate, endDate, startTime, endTime) {
-        // Convert start date/time and end date/time to JavaScript Date objects
+
         const startDateObj = new Date(startDate);
         const endDateObj = new Date(endDate);
 
-        // Get the current date/time
+
         let currentDate = new Date();
         let startTimeParts = startTime.split(':');
         let endTimeParts = endTime.split(':');
@@ -97,22 +110,22 @@ const SecondSection = () => {
         let currentHours = currentDate.getHours();
         let currentMinutes = currentDate.getMinutes();
 
-        // console.log(currentDate,startDateObj,endDateObj.getHours(),'mmm',currentDate>= startDateObj && currentDate <= endDateObj)
+
         if (currentDate >= startDateObj && currentDate <= endDateObj || currentDate.getDate() == endDateObj.getDate()) {
-            // If the current date is within the range, check if the current time is within the range of start time and end time
+
 
             if (startTime.includes("PM") && endTime.includes('PM')) {
 
                 startHours = startHours + 12;
 
-                endHours = endHours + 12;
+        endHours = endHours + 12;
 
-                //console.log(startHours, endHours, currentMinutes, startMinutes)
+ 
                 if (
                     (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
                     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
                 ) {
-                    return true; // Current date and time are within the schedule
+                    return true; 
                 }
 
 
@@ -123,7 +136,7 @@ const SecondSection = () => {
                     (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
                     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
                 ) {
-                    return true; // Current date and time are within the schedule
+                    return true; 
                 }
             } else if (endTime.includes("AM") && startTime.includes('PM')) {
 
@@ -135,12 +148,11 @@ const SecondSection = () => {
                     (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
                     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
                 ) {
-                    return true; // Current date and time are within the schedule
+                    return true; 
                 }
             } else {
 
-                // console.log(startHours, endHours, currentMinutes, startMinutes, (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
-                //     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes)))
+
                 if (
                     (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
                     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
@@ -148,23 +160,25 @@ const SecondSection = () => {
                     return true; 
                 }
             }
+
+
         }
 
-        return false; // Current date and time are not within the schedule
+        return false; 
 
     }
 
-    if (!load) {
-        return (
-            <div>
-                <Loading />
-            </div>
-        )
-    }
+  if (!load) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
 
     return (
         <div className="mt-[300px]">
-            <div className='container  date-pic-div flex flex-row justify-center p-4'>
+            <div className='container  date-pic-div flex flex-row justify-center pt-4'>
                 <Popover>
                     <PopoverTrigger asChild>
                         <Button
@@ -187,14 +201,14 @@ const SecondSection = () => {
                         />
                     </PopoverContent>
                 </Popover>
-                </div>
+            </div>
             <div >
                 <div>
                     {!flag ? (
                         <NoScheduleForToday />
                     ) : (<div>
-                        <div >
-                            {flaghead ? <h2 className="headingTag font-bold text-2xl lg:text-5xl md:text-4xl sm:text-2xl w-full text-center mb-5">Today&apos;s Events</h2> : <h2 className="font-bold text-5xl md:text-4xl w-full text-center mb-5">{date?.toDateString()} Schedule</h2>}
+                        <div className=" container  m-auto pt-4 md:pt-8">
+                            {flaghead ? <h2 className="headingTag font-bold text-6xl md:text-4xl w-full text-center mb-5">Today&apos;s Events</h2> : <h2 className="font-bold text-5xl md:text-4xl w-full text-center mb-5">{date?.toDateString()} Schedule</h2>}
                             <div className="container">
                                 <Swiper
                                     effect={'coverflow'}
@@ -209,7 +223,7 @@ const SecondSection = () => {
                                     coverflowEffect={{
                                         rotate: 0,
                                         stretch: 0,
-                                        depth: 70,
+                                        depth: 80,
                                         modifier: 2.5,
                                     }}
                                     pagination={{ el: '.swiper-pagination', clickable: true }}
@@ -225,10 +239,10 @@ const SecondSection = () => {
                                         <SwiperSlide className='' key={index}>
 
 
-                                            <div className='w-full flex items-center justify-center pt-8px '>
-                                                <div className="max-w-sm rounded-xl overflow-hidden text-center w-full h-30rem" style={{ boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px", backgroundColor: "#f7f7f7" }}>
+                                            <div className='w-full flex items-center justify-center pt-8px'>
+                                                <div className="max-w-sm rounded-xl overflow-hidden text-center w-full" style={{ boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px", backgroundColor: "#f7f7f7" }}>
 
-                                                    <img className="w-80 h-auto rounded-lg m-auto" src="https://tse1.mm.bing.net/th?id=OIP.stuO9HtrREb2xPI9Tlu0LgHaHr&pid=Api&rs=1&c=1&qlt=95&w=119&h=124" alt="Sunset in the mountains" />
+                                                    <img className="w-full" src="https://tse1.mm.bing.net/th?id=OIP.stuO9HtrREb2xPI9Tlu0LgHaHr&pid=Api&rs=1&c=1&qlt=95&w=119&h=124" alt="Sunset in the mountains" />
                                                     <div className="bg-slate-200 px-6 py-4">
                                                         {isCurrentDateWithinSchedule(item.startDate, item.endDate, item.startTime, item.endTime) ? <div style={{ display: "flex", gap: '10px', justifyContent: 'center' }}><span className="relative flex h-3 w-3">
                                                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
@@ -264,10 +278,10 @@ const SecondSection = () => {
                                     ))}
                                     <div className="slider-controler">
                                         <div className="swiper-button-prev slider-arrow">
-                                            <img className='w-fit' src="../../public/images/sliderArrows/left.svg"></img>
+                                            <img className='w-fit' src="/images/left.svg"></img>
                                         </div>
                                         <div className="swiper-button-next slider-arrow">
-                                            <img className='w-fit' src="../../public/images/sliderArrows/left.svg"></img>
+                                            <img className='w-fit' src="/images/right.svg"></img>
                                         </div>
                                         <div className="swiper-pagination"></div>
                                     </div>
@@ -277,9 +291,12 @@ const SecondSection = () => {
                     </div>)}
                 </div>
             </div>
-            <UpcomingSlider />
+          )}
         </div>
-    );
-}
+      </div>
+      <UpcomingSlider />
+    </div>
+  );
+};
 
 export default SecondSection;
