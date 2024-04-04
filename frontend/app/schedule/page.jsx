@@ -163,7 +163,7 @@ const SecondSection = () => {
 
     return (
         <div className="mt-[300px]">
-            <div className='container  date-pic-div flex flex-row justify-center pt-4'>
+            <div className='container  date-pic-div flex flex-row justify-center p-4'>
                 <Popover>
                     <PopoverTrigger asChild>
                         <Button
@@ -193,7 +193,7 @@ const SecondSection = () => {
                         <NoScheduleForToday />
                     ) : (<div>
                         <div >
-                            {flaghead ? <h2 className="headingTag font-bold text-6xl md:text-4xl w-full text-center mb-5">Today&apos;s Events</h2> : <h2 className="font-bold text-5xl md:text-4xl w-full text-center mb-5">{date?.toDateString()} Schedule</h2>}
+                            {flaghead ? <h2 className="headingTag font-bold text-2xl lg:text-5xl md:text-4xl sm:text-2xl w-full text-center mb-5">Today&apos;s Events</h2> : <h2 className="font-bold text-5xl md:text-4xl w-full text-center mb-5">{date?.toDateString()} Schedule</h2>}
                             <div className="container">
                                 <Swiper
                                     effect={'coverflow'}
