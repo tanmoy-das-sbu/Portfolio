@@ -45,7 +45,7 @@ const Adminpanel = () => {
     }, [date]);
     
     return (
-        <div className="flex flex-col">
+        <div className="flex mt-[250px] flex-col">
             <header
                 className=" border-b bg-gray-100/40 ">
                 <div className="flex items-center justify-center gap-2">

@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const Socials = () => {
     return (
-        <div className="mt-[250px] w-full">
+        <div className="mt-[250px] pb-4">
             <section className='container social-body mx-auto mt-8'>
                 <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
                     <div className="social-innerdiv">

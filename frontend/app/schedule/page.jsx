@@ -19,6 +19,7 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
+
 import UpcomingSlider from './UpcomingSlider/UpcomingSlider';
 import {
     AlertDialog,
@@ -208,7 +209,7 @@ const SecondSection = () => {
                                     coverflowEffect={{
                                         rotate: 0,
                                         stretch: 0,
-                                        depth: 80,
+                                        depth: 70,
                                         modifier: 2.5,
                                     }}
                                     pagination={{ el: '.swiper-pagination', clickable: true }}
@@ -263,10 +264,10 @@ const SecondSection = () => {
                                     ))}
                                     <div className="slider-controler">
                                         <div className="swiper-button-prev slider-arrow">
-                                            <img className='w-fit' src="/images/left.svg"></img>
+                                            <img className='w-fit' src="../../public/images/sliderArrows/left.svg"></img>
                                         </div>
                                         <div className="swiper-button-next slider-arrow">
-                                            <img className='w-fit' src="/images/right.svg"></img>
+                                            <img className='w-fit' src="../../public/images/sliderArrows/left.svg"></img>
                                         </div>
                                         <div className="swiper-pagination"></div>
                                     </div>

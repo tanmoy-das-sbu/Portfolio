@@ -9,6 +9,7 @@ import passport from 'passport';
 import LocalStrategy from 'passport-local';
 import Contact from "./src/routes/contact.route.js";
 import Subscribers from "./src/routes/subscribers.route.js";
+import Gallery from "./src/routes/gallery.route.js";
 
 dotenv.config({
   path: "./env",
@@ -62,6 +63,7 @@ connectDB()
     app.use('/Schedule', Schedule);
     app.use('/Contact', Contact);
     app.use('/Subscribers', Subscribers);
+    app.use('/Gallery', Gallery);
 
     app.post('/login',
       passport.authenticate('local', { failureRedirect: '/login-failure' }),

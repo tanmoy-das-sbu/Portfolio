@@ -131,7 +131,7 @@ const Footer = () => {
             >
               <button
                 type="button"
-                class="w-full text-orange-600 hover:text-white border border-orange-600 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-3xl text-sm px-5 py-2.5 text-center  mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-600 dark:focus:ring-orange-900"
+                className="w-full text-orange-600 hover:text-white border border-orange-600 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-3xl text-sm px-5 py-2.5 text-center  mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-600 dark:focus:ring-orange-900"
               >
                 PM CARES
               </button>
@@ -142,7 +142,7 @@ const Footer = () => {
             >
               <button
                 type="button"
-                class="w-full text-orange-600 hover:text-white border border-orange-600 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-3xl text-sm px-5 py-2.5 text-center  mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-600 dark:focus:ring-orange-900"
+                className="w-full text-orange-600 hover:text-white border border-orange-600 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-3xl text-sm px-5 py-2.5 text-center  mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-600 dark:focus:ring-orange-900"
               >
                 BHARAT KE VEER
               </button>
@@ -153,7 +153,7 @@ const Footer = () => {
             >
               <button
                 type="button"
-                class="w-full text-orange-600 hover:text-white border border-orange-600 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-3xl text-sm px-5 py-2.5 text-center  mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-600 dark:focus:ring-orange-900"
+                className="w-full text-orange-600 hover:text-white border border-orange-600 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-3xl text-sm px-5 py-2.5 text-center  mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-600 dark:focus:ring-orange-900"
               >
                 BJP
               </button>

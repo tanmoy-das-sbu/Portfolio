@@ -142,7 +142,7 @@ export default function Addevent() {
     }
   };
   return (
-    <div>
+    <div className="mt-[250px]">
       <div>
         <div className="w-full">
           <form onSubmit={handleSubmit}>
