@@ -5,7 +5,7 @@ import axios from 'axios';
 import { formatDate } from '../../../src/utils/dateFormat';
 import Image from 'next/image'
 import PlaceIcon from '@mui/icons-material/Place';
-import Loading from '@/components/loading';
+import Loading from '@/components/component/loader/loading';
 
 const EventDetails = ({ params }) => {
     const [data, setData] = useState('');

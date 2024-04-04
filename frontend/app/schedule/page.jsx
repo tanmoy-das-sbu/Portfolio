@@ -13,11 +13,13 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger, } from "@/components/ui/popover"
-import NoScheduleForToday from '../../src/components/noScheduleForToday';
+import NoScheduleForToday from '../../src/components/component/noScheduleComponent/noScheduleForToday';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import slide_image_1 from '../../src/assets/images/img_1.jpg';
+import slide_image_4 from '../../src/assets/images/img_4.jpg';
 import UpcomingSlider from './UpcomingSlider/UpcomingSlider';
 import {
     AlertDialog,
@@ -30,7 +32,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import Loading from '@/components/loading';
+import Loading from '@/components/component/loader/loading';
 
 const SecondSection = () => {
     const [todaySchedule, setTodaySchedule] = useState([]);
@@ -45,6 +47,13 @@ const SecondSection = () => {
 
     }
 
+    const setback = {
+        border: `1px solid red`,
+        backgroundImage: "url(" + { slide_image_1 } + ")"
+    }
+    const handleContextMenu = (event) => {
+        event.preventDefault();
+    };
     useEffect(() => {
         async function fetchScheduleToday() {
             try {
@@ -59,6 +68,8 @@ const SecondSection = () => {
                 const day = today.getDate().toString().padStart(2, '0');
 
                 const todayFormatted = `${year}-${month}-${day}`;
+                //console.log(todayFormatted, `todayFormatted`)
+                // const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
                 const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
                 if (todayResponse) {
                     setLoad(true);
@@ -67,16 +78,13 @@ const SecondSection = () => {
                     setLoad(false);
                 }
                 setFlag(true)
+                //console.log('Today Response:', todayResponse, todayFormatted);
                 if (todayResponse.status == 204 || todayResponse.data.length == 0) {
                     setFlag(false)
                 }
                 const todayTasks = todayResponse.data;
                 setTodaySchedule([...todayTasks]);
-                // while(todayTasks.length < 10){
-                //     let tempArr = todaySchedule.concat(todaySchedule)
-                //     console.log("here10times",todaySchedule,tempArr);
-                //     break;
-                // }
+        
             } catch (error) {
                 setFlag(false)
             }
@@ -85,9 +93,11 @@ const SecondSection = () => {
     }, [date]);
 
     function isCurrentDateWithinSchedule(startDate, endDate, startTime, endTime) {
+        // Convert start date/time and end date/time to JavaScript Date objects
         const startDateObj = new Date(startDate);
         const endDateObj = new Date(endDate);
 
+        // Get the current date/time
         let currentDate = new Date();
         let startTimeParts = startTime.split(':');
         let endTimeParts = endTime.split(':');
@@ -98,18 +108,22 @@ const SecondSection = () => {
         let currentHours = currentDate.getHours();
         let currentMinutes = currentDate.getMinutes();
 
+        // console.log(currentDate,startDateObj,endDateObj.getHours(),'mmm',currentDate>= startDateObj && currentDate <= endDateObj)
         if (currentDate >= startDateObj && currentDate <= endDateObj || currentDate.getDate() == endDateObj.getDate()) {
+            // If the current date is within the range, check if the current time is within the range of start time and end time
 
             if (startTime.includes("PM") && endTime.includes('PM')) {
 
                 startHours = startHours + 12;
 
                 endHours = endHours + 12;
+
+                //console.log(startHours, endHours, currentMinutes, startMinutes)
                 if (
                     (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
                     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
                 ) {
-                    return true;
+                    return true; // Current date and time are within the schedule
                 }
 
 
@@ -120,7 +134,7 @@ const SecondSection = () => {
                     (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
                     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
                 ) {
-                    return true;
+                    return true; // Current date and time are within the schedule
                 }
             } else if (endTime.includes("AM") && startTime.includes('PM')) {
 
@@ -132,9 +146,12 @@ const SecondSection = () => {
                     (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
                     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
                 ) {
-                    return true;
+                    return true; // Current date and time are within the schedule
                 }
             } else {
+
+                // console.log(startHours, endHours, currentMinutes, startMinutes, (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
+                //     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes)))
                 if (
                     (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
                     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
@@ -143,7 +160,8 @@ const SecondSection = () => {
                 }
             }
         }
-        return false;
+
+        return false; // Current date and time are not within the schedule
 
     }
 
@@ -156,7 +174,7 @@ const SecondSection = () => {
     }
 
     return (
-        <div className="bg-[#FFFFE0]">
+        <div className="mt-[300px]">
             <div className='container  date-pic-div flex flex-row justify-center pt-4'>
                 <Popover>
                     <PopoverTrigger asChild>
@@ -229,7 +247,7 @@ const SecondSection = () => {
                                                         </span><div style={{ marginTop: '-5px' }}>Live</div></div> : <div></div>}
                                                         <div className="font-bold text-2xl mb-2">{item.heading}</div>
                                                         <h4 className='font-bold text-lg mb-2'>Timing: {item.startTime} - {item.endTime}</h4>
-                                                        <p className="text-gray-700 text-base text-lg">
+                                                        <p className="text-gray-700  text-lg">
                                                             {item.shortDescription}</p>
                                                         <AlertDialog>
                                                             <AlertDialogTrigger className='text-sm tracking-tighter'>Know More</AlertDialogTrigger>

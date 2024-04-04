@@ -1,14 +1,14 @@
 "use client";
 import "./page.css";
-import FacebookIcon from "../../src/assets/icons/facebook.svg";
-import InstagramIcon from "../../src/assets/icons/instagram.svg";
-import TwitterIcon from "../../src/assets/icons/twitter.svg";
-import YoutubeIcon from "../../src/assets/icons/youtube.svg";
+import FacebookIcon from "../../public/images/icons/facebook.svg";
+import InstagramIcon from "../../public/images/icons/instagram.svg";
+import TwitterIcon from "../../public/images/icons/twitter.svg";
+import YoutubeIcon from "../../public/images/icons/youtube.svg";
 import Image from "next/image";
 
 const Socials = () => {
     return (
-        <div className="pb-2">
+        <div className="mt-[250px]">
             <section className='container social-body mx-auto mt-8'>
                 <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
                     <div className="social-innerdiv">

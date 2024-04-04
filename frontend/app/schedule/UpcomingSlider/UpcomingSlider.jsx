@@ -79,7 +79,7 @@ const UpcomingSlider = ({ data }) => {
     };
 
     return (
-        <section className="bg-[#FFFFE0]" >
+        <section className="bg-[#FFFFFF]" >
             <hr />
             <Carousel className="container relative z-20 noselect m-auto w-4/5 p-2 md:p-10"  >
                 <div className="text-6xl text-center">
