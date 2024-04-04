@@ -12,28 +12,34 @@ import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
 import { format } from "date-fns"
 import axios from 'axios';
-
-
+import { formatDate } from "@/utils/dateFormat"
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 
 const Adminpanel = () => {
     const [todaySchedule, setTodaySchedule] = useState([]);
-    const [date, setDate] = useState(new Date())
+    const [date, setDate] = useState(new Date());
+
     useEffect(() => {
         async function fetchScheduleToday() {
             try {
                 const today = date;
                 const year = today.getFullYear();
-                const month = (today.getMonth() + 1).toString().padStart(2, '0'); 
+                const month = (today.getMonth() + 1).toString().padStart(2, '0');
                 const day = today.getDate().toString().padStart(2, '0');
 
                 const todayFormatted = `${year}-${month}-${day}`;
                 console.log(todayFormatted, `todayFormatted`)
-               
+
                 const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
-              
+
                 console.log('Today Response:', todayResponse, todayFormatted);
-            
+
                 const todayTasks = todayResponse.data;
                 setTodaySchedule([...todayTasks]);
 
@@ -43,7 +49,21 @@ const Adminpanel = () => {
         }
         fetchScheduleToday();
     }, [date]);
-    
+
+    const handleDateChange = async (newDate) => {
+        setDate(newDate);
+    };
+
+    const handleDelete = async (eventId) => {
+        try {
+            await axios.delete(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/deleteById/${eventId}`);
+            const updatedSchedule = todaySchedule.filter(event => event._id !== eventId);
+            setTodaySchedule(updatedSchedule);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return (
         <div className="flex mt-[250px] flex-col">
             <header
@@ -55,57 +75,66 @@ const Adminpanel = () => {
             </header>
             <main className="container flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
 
-                <div className="container flex h-14 lg:h-[60px] items-center gap-4  px-6 dark:bg-gray-800/40" >
+                <div className="container flex flex-col justify-between lg:flex-row lg:h-[60px] items-center gap-4 px-6 dark:bg-gray-800/40 w-full">
                     <Link className="lg:hidden" href="#">
                         <CalendarIcon className="h-6 w-6" />
                         <span className="sr-only">Home</span>
                     </Link>
-                    <div className="w-full">
+                    <div className="w-full lg:w-auto">
                         <form>
                             <div className="relative">
-                                <SearchIcon
-                                    className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500 dark:text-gray-400" />
+                                <SearchIcon className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500 dark:text-gray-400" />
                                 <Input
-                                    className="w-full bg-white shadow-none appearance-none pl-8 md:w-2/3 lg:w-1/3 dark:bg-gray-950"
+                                    className="bg-white shadow-none appearance-none pl-8 md:w-2/3 lg:w-1/3 dark:bg-gray-950"
                                     placeholder="Search events..."
-                                    type="search" />
+                                    type="search"
+                                    style={{ width: "100%" }}
+                                />
                             </div>
                         </form>
                     </div>
-
-                    <div>
-                    <div className='container m-auto date-pic-div flex flex-row justify-center mt-2'>
-                <Popover>
-                    <PopoverTrigger asChild>
-                        <Button
-                            variant={"outline"}
-                            className={cn(
-                                "w-fit justify-start text-left font-normal",
-                                !date && "text-muted-foreground"
-                            )}
-                        >
-                            <CalendarIcon className="mr-2 h-4 w-4" />
-                            {date ? format(date, "PPP") : <span>Pick a date</span>}
-                        </Button>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
-                        <Calendar
-                            mode="single"
-                            selected={date}
-                            onSelect={setDate}
-                            initialFocus
-                        />
-                    </PopoverContent>
-                </Popover>
-            </div>
-                        <Link href="/addevent">
-                            <Button className="ml-4" variant="outline">
-                                Add Event
-                            </Button>
-                        </Link>
-
+                    <div className="flex justify-between items-center w-full lg:w-2/4">
+                        <div className="container m-auto date-pic-div flex flex-row justify-center mt-2">
+                            <Popover>
+                                <PopoverTrigger asChild>
+                                    <Button
+                                        variant={"outline"}
+                                        className={cn(
+                                            "w-fit justify-start text-left font-normal",
+                                            !date && "text-muted-foreground"
+                                        )}
+                                    >
+                                        <CalendarIcon className="mr-2 h-4 w-4" />
+                                        {date ? format(date, "PPP") : <span>Pick a date</span>}
+                                    </Button>
+                                </PopoverTrigger>
+                                <PopoverContent className="w-auto p-0" align="start">
+                                    <Calendar
+                                        mode="single"
+                                        selected={date}
+                                        onSelect={handleDateChange}
+                                        initialFocus
+                                    />
+                                </PopoverContent>
+                            </Popover>
+                        </div>
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <Link href="/addevent">
+                                        <Button className="ml-4 bg-violet-500 text-white">
+                                            Add Event
+                                        </Button>
+                                    </Link>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>Add Event</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
                     </div>
                 </div>
+
                 <div className="rounded-lg border">
                     <Table>
                         <TableHeader>
@@ -113,38 +142,61 @@ const Adminpanel = () => {
                                 <TableHead className="w-[200px]">Event</TableHead>
                                 <TableHead className="hidden md:table-cell">Date</TableHead>
                                 <TableHead className="hidden md:table-cell">Start/End</TableHead>
-                                <TableHead className="hidden md:table-cell">Status</TableHead>
+                                <TableHead className="hidden md:table-cell">Event Type</TableHead>
                                 <TableHead className="hidden md:table-cell">Location</TableHead>
                                 <TableHead>Actions</TableHead>
-                                <TableHead>Visibility</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            <TableRow>
-                                <TableCell className="font-semibold">Onboarding Session</TableCell>
-                                <TableCell className="hidden md:table-cell"> 20-03-2024 - 21-03-2024</TableCell>
-                                <TableCell className="hidden md:table-cell"> 10:00 AM - 11:00 AM</TableCell>
-                                <TableCell className="hidden md:table-cell">
-                                    <Badge variant="info">Public</Badge>
-                                </TableCell>
-                                <TableCell className="hidden md:table-cell">Ranchi</TableCell>
-                                <TableCell>
-                                    <Button className="mr-2" size="sm" variant="outline">
-                                        Edit
-                                    </Button>
-                                    <Button className="mr-2" size="sm" variant="outline">
-                                        Delete
-                                    </Button>
-
-                                </TableCell>
-                                <TableCell>
-                                    <div className="flex items-center space-x-2">
-                                        <Switch id="visibility" />
-
-                                    </div>
-
-                                </TableCell>
-                            </TableRow>
+                            {todaySchedule.map((event) => (
+                                <TableRow key={event.id}>
+                                    <TableCell className="font-semibold">{event.heading}</TableCell>
+                                    <TableCell className="hidden md:table-cell">{formatDate(event.startDate)}</TableCell>
+                                    <TableCell className="hidden md:table-cell">{event.startTime} - {event.endTime}</TableCell>
+                                    <TableCell className="hidden md:table-cell">
+                                        <Badge variant="info">{event.eventType}</Badge>
+                                    </TableCell>
+                                    <TableCell className="hidden md:table-cell">{event.location}</TableCell>
+                                    <TableCell>
+                                        <TooltipProvider>
+                                            <Tooltip>
+                                                <TooltipTrigger>
+                                                    <Link href={`/addevent/${event._id}`}>
+                                                        <Button className="mr-2 bg-sky-400 text-white" size="sm">
+                                                            Edit
+                                                        </Button>
+                                                    </Link>
+                                                </TooltipTrigger>
+                                                <TooltipContent>
+                                                    <p>Edit</p>
+                                                </TooltipContent>
+                                            </Tooltip>
+                                            <Tooltip>
+                                                <TooltipTrigger>
+                                                    <Button className="mr-2 bg-red-500 text-white" size="sm">
+                                                        <Popover>
+                                                            <PopoverTrigger>Delete</PopoverTrigger>
+                                                            <PopoverContent>
+                                                                <p>Are You sure, you want to delete? </p>
+                                                                <br />
+                                                                <div className="flex justify-end">
+                                                                    <Button className="mr-2 bg-red-500 text-white" size="sm" onClick={() => handleDelete(event._id)}>
+                                                                        Yes
+                                                                    </Button>
+                                                                </div>
+                                                            </PopoverContent>
+                                                        </Popover>
+                                                    </Button>
+                                                    
+                                                </TooltipTrigger>
+                                                <TooltipContent>
+                                                    <p>Delete</p>
+                                                </TooltipContent>
+                                            </Tooltip>
+                                        </TooltipProvider>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
                         </TableBody>
                     </Table>
                 </div>
