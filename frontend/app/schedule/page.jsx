@@ -18,8 +18,7 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import slide_image_1 from '../../src/assets/images/img_1.jpg';
-import slide_image_4 from '../../src/assets/images/img_4.jpg';
+
 import UpcomingSlider from './UpcomingSlider/UpcomingSlider';
 import {
     AlertDialog,
@@ -43,17 +42,6 @@ const SecondSection = () => {
     const [date, setDate] = useState(new Date())
 
 
-    const handleKnowMore = () => {
-
-    }
-
-    const setback = {
-        border: `1px solid red`,
-        backgroundImage: "url(" + { slide_image_1 } + ")"
-    }
-    const handleContextMenu = (event) => {
-        event.preventDefault();
-    };
     useEffect(() => {
         async function fetchScheduleToday() {
             try {
