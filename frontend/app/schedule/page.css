@@ -116,7 +116,7 @@
 }
 
 .swiper-pagination .swiper-pagination-bullet-active {
-  background: var(--primary);
+  background: #F47621;
 }
 
 .swiper-pagination-bullets.swiper-pagination-horizontal {
