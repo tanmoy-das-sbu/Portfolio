@@ -61,7 +61,7 @@ const Footer = () => {
                       <Image
                         src={facebook}
                         className="h-10 w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 rounded-full bg-white shadow-lg p-0 lg:p-2"
-                        draggable="false"
+                        draggable="false" alt="facebook"
                       />
                     </a>
                   </TooltipTrigger>
@@ -75,7 +75,7 @@ const Footer = () => {
                       <Image
                         src={twitter}
                         className="h-10 w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 rounded-full bg-white shadow-lg p-0 lg:p-2"
-                        draggable="false"
+                        draggable="false" alt="twitter"
                       />
                     </a>
                   </TooltipTrigger>
@@ -89,7 +89,7 @@ const Footer = () => {
                       <Image
                         src={youtube}
                         className="h-10 w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 rounded-full bg-white shadow-lg p-0 lg:p-2"
-                        draggable="false"
+                        draggable="false" alt="youtube"
                       />
                     </a>
                   </TooltipTrigger>
@@ -106,7 +106,7 @@ const Footer = () => {
                       <Image
                         src={instagram}
                         className="h-10 w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 rounded-full bg-white shadow-lg p-0 lg:p-2"
-                        draggable="false"
+                        draggable="false" alt="instagram"
                       />
                     </a>
                   </TooltipTrigger>

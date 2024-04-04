@@ -18,14 +18,14 @@ const AboutUs = () => {
                         <div className="inner-about-2 flex flex-col gap-3">
                             <section className="inner-about-sec flex flex-row gap-2">
                                 <div className="about-sec w-2/4 flex">
-                                    <Image src={bulletpoint} className="bullet-point"  draggable="false"/>
+                                    <Image src={bulletpoint} className="bullet-point"  draggable="false" alt="point"/>
                                     <div className="values flex flex-col">
                                         <span className="font-semibold">Values</span>
                                         <span className="text-xs text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, doloribus.</span>
                                     </div>
                                 </div>
                                 <div className="about-sec w-2/4 flex">
-                                    <Image src={bulletpoint} className="bullet-point"  draggable="false"/>
+                                    <Image src={bulletpoint} className="bullet-point"  draggable="false" alt="point"/>
                                     <div className="values flex flex-col">
                                         <span className="font-semibold">Values</span>
                                         <span className="text-xs text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, doloribus.</span>
@@ -34,14 +34,14 @@ const AboutUs = () => {
                             </section>
                             <section className="inner-about-sec flex flex-row gap-2">
                                 <div className="about-sec w-2/4 flex">
-                                    <Image src={bulletpoint} className="bullet-point"  draggable="false"/>
+                                    <Image src={bulletpoint} className="bullet-point"  draggable="false" alt="point"/>
                                     <div className="values flex flex-col">
                                         <span className="font-semibold">Values</span>
                                         <span className="text-xs text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, doloribus.</span>
                                     </div>
                                 </div>
                                 <div className="about-sec w-2/4 flex">
-                                    <Image src={bulletpoint} className="bullet-point"  draggable="false"/>
+                                    <Image src={bulletpoint} className="bullet-point"  draggable="false" alt="point"/>
                                     <div className="values flex flex-col">
                                         <span className="font-semibold">Values</span>
                                         <span className="text-xs text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, doloribus.</span>
