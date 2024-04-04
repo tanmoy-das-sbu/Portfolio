@@ -78,7 +78,7 @@ const Contact = () => {
                     </div>
                     <div className='contact-address'>
                         <div className="flex items-center gap-2">
-                            <Image src={LocationIcon} height={30} draggable="false" />
+                            <Image src={LocationIcon} height={30} draggable="false" alt="location"/>
                             <h3 className="text-3xl font-bold">Address</h3>
                         </div>
                         <br />
