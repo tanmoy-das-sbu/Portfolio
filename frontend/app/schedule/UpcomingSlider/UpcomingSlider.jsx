@@ -219,7 +219,7 @@ const UpcomingSlider = ({ data }) => {
                                                     <AlertDialogFooter>
                                                         <AlertDialogCancel>Close</AlertDialogCancel>
                                                         <AlertDialogAction>
-                                                            <Link className="p-5 bg-red-500 text-white" href={`/eventView/${event._id}`}> View More</Link>
+                                                            <Link className="p-5  text-white" href={`/eventView/${event._id}`}> View More</Link>
                                                         </AlertDialogAction>
                                                     </AlertDialogFooter>
                                                 </AlertDialogContent>
