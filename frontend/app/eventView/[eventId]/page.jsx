@@ -35,7 +35,7 @@ const EventDetails = ({ params }) => {
     const isImageFromAllowedDomain = data.imageUrl.startsWith('https://res.cloudinary.com/neeleshks/image/upload');
 
     return (
-        <div className='container pt-12 pb-4'>
+        <div className='container mt-[250px] pt-12 pb-4'>
             <div className="flex flex-col md:flex-row justify-between items-center">
                 <h1 className="font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                     {data.heading}
