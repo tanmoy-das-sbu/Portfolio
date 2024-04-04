@@ -25,7 +25,7 @@ import Loading from "@/components/component/loader/loading"
 const Adminpanel = () => {
     const [todaySchedule, setTodaySchedule] = useState([]);
     const [date, setDate] = useState(new Date());
-    const [data, setData] = useState([]);
+    const [load, setLoad] = useState(false);
 
     useEffect(() => {
         async function fetchScheduleToday() {
@@ -39,7 +39,11 @@ const Adminpanel = () => {
                 console.log(todayFormatted, `todayFormatted`)
 
                 const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
-                setData(response.data);
+                if (todayResponse) {
+                    setLoad(true);
+                  } else {
+                    setLoad(false);
+                  }
                 console.log('Today Response:', todayResponse, todayFormatted);
 
                 const todayTasks = todayResponse.data;
@@ -66,13 +70,13 @@ const Adminpanel = () => {
         }
     };
 
-    if (!data) {
+    if (!load) {
         return (
-            <div>
-                <Loading />
-            </div>
-        )
-    }
+          <div>
+            <Loading />
+          </div>
+        );
+      }
 
     return (
         <div className="flex mt-[250px] flex-col">
