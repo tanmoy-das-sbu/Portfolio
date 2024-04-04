@@ -19,13 +19,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
-import { Button } from "@/components/ui/button"
-
 import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
     CardTitle,
 } from "@/components/ui/card"
 import Link from "next/link"
@@ -83,27 +77,34 @@ const UpcomingSlider = ({ data }) => {
             <hr />
             <Carousel className="container relative z-20 noselect m-auto w-4/5 p-2 "  >
                 <div className=" text-center">
-                    <h2 className="headingTag font-bold sm:text-2xl md:text-4xl lg:text-5xl xs:text-xl w-full text-center text-2xl mb-5">Ongoing Events</h2>
+                    <h2 className="headingTag font-bold sm:text-2xl md:text-4xl xs:text-xl w-full text-center text-2xl mb-5">Ongoing Events</h2>
                 </div>
                 <CarouselContent>
                     {ongoing && ongoing.map((event, index) => {
                         const truncatedDescription = truncateDescription(event.shortDescription, 100);
                         return (
-                            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                                <CardContent className="flex aspect-square items-center justify-center p-1">
-                                    <Card className="w-[300px] flex flex-col justify-between bg-cover bg-center"  >
-                                        <CardHeader>
-                                            <div className="items-center text-center" >
-                                                <img src="https://4.bp.blogspot.com/-URiCjwBMxVc/TtzXRyJi90I/AAAAAAAADj8/MrZd0T5ewIg/s1600/bjp-flag.jpg" alt="" />
-
+                            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 flex aspect-square items-center justify-center p-2">
+                                <>
+                                    <div className="overflow-hidden rounded bg-white text-slate-500 w-80 shadow-md shadow-slate-200">
+                                        <figure>
+                                            <img
+                                                src="https://cdn.cbeditz.com/cbeditz/large/bjp-background-with-logo-hd-images-download-6mepyki1vw.jpg"
+                                                alt="card image"
+                                                className="aspect-video w-full h-40"
+                                            />
+                                        </figure>
+                                        <div className="p-6">
+                                            <div className="flex items-center space-x-1 " style={{ margin: 'auto' }}>
+                                                <Avatar>
+                                                    <AvatarImage alt="" src="" />
+                                                    <AvatarFallback>CH</AvatarFallback>
+                                                </Avatar>
+                                                <div>
+                                                    <CardTitle>{event.heading}</CardTitle>
+                                                </div>
                                             </div>
-                                            <div>
-
-                                            </div>
-                                        </CardHeader>
-                                        <CardContent className="text-center">
-                                            <div className="p-2 mb-1">
-                                                <CardTitle>{event.heading}</CardTitle>
+                                            <div className="p-1 mb-4">
+                                                <p className="text-lg mt-1">{new Date(event.startDate).toLocaleDateString()} - {new Date(event.endDate).toLocaleDateString()}</p>
                                                 <p className="text-sm">
                                                     Start Time: {event.startTime}
                                                 </p>
@@ -113,49 +114,48 @@ const UpcomingSlider = ({ data }) => {
                                             </div>
                                             <p className="text-sm">
                                                 {truncatedDescription}
-
                                             </p>
-                                        </CardContent>
-                                        <CardFooter className="flex justify-center items-center">
+                                        </div>
+                                        <div className="flex justify-end p-6 pt-0">
+                                            <button className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded bg-orange-500 px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-[#d76527] focus:bg-[#f47731] focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-300 disabled:shadow-none">
+                                                <AlertDialog>
+                                                    <AlertDialogTrigger>Know More</AlertDialogTrigger>
+                                                    <AlertDialogContent>
+                                                        <AlertDialogHeader>
 
-                                            <AlertDialog>
-                                                <AlertDialogTrigger>Know More</AlertDialogTrigger>
-                                                <AlertDialogContent>
-                                                    <AlertDialogHeader>
+                                                            <AlertDialogDescription>
+                                                                <img onContextMenu={handleContextMenu} className="noselect" src="images/Team/k12Educators/Chandan_cv.jpg" alt="" />
+                                                            </AlertDialogDescription>
+                                                        </AlertDialogHeader>
+                                                        <AlertDialogFooter className="flex flex-col items-center justify-center">
+                                                            <div>
+                                                                <h1 className="text-2xl font-semibold leading-none tracking-tight" >{event.heading}</h1>
+                                                                <div className="p-2 mb-4">
+                                                                    <p className="text-sm">
+                                                                        Start Time: {event.startTime}
+                                                                    </p>
+                                                                    <p className="text-sm">
+                                                                        End Time: {event.endTime}
+                                                                    </p>
+                                                                    <p className="text-sm">
+                                                                        {event.shortDescription}
 
-                                                        <AlertDialogDescription>
-                                                            <img onContextMenu={handleContextMenu} className="noselect" src="images/Team/k12Educators/Chandan_cv.jpg" alt="" />
-                                                        </AlertDialogDescription>
-                                                    </AlertDialogHeader>
-                                                    <AlertDialogFooter className="flex flex-col items-center justify-center">
-                                                        <div>
-                                                            <h1 className="text-2xl font-semibold leading-none tracking-tight" >{event.heading}</h1>
-                                                            <div className="p-2 mb-4">
-                                                                <p className="text-sm">
-                                                                    Start Time: {event.startTime}
-                                                                </p>
-                                                                <p className="text-sm">
-                                                                    End Time: {event.endTime}
-                                                                </p>
-                                                                <p className="text-sm">
-                                                                    {event.shortDescription}
+                                                                    </p>
+                                                                </div>
 
-                                                                </p>
                                                             </div>
+                                                            <AlertDialogCancel>Close</AlertDialogCancel>
+                                                            <AlertDialogAction>
+                                                                <Link className="p-5  text-white" href={`/eventView/${event._id}`}> View More</Link>
+                                                            </AlertDialogAction>
 
-                                                        </div>
-                                                        <AlertDialogCancel>Close</AlertDialogCancel>
-                                                        <AlertDialogAction>
-                                                            <Link className="p-5  text-white" href={`/eventView/${event._id}`}> View More</Link>
-                                                        </AlertDialogAction>
-
-                                                    </AlertDialogFooter>
-                                                </AlertDialogContent>
-                                            </AlertDialog>
-                                        </CardFooter>
-                                    </Card>
-                                </CardContent>
-
+                                                        </AlertDialogFooter>
+                                                    </AlertDialogContent>
+                                                </AlertDialog>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </>
                             </CarouselItem>)
                     })
                     }
@@ -165,8 +165,10 @@ const UpcomingSlider = ({ data }) => {
             </Carousel>
             <hr />
             <Carousel className="container relative z-20 noselect m-auto w-4/5 p-2 md:p-10"  >
-                <div className="text-6xl text-center">
-                    <h2 className="headingTag font-bold text-6xl md:text-4xl w-full text-center mb-5">Upcoming Events</h2>
+                <div className="text-center">
+                    <h2 className="headingTag font-bold text-2xl sm:text-2xl md:text-4xl text-center mb-5">
+                        Upcoming Events
+                    </h2>
                 </div>
                 <CarouselContent>
                     {upcomingEvent && upcomingEvent.map((event, index) => {
@@ -193,7 +195,7 @@ const UpcomingSlider = ({ data }) => {
                                             </div>
                                         </div>
                                         <div className="p-1 mb-4">
-                                            <p className="text-lg mt-1">{new Date(event.startDate).toLocaleDateString()} - {new Date(event.startDate).toLocaleDateString()}</p>
+                                            <p className="text-lg mt-1">{new Date(event.startDate).toLocaleDateString()} - {new Date(event.endDate).toLocaleDateString()}</p>
                                             <p className="text-sm">
                                                 Start Time: {event.startTime}
                                             </p>
@@ -202,7 +204,7 @@ const UpcomingSlider = ({ data }) => {
                                             </p>
                                         </div>
                                         <p className="text-sm">
-                                            {event.shortDescription}
+                                            {truncatedDescription}
                                         </p>
                                     </div>
                                     <div className="flex justify-end p-6 pt-0">
