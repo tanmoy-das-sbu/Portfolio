@@ -350,8 +350,12 @@ const SecondSection = () => {
 
               </div>
             </div>
-            <UpcomingSlider />
+          )}
         </div>
+      </div>
+
+      <UpcomingSlider />
+    </div>
     );
 }
 
