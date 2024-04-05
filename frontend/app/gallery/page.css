@@ -87,3 +87,9 @@
 .modal-content {
     animation: fade-in 0.5s;
 }
+
+@media (max-width : 596px) {
+    .popup-img {
+        height: 300px;
+    }
+}
