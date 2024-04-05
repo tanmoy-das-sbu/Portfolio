@@ -54,6 +54,9 @@ const EventEdit = ({ params }) => {
                     scheduleTime: response.data.data.scheduleTime,
                     imageUrl: response.data.data.imageUrl,
                 });
+                setPriority(formData.priority)
+                setVisibility(formData.visibility)
+                setScheduleVisibility(formData.scheduleVisibility)
             } catch (error) {
                 console.error('Error fetching event details:', error);
             }
@@ -62,6 +65,23 @@ const EventEdit = ({ params }) => {
         getEventDetails();
     }, [params.eventId]);
 
+    function formatTime(timeString) {
+        if (!timeString) return '';
+    
+        const [time, period] = timeString.split(' ');
+        const [hours, minutes] = time.split(':');
+    
+        let formattedHours = parseInt(hours, 10);
+        if (period === 'PM' && formattedHours !== 12) {
+            formattedHours += 12;
+        } else if (period === 'AM' && formattedHours === 12) {
+            formattedHours = 0;
+        }
+    
+        const formattedTime = `${formattedHours.toString().padStart(2, '0')}:${minutes}`;
+    
+        return formattedTime;
+    }
     const handleChange = (e) => {
         const { name, value, type, files } = e.target;
         const val = type === "file" ? files[0] : value;
@@ -126,8 +146,6 @@ const EventEdit = ({ params }) => {
             console.error("Error updating event details:", error.message);
         }
     };
-
-
     if (!data) {
         return (
             <div>
@@ -157,7 +175,7 @@ const EventEdit = ({ params }) => {
                                         placeholder="Start Date"
                                         type="date"
                                         name="startDate"
-                                        value={formData.startDate || ''}
+                                        value={formData.startDate.slice(0, 10) || ''}
                                         onChange={handleChange}
                                     />
                                 </div>
@@ -168,7 +186,7 @@ const EventEdit = ({ params }) => {
                                         placeholder="End Date"
                                         type="date"
                                         name="endDate"
-                                        value={formData.endDate || ''}
+                                        value={formData.endDate.slice(0, 10) || ''}
                                         onChange={handleChange}
                                     />
                                 </div>
@@ -181,7 +199,7 @@ const EventEdit = ({ params }) => {
                                         placeholder="Start Time"
                                         type="time"
                                         name="startTime"
-                                        value={formData.startTime || ''}
+                                        value={formatTime(formData.startTime) || ''}
                                         onChange={handleChange}
                                     />
                                 </div>
@@ -192,7 +210,7 @@ const EventEdit = ({ params }) => {
                                         placeholder="End Time"
                                         type="time"
                                         name="endTime"
-                                        value={formData.endTime || ''}
+                                        value={formatTime(formData.endTime) || ''}
                                         onChange={handleChange}
                                     />
                                 </div>
@@ -242,7 +260,7 @@ const EventEdit = ({ params }) => {
                                             <Switch
                                                 id="priority"
                                                 name="priority"
-                                                value={formData.priority}
+                                                value={priority}
                                                 onCheckedChange={() => {
                                                     setPriority(!priority);
                                                 }}

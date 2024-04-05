@@ -6,8 +6,6 @@ import { PopoverTrigger, PopoverContent, Popover } from "@/components/ui/popover
 import { Calendar } from "@/components/ui/calendar"
 import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
-import { DatePickerWithRange } from "@/components/component/DateRangePicker/DateRangePicker"
-import { Switch } from "@/components/ui/switch"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
 import { format } from "date-fns"
@@ -26,6 +24,13 @@ const Adminpanel = () => {
     const [todaySchedule, setTodaySchedule] = useState([]);
     const [date, setDate] = useState(new Date());
     const [load, setLoad] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [allEvents, setAllEvents] = useState([]);
+
+    useEffect(() => {
+        fetchAllEvents();
+    }, [date]);
+
 
     useEffect(() => {
         async function fetchScheduleToday() {
@@ -36,15 +41,12 @@ const Adminpanel = () => {
                 const day = today.getDate().toString().padStart(2, '0');
 
                 const todayFormatted = `${year}-${month}-${day}`;
-                console.log(todayFormatted, `todayFormatted`)
-
                 const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
                 if (todayResponse) {
                     setLoad(true);
-                  } else {
+                } else {
                     setLoad(false);
-                  }
-                console.log('Today Response:', todayResponse, todayFormatted);
+                }
 
                 const todayTasks = todayResponse.data;
                 setTodaySchedule([...todayTasks]);
@@ -70,13 +72,28 @@ const Adminpanel = () => {
         }
     };
 
+    const fetchAllEvents = async () => {
+        try {
+            const response = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/GetAll`);
+            setAllEvents(response.data.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const handleSearchInputChange = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    const filteredEvents = allEvents.filter(event => event.heading.toLowerCase().includes(searchQuery.toLowerCase()));
+
     if (!load) {
         return (
-          <div>
-            <Loading />
-          </div>
+            <div>
+                <Loading />
+            </div>
         );
-      }
+    }
 
     return (
         <div className="flex mt-[250px] flex-col">
@@ -102,6 +119,7 @@ const Adminpanel = () => {
                                     className="bg-white shadow-none appearance-none pl-8 md:w-2/3 lg:w-1/3 dark:bg-gray-950"
                                     placeholder="Search events..."
                                     type="search"
+                                    onChange={handleSearchInputChange}
                                     style={{ width: "100%" }}
                                 />
                             </div>
@@ -148,11 +166,87 @@ const Adminpanel = () => {
                         </TooltipProvider>
                     </div>
                 </div>
+                {searchQuery && (
+                    <div className="rounded-lg border">
+                        <Table>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="w-[200px]">SrNo.</TableHead>
+                                    <TableHead className="w-[200px]">Event</TableHead>
+                                    <TableHead className="hidden md:table-cell">Date</TableHead>
+                                    <TableHead className="hidden md:table-cell">Start/End</TableHead>
+                                    <TableHead className="hidden md:table-cell">Event Type</TableHead>
+                                    <TableHead className="hidden md:table-cell">Location</TableHead>
+                                    <TableHead>Actions</TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {filteredEvents.map((event, index) => (
+                                    <TableRow key={event.id}>
+                                        <TableCell className="font-semibold">{index + 1}</TableCell>
+                                        <TableCell className="font-semibold">{event.heading}</TableCell>
+                                        <TableCell className="hidden md:table-cell">{formatDate(event.startDate)}</TableCell>
+                                        <TableCell className="hidden md:table-cell">{event.startTime} - {event.endTime}</TableCell>
+                                        <TableCell className="hidden md:table-cell">
+                                            <Badge variant="info">{event.eventType}</Badge>
+                                        </TableCell>
+                                        <TableCell className="hidden md:table-cell">{event.location}</TableCell>
+                                        <TableCell>
+                                            <TooltipProvider>
+                                                <Tooltip>
+                                                    <TooltipTrigger>
+                                                        <Link href={`/addevent/${event._id}`}>
+                                                            <Button className="mr-2 bg-sky-400 text-white" size="sm">
+                                                                Edit
+                                                            </Button>
+                                                        </Link>
+                                                    </TooltipTrigger>
+                                                    <TooltipContent>
+                                                        <p>Edit</p>
+                                                    </TooltipContent>
+                                                </Tooltip>
+                                                <Tooltip>
+                                                    <TooltipTrigger>
+                                                        <Button className="mr-2 bg-red-500 text-white" size="sm">
+                                                            <Popover>
+                                                                <PopoverTrigger>Delete</PopoverTrigger>
+                                                                <PopoverContent>
+                                                                    <p>Are You sure, you want to delete? </p>
+                                                                    <br />
+                                                                    <div className="flex justify-end">
+                                                                        <Button className="mr-2 bg-red-500 text-white" size="sm" onClick={() => handleDelete(event._id)}>
+                                                                            Yes
+                                                                        </Button>
+                                                                    </div>
+                                                                </PopoverContent>
+                                                            </Popover>
+                                                        </Button>
+
+                                                    </TooltipTrigger>
+                                                    <TooltipContent>
+                                                        <p>Delete</p>
+                                                    </TooltipContent>
+                                                </Tooltip>
+                                            </TooltipProvider>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div>
+                )}
+
+                {searchQuery && (
+                    <div>
+                        <hr />
+                    </div>
+                )}
 
                 <div className="rounded-lg border">
                     <Table>
                         <TableHeader>
                             <TableRow>
+                                <TableHead className="w-[200px]">SrNo.</TableHead>
                                 <TableHead className="w-[200px]">Event</TableHead>
                                 <TableHead className="hidden md:table-cell">Date</TableHead>
                                 <TableHead className="hidden md:table-cell">Start/End</TableHead>
@@ -162,8 +256,9 @@ const Adminpanel = () => {
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {todaySchedule.map((event) => (
+                            {todaySchedule.map((event, index) => (
                                 <TableRow key={event.id}>
+                                    <TableCell className="font-semibold">{index + 1}</TableCell>
                                     <TableCell className="font-semibold">{event.heading}</TableCell>
                                     <TableCell className="hidden md:table-cell">{formatDate(event.startDate)}</TableCell>
                                     <TableCell className="hidden md:table-cell">{event.startTime} - {event.endTime}</TableCell>
@@ -201,7 +296,7 @@ const Adminpanel = () => {
                                                             </PopoverContent>
                                                         </Popover>
                                                     </Button>
-                                                    
+
                                                 </TooltipTrigger>
                                                 <TooltipContent>
                                                     <p>Delete</p>

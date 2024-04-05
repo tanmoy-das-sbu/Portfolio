@@ -1,10 +1,10 @@
-"use client";
+"use client"
 
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Image from "next/image";
-import Link from "next/link";
-import "./page.css";
+import Link from "next/link"
+import "./page.css"
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import {
   EffectCoverflow,
@@ -29,154 +29,147 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import UpcomingSlider from "./UpcomingSlider/UpcomingSlider";
 import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import Loading from "@/components/component/loader/loading";
-import LeftArrow from "../../public/images/sliderArrows/left.svg";
-import RightArrow from "../../public/images/sliderArrows/right.svg";
+import Loading from '@/components/component/loader/loading';
+import leftArrow from "../../public/images/sliderArrows/left.svg";
+import rightArrow from "../../public/images/sliderArrows/right.svg";
 
 const SecondSection = () => {
-  const [todaySchedule, setTodaySchedule] = useState([]);
+    const [todaySchedule, setTodaySchedule] = useState([]);
 
-  const [flag, setFlag] = useState(false);
-  const [load, setLoad] = useState(false);
-  const [flaghead, setFlaghead] = useState(false);
-  const [date, setDate] = useState(new Date());
+    const [flag, setFlag] = useState(false);
+    const [load, setLoad] = useState(false);
+    const [flaghead, setFlaghead] = useState(false)
+    const [date, setDate] = useState(new Date())
 
-  useEffect(() => {
-    async function fetchScheduleToday() {
-      try {
-        const today = date;
-        if (
-          date.getMonth() + 1 == new Date().getMonth() + 1 &&
-          date.getFullYear() == new Date().getFullYear() &&
-          date.getDate() == new Date().getDate()
-        ) {
-          setFlaghead(true);
-        } else {
-          setFlaghead(false);
+
+    useEffect(() => {
+        async function fetchScheduleToday() {
+            try {
+                const today = date;
+                if (date.getMonth() + 1 == new Date().getMonth() + 1 && date.getFullYear() == new Date().getFullYear() && date.getDate() == new Date().getDate()) {
+                    setFlaghead(true)
+                } else {
+                    setFlaghead(false)
+                }
+                const year = today.getFullYear();
+                const month = (today.getMonth() + 1).toString().padStart(2, '0'); 
+                const day = today.getDate().toString().padStart(2, '0');
+
+                const todayFormatted = `${year}-${month}-${day}`;
+                //console.log(todayFormatted, `todayFormatted`)
+                // const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
+                const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
+                if (todayResponse) {
+                    setLoad(true);
+                }
+                else {
+                    setLoad(false);
+                }
+                setFlag(true)
+                //console.log('Today Response:', todayResponse, todayFormatted);
+                if (todayResponse.status == 204 || todayResponse.data.length == 0) {
+                    setFlag(false)
+                }
+                const todayTasks = todayResponse.data;
+                setTodaySchedule([...todayTasks]);
+        
+            } catch (error) {
+                setFlag(false)
+            }
         }
-        const year = today.getFullYear();
-        const month = (today.getMonth() + 1).toString().padStart(2, "0");
-        const day = today.getDate().toString().padStart(2, "0");
+        fetchScheduleToday();
+    }, [date]);
 
-        const todayFormatted = `${year}-${month}-${day}`;
+    function isCurrentDateWithinSchedule(startDate, endDate, startTime, endTime) {
+        // Convert start date/time and end date/time to JavaScript Date objects
+        const startDateObj = new Date(startDate);
+        const endDateObj = new Date(endDate);
 
-        const todayResponse = await axios.get(
-          `https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`
-        );
-        if (todayResponse) {
-          setLoad(true);
-        } else {
-          setLoad(false);
+        // Get the current date/time
+        let currentDate = new Date();
+        let startTimeParts = startTime.split(':');
+        let endTimeParts = endTime.split(':');
+        let startHours = parseInt(startTimeParts[0], 10);
+        let startMinutes = parseInt(startTimeParts[1], 10);
+        let endHours = parseInt(endTimeParts[0], 10);
+        let endMinutes = parseInt(endTimeParts[1], 10);
+        let currentHours = currentDate.getHours();
+        let currentMinutes = currentDate.getMinutes();
+
+        // console.log(currentDate,startDateObj,endDateObj.getHours(),'mmm',currentDate>= startDateObj && currentDate <= endDateObj)
+        if (currentDate >= startDateObj && currentDate <= endDateObj || currentDate.getDate() == endDateObj.getDate()) {
+            // If the current date is within the range, check if the current time is within the range of start time and end time
+
+            if (startTime.includes("PM") && endTime.includes('PM')) {
+
+                startHours = startHours + 12;
+
+                endHours = endHours + 12;
+
+                //console.log(startHours, endHours, currentMinutes, startMinutes)
+                if (
+                    (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
+                    (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
+                ) {
+                    return true; // Current date and time are within the schedule
+                }
+
+
+            } else if (endTime.includes("PM") && startTime.includes('AM')) {
+                endHours = endHours + 12;
+                console.log(startHours, endHours, currentMinutes, startMinutes)
+                if (
+                    (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
+                    (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
+                ) {
+                    return true; // Current date and time are within the schedule
+                }
+            } else if (endTime.includes("AM") && startTime.includes('PM')) {
+
+                startHours = startHours + 12;
+
+                console.log(startHours, endHours, currentMinutes, startMinutes, (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
+                    (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes)))
+                if (
+                    (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
+                    (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
+                ) {
+                    return true; // Current date and time are within the schedule
+                }
+            } else {
+
+                // console.log(startHours, endHours, currentMinutes, startMinutes, (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
+                //     (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes)))
+                if (
+                    (currentHours > startHours || (currentHours === startHours && currentMinutes >= startMinutes)) &&
+                    (currentHours < endHours || (currentHours === endHours && currentMinutes <= endMinutes))
+                ) {
+                    return true; 
+                }
+            }
         }
-        setFlag(true);
 
-        if (todayResponse.status == 204 || todayResponse.data.length == 0) {
-          setFlag(false);
-        }
-        const todayTasks = todayResponse.data;
-        setTodaySchedule([...todayTasks]);
-      } catch (error) {
-        setFlag(false);
-      }
-    }
-    fetchScheduleToday();
-  }, [date]);
+        return false; // Current date and time are not within the schedule
 
-  function isCurrentDateWithinSchedule(startDate, endDate, startTime, endTime) {
-    const startDateObj = new Date(startDate);
-    const endDateObj = new Date(endDate);
-
-    let currentDate = new Date();
-    let startTimeParts = startTime.split(":");
-    let endTimeParts = endTime.split(":");
-    let startHours = parseInt(startTimeParts[0], 10);
-    let startMinutes = parseInt(startTimeParts[1], 10);
-    let endHours = parseInt(endTimeParts[0], 10);
-    let endMinutes = parseInt(endTimeParts[1], 10);
-    let currentHours = currentDate.getHours();
-    let currentMinutes = currentDate.getMinutes();
-
-    if (
-      (currentDate >= startDateObj && currentDate <= endDateObj) ||
-      currentDate.getDate() == endDateObj.getDate()
-    ) {
-      if (startTime.includes("PM") && endTime.includes("PM")) {
-        startHours = startHours + 12;
-
-        endHours = endHours + 12;
-
-        if (
-          (currentHours > startHours ||
-            (currentHours === startHours && currentMinutes >= startMinutes)) &&
-          (currentHours < endHours ||
-            (currentHours === endHours && currentMinutes <= endMinutes))
-        ) {
-          return true;
-        }
-      } else if (endTime.includes("PM") && startTime.includes("AM")) {
-        endHours = endHours + 12;
-        console.log(startHours, endHours, currentMinutes, startMinutes);
-        if (
-          (currentHours > startHours ||
-            (currentHours === startHours && currentMinutes >= startMinutes)) &&
-          (currentHours < endHours ||
-            (currentHours === endHours && currentMinutes <= endMinutes))
-        ) {
-          return true;
-        }
-      } else if (endTime.includes("AM") && startTime.includes("PM")) {
-        startHours = startHours + 12;
-
-        console.log(
-          startHours,
-          endHours,
-          currentMinutes,
-          startMinutes,
-          (currentHours > startHours ||
-            (currentHours === startHours && currentMinutes >= startMinutes)) &&
-            (currentHours < endHours ||
-              (currentHours === endHours && currentMinutes <= endMinutes))
-        );
-        if (
-          (currentHours > startHours ||
-            (currentHours === startHours && currentMinutes >= startMinutes)) &&
-          (currentHours < endHours ||
-            (currentHours === endHours && currentMinutes <= endMinutes))
-        ) {
-          return true;
-        }
-      } else {
-        if (
-          (currentHours > startHours ||
-            (currentHours === startHours && currentMinutes >= startMinutes)) &&
-          (currentHours < endHours ||
-            (currentHours === endHours && currentMinutes <= endMinutes))
-        ) {
-          return true;
-        }
-      }
     }
 
-    return false;
-  }
-
-  if (!load) {
-    return (
-      <div>
-        <Loading />
-      </div>
-    );
-  }
+    if (!load) {
+        return (
+            <div>
+                <Loading />
+            </div>
+        )
+    }
 
   return (
     <div className="mt-[250px]">
@@ -357,13 +350,9 @@ const SecondSection = () => {
 
               </div>
             </div>
-          )}
+            <UpcomingSlider />
         </div>
-      </div>
-
-      <UpcomingSlider />
-    </div>
-  );
-};
+    );
+}
 
 export default SecondSection;

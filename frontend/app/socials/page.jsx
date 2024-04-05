@@ -1,5 +1,4 @@
 "use client";
-import "./page.css";
 import FacebookIcon from "../../public/images/icons/facebook.svg";
 import InstagramIcon from "../../public/images/icons/instagram.svg";
 import TwitterIcon from "../../public/images/icons/twitter.svg";
