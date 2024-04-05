@@ -68,7 +68,7 @@ const scheduleSchema = new mongoose.Schema({
         required: true
     },
     priority: {
-        type: Number,
+        type: Boolean,
         required: true
     },
     heading: {
