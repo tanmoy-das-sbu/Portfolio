@@ -11,18 +11,25 @@ import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import axios from 'axios';
 import Image from "next/image";
 import Modal from "./popup";
+import Loading from "@/components/component/loader/loading";
 
 const Gallery = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [data, setData] = useState([]);
     const [selectedImage, setSelectedImage] = useState(null);
-    const [modalOpen, setModalOpen] = useState(false); 
+    const [modalOpen, setModalOpen] = useState(false);
+    const [load, setLoad] = useState(false);
 
     useEffect(() => {
         const getAllImage = async () => {
             try {
                 const response = await axios.get(`http://localhost:8000/Gallery/GetAll`);
-                console.log(response);
+                if (response) {
+                    setLoad(true);
+                }
+                else {
+                    setLoad(false);
+                }
                 setData(response.data.data);
             } catch (error) {
                 console.error('Error fetching event details:', error);
@@ -40,6 +47,14 @@ const Gallery = () => {
     const closeModal = () => {
         setModalOpen(false);
     };
+
+    if (!load) {
+        return (
+            <div>
+                <Loading />
+            </div>
+        )
+    }
 
     return (
         <div className='mt-[210px] pt-12 pb-4 container swipper-div'>
@@ -80,7 +95,7 @@ const Gallery = () => {
             >
                 {data.map((image, index) => (
                     <SwiperSlide key={index}>
-                        <Image src={image.imageUrl} alt={image.altText} width={1280} height={720} className="second-swipper-img"/>
+                        <Image src={image.imageUrl} alt={image.altText} width={1280} height={720} className="second-swipper-img" />
                     </SwiperSlide>
                 ))}
             </Swiper>
