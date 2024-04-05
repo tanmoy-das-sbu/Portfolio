@@ -1,5 +1,4 @@
 "use client";
-import "./page.css";
 
 const Gallery = () =>{
     return (

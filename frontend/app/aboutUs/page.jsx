@@ -6,7 +6,7 @@ import bulletpoint from "../../public/images/icons/bullet.svg";
 
 const AboutUs = () => {
     return (
-        <div>
+        <div className="mt-[270px] pb-4">
             <section className='container about-body mx-auto mt-8'>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
                     <div className='about-div-1'>
