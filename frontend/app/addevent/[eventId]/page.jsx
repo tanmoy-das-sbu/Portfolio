@@ -98,15 +98,15 @@ const EventEdit = ({ params }) => {
   };
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
-    const formData = new FormData();
-    formData.append("image", file);
+    const imageData = new FormData();
+    imageData.append("image", file);
 
     try {
       const response = await fetch(
         "https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/Upload",
         {
           method: "POST",
-          body: formData,
+          body: imageData,
         }
       );
 
