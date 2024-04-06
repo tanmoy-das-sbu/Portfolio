@@ -162,6 +162,13 @@ const SecondSection = () => {
         return false; // Current date and time are not within the schedule
 
     }
+    const truncateDescription = (description, maxLength) => {
+      if (description.length <= maxLength) {
+          return description;
+      } else {
+          return description.slice(0, maxLength) + " ...";
+      }
+  };
 
     if (!load) {
         return (
@@ -173,7 +180,7 @@ const SecondSection = () => {
 
   return (
     <div className="mt-[250px]">
-      <div className="container  date-pic-div flex flex-row justify-center pt-4">
+      <div className="container  w-full flex flex-row justify-center pt-4">
         <Popover>
           <PopoverTrigger asChild>
             <Button
@@ -205,11 +212,11 @@ const SecondSection = () => {
             <div>
               <div className=" container  m-auto pt-4 md:pt-12">
                 {flaghead ? (
-                  <h2 className="headingTag font-bold sm:text-2xl md:text-4xl xs:text-xl w-full text-center text-2xl mb-5">
+                  <h2 className="relative font-bold sm:text-2xl md:text-4xl xs:text-xl w-full text-center text-2xl mb-5">
                     Today&apos;s Events
                   </h2>
                 ) : (
-                  <h2 className="headingTag font-bold sm:text-2xl md:text-4xl xs:text-xl w-full text-center text-2xl mb-5">
+                  <h2 className="relative font-bold sm:text-2xl md:text-4xl xs:text-xl w-full text-center text-2xl mb-5">
                     {date?.toDateString()} Schedule
                   </h2>
                 )}
@@ -243,17 +250,19 @@ const SecondSection = () => {
                     Autoplay,
                   ]}
                 >
-                  {todaySchedule?.map((item, index) => (
+                  {todaySchedule?.map((item, index) => {
+                    const truncatedDescription = truncateDescription(item.shortDescription, 100);
+                    return (
                     <SwiperSlide className="" key={index} >
-                        <div className="flex flex-col overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-200 sm:flex-row">
+                        <div className="flex flex-col overflow-hidden bg-stone-50 shadow-lg shadow-stone-500/50 rounded shadow-md text-slate-500 shadow-slate-200 sm:flex-row">
                           <figure className="flex-1">
                             <img
-                              src={item.imageUrl}
+                              src={item.imageUrl?item.imageUrl:"https://w.wallhaven.cc/full/nk/wallhaven-nkeo57.jpg"}
                               alt="card image"
                               className="heroImg"
                             />
                           </figure>
-                          <div className="flex-1 p-6 sm:mx-6 sm:px-0">
+                          <div className="min-h-80 flex-1 p-6 sm:mx-6 sm:px-0">
                             <header className="flex gap-4 mb-4">
                               <a
                                 href="#"
@@ -298,10 +307,7 @@ const SecondSection = () => {
                               )}
                             </header>
                             <p>
-                              <b>{item.shortDescription}</b><br/>
-                              After a walk through history, there is nothing left to do but admire
-                              the hypnotizing landscapes that exist in every direction. From vast
-                              deserts to rainbow mountains, and everything in between.
+                              <b>{truncatedDescription}</b><br/>
                             </p>
                             <AlertDialog>
                                 <AlertDialogTrigger className="text-sm tracking-tighter">
@@ -336,7 +342,7 @@ const SecondSection = () => {
                         </div>
                       
                     </SwiperSlide>
-                  ))}
+                  )})}
                   <div className="slider-controler">
                     <div className="swiper-button-prev slider-arrow">
                       {/* <img className="w-fit" src="/left.svg"></img> */}
