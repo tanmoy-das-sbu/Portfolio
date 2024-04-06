@@ -13,6 +13,7 @@ import instagram from "../../../../public/images/icons/instagram.svg";
 import youtube from "../../../../public/images/icons/youtube.svg";
 import facebook from "../../../../public/images/icons/facebook.svg";
 import Link from "next/link";
+import  WhatsApp  from "../../../../public/images/icons/whatsapp.svg";
 
 const barlow = Barlow_Condensed({ subsets: ["latin"], weight: "400" });
 
@@ -105,6 +106,25 @@ const Footer = () => {
                     >
                       <Image
                         src={instagram}
+                        className="h-10 w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 rounded-full bg-white shadow-lg p-0 lg:p-2"
+                        draggable="false" alt="instagram"
+                      />
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Instagram</p>
+                  </TooltipContent>
+                </Tooltip>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <a
+                     href="https://wa.me/2348100000000"
+                     class="whatsapp_float"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                    >
+                      <Image
+                        src={WhatsApp }
                         className="h-10 w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 rounded-full bg-white shadow-lg p-0 lg:p-2"
                         draggable="false" alt="instagram"
                       />

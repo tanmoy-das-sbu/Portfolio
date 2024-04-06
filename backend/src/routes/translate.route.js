@@ -6,6 +6,7 @@ const router = express.Router();
 router.post('/translate', async (req, res) => {
     try {
         const { text, source_language, target_language } = req.body;
+        
 
         if (!text || !target_language) {
             return res.status(400).json({ error: 'Missing required parameters' });
