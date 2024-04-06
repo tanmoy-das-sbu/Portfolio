@@ -32,24 +32,6 @@ const taskSchema = new mongoose.Schema({
     }
 });
 
-// const visibilityScheduleSchema = new mongoose.Schema({
-//     date: {
-//         type: Date,
-//         required: true
-//     },
-//     time: {
-//         type: String,
-//         required: true
-//     },
-//     visibility: {
-//         type: String,
-//         enum: ['public', 'private'],
-//         default: 'public'
-//     }
-// }, {
-//     _id: false
-// });
-
 const scheduleSchema = new mongoose.Schema({
     startDate: {
         type: Date,
