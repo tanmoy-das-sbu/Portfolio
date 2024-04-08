@@ -7,9 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/components/ui/use-toast"
+import { useToast } from "@/components/ui/use-toast";
 import { Switch } from "@/components/ui/switch";
-
 
 const EventEdit = ({ params }) => {
   const [data, setData] = useState(null);
@@ -24,9 +23,8 @@ const EventEdit = ({ params }) => {
     location: "",
     scheduleDate: "",
     scheduleTime: "",
-    
   });
-  const { toast } = useToast()
+  const { toast } = useToast();
   const [url, setUrl] = useState("");
   const [priority, setPriority] = useState(false);
   const [visibility, setVisibility] = useState(true);
@@ -51,15 +49,23 @@ const EventEdit = ({ params }) => {
           location: response.data.data.location,
           visibility: response.data.data.visibility,
           scheduleVisibility: response.data.data.scheduleVisibility,
-          scheduleDate: (response.data.data.scheduleDate !== null && response.data.data.scheduleDate !== undefined) ? response.data.data.scheduleDate.slice(0, 10) : "" ,
+          scheduleDate:
+            response.data.data.scheduleDate !== null &&
+            response.data.data.scheduleDate !== undefined
+              ? response.data.data.scheduleDate.slice(0, 10)
+              : "",
           scheduleTime: response.data.data.scheduleTime,
         });
 
-        setUrl((response.data.data.imageUrl !== null && response.data.data.imageUrl !== "") ? response.data.data.imageUrl : url);
+        setUrl(
+          response.data.data.imageUrl !== null &&
+            response.data.data.imageUrl !== ""
+            ? response.data.data.imageUrl
+            : url
+        );
         setPriority(response.data.data.priority);
         setVisibility(response.data.data.visibility);
-        setScheduleVisibility(
-          response.data.data.scheduleVisibility);
+        setScheduleVisibility(response.data.data.scheduleVisibility);
       } catch (error) {
         console.error("Error fetching event details:", error);
       }
@@ -123,7 +129,7 @@ const EventEdit = ({ params }) => {
       toast({
         variant: "success",
         title: "Image Updated Successfully",
-      })
+      });
     } catch (error) {
       console.error("Error uploading image:", error.message);
     }
@@ -131,7 +137,6 @@ const EventEdit = ({ params }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
 
     console.log(formData);
     try {
@@ -145,7 +150,7 @@ const EventEdit = ({ params }) => {
         toast({
           variant: "success",
           title: "Event Updated",
-        })
+        });
       } else {
         console.error("Failed to update event details");
       }
@@ -171,7 +176,7 @@ const EventEdit = ({ params }) => {
       <div>
         <div className="w-full">
           <form onSubmit={handleSubmit}>
-            <div className="mx-auto max-w-5xl grid gap-4 p-4 md:gap-6">
+            <div className="mx-auto max-w-5xl bg-[#F3F0EB] rounded-3xl grid gap-4 p-4 md:gap-6">
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                   Update Event
@@ -225,8 +230,8 @@ const EventEdit = ({ params }) => {
                   />
                 </div>
               </div>
-              <div>
-                <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
                   <Label htmlFor="heading">Heading</Label>
                   <Input
                     id="heading"
@@ -237,7 +242,7 @@ const EventEdit = ({ params }) => {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
                   <Label htmlFor="location">Location</Label>
                   <Input
                     id="location"
@@ -248,7 +253,7 @@ const EventEdit = ({ params }) => {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
                   <Label htmlFor="shortDescription">Short Description</Label>
                   <Textarea
                     className="min-h-[150px]"
@@ -259,7 +264,7 @@ const EventEdit = ({ params }) => {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="flex flex-row gap-4">
+                <div className="flex flex-row gap-2">
                   <div className="flex flex-col gap-4">
                     <Label htmlFor="img">Image</Label>
                     <input
@@ -268,19 +273,23 @@ const EventEdit = ({ params }) => {
                       onChange={handleImageUpload}
                     />
                   </div>
-                  {(url !== null && url !== "") ? (<img
-                    src={url}
-                    className="h-20 w-auto rounded-md shadow-2xl "
-                    alt="ThumNail"
-                  />) : (<img
-                    src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
-                    className="h-20 w-auto rounded-md shadow-2xl "
-                    alt="ThumNail"
-                  />)}
+                  {url !== null && url !== "" ? (
+                    <img
+                      src={url}
+                      className="h-20 w-auto rounded-md shadow-2xl "
+                      alt="ThumNail"
+                    />
+                  ) : (
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+                      className="h-20 w-auto rounded-md shadow-2xl "
+                      alt="ThumNail"
+                    />
+                  )}
                 </div>
 
                 <div className="flex flex-col gap-4 ">
-                  <div className="flex flex-col gap-4 p-6">
+                  <div className="flex flex-col gap-4 ">
                     <Label htmlFor="priority">Priority</Label>
                     <div className="flex items-center space-x-2">
                       <Switch
@@ -291,12 +300,11 @@ const EventEdit = ({ params }) => {
                           setPriority(!priority);
                         }}
                       />
-                      <Label htmlFor="priority">Priority</Label>
+                      <Label htmlFor="priority">ON</Label>
                     </div>
                   </div>
-                  <div>
+                  <div className="flex items-center space-x-2">
                     <Label htmlFor="visibility">Visibility</Label>
-                    <div className="flex items-center space-x-2">
                       <Switch
                         id="visibility"
                         name="visibility"
@@ -309,7 +317,7 @@ const EventEdit = ({ params }) => {
                         }}
                         defaultChecked
                       />
-                    </div>
+                    
                   </div>
                   {visibility ? (
                     <>
@@ -363,10 +371,10 @@ const EventEdit = ({ params }) => {
                     ""
                   )}
                 </div>
+                <div className="flex justify-center">
+                  <Button onClick={handleSubmit}>Submit</Button>
+                </div>
               </div>
-            </div>
-            <div className="flex justify-center">
-              <Button onClick={handleSubmit}>Submit</Button>
             </div>
           </form>
         </div>
