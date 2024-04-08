@@ -1,4 +1,5 @@
 "use client"
+
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -8,6 +9,8 @@ import { PopoverTrigger, PopoverContent, Popover } from "@/components/ui/popover
 import { cn } from "@/lib/utils";
 import { format } from "date-fns"
 import { Calendar } from "@/components/ui/calendar"
+import Link from "next/link"
+import { useToast } from "@/components/ui/use-toast"
 
 const ManageGallery = () => {
     const [data, setData] = useState({
@@ -16,6 +19,7 @@ const ManageGallery = () => {
     const [date, setDate] = useState("");
     const [error, setError] = useState("");
     const [selectedFile, setSelectedFile] = useState(null);
+    const { toast } = useToast()
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -26,13 +30,20 @@ const ManageGallery = () => {
         e.preventDefault();
         if (!data.title.trim()) {
             setError("Title is required");
+        }
+        if (selectedFile == null) {
+            toast({
+                variant: "warning",
+                title: "Photo is required.",
+            });
             return;
         }
 
         try {
             const formData = new FormData();
             formData.append('image', selectedFile);
-            const response = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/Upload`, formData);
+            // const response = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/Upload`, formData);
+            const response = await axios.post(`http://localhost:8000/Schedule/Upload`, formData);
             if (response.status === 200) {
                 const imageUrl = response.data.imageUrl;
                 const postData = { ...data, imageUrl };
@@ -46,19 +57,33 @@ const ManageGallery = () => {
                         socialTags: [],
                         imageUrl: ""
                     });
+                    document.getElementById('imageUrl').value = '';
                     setError("");
+                    setSelectedFile(null);
+                    toast({
+                        variant: "success",
+                        title: "Photo added successfully.",
+                    });
                 } else {
-                    console.log("Error:", submitResponse.statusText);
+                    toast({
+                        variant: "error",
+                        title: submitResponse.statusText,
+                    });
                 }
             } else {
-                console.log("Image upload failed:", response.statusText);
+                toast({
+                    variant: "error",
+                    title: response.statusText,
+                });
             }
         } catch (error) {
-            console.log("Error:", error);
+            toast({
+                variant: "error",
+                title: error,
+            });
         }
     };
-
-
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
         if (name === 'socialTags') {
@@ -85,8 +110,11 @@ const ManageGallery = () => {
 
     return (
         <div className="container mt-[250px] pb-6">
-            <section className="w-full h-[5rem] flex items-center pl-2">
+            <section className="w-full h-[5rem] flex items-center justify-between pl-2 gap-4">
                 <h1 className="text-2xl font-bold">Manage Gallery</h1>
+                <Link href="/adminpanel/gallery/galleryList">
+                    <Button className="bg-blue-500 text-white" >View Gallery List</Button>
+                </Link>
             </section>
             <section className="mt-2 w-full h-[500px] p-2">
                 <form className="flex flex-col w-full gap-3">
@@ -124,6 +152,7 @@ const ManageGallery = () => {
                                         selected={date}
                                         onSelect={handleDateChange}
                                         initialFocus
+                                        value={data.date}
                                     />
                                 </PopoverContent>
                             </Popover>
