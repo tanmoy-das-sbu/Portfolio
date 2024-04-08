@@ -13,7 +13,7 @@ import { AlignJustify, Globe } from "lucide-react"
 import Link from "next/link";
 
 const Buttons = () => {
-    return (<div className="w-full bg-slate-800 fixed right-0 top-[200px] z-30" >
+    return (<div className="w-full bg-slate-800 fixed right-0 z-30" >
         <div className="flex items-center justify-end">
             <div className="lg:hidden">
                 <Sheet>
