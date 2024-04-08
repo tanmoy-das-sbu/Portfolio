@@ -19,7 +19,8 @@ const ManageGallery = () => {
     const [date, setDate] = useState("");
     const [error, setError] = useState("");
     const [selectedFile, setSelectedFile] = useState(null);
-    const { toast } = useToast()
+    const { toast } = useToast();
+    const [loading, setLoading] = useState(false);
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -40,10 +41,10 @@ const ManageGallery = () => {
         }
 
         try {
+            setLoading(true);
             const formData = new FormData();
             formData.append('image', selectedFile);
-            // const response = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/Upload`, formData);
-            const response = await axios.post(`http://localhost:8000/Schedule/Upload`, formData);
+            const response = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/Upload`, formData);
             if (response.status === 200) {
                 const imageUrl = response.data.imageUrl;
                 const postData = { ...data, imageUrl };
@@ -81,9 +82,11 @@ const ManageGallery = () => {
                 variant: "error",
                 title: error,
             });
+        } finally {
+            setLoading(false);
         }
     };
-    
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         if (name === 'socialTags') {
@@ -172,7 +175,9 @@ const ManageGallery = () => {
                         <Input id="socialTags" placeholder="Enter Your Tags separated by commas" type="text" name="socialTags" value={data.socialTags.join(',')} onChange={handleChange} />
                     </div>
                     <div className="flex w-full items-center">
-                        <Button type="button" onClick={submit}>Submit</Button>
+                        <Button type="button" onClick={submit} disabled={loading}>
+                            {loading ? <span>Saving...</span> : <span>Submit</span>}
+                        </Button>
                     </div>
                 </form>
             </section>

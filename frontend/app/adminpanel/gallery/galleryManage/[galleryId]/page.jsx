@@ -21,6 +21,8 @@ const GalleryEdit = ({ params }) => {
     const [error, setError] = useState("");
     const [selectedFile, setSelectedFile] = useState(null);
     const [fileInputValue, setFileInputValue] = useState("");
+    const [load, setLoad] = useState(false);
+    const [loading, setLoading] = useState(false);
     const { toast } = useToast();
 
     const handleImageChange = (e) => {
@@ -38,6 +40,11 @@ const GalleryEdit = ({ params }) => {
                 const response = await axios.get(
                     `https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/GetById/${params.galleryId}`
                 );
+                if (response) {
+                    setLoad(true);
+                } else {
+                    setLoad(false);
+                }
                 setData(response.data.data);
                 setDate(new Date(response.data.data.date));
             } catch (error) {
@@ -69,6 +76,7 @@ const GalleryEdit = ({ params }) => {
     const submit = async (e) => {
         e.preventDefault();
         try {
+            setLoading(true);
             let imageUrl = data.imageUrl;
             if (selectedFile) {
                 imageUrl = await handleImageUpload();
@@ -92,6 +100,8 @@ const GalleryEdit = ({ params }) => {
                 variant: "error",
                 title: error,
             });
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -119,8 +129,7 @@ const GalleryEdit = ({ params }) => {
         }));
     }
 
-
-    if (!data) {
+    if (!load) {
         return (
             <div>
                 <Loading />
@@ -197,7 +206,9 @@ const GalleryEdit = ({ params }) => {
                         <Input id="socialTags" placeholder="Enter Your Tags separated by commas" type="text" name="socialTags" value={data.socialTags.join(',')} onChange={handleChange} />
                     </div>
                     <div className="flex w-full items-center">
-                        <Button type="button" onClick={submit}>Submit</Button>
+                        <Button type="button" onClick={submit} disabled={loading}>
+                            {loading ? <span>Saving...</span> : <span>Submit</span>}
+                        </Button>
                     </div>
                 </form>
             </section>
