@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/components/ui/use-toast"
+import { useToast } from "@/components/ui/use-toast";
 
 import { Switch } from "@/components/ui/switch";
 import {
@@ -17,7 +17,6 @@ import {
 import { useState } from "react";
 import { formatDate } from "@/utils/dateFormat";
 import { Badge } from "@/components/ui/badge";
-
 
 export default function Addevent() {
   const [formDataArray, setFormDataArray] = useState([]);
@@ -33,8 +32,7 @@ export default function Addevent() {
     scheduleDate: "",
     scheduleTime: "",
   });
-  const { toast } = useToast()
-
+  const { toast } = useToast();
 
   const [url, setUrl] = useState("");
   const [priority, setPriority] = useState(false);
@@ -72,7 +70,7 @@ export default function Addevent() {
       toast({
         variant: "success",
         title: "Image Added Successfully",
-      })
+      });
     } catch (error) {
       console.error("Error uploading image:", error.message);
     }
@@ -80,16 +78,25 @@ export default function Addevent() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const requiredFields = ['startDate', 'endDate', 'startTime', 'endTime', 'heading', 'eventType', 'shortDescription', 'location'];
-  const emptyFields = requiredFields.filter(field => !formData[field]);
+    const requiredFields = [
+      "startDate",
+      "endDate",
+      "startTime",
+      "endTime",
+      "heading",
+      "eventType",
+      "shortDescription",
+      "location",
+    ];
+    const emptyFields = requiredFields.filter((field) => !formData[field]);
 
-  if (emptyFields.length > 0) {
-    toast({
-      variant: "error",
-      title: "Please fill the required fields",
-    })
-    return;
-  }
+    if (emptyFields.length > 0) {
+      toast({
+        variant: "error",
+        title: "Please fill the required fields",
+      });
+      return;
+    }
     setFormDataArray([
       ...formDataArray,
       {
@@ -116,11 +123,11 @@ export default function Addevent() {
     setVisibility(true);
     setScheduleVisibility(false);
     console.log(formDataArray);
-    document.getElementById('imageInput').value = '';
+    document.getElementById("imageInput").value = "";
     toast({
       variant: "success",
       title: "Event Added",
-    })
+    });
   };
 
   const handleFormSubmit = async (e) => {
@@ -164,8 +171,8 @@ export default function Addevent() {
       toast({
         variant: "success",
         title: "All Event Submitted",
-      })
-      setFormDataArray([])
+      });
+      setFormDataArray([]);
     } catch (error) {
       console.error("Error adding schedule:", error.message);
     }
@@ -173,10 +180,10 @@ export default function Addevent() {
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="container mt-[250px] flex flex-row  gap-20 md:gap-0 justify-around flex-wrap">
-        <div className="md:w-2/4 w-full">
+        <div className="md:w-2/4 bg-[#F3F0EB] rounded-2xl w-full">
           <div className="w-full">
             <form onSubmit={handleSubmit} aria-required>
-              <div className="mx-auto max-w-5xl  gap-4 md:p-4 p-0 md:gap-8">
+              <div className="mx-auto max-w-5xl flex flex-col gap-2 md:p-4 p-2 md:gap-4">
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                     Add Event
@@ -230,8 +237,8 @@ export default function Addevent() {
                     />
                   </div>
                 </div>
-                <div>
-                  <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-2">
                     <Label htmlFor="heading">Heading</Label>
                     <Input
                       id="heading"
@@ -242,7 +249,7 @@ export default function Addevent() {
                       onChange={handleChange}
                     />
                   </div>
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-2">
                     <Label htmlFor="location">Location</Label>
                     <Input
                       id="location"
@@ -253,7 +260,7 @@ export default function Addevent() {
                       onChange={handleChange}
                     />
                   </div>
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-2">
                     <Label htmlFor="location">Event Type</Label>
                     <Input
                       id="eventType"
@@ -264,7 +271,7 @@ export default function Addevent() {
                       onChange={handleChange}
                     />
                   </div>
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-2">
                     <Label htmlFor="shortDescription">Short Description</Label>
                     <Textarea
                       className=""
@@ -275,17 +282,17 @@ export default function Addevent() {
                       onChange={handleChange}
                     />
                   </div>
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-2">
                     <Label htmlFor="img">Image</Label>
                     <input
-                    id="imageInput"
+                      id="imageInput"
                       type="file"
                       name="img"
                       onChange={handleImageUpload}
                     />
                   </div>
-                  <div className="flex flex-col gap-4 ">
-                    <div className="flex flex-col gap-4 p-6">
+                  <div className="flex flex-col gap-2 ">
+                    <div className="flex flex-col gap-4 ">
                       <Label htmlFor="priority">Priority</Label>
                       <div className="flex items-center space-x-2">
                         <Switch
@@ -296,26 +303,25 @@ export default function Addevent() {
                             setPriority(!priority);
                           }}
                         />
-                        <Label htmlFor="priority">Priority</Label>
+                        <Label htmlFor="priority">ON</Label>
                       </div>
                     </div>
-                    <div>
+                    <div className="flex items-center space-x-2">
                       <Label htmlFor="visibility">Visibility</Label>
-                      <div className="flex items-center space-x-2">
-                        <Switch
-                          id="visibility"
-                          name="visibility"
-                          checked={visibility}
-                          onCheckedChange={() => {
-                            setVisibility(!visibility);
-                            {
-                              visibility ? setScheduleVisibility(false) : "";
-                            }
-                          }}
-                          defaultChecked
-                        />
-                      </div>
+                      <Switch
+                        id="visibility"
+                        name="visibility"
+                        checked={visibility}
+                        onCheckedChange={() => {
+                          setVisibility(!visibility);
+                          {
+                            visibility ? setScheduleVisibility(false) : "";
+                          }
+                        }}
+                        defaultChecked
+                      />
                     </div>
+
                     {visibility ? (
                       <>
                         <div className="flex items-center space-x-2">
@@ -374,7 +380,7 @@ export default function Addevent() {
             </form>
           </div>
         </div>
-        <div className="rounded-lg border md:w-2/4 w-full">
+        <div className="rounded-lg border md:w-auto w-full">
           <Table>
             <TableHeader>
               <TableRow>
@@ -395,7 +401,7 @@ export default function Addevent() {
                 <TableRow key={index}>
                   <TableCell className="font-semibold">{index + 1}</TableCell>
                   <TableCell className="font-semibold">
-                    {event.heading.split(" ").slice(0, 2).join(" ")+"..."}
+                    {event.heading.split(" ").slice(0, 2).join(" ") + "..."}
                   </TableCell>
                   <TableCell className="hidden md:table-cell">
                     {formatDate(event.startDate)}
