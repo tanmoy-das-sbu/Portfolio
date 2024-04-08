@@ -253,7 +253,7 @@ const GalleryList = () => {
                         </TableHeader>
                         <TableBody>
                             {currentGalleryData.map((event, index) => (
-                                <TableRow key={event.id}>
+                                <TableRow key={event._id}>
                                     <TableCell className="font-semibold">{startIndex + index + 1}</TableCell>
                                     <TableCell className="font-semibold">{event.title}</TableCell>
                                     <TableCell className="hidden md:table-cell">{event.altText}</TableCell>
@@ -265,7 +265,7 @@ const GalleryList = () => {
                                         ))}
                                     </TableCell>
                                     <TableCell className="hidden md:table-cell">
-                                        <Image src={event.imageUrl} alt={event.altText} width={100} height={100} />
+                                        <Image src={event.imageUrl} alt={event.altText} width={100} height={100} style={{ width: "auto", height: "auto" }}/>
                                     </TableCell>
                                     <TableCell className="flex">
                                         <TooltipProvider>
