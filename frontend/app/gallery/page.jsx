@@ -30,7 +30,8 @@ const Gallery = () => {
                 else {
                     setLoad(false);
                 }
-                setData(response.data.data);
+                const filteredResponse = response.data.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+                setData(filteredResponse);
             } catch (error) {
                 console.error('Error fetching event details:', error);
             }
