@@ -149,7 +149,7 @@ const GalleryList = () => {
     const currentGalleryData = galleryData.slice(startIndex, endIndex);
 
     return (
-        <div className="flex mt-[250px] flex-col">
+        <div className="flex mt-[210px] flex-col">
             <header
                 className=" border-b bg-gray-100/40 ">
                 <div className="flex items-center justify-center gap-2">
