@@ -7,26 +7,26 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/components/ui/use-toast"
 import { Switch } from "@/components/ui/switch";
+
 
 const EventEdit = ({ params }) => {
   const [data, setData] = useState(null);
   const [formData, setFormData] = useState({
-    startDate: null,
-    endDate: null,
-    startTime: null,
-    endTime: null,
-    priority: false,
+    startDate: "",
+    endDate: "",
+    startTime: "",
+    endTime: "",
     heading: "",
+    eventType: "",
     shortDescription: "",
     location: "",
-    visibility: true,
-    scheduleVisibility: false,
-    scheduleDate: null,
-    scheduleTime: null,
+    scheduleDate: "",
+    scheduleTime: "",
+    
   });
-
-  const [option, setOption] = useState(true);
+  const { toast } = useToast()
   const [url, setUrl] = useState("");
   const [priority, setPriority] = useState(false);
   const [visibility, setVisibility] = useState(true);
@@ -50,19 +50,16 @@ const EventEdit = ({ params }) => {
           shortDescription: response.data.data.shortDescription,
           location: response.data.data.location,
           visibility: response.data.data.visibility,
-          scheduleVisibility: (response.data.data.scheduleVisibility ? response.data.data.scheduleVisibility: 
-            false),
-          scheduleDate: response.data.data.scheduleDate.slice(0, 10),
+          scheduleVisibility: response.data.data.scheduleVisibility,
+          scheduleDate: (response.data.data.scheduleDate !== null && response.data.data.scheduleDate !== undefined) ? response.data.data.scheduleDate.slice(0, 10) : "" ,
           scheduleTime: response.data.data.scheduleTime,
-
-          
         });
 
-        setUrl(response.data.data.imageUrl)
+        setUrl((response.data.data.imageUrl !== null && response.data.data.imageUrl !== "") ? response.data.data.imageUrl : url);
         setPriority(response.data.data.priority);
         setVisibility(response.data.data.visibility);
-        setScheduleVisibility((response.data.data.scheduleVisibility ? response.data.data.scheduleVisibility: 
-          false));
+        setScheduleVisibility(
+          response.data.data.scheduleVisibility);
       } catch (error) {
         console.error("Error fetching event details:", error);
       }
@@ -117,36 +114,38 @@ const EventEdit = ({ params }) => {
       }
 
       const data = await response.json();
-      console.log("dta", data);
-      console.log("dimg", data.imageUrl);
-      // setUrl(data.imageUrl);
       setUrl(data.imageUrl);
       setFormData({
         ...formData,
         imageUrl: data.imageUrl,
       });
       console.log("Message", url);
+      toast({
+        variant: "success",
+        title: "Image Updated Successfully",
+      })
     } catch (error) {
       console.error("Error uploading image:", error.message);
     }
   };
-  const handleOptionChange = () => {
-    setOption(!option);
-    setVisibility(!visibility);
-    setScheduleVisibility(!scheduleVisibility);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData)
+
+
+    console.log(formData);
     try {
       const response = await axios.put(
         `https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/UpdateById/${params.eventId}`,
-        formData
+        { ...formData, priority, visibility, scheduleVisibility, imageUrl: url }
       );
 
       if (response.status === 200) {
         console.log("Event details updated successfully:", response.data);
+        toast({
+          variant: "success",
+          title: "Event Updated",
+        })
       } else {
         console.error("Failed to update event details");
       }
@@ -269,11 +268,15 @@ const EventEdit = ({ params }) => {
                       onChange={handleImageUpload}
                     />
                   </div>
-                  <img
+                  {(url !== null && url !== "") ? (<img
                     src={url}
                     className="h-20 w-auto rounded-md shadow-2xl "
-                    alt="youtube"
-                  />
+                    alt="ThumNail"
+                  />) : (<img
+                    src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+                    className="h-20 w-auto rounded-md shadow-2xl "
+                    alt="ThumNail"
+                  />)}
                 </div>
 
                 <div className="flex flex-col gap-4 ">
@@ -291,65 +294,74 @@ const EventEdit = ({ params }) => {
                       <Label htmlFor="priority">Priority</Label>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div>
                     <Label htmlFor="visibility">Visibility</Label>
-                    <Switch
-                      id="visibility"
-                      name="visibility"
-                      checked={formData.visibility}
-                      onCheckedChange={handleOptionChange}
-                    />
-                    <Label htmlFor="visibility">Schedule Visibility</Label>
+                    <div className="flex items-center space-x-2">
+                      <Switch
+                        id="visibility"
+                        name="visibility"
+                        checked={visibility}
+                        onCheckedChange={() => {
+                          setVisibility(!visibility);
+                          {
+                            visibility ? setScheduleVisibility(false) : "";
+                          }
+                        }}
+                        defaultChecked
+                      />
+                    </div>
                   </div>
-                  <div className="flex flex-row  justify-around p-4">
-                    {option ? (
-                      <div>
-                        <Label htmlFor="visibility">Visibility</Label>
-                        <div className="flex items-center space-x-2">
-                          <Switch
-                            id="visibility"
-                            name="visibility"
-                            onCheckedChange={() => {
-                              setVisibility(!visibility);
-                            }}
-                            defaultChecked
-                          />
-                          <Label htmlFor="visibility">Visibility</Label>
-                        </div>
+                  {visibility ? (
+                    <>
+                      <div className="flex items-center space-x-2">
+                        <Label htmlFor="priority">Schedule Visibility</Label>
+                        <Switch
+                          id="priority"
+                          name="priority"
+                          checked={scheduleVisibility}
+                          onCheckedChange={() => {
+                            setScheduleVisibility(!scheduleVisibility);
+                          }}
+                        />
                       </div>
-                    ) : (
-                      <div>
-                        <Label htmlFor="scheduleVisibility">
-                          Schedule Visibility
-                        </Label>
-
-                        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center ">
-                          <div className="flex flex-col w-full md:w-1/2 gap-2 ">
-                            <Label htmlFor="scheduleDate">Date</Label>
-                            <Input
-                              id="scheduleDate"
-                              placeholder=" Date"
-                              type="date"
-                              name="scheduleDate"
-                              checked={formData.scheduleDate || ""}
-                              onChange={handleChange}
-                            />
+                      <div className="flex flex-row  justify-around p-4">
+                        {scheduleVisibility ? (
+                          <div>
+                            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center ">
+                              <div className="flex flex-col w-full md:w-1/2 gap-2 ">
+                                <Label htmlFor="scheduleDate">Date</Label>
+                                <Input
+                                  id="scheduleDate"
+                                  placeholder=" Date"
+                                  type="date"
+                                  name="scheduleDate"
+                                  value={formData.scheduleDate}
+                                  onChange={handleChange}
+                                />
+                              </div>
+                              <div className="flex flex-col w-full md:w-1/2 gap-2 ">
+                                <Label htmlFor="scheduleTime">Time</Label>
+                                <Input
+                                  id="scheduleTime"
+                                  placeholder="Time"
+                                  type="time"
+                                  value={
+                                    formatTime(formData.scheduleTime) || ""
+                                  }
+                                  name="scheduleTime"
+                                  onChange={handleChange}
+                                />
+                              </div>
+                            </div>
                           </div>
-                          <div className="flex flex-col w-full md:w-1/2 gap-2 ">
-                            <Label htmlFor="scheduleTime">Time</Label>
-                            <Input
-                              id="scheduleTime"
-                              placeholder="Time"
-                              type="time"
-                              name="scheduleTime"
-                              value={formData.scheduleTime || ""}
-                              onChange={handleChange}
-                            />
-                          </div>
-                        </div>
+                        ) : (
+                          ""
+                        )}
                       </div>
-                    )}
-                  </div>
+                    </>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             </div>
