@@ -22,13 +22,18 @@ import {
 import Loading from "@/components/component/loader/loading"
 import Image from 'next/image';
 import { useToast } from "@/components/ui/use-toast"
+import RefreshIcon from '@mui/icons-material/Refresh';
+
+const ITEMS_PER_PAGE = 10;
 
 const GalleryList = () => {
     const [galleryData, setGalleryData] = useState([]);
     const [actualData, setActualData] = useState([]);
-    const [date, setDate] = useState(new Date());
+    const [date, setDate] = useState("");
     const [load, setLoad] = useState(false);
     const { toast } = useToast()
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
 
     useEffect(() => {
         const getData = async () => {
@@ -38,6 +43,7 @@ const GalleryList = () => {
                     const filteredResponse = response.data.data.sort((a, b) => new Date(b.date) - new Date(a.date));
                     setGalleryData(filteredResponse);
                     setActualData(response.data.data);
+                    setTotalPages(Math.ceil(filteredResponse.length / ITEMS_PER_PAGE));
                     setLoad(true);
                 } else {
                     setLoad(false);
@@ -102,6 +108,26 @@ const GalleryList = () => {
         }
     };
 
+    const handleRefresh = async () => {
+        try {
+            const response = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/getAll`);
+            if (response && response.data.data) {
+                setGalleryData(response.data.data);
+                setTotalPages(Math.ceil(response.data.data.length / ITEMS_PER_PAGE));
+                setDate("");
+                toast({
+                    variant: "success",
+                    title: "Gallery data refreshed successfully.",
+                });
+            }
+        } catch (error) {
+            toast({
+                variant: "error",
+                title: error,
+            });
+        }
+    };
+
     if (!load) {
         return (
             <div>
@@ -109,6 +135,14 @@ const GalleryList = () => {
             </div>
         );
     }
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
+
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    const currentGalleryData = galleryData.slice(startIndex, endIndex);
 
     return (
         <div className="flex mt-[250px] flex-col">
@@ -186,6 +220,23 @@ const GalleryList = () => {
                     <Table>
                         <TableHeader>
                             <TableRow>
+                                <TableHead>
+                                    <TooltipProvider>
+                                        <Tooltip>
+                                            <TooltipTrigger>
+                                                <RefreshIcon className="cursor-pointer" onClick={handleRefresh} />
+                                            </TooltipTrigger>
+                                            <TooltipContent>
+                                                <p>Refresh</p>
+                                            </TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
+
+                                </TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableHeader>
+                            <TableRow>
                                 <TableHead className="w-[50px]">SrNo.</TableHead>
                                 <TableHead className="w-[200px]">Title</TableHead>
                                 <TableHead className="hidden md:table-cell">ALt Text</TableHead>
@@ -197,9 +248,9 @@ const GalleryList = () => {
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {galleryData.map((event, index) => (
+                            {currentGalleryData.map((event, index) => (
                                 <TableRow key={event.id}>
-                                    <TableCell className="font-semibold">{index + 1}</TableCell>
+                                    <TableCell className="font-semibold">{startIndex + index + 1}</TableCell>
                                     <TableCell className="font-semibold">{event.title}</TableCell>
                                     <TableCell className="hidden md:table-cell">{event.altText}</TableCell>
                                     <TableCell className="hidden md:table-cell">{formatDate(event.date)}</TableCell>
@@ -254,6 +305,18 @@ const GalleryList = () => {
                             ))}
                         </TableBody>
                     </Table>
+                    <div className="flex justify-center items-center mt-4">
+                        {Array.from({ length: totalPages }, (_, i) => (
+                            <button
+                                key={i}
+                                className={`mx-1 px-3 py-1 rounded-full ${currentPage === i + 1 ? "bg-gray-300" : "bg-gray-200"
+                                    }`}
+                                onClick={() => handlePageChange(i + 1)}
+                            >
+                                {i + 1}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </main>
 
