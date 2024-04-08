@@ -35,7 +35,7 @@ export default function Addevent() {
   });
   const { toast } = useToast()
 
-  const [option, setOption] = useState();
+
   const [url, setUrl] = useState("");
   const [priority, setPriority] = useState(false);
   const [visibility, setVisibility] = useState(true);
@@ -69,25 +69,25 @@ export default function Addevent() {
 
       const data = await response.json();
       setUrl(data.imageUrl);
+      toast({
+        variant: "success",
+        title: "Image Added Successfully",
+      })
     } catch (error) {
       console.error("Error uploading image:", error.message);
     }
   };
-const handleToast = ()=>{
-    toast({
-      variant: "destructive",
-      title: "Please fill the required fields",
 
-
-    })
-}
   const handleSubmit = (e) => {
     e.preventDefault();
     const requiredFields = ['startDate', 'endDate', 'startTime', 'endTime', 'heading', 'eventType', 'shortDescription', 'location'];
   const emptyFields = requiredFields.filter(field => !formData[field]);
 
   if (emptyFields.length > 0) {
-    handleToast()
+    toast({
+      variant: "error",
+      title: "Please fill the required fields",
+    })
     return;
   }
     setFormDataArray([
@@ -117,6 +117,10 @@ const handleToast = ()=>{
     setScheduleVisibility(false);
     console.log(formDataArray);
     document.getElementById('imageInput').value = '';
+    toast({
+      variant: "success",
+      title: "Event Added",
+    })
   };
 
   const handleFormSubmit = async (e) => {
@@ -157,14 +161,18 @@ const handleToast = ()=>{
       setPriority(false);
       setVisibility(true);
       setScheduleVisibility(false);
-      setImageUrlLink("");
+      toast({
+        variant: "success",
+        title: "All Event Submitted",
+      })
+      setFormDataArray([])
     } catch (error) {
       console.error("Error adding schedule:", error.message);
     }
   };
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="container mt-[250px] flex flex-row justify-around flex-wrap">
+      <div className="container mt-[250px] flex flex-row  gap-20 md:gap-0 justify-around flex-wrap">
         <div className="md:w-2/4 w-full">
           <div className="w-full">
             <form onSubmit={handleSubmit} aria-required>
@@ -410,7 +418,7 @@ const handleToast = ()=>{
       <div className="flex justify-end m-4">
         <Button
           disabled={formDataArray.length <= 0}
-          className="..."
+          className=""
           onClick={handleFormSubmit}
         >
           {formDataArray.length <= 0 ? "No Data" : "Submit"}
