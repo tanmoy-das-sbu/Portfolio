@@ -1,63 +1,109 @@
-"use client"
+"use client";
+
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Loading from "@/components/component/loader/loading";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import axios from "axios";
+import { useToast } from "@/components/ui/use-toast"
+import Link from "next/link"
 import { PopoverTrigger, PopoverContent, Popover } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns"
 import { Calendar } from "@/components/ui/calendar"
 
-const ManageGallery = () => {
+const GalleryEdit = ({ params }) => {
     const [data, setData] = useState({
         title: "", altText: "", shortDescription: "", date: "", socialTags: [], imageUrl: ""
     });
     const [date, setDate] = useState("");
     const [error, setError] = useState("");
     const [selectedFile, setSelectedFile] = useState(null);
+    const [fileInputValue, setFileInputValue] = useState("");
+    const [load, setLoad] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const { toast } = useToast();
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         setSelectedFile(file);
+        if (file) {
+            setFileInputValue(file.name);
+        }
     };
 
-    const submit = async (e) => {
-        e.preventDefault();
-        if (!data.title.trim()) {
-            setError("Title is required");
-            return;
-        }
 
+    useEffect(() => {
+        const getGalleryDetails = async () => {
+            try {
+                const response = await axios.get(
+                    `https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/GetById/${params.galleryId}`
+                );
+                if (response) {
+                    setLoad(true);
+                } else {
+                    setLoad(false);
+                }
+                setData(response.data.data);
+                setDate(new Date(response.data.data.date));
+            } catch (error) {
+                toast({
+                    variant: "warning",
+                    title: error,
+                });
+            }
+        };
+
+        getGalleryDetails();
+    }, [params.galleryId]);
+
+    const handleImageUpload = async () => {
         try {
             const formData = new FormData();
             formData.append('image', selectedFile);
             const response = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/Upload`, formData);
-            if (response.status === 200) {
-                const imageUrl = response.data.imageUrl;
-                const postData = { ...data, imageUrl };
-                const submitResponse = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/Add`, postData);
-                if (submitResponse.status === 200) {
-                    setData({
-                        title: "",
-                        altText: "",
-                        shortDescription: "",
-                        date: "",
-                        socialTags: [],
-                        imageUrl: ""
-                    });
-                    setError("");
-                } else {
-                    console.log("Error:", submitResponse.statusText);
-                }
-            } else {
-                console.log("Image upload failed:", response.statusText);
-            }
+            return response.data.imageUrl;
         } catch (error) {
-            console.log("Error:", error);
+            toast({
+                variant: "warning",
+                title: error,
+            });
+            return null;
         }
     };
 
+    const submit = async (e) => {
+        e.preventDefault();
+        try {
+            setLoading(true);
+            let imageUrl = data.imageUrl;
+            if (selectedFile) {
+                imageUrl = await handleImageUpload();
+            }
+            const updatedData = { ...data, imageUrl };
+            if (imageUrl != null) {
+                axios.put(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/UpdateById/${params.galleryId}`, updatedData);
+                toast({
+                    variant: "success",
+                    title: "Successfully Updated",
+                });
+            } else {
+                toast({
+                    variant: "warning",
+                    title: "Error uploading image.",
+                });
+            }
+
+        } catch (error) {
+            toast({
+                variant: "error",
+                title: error,
+            });
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -83,10 +129,21 @@ const ManageGallery = () => {
         }));
     }
 
+    if (!load) {
+        return (
+            <div>
+                <Loading />
+            </div>
+        );
+    }
+
     return (
-        <div className="container mt-[250px] pb-6">
-            <section className="w-full h-[5rem] flex items-center pl-2">
+        <div className="container mt-[250px] mb-[100px]">
+            <section className="w-full h-[5rem] flex items-center justify-between pl-2 gap-4">
                 <h1 className="text-2xl font-bold">Manage Gallery</h1>
+                <Link href="/adminpanel/gallery/galleryList">
+                    <Button className="bg-blue-500 text-white" >View Gallery List</Button>
+                </Link>
             </section>
             <section className="mt-2 w-full h-[500px] p-2">
                 <form className="flex flex-col w-full gap-3">
@@ -124,14 +181,20 @@ const ManageGallery = () => {
                                         selected={date}
                                         onSelect={handleDateChange}
                                         initialFocus
+                                        value={data.date}
                                     />
                                 </PopoverContent>
                             </Popover>
                         </div>
                         <div className="flex flex-col w-full gap-1">
                             <label htmlFor="imageUrl" className="font-semibold">Image <span className="text-red-500">&#42;</span></label>
-                            <Input id="imageUrl" type="file" name="imageUrl" value={data.imageUrl} onChange={handleImageChange} />
-                            {selectedFile && <p>Selected file: {selectedFile.name}</p>}
+                            <Input id="imageUrl" type="file" name="imageUrl" accept="image/*" onChange={handleImageChange} />
+                            {fileInputValue && <p>Selected file: {fileInputValue}</p>}
+                            <img
+                                src={selectedFile ? URL.createObjectURL(selectedFile) : data.imageUrl}
+                                className="h-40 w-40 rounded-md shadow-2xl"
+                                alt="image"
+                            />
                         </div>
                     </div>
                     <div className="flex flex-col w-full gap-1">
@@ -143,15 +206,17 @@ const ManageGallery = () => {
                         <Input id="socialTags" placeholder="Enter Your Tags separated by commas" type="text" name="socialTags" value={data.socialTags.join(',')} onChange={handleChange} />
                     </div>
                     <div className="flex w-full items-center">
-                        <Button type="button" onClick={submit}>Submit</Button>
+                        <Button type="button" onClick={submit} disabled={loading}>
+                            {loading ? <span>Saving...</span> : <span>Submit</span>}
+                        </Button>
                     </div>
                 </form>
             </section>
         </div>
-    )
-}
+    );
+};
 
-export default ManageGallery;
+export default GalleryEdit;
 
 function CalendarIcon(props) {
     return (
