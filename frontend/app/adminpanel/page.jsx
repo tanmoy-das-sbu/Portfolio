@@ -18,6 +18,7 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip";
 import Loading from "@/components/component/loader/loading"
+import { useToast } from "@/components/ui/use-toast"
 
 
 const Adminpanel = () => {
@@ -26,6 +27,7 @@ const Adminpanel = () => {
     const [load, setLoad] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const [allEvents, setAllEvents] = useState([]);
+    const { toast } = useToast();
 
     useEffect(() => {
         fetchAllEvents();
@@ -52,7 +54,10 @@ const Adminpanel = () => {
                 setTodaySchedule([...todayTasks]);
 
             } catch (error) {
-                console.log(error);
+                toast({
+                    variant: "error",
+                    title: error,
+                });
             }
         }
         fetchScheduleToday();
@@ -68,7 +73,10 @@ const Adminpanel = () => {
             const updatedSchedule = todaySchedule.filter(event => event._id !== eventId);
             setTodaySchedule(updatedSchedule);
         } catch (error) {
-            console.log(error);
+            toast({
+                    variant: "error",
+                    title: error,
+                });
         }
     };
 
@@ -77,7 +85,10 @@ const Adminpanel = () => {
             const response = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/GetAll`);
             setAllEvents(response.data.data);
         } catch (error) {
-            console.log(error);
+            toast({
+                    variant: "error",
+                    title: error,
+                });
         }
     };
 
