@@ -179,7 +179,7 @@ const SecondSection = () => {
     }
 
   return (
-    <div className="mt-[250px]">
+    <div className="mt-[200px] ">
       <div className="container  w-full flex flex-row justify-center pt-4">
         <Popover>
           <PopoverTrigger asChild>
@@ -204,8 +204,7 @@ const SecondSection = () => {
           </PopoverContent>
         </Popover>
       </div>
-      <div>
-        <div>
+        <div className='pb-10'>
           {!flag ? (
             <NoScheduleForToday />
           ) : (
@@ -228,7 +227,7 @@ const SecondSection = () => {
                   loop={true}
                   slidesPerView={'auto'}
                   autoplay={{
-                    delay: 5000,
+                    delay: 50000,
                     disableOnInteraction: false,
                   }}
                   coverflowEffect={{
@@ -254,13 +253,21 @@ const SecondSection = () => {
                     const truncatedDescription = truncateDescription(item.shortDescription, 100);
                     return (
                     <SwiperSlide className="" key={index} >
-                        <div className="flex flex-col overflow-hidden bg-stone-50 shadow-lg shadow-stone-500/50 rounded shadow-md text-slate-500 shadow-slate-200 sm:flex-row">
+                        <div className="flex flex-col overflow-hidden bg-stone-100 shadow-lg shadow-stone-500/50 rounded shadow-md text-slate-500 shadow-slate-200 md:flex-row">
                           <figure className="flex-1">
-                            <img
-                              src={item.imageUrl?item.imageUrl:"https://w.wallhaven.cc/full/nk/wallhaven-nkeo57.jpg"}
-                              alt="card image"
-                              className="heroImg"
-                            />
+                            {item.imageUrl !== "" ? (
+                              <img
+                                src={item.imageUrl}
+                                alt="card image"
+                                className="heroImg"
+                              />
+                            ) : (
+                              <img
+                                src="https://a.cdn-hotels.com/gdcs/production125/d1171/965955d8-0449-40c4-bdbf-7327d49f4014.jpg" 
+                                alt="default image"
+                                className="heroImg"
+                              />
+                            )}
                           </figure>
                           <div className="min-h-80 flex-1 p-6 sm:mx-6 sm:px-0">
                             <header className="flex gap-4 mb-4">
@@ -340,7 +347,6 @@ const SecondSection = () => {
                               </AlertDialog>
                           </div>
                         </div>
-                      
                     </SwiperSlide>
                   )})}
                   <div className="slider-controler">
@@ -358,8 +364,6 @@ const SecondSection = () => {
             </div>
           )}
         </div>
-      </div>
-
       <UpcomingSlider />
     </div>
     );
