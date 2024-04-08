@@ -26,6 +26,7 @@ import Link from "next/link"
 import { Sacramento } from 'next/font/google';
 import { useEffect, useState } from "react"
 import axios from "axios"
+import { useToast } from "@/components/ui/use-toast"
 
 
 const sac = Sacramento({
@@ -47,6 +48,7 @@ const truncateDescription = (description, maxLength) => {
 const UpcomingSlider = ({ data }) => {
     const [ongoing, setOngoing] = useState([]);
     const [upcomingEvent, setUpcomingEvent] = useState([]);
+    const { toast } = useToast();
 
     useEffect(() => {
         async function fetchScheduleUpcoming() {
@@ -57,9 +59,15 @@ const UpcomingSlider = ({ data }) => {
                 setOngoing(ongoingevent.data[`ongoingEvents`]);
             } catch (err) {
                 if (err.error && err.error.message) {
-                    console.error('Error Fetching Schedule Tomorrow:', err.error.message);
+                    toast({
+                        variant: "error",
+                        title: err.error.message,
+                    });
                 } else {
-                    console.error('Error Fetching Schedule Tomorrow:', err.message);
+                    toast({
+                        variant: "error",
+                        title: err.message,
+                    });
                 }
             }
 

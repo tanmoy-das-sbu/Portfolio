@@ -12,6 +12,7 @@ import axios from 'axios';
 import Image from "next/image";
 import Modal from "./popup";
 import Loading from "@/components/component/loader/loading";
+import { useToast } from "@/components/ui/use-toast"
 
 const Gallery = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -19,6 +20,7 @@ const Gallery = () => {
     const [selectedImage, setSelectedImage] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
     const [load, setLoad] = useState(false);
+    const { toast } = useToast();
 
     useEffect(() => {
         const getAllImage = async () => {
@@ -30,9 +32,13 @@ const Gallery = () => {
                 else {
                     setLoad(false);
                 }
-                setData(response.data.data);
+                const filteredResponse = response.data.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+                setData(filteredResponse);
             } catch (error) {
-                console.error('Error fetching event details:', error);
+                toast({
+                    variant: "error",
+                    title: error,
+                });
             }
         };
 
