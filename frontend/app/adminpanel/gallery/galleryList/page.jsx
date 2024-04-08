@@ -74,6 +74,7 @@ const GalleryList = () => {
                 });
 
                 setGalleryData(filteredData);
+                setTotalPages(Math.ceil(filteredData.length / ITEMS_PER_PAGE))
             }
         } catch (error) {
             toast({
@@ -102,9 +103,11 @@ const GalleryList = () => {
 
         if (query === "") {
             setGalleryData(actualData);
+            setTotalPages(Math.ceil(actualData.length / ITEMS_PER_PAGE));
         } else {
             const filteredData = actualData.filter(event => event.title.toLowerCase().includes(query));
             setGalleryData(filteredData);
+            setTotalPages(Math.ceil(filteredData.length / ITEMS_PER_PAGE));
         }
     };
 
@@ -112,7 +115,8 @@ const GalleryList = () => {
         try {
             const response = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/getAll`);
             if (response && response.data.data) {
-                setGalleryData(response.data.data);
+                const filteredResponse = response.data.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+                setGalleryData(filteredResponse);
                 setTotalPages(Math.ceil(response.data.data.length / ITEMS_PER_PAGE));
                 setDate("");
                 toast({
