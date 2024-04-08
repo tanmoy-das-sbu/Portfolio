@@ -50,7 +50,8 @@ const EventEdit = ({ params }) => {
           shortDescription: response.data.data.shortDescription,
           location: response.data.data.location,
           visibility: response.data.data.visibility,
-          scheduleVisibility: response.data.data.scheduleVisibility,
+          scheduleVisibility: (response.data.data.scheduleVisibility ? response.data.data.scheduleVisibility: 
+            false),
           scheduleDate: response.data.data.scheduleDate.slice(0, 10),
           scheduleTime: response.data.data.scheduleTime,
 
@@ -60,7 +61,8 @@ const EventEdit = ({ params }) => {
         setUrl(response.data.data.imageUrl)
         setPriority(response.data.data.priority);
         setVisibility(response.data.data.visibility);
-        setScheduleVisibility(response.data.data.scheduleVisibility);
+        setScheduleVisibility((response.data.data.scheduleVisibility ? response.data.data.scheduleVisibility: 
+          false));
       } catch (error) {
         console.error("Error fetching event details:", error);
       }
@@ -98,15 +100,15 @@ const EventEdit = ({ params }) => {
   };
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
-    const formData = new FormData();
-    formData.append("image", file);
+    const imageData = new FormData();
+    imageData.append("image", file);
 
     try {
       const response = await fetch(
         "https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/Upload",
         {
           method: "POST",
-          body: formData,
+          body: imageData,
         }
       );
 
