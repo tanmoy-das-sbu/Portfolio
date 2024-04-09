@@ -172,7 +172,7 @@ const EventEdit = ({ params }) => {
   );
 
   return (
-    <div className="mt-[250px] pb-6">
+    <div className="mt-[210px] pb-6">
       <div>
         <div className="w-full">
           <form onSubmit={handleSubmit}>

@@ -1,7 +1,6 @@
 "use client"
 
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { PopoverTrigger, PopoverContent, Popover } from "@/components/ui/popover";
@@ -149,7 +148,7 @@ const GalleryList = () => {
     const currentGalleryData = galleryData.slice(startIndex, endIndex);
 
     return (
-        <div className="flex mt-[250px] flex-col">
+        <div className="flex mt-[210px] flex-col">
             <header
                 className=" border-b bg-gray-100/40 ">
                 <div className="flex items-center justify-center gap-2">
@@ -253,7 +252,7 @@ const GalleryList = () => {
                         </TableHeader>
                         <TableBody>
                             {currentGalleryData.map((event, index) => (
-                                <TableRow key={event.id}>
+                                <TableRow key={event._id}>
                                     <TableCell className="font-semibold">{startIndex + index + 1}</TableCell>
                                     <TableCell className="font-semibold">{event.title}</TableCell>
                                     <TableCell className="hidden md:table-cell">{event.altText}</TableCell>
@@ -265,7 +264,7 @@ const GalleryList = () => {
                                         ))}
                                     </TableCell>
                                     <TableCell className="hidden md:table-cell">
-                                        <Image src={event.imageUrl} alt={event.altText} width={100} height={100} />
+                                        <Image src={event.imageUrl} alt={event.altText} width={100} height={100} style={{ width: "auto", height: "auto" }}/>
                                     </TableCell>
                                     <TableCell className="flex">
                                         <TooltipProvider>

@@ -35,7 +35,9 @@ const Footer = () => {
               <Link href={`/gallery`}>
                 <li> Photo Gallery</li>
               </Link>
+              <Link href={`/blog`}>
               <li> Blog</li>
+              </Link>
               <li> Articles</li>
               <Link href={`/contact`}>
                 <li> Contact Us</li>
