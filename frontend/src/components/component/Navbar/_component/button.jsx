@@ -29,7 +29,7 @@ const Buttons = () => {
                                     <SheetClose asChild><Link href={"/socials"} passHref> Socials</Link></SheetClose>
                                     <SheetClose asChild><Link href={"/schedule"} passHref> Schedule</Link></SheetClose>
                                     <SheetClose asChild><Link href={"/contact"} passHref> Contact</Link></SheetClose>
-                                    <SheetClose asChild><Link href={"#"} passHref> Blog</Link></SheetClose>
+                                    <SheetClose asChild><Link href={"/blog"} passHref> Blog</Link></SheetClose>
                                 </div>
                             </SheetDescription>
                         </SheetHeader>
