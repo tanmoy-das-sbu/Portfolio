@@ -112,7 +112,7 @@ const ManageGallery = () => {
     }
 
     return (
-        <div className="container mt-[250px] pb-6">
+        <div className="container mt-[210px] pb-6">
             <section className="w-full h-[5rem] flex items-center justify-between pl-2 gap-4">
                 <h1 className="text-2xl font-bold">Manage Gallery</h1>
                 <Link href="/adminpanel/gallery/galleryList">

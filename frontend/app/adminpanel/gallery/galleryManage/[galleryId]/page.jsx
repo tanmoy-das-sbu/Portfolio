@@ -138,7 +138,7 @@ const GalleryEdit = ({ params }) => {
     }
 
     return (
-        <div className="container mt-[250px] mb-[100px]">
+        <div className="container mt-[210px] mb-[100px]">
             <section className="w-full h-[5rem] flex items-center justify-between pl-2 gap-4">
                 <h1 className="text-2xl font-bold">Manage Gallery</h1>
                 <Link href="/adminpanel/gallery/galleryList">

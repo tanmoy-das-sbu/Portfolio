@@ -1,7 +1,6 @@
 "use client"
 
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { PopoverTrigger, PopoverContent, Popover } from "@/components/ui/popover";
@@ -74,6 +73,7 @@ const GalleryList = () => {
                 });
 
                 setGalleryData(filteredData);
+                setTotalPages(Math.ceil(filteredData.length / ITEMS_PER_PAGE))
             }
         } catch (error) {
             toast({
@@ -102,9 +102,11 @@ const GalleryList = () => {
 
         if (query === "") {
             setGalleryData(actualData);
+            setTotalPages(Math.ceil(actualData.length / ITEMS_PER_PAGE));
         } else {
             const filteredData = actualData.filter(event => event.title.toLowerCase().includes(query));
             setGalleryData(filteredData);
+            setTotalPages(Math.ceil(filteredData.length / ITEMS_PER_PAGE));
         }
     };
 
@@ -112,7 +114,8 @@ const GalleryList = () => {
         try {
             const response = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/getAll`);
             if (response && response.data.data) {
-                setGalleryData(response.data.data);
+                const filteredResponse = response.data.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+                setGalleryData(filteredResponse);
                 setTotalPages(Math.ceil(response.data.data.length / ITEMS_PER_PAGE));
                 setDate("");
                 toast({
@@ -145,7 +148,7 @@ const GalleryList = () => {
     const currentGalleryData = galleryData.slice(startIndex, endIndex);
 
     return (
-        <div className="flex mt-[250px] flex-col">
+        <div className="flex mt-[210px] flex-col">
             <header
                 className=" border-b bg-gray-100/40 ">
                 <div className="flex items-center justify-center gap-2">
@@ -249,7 +252,7 @@ const GalleryList = () => {
                         </TableHeader>
                         <TableBody>
                             {currentGalleryData.map((event, index) => (
-                                <TableRow key={event.id}>
+                                <TableRow key={event._id}>
                                     <TableCell className="font-semibold">{startIndex + index + 1}</TableCell>
                                     <TableCell className="font-semibold">{event.title}</TableCell>
                                     <TableCell className="hidden md:table-cell">{event.altText}</TableCell>
@@ -261,7 +264,7 @@ const GalleryList = () => {
                                         ))}
                                     </TableCell>
                                     <TableCell className="hidden md:table-cell">
-                                        <Image src={event.imageUrl} alt={event.altText} width={100} height={100} />
+                                        <Image src={event.imageUrl} alt={event.altText} width={100} height={100} style={{ width: "auto", height: "auto" }}/>
                                     </TableCell>
                                     <TableCell className="flex">
                                         <TooltipProvider>

@@ -179,7 +179,7 @@ export default function Addevent() {
   };
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="container mt-[250px] flex flex-row  gap-20 md:gap-0 justify-around flex-wrap">
+      <div className="container mt-[210px] flex flex-row  gap-20 md:gap-0 justify-around flex-wrap">
         <div className="md:w-2/4 bg-[#F3F0EB] rounded-2xl w-full">
           <div className="w-full">
             <form onSubmit={handleSubmit} aria-required>
