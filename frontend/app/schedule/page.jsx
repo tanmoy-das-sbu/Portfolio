@@ -179,8 +179,8 @@ const SecondSection = () => {
     }
 
   return (
-    <div className="mt-[200px] ">
-      <div className="container  w-full flex flex-row justify-center pt-4">
+    <div className="mt-[180px] ">
+      <div className="container md:absolute w-full flex flex-row justify-start pt-4">
         <Popover>
           <PopoverTrigger asChild>
             <Button
@@ -209,7 +209,7 @@ const SecondSection = () => {
             <NoScheduleForToday />
           ) : (
             <div>
-              <div className=" container  m-auto pt-4 md:pt-12">
+              <div className=" container  m-auto pt-4 md:pt-8">
                 {flaghead ? (
                   <h2 className="relative font-bold sm:text-2xl md:text-4xl xs:text-xl w-full text-center text-2xl mb-5">
                     Today&apos;s Events
@@ -227,7 +227,7 @@ const SecondSection = () => {
                   loop={true}
                   slidesPerView={'auto'}
                   autoplay={{
-                    delay: 50000,
+                    delay: 10000,
                     disableOnInteraction: false,
                   }}
                   coverflowEffect={{
