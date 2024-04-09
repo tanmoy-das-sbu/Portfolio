@@ -91,7 +91,7 @@ const UpcomingSlider = ({ data }) => {
                     {ongoing && ongoing.map((event, index) => {
                         const truncatedDescription = truncateDescription(event.shortDescription, 100);
                         return (
-                            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 flex aspect-square items-center justify-center p-2">
+                            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 flex aspect-square items-center justify-center lg:pt-10">
                                 <>
                                     <div className="overflow-hidden rounded bg-white text-slate-500 w-80 shadow-md shadow-slate-200">
                                         <figure>

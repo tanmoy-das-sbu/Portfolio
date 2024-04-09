@@ -161,8 +161,8 @@ const SecondSection = () => {
   }
 
   return (
-    <div className="mt-[200px] ">
-      <div className="container  w-full flex flex-row justify-center pt-4">
+    <div className="mt-[180px] ">
+      <div className="container md:absolute w-full flex flex-row justify-start pt-4">
         <Popover>
           <PopoverTrigger asChild>
             <Button
@@ -186,54 +186,54 @@ const SecondSection = () => {
           </PopoverContent>
         </Popover>
       </div>
-      <div className='pb-10'>
-        {!flag ? (
-          <NoScheduleForToday />
-        ) : (
-          <div>
-            <div className=" container  m-auto pt-4 md:pt-12">
-              {flaghead ? (
-                <h2 className="relative font-bold sm:text-2xl md:text-4xl xs:text-xl w-full text-center text-2xl mb-5">
-                  Today&apos;s Events
-                </h2>
-              ) : (
-                <h2 className="relative font-bold sm:text-2xl md:text-4xl xs:text-xl w-full text-center text-2xl mb-5">
-                  {date?.toDateString()} Schedule
-                </h2>
-              )}
+        <div className='pb-10'>
+          {!flag ? (
+            <NoScheduleForToday />
+          ) : (
+            <div>
+              <div className=" container  m-auto pt-4 md:pt-8">
+                {flaghead ? (
+                  <h2 className="relative font-bold sm:text-2xl md:text-4xl xs:text-xl w-full text-center text-2xl mb-5">
+                    Today&apos;s Events
+                  </h2>
+                ) : (
+                  <h2 className="relative font-bold sm:text-2xl md:text-4xl xs:text-xl w-full text-center text-2xl mb-5">
+                    {date?.toDateString()} Schedule
+                  </h2>
+                )}
 
-              <Swiper
-                effect={"coverflow"}
-                grabCursor={true}
-                centeredSlides={true}
-                loop={true}
-                slidesPerView={'auto'}
-                autoplay={{
-                  delay: 50000,
-                  disableOnInteraction: false,
-                }}
-                coverflowEffect={{
-                  rotate: 0,
-                  stretch: 0,
-                  depth: 80,
-                  modifier: 2.5,
-                }}
-                pagination={{ clickable: true }}
-                navigation={{
-                  nextEl: ".swiper-button-next",
-                  prevEl: ".swiper-button-prev",
-                  clickable: true,
-                }}
-                modules={[
-                  EffectCoverflow,
-                  Pagination,
-                  Navigation,
-                  Autoplay,
-                ]}
-              >
-                {todaySchedule?.map((item, index) => {
-                  const truncatedDescription = truncateDescription(item.shortDescription, 100);
-                  return (
+                <Swiper
+                  effect={"coverflow"}
+                  grabCursor={true}
+                  centeredSlides={true}
+                  loop={true}
+                  slidesPerView={'auto'}
+                  autoplay={{
+                    delay: 10000,
+                    disableOnInteraction: false,
+                  }}
+                  coverflowEffect={{
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 80,
+                    modifier: 2.5,
+                  }}
+                  pagination={{  clickable: true }}
+                  navigation={{
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                    clickable: true,
+                  }}
+                  modules={[
+                    EffectCoverflow,
+                    Pagination,
+                    Navigation,
+                    Autoplay,
+                  ]}
+                >
+                  {todaySchedule?.map((item, index) => {
+                    const truncatedDescription = truncateDescription(item.shortDescription, 100);
+                    return (
                     <SwiperSlide className="" key={index} >
                       <div className="flex flex-col overflow-hidden bg-stone-100 shadow-lg shadow-stone-500/50 rounded shadow-md text-slate-500 shadow-slate-200 md:flex-row">
                         <figure className="flex-1">
