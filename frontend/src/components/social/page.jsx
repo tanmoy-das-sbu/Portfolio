@@ -39,9 +39,8 @@ const Socials = () => {
                                 <h4 className="text-3xl font-semibold" style={{ color: "#097EEB" }}>Facebook</h4>
                             </div>
                             <div className="md:row-start-1 md:row-end-2">
-                                {/* <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpkvarmaranchi&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"  scrolling="yes" frameBorder="0" allowFullScreen={true} allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" style={{height:'500px',width:'100%',overflow:'scroll'}}>
-                            </iframe> */}
-                                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpkvarmaranchi&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="500" style={{ border: 'none', overflow: 'hidden' }} scrolling="no" frameBorder="0" allowFullScreen={true} allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpkvarmaranchi&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"  scrolling="yes" frameBorder="0" allowFullScreen={true} allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" style={{height:'500px',width:'100%',overflow:'scroll'}}>
+                                </iframe>
                             </div>
                         </div>
                         <div className="social-innerdiv">
