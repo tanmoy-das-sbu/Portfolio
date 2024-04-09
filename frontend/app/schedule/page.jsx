@@ -161,9 +161,9 @@ const SecondSection = () => {
   }
 
   return (
-    <div className="mt-[180px] ">
-      <div className="container md:absolute w-full flex flex-row justify-start pt-4">
-        <Popover>
+    <div className="md:mt-[120px] mt-[180px]">
+      <div className="container md:relative top-20 flex flex-row justify-center md:justify-start pt-4">
+        <Popover className="right-0">
           <PopoverTrigger asChild>
             <Button
               variant={"outline"}
@@ -332,10 +332,10 @@ const SecondSection = () => {
                     </SwiperSlide>
                   )
                 })}
-                <div className="slider-controler">
-                  <div className="swiper-button-prev slider-arrow">
+                <div className="slider-controler flex">
+                  <div className="swiper-button-prev slider-arrow invisible md:visible">
                   </div>
-                  <div className="swiper-button-next slider-arrow">
+                  <div className="swiper-button-next slider-arrow invisible md:visible">
                   </div>
 
                 </div>

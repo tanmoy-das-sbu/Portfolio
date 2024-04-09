@@ -10,7 +10,7 @@ const Header = () => {
   const name = "DR. PRADIP VARMA";
   return (
     <div className="bg-[#F3F0EB] w-full h-[150px] fixed top-0 z-30">
-      <div className="container h-full flex flex-row justify-between">
+      <div className="container h-full flex flex-row justify-between sm:pl-8 sm:pr-8">
         <div className="flex flex-col justify-center gap-3 ">
           <div className={barlow.className}>
             <h2 className="font-bold md:text-3xl text-xl text-[#F47621]">
