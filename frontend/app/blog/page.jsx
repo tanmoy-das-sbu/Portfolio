@@ -9,7 +9,7 @@ const Blog = () => {
                 <Image src={blog} className='w-10 h-10'/>
                 <h4 className='text-3xl font-semibold'>Blog</h4>
             </div>
-            <iframe src="http://we4pkv.blogspot.com" frameBorder="0" className="w-full h-[100vh]"></iframe>
+            <iframe src="http://we4pkv.blogspot.com" className="w-full h-[100vh]"></iframe>
         </div>
     )
 }
