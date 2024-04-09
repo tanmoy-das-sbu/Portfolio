@@ -21,7 +21,7 @@ const Footer = () => {
   return (
     <div className="w-full h-fit bg-[#F3F0EB]">
       <div className="container grid md:grid-cols-3 grid-cols-1 gap-4 text-black ">
-        <section className="p-3 md:p-10 flex flex-col gap-10  ">
+        <section className="pb-3 pt-3  flex flex-col gap-10  ">
           <div>
             <div className={barlow.className}>
               <h2 className="  text-3xl py-1 text-[#F47621] border-b-2 mb-2">
@@ -138,7 +138,7 @@ const Footer = () => {
             </div>
           </div>
         </section>
-        <section className="p-3 md:p-10">
+        <section className="pb-3 pt-3 ">
           <div className={barlow.className}>
             <h2 className="text-3xl py-1 text-[#F47621]  border-b-2 mb-2">
               DONATE NOW
@@ -180,7 +180,7 @@ const Footer = () => {
             </a>
           </div>
         </section>
-        <section className="p-3 md:p-10">
+        <section className="pb-3 pt-3 ">
           <div className={barlow.className}>
             <h2 className="text-3xl py-1 text-[#F47621]  border-b-2 mb-2">
               CONTACT
