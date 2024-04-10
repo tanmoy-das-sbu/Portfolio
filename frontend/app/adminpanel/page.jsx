@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/tooltip";
 import Loading from "@/components/component/loader/loading"
 import { useToast } from "@/components/ui/use-toast"
+import Forbidden from "@/components/component/Forbidden/page"
 
 
 const Adminpanel = () => {
@@ -28,10 +29,22 @@ const Adminpanel = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [allEvents, setAllEvents] = useState([]);
     const { toast } = useToast();
+    const [token, setToken] = useState('');
+    const [forbidden, setForbidden] = useState(false);
 
     useEffect(() => {
         fetchAllEvents();
     }, [date]);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            setForbidden(false);
+        } else {
+            setToken(token);
+            setForbidden(true);
+        }
+    }, []);
 
 
     useEffect(() => {
@@ -102,6 +115,13 @@ const Adminpanel = () => {
         return (
             <div>
                 <Loading />
+            </div>
+        );
+    }
+    if (!forbidden) {
+        return (
+            <div>
+                <Forbidden />
             </div>
         );
     }

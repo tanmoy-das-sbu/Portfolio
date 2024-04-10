@@ -3,7 +3,7 @@ import "./page.css";
 
 const Forbidden = () => {
     return (
-        <div className="flex flex-col md:flex-row items-center justify-center w-screen h-screen gap-[5em] py-8 bg-[#1C2127]">
+        <div className="flex flex-col md:flex-row items-center justify-center w-screen h-screen gap-[5em] py-8 bg-[#1C2127] forbidden">
             <div className="message-div md:order-2 flex flex-col items-center text-center">
                 <div className="message text-white text-lg md:text-xl lg:text-2xl font-poppins font-medium">You are not authorized.</div>
                 <div className="message2 text-white text-sm md:text-base lg:text-lg font-poppins font-normal">You tried to access a page you did not have prior authorization for.</div>

@@ -163,7 +163,7 @@ const SecondSection = () => {
 
   return (
     <div className="md:mt-[100px] mt-[160px]">
-      <div className="container md:relative top-20 flex flex-row justify-center md:justify-start pt-4">
+      <div className="container md:relative top-20 flex flex-row justify-space-between md:justify-start pt-4">
         <Popover className="right-0">
           <PopoverTrigger asChild>
             <Button
