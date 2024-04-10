@@ -2,8 +2,9 @@ import express from 'express';
 import Gallery from '../models/gallery.model.js';
 import imageUploadMiddleware from '../Controllers/uploadImage.middleware.js';
 const router = express.Router();
+import authenticateJWT from '../Controllers/Auth/auth.middleware.js';
 
-router.post('/Upload', imageUploadMiddleware, (req, res) => {
+router.post('/Upload', authenticateJWT, imageUploadMiddleware, (req, res) => {
     res.json({ imageUrl: req.imageUrl });
 });
 
@@ -20,7 +21,7 @@ router.get('/GetAll', async (req, res) => {
     }
 });
 
-router.post('/Add', async (req, res) => {
+router.post('/Add', authenticateJWT, async (req, res) => {
     try {
         const { title, altText, shortDescription, date, socialTags, imageUrl } = req.body;
         const galleryData = new Gallery({
@@ -35,7 +36,7 @@ router.post('/Add', async (req, res) => {
     }
 });
 
-router.post('/AddMultiple', async (req, res) => {
+router.post('/AddMultiple', authenticateJWT, async (req, res) => {
     try {
         const galleryData = req.body;
 
@@ -60,7 +61,7 @@ router.get('/GetById/:id', async (req, res) => {
     }
 });
 
-router.put('/UpdateById/:id', async (req, res) => {
+router.put('/UpdateById/:id', authenticateJWT, async (req, res) => {
     try {
         const { id } = req.params;
         const { title, altText, shortDescription, date, socialTags, imageUrl } = req.body;
@@ -79,7 +80,7 @@ router.put('/UpdateById/:id', async (req, res) => {
     }
 });
 
-router.delete('/DeleteById/:id', async (req, res) => {
+router.delete('/DeleteById/:id', authenticateJWT, async (req, res) => {
     try {
         const { id } = req.params;
 
@@ -95,7 +96,7 @@ router.delete('/DeleteById/:id', async (req, res) => {
     }
 })
 
-router.delete('/DeleteMultiple', async (req, res) => {
+router.delete('/DeleteMultiple', authenticateJWT, async (req, res) => {
     try {
         const { ids } = req.body;
 
