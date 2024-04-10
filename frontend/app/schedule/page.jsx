@@ -162,10 +162,8 @@ const SecondSection = () => {
   }
 
   return (
-    <div className="md:mt-[120px] mt-[180px]">
-    
-      <div className="container md:relative top-20 flex flex-row justify-space-between md:justify-start pt-4">
-      
+    <div className="md:mt-[100px] mt-[160px]">
+      <div className="container md:relative top-20 flex flex-row justify-center md:justify-start pt-4">
         <Popover className="right-0">
           <PopoverTrigger asChild>
             <Button
@@ -258,7 +256,7 @@ const SecondSection = () => {
                             />
                           )}
                         </figure>
-                        <div className="min-h-80 flex-1 p-6 sm:mx-6 sm:px-0">
+                        <div className="min-h-60 flex-1 p-6 sm:mx-6 sm:px-0">
                           <header className="flex gap-4 mb-4">
                             <a
                               href="#"
