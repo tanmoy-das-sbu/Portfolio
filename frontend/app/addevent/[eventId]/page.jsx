@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { Switch } from "@/components/ui/switch";
+import Forbidden from "@/components/component/Forbidden/page";
 
 const EventEdit = ({ params }) => {
   const [data, setData] = useState(null);
@@ -29,6 +30,30 @@ const EventEdit = ({ params }) => {
   const [priority, setPriority] = useState(false);
   const [visibility, setVisibility] = useState(true);
   const [scheduleVisibility, setScheduleVisibility] = useState(false);
+  const [token, setToken] = useState('');
+  const [forbidden, setForbidden] = useState(false);
+
+  useEffect(() => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+          toast({
+              variant: "error",
+              title: "Forbidden",
+          });
+          setForbidden(false);
+      } else {
+          setToken(token);
+          setForbidden(true);
+      }
+  }, []);
+
+  if (!forbidden) {
+      return (
+          <div>
+              <Forbidden />
+          </div>
+      );
+  }
 
   useEffect(() => {
     const getEventDetails = async () => {

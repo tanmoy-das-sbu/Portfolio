@@ -3,7 +3,7 @@
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { PopoverTrigger, PopoverContent, Popover } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
@@ -11,6 +11,7 @@ import { format } from "date-fns"
 import { Calendar } from "@/components/ui/calendar"
 import Link from "next/link"
 import { useToast } from "@/components/ui/use-toast"
+import Forbidden from "@/components/component/Forbidden/page";
 
 const ManageGallery = () => {
     const [data, setData] = useState({
@@ -21,6 +22,22 @@ const ManageGallery = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const { toast } = useToast();
     const [loading, setLoading] = useState(false);
+    const [token, setToken] = useState('');
+    const [forbidden, setForbidden] = useState(false);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            toast({
+                variant: "error",
+                title: "Forbidden",
+            });
+            setForbidden(false);
+        } else {
+            setToken(token);
+            setForbidden(true);
+        }
+    }, []);
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -109,6 +126,14 @@ const ManageGallery = () => {
             ...prevData,
             date: selectedDate
         }));
+    }
+
+    if (!forbidden) {
+        return (
+            <div>
+                <Forbidden />
+            </div>
+        );
     }
 
     return (

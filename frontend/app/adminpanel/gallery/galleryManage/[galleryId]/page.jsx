@@ -12,6 +12,7 @@ import { PopoverTrigger, PopoverContent, Popover } from "@/components/ui/popover
 import { cn } from "@/lib/utils";
 import { format } from "date-fns"
 import { Calendar } from "@/components/ui/calendar"
+import Forbidden from "@/components/component/Forbidden/page";
 
 const GalleryEdit = ({ params }) => {
     const [data, setData] = useState({
@@ -24,6 +25,30 @@ const GalleryEdit = ({ params }) => {
     const [load, setLoad] = useState(false);
     const [loading, setLoading] = useState(false);
     const { toast } = useToast();
+    const [token, setToken] = useState('');
+    const [forbidden, setForbidden] = useState(false);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            toast({
+                variant: "error",
+                title: "Forbidden",
+            });
+            setForbidden(false);
+        } else {
+            setToken(token);
+            setForbidden(true);
+        }
+    }, []);
+
+    if (!forbidden) {
+        return (
+            <div>
+                <Forbidden />
+            </div>
+        );
+    }
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
