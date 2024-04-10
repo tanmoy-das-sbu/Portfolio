@@ -95,7 +95,10 @@ const Adminpanel = () => {
 
     const fetchAllEvents = async () => {
         try {
+            const token = localStorage.getItem('token');
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             const response = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/GetAll`);
+            // const response = await axios.get(`http://localhost:8000/schedule/GetAll`);
             setAllEvents(response.data.data);
         } catch (error) {
             toast({
