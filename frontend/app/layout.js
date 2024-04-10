@@ -4,6 +4,7 @@ import Header from "../src/components/component/header/Header";
 import Footer from "../src/components/component/footer/Footer";
 import { Toaster } from "@/components/ui/toaster";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
       {/* <script dangerouslySetInnerHTML={{__html: "window.dataSavvyChatbotConfig = {chatbotId: '6610d3af7e39fab94eb5569e'}"}} /><script src='https://datasavvy.chat/js/embed-script.js' defer></script> */}
         <Header />
+        
         {children}
         <Toaster />
         <Footer />

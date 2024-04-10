@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Image from "next/image";
 import Link from "next/link"
+import TranslatePage from './TranslatePage';
 import "./page.css"
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import {
@@ -162,7 +163,9 @@ const SecondSection = () => {
 
   return (
     <div className="md:mt-[120px] mt-[180px]">
-      <div className="container md:relative top-20 flex flex-row justify-center md:justify-start pt-4">
+    
+      <div className="container md:relative top-20 flex flex-row justify-space-between md:justify-start pt-4">
+      
         <Popover className="right-0">
           <PopoverTrigger asChild>
             <Button
@@ -185,16 +188,20 @@ const SecondSection = () => {
             />
           </PopoverContent>
         </Popover>
+        <TranslatePage/>
       </div>
+      
         <div className='pb-10'>
           {!flag ? (
             <NoScheduleForToday />
           ) : (
             <div>
+              
               <div className=" container  m-auto pt-4 md:pt-8">
+                
                 {flaghead ? (
                   <h2 className="relative font-bold sm:text-2xl md:text-4xl xs:text-xl w-full text-center text-2xl mb-5">
-                    Today&apos;s Events
+                    Today&apos;s Events 
                   </h2>
                 ) : (
                   <h2 className="relative font-bold sm:text-2xl md:text-4xl xs:text-xl w-full text-center text-2xl mb-5">
@@ -332,12 +339,13 @@ const SecondSection = () => {
                     </SwiperSlide>
                   )
                 })}
+                
                 <div className="slider-controler flex">
                   <div className="swiper-button-prev slider-arrow invisible md:visible">
                   </div>
                   <div className="swiper-button-next slider-arrow invisible md:visible">
                   </div>
-
+                 
                 </div>
               </Swiper>
 
