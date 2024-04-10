@@ -20,6 +20,7 @@ import {
 import Loading from "@/components/component/loader/loading"
 import { useToast } from "@/components/ui/use-toast"
 import Forbidden from "@/components/component/Forbidden/page"
+import Logout from "@/components/component/Logout/page"
 
 
 const Adminpanel = () => {
@@ -130,6 +131,9 @@ const Adminpanel = () => {
 
     return (
         <div className="flex mt-[210px] flex-col">
+            <div className="w-full flex items-center justify-end pr-[2em]">
+                <Logout/>
+            </div>
             <header
                 className=" border-b bg-gray-100/40 ">
                 <div className="flex items-center justify-center gap-2">
