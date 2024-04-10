@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import pkv from "../public/images/pkv/pkv.png";
+import TranslatePage from "./schedule/TranslatePage";
 
 function Home() {
   //https://portfolio-xavu.vercel.app/schedule
@@ -48,6 +49,7 @@ function Home() {
                 2 July 2016 – 11 December 2020
               </p>
             </div>
+            
           </div>
           <div className="lg:w-3/4 lg:pl-8">
             <p className="text-justify">
