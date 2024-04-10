@@ -73,13 +73,8 @@ router.post('/login', async (req, res) => {
                 if (loginError) {
                     throw loginError;
                 }
-                if(process.env.JWT_SECRET){
-                    res.status(401).json({message : 'token not found'});
-                } else {
-                    res.status(200).json({message : 'login successfull'});
-                }
-               // const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-                //res.status(200).json({ message: 'Login successful', token, email: user.email });
+            const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+            res.status(200).json({ message: 'Login successful', token, email: user.email });
             });
         })(req, res);
     } catch (error) {
