@@ -99,16 +99,28 @@ connectDB()
     });
 
     // Login Route
-    app.post('/Login',
-      passport.authenticate('local', { session: false }),
-      (req, res) => {
-        const { email, password } = req.body;
-        if (!email) {
-          return res.status(400).json({ message: 'Email is required' });
-        }
-        const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET);
-        res.json({ message: 'Login successful', token, email });
-      });
+    app.post('/Login', async (req, res) => {
+      try {
+        passport.authenticate('local', { session: false }, (error, user, info) => {
+          if (error) {
+            throw error;
+          }
+          if (!user) {
+            return res.status(400).json({ message: info.message });
+          }
+          req.login(user, { session: false }, (loginError) => {
+            if (loginError) {
+              throw loginError;
+            }
+            const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+            res.status(200).json({ message: 'Login successful', token, email: user.email });
+          });
+        })(req, res);
+      } catch (error) {
+        console.error('Login error:', error);
+        res.status(500).json({ message: 'Internal server error' });
+      }
+    });
 
     // Logout route
     app.get('/logout', (req, res) => {
