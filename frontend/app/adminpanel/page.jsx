@@ -46,7 +46,6 @@ const Adminpanel = () => {
         }
     }, []);
 
-
     useEffect(() => {
         async function fetchScheduleToday() {
             try {
@@ -76,7 +75,7 @@ const Adminpanel = () => {
         fetchScheduleToday();
     }, [date]);
 
-    const handleDateChange = async (newDate) => {
+    const handleDateChange = (newDate) => {
         setDate(newDate);
     };
 
