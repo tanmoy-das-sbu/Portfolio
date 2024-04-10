@@ -34,24 +34,14 @@ const EventEdit = ({ params }) => {
   const [forbidden, setForbidden] = useState(false);
 
   useEffect(() => {
-      const token = localStorage.getItem('token');
-      if (!token) {
-          setForbidden(false);
-      } else {
-          setToken(token);
-          setForbidden(true);
-      }
-  }, []);
+    const token = localStorage.getItem('token');
+    if (!token) {
+      setForbidden(false);
+    } else {
+      setToken(token);
+      setForbidden(true);
+    }
 
-  if (!forbidden) {
-      return (
-          <div>
-              <Forbidden />
-          </div>
-      );
-  }
-
-  useEffect(() => {
     const getEventDetails = async () => {
       try {
         const response = await axios.get(
@@ -72,7 +62,7 @@ const EventEdit = ({ params }) => {
           scheduleVisibility: response.data.data.scheduleVisibility,
           scheduleDate:
             response.data.data.scheduleDate !== null &&
-            response.data.data.scheduleDate !== undefined
+              response.data.data.scheduleDate !== undefined
               ? response.data.data.scheduleDate.slice(0, 10)
               : "",
           scheduleTime: response.data.data.scheduleTime,
@@ -93,7 +83,7 @@ const EventEdit = ({ params }) => {
     };
 
     getEventDetails();
-  }, [params.eventId]);
+  }, [params.eventId, forbidden]);
 
   function formatTime(timeString) {
     if (!timeString) return "";
@@ -184,6 +174,14 @@ const EventEdit = ({ params }) => {
     return (
       <div>
         <Loading />
+      </div>
+    );
+  }
+
+  if (!forbidden) {
+    return (
+      <div>
+        <Forbidden />
       </div>
     );
   }
@@ -326,19 +324,19 @@ const EventEdit = ({ params }) => {
                   </div>
                   <div className="flex items-center space-x-2">
                     <Label htmlFor="visibility">Visibility</Label>
-                      <Switch
-                        id="visibility"
-                        name="visibility"
-                        checked={visibility}
-                        onCheckedChange={() => {
-                          setVisibility(!visibility);
-                          {
-                            visibility ? setScheduleVisibility(false) : "";
-                          }
-                        }}
-                        defaultChecked
-                      />
-                    
+                    <Switch
+                      id="visibility"
+                      name="visibility"
+                      checked={visibility}
+                      onCheckedChange={() => {
+                        setVisibility(!visibility);
+                        {
+                          visibility ? setScheduleVisibility(false) : "";
+                        }
+                      }}
+                      defaultChecked
+                    />
+
                   </div>
                   {visibility ? (
                     <>
