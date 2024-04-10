@@ -19,7 +19,7 @@ router.get('/date/:startDate', getScheduleByDate, (req, res) => {
 
 router.post('/Add', authenticateJWT, addScheduleMiddleware);
 
-router.get('/GetAll', authenticateJWT, getAllSchedule);
+router.get('/GetAll', getAllSchedule);
 
 router.put('/UpdateById/:id', authenticateJWT, updateScheduleByIdMiddleware);
 
