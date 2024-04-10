@@ -119,3 +119,9 @@
     margin-top: 220px;
     margin-left: 20px;
 }
+
+@media (max-width: 480px){
+    .forbidden{
+        margin-top: 10px;
+    }
+}
