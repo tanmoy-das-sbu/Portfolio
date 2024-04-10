@@ -37,7 +37,6 @@ passport.use(new LocalStrategy(
 
 router.post('/signup', async (req, res) => {
     const { email, password } = req.body;
-
     try {
         const existingUser = await User.findOne({ email });
 
@@ -74,8 +73,13 @@ router.post('/login', async (req, res) => {
                 if (loginError) {
                     throw loginError;
                 }
-                const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-                res.status(200).json({ message: 'Login successful', token, email: user.email });
+                if(process.env.JWT_SECRET){
+                    res.status(401).json({message : 'token not found'});
+                } else {
+                    res.status(200).json({message : 'login successfull'});
+                }
+               // const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+                //res.status(200).json({ message: 'Login successful', token, email: user.email });
             });
         })(req, res);
     } catch (error) {

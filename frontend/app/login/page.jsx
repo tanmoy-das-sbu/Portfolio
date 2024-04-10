@@ -18,7 +18,7 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/auth/login`, data);
+            const response = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/Auth/login`, data);
             // const response = await axios.post(`http://localhost:8000/Auth/login`, data);
             const { token, email } = response.data;
             localStorage.setItem('token', token);
