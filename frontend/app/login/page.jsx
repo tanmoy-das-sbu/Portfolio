@@ -5,23 +5,26 @@ import "./page.css";
 import axios from 'axios';
 import { useState } from 'react';
 import { useToast } from "@/components/ui/use-toast"
+import { useRouter } from 'next/navigation'
 
 
 const Login = () => {
     const [error, setError] = useState('');
     const [data, setData] = useState({ email: "", password: "" });
     const { toast } = useToast();
+    const nav = useRouter();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
             const response = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/Login`, data);
+            // const response = await axios.post(`http://localhost:8000/Login`, data);
             const { token, email } = response.data;
             localStorage.setItem('token', token);
             localStorage.setItem('email', email);
 
-            window.location.href = '/adminpanel';
+            nav.push('/adminpanel')
            
         } catch (err) {
             setError('Invalid email or password');
