@@ -52,6 +52,7 @@ function Home() {
             
           </div>
           <div className="lg:w-3/4 lg:pl-8">
+          <TranslatePage/>
             <p className="text-justify">
               Dr. Pradip Varma (24 February 1972) is an Indian politician and
               academician and a member of the MEMBER OF PARLIAMENT RAJYA SABHA

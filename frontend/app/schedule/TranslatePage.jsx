@@ -6,19 +6,21 @@ const TranslatePage = () => {
     script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
     script.async = true;
     document.body.appendChild(script);
-
     return () => {
       document.body.removeChild(script);
     };
   }, []);
-
-  window.googleTranslateElementInit = () => {
-    new window.google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-  };
-
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.googleTranslateElementInit = () => {
+        new window.google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+      };
+    }
+  }, []);
   return (
-    <div style={{marginLeft:"auto"}}>
+    <div style={{display:'flex',justifyContent:"center",marginBottom:"1rem"}}>
       <div id="google_translate_element"></div>
+      
     </div>
   );
 };
