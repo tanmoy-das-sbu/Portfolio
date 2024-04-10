@@ -12,6 +12,7 @@ import { PopoverTrigger, PopoverContent, Popover } from "@/components/ui/popover
 import { cn } from "@/lib/utils";
 import { format } from "date-fns"
 import { Calendar } from "@/components/ui/calendar"
+import Forbidden from "@/components/component/Forbidden/page";
 
 const GalleryEdit = ({ params }) => {
     const [data, setData] = useState({
@@ -24,6 +25,8 @@ const GalleryEdit = ({ params }) => {
     const [load, setLoad] = useState(false);
     const [loading, setLoading] = useState(false);
     const { toast } = useToast();
+    const [token, setToken] = useState('');
+    const [forbidden, setForbidden] = useState(false);
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -33,8 +36,15 @@ const GalleryEdit = ({ params }) => {
         }
     };
 
-
     useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            setForbidden(false);
+        } else {
+            setToken(token);
+            setForbidden(true);
+        }
+
         const getGalleryDetails = async () => {
             try {
                 const response = await axios.get(
@@ -56,7 +66,7 @@ const GalleryEdit = ({ params }) => {
         };
 
         getGalleryDetails();
-    }, [params.galleryId]);
+    }, [params.galleryId, forbidden]);
 
     const handleImageUpload = async () => {
         try {
@@ -133,6 +143,14 @@ const GalleryEdit = ({ params }) => {
         return (
             <div>
                 <Loading />
+            </div>
+        );
+    }
+
+    if (!forbidden) {
+        return (
+            <div>
+                <Forbidden />
             </div>
         );
     }

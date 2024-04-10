@@ -14,9 +14,10 @@ import {
   TableBody,
   Table,
 } from "@/components/ui/table";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { formatDate } from "@/utils/dateFormat";
 import { Badge } from "@/components/ui/badge";
+import Forbidden from "@/components/component/Forbidden/page";
 
 export default function Addevent() {
   const [formDataArray, setFormDataArray] = useState([]);
@@ -38,6 +39,26 @@ export default function Addevent() {
   const [priority, setPriority] = useState(false);
   const [visibility, setVisibility] = useState(true);
   const [scheduleVisibility, setScheduleVisibility] = useState(false);
+  const [token, setToken] = useState('');
+  const [forbidden, setForbidden] = useState(false);
+
+  useEffect(() => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+          setForbidden(false);
+      } else {
+          setToken(token);
+          setForbidden(true);
+      }
+  }, []);
+
+  if (!forbidden) {
+      return (
+          <div>
+              <Forbidden />
+          </div>
+      );
+  }
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;

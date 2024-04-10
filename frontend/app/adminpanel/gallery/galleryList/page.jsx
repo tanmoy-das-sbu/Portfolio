@@ -22,6 +22,7 @@ import Loading from "@/components/component/loader/loading"
 import Image from 'next/image';
 import { useToast } from "@/components/ui/use-toast"
 import RefreshIcon from '@mui/icons-material/Refresh';
+import Forbidden from "@/components/component/Forbidden/page";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -33,6 +34,18 @@ const GalleryList = () => {
     const { toast } = useToast()
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
+    const [token, setToken] = useState('');
+    const [forbidden, setForbidden] = useState(false);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            setForbidden(false);
+        } else {
+            setToken(token);
+            setForbidden(true);
+        }
+    }, []);
 
     useEffect(() => {
         const getData = async () => {
@@ -135,6 +148,13 @@ const GalleryList = () => {
         return (
             <div>
                 <Loading />
+            </div>
+        );
+    }
+    if (!forbidden) {
+        return (
+            <div>
+                <Forbidden />
             </div>
         );
     }
@@ -264,7 +284,7 @@ const GalleryList = () => {
                                         ))}
                                     </TableCell>
                                     <TableCell className="hidden md:table-cell">
-                                        <Image src={event.imageUrl} alt={event.altText} width={100} height={100} style={{ width: "auto", height: "auto" }}/>
+                                        <Image src={event.imageUrl} alt={event.altText} width={100} height={100} style={{ width: "auto", height: "auto" }} />
                                     </TableCell>
                                     <TableCell className="flex">
                                         <TooltipProvider>
