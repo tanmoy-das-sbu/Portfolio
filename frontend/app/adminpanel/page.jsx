@@ -18,6 +18,8 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip";
 import Loading from "@/components/component/loader/loading"
+import { useToast } from "@/components/ui/use-toast"
+import Forbidden from "@/components/component/Forbidden/page"
 
 
 const Adminpanel = () => {
@@ -26,10 +28,23 @@ const Adminpanel = () => {
     const [load, setLoad] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const [allEvents, setAllEvents] = useState([]);
+    const { toast } = useToast();
+    const [token, setToken] = useState('');
+    const [forbidden, setForbidden] = useState(false);
 
     useEffect(() => {
         fetchAllEvents();
     }, [date]);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            setForbidden(false);
+        } else {
+            setToken(token);
+            setForbidden(true);
+        }
+    }, []);
 
 
     useEffect(() => {
@@ -52,7 +67,10 @@ const Adminpanel = () => {
                 setTodaySchedule([...todayTasks]);
 
             } catch (error) {
-                console.log(error);
+                toast({
+                    variant: "error",
+                    title: error,
+                });
             }
         }
         fetchScheduleToday();
@@ -68,7 +86,10 @@ const Adminpanel = () => {
             const updatedSchedule = todaySchedule.filter(event => event._id !== eventId);
             setTodaySchedule(updatedSchedule);
         } catch (error) {
-            console.log(error);
+            toast({
+                    variant: "error",
+                    title: error,
+                });
         }
     };
 
@@ -77,7 +98,10 @@ const Adminpanel = () => {
             const response = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/GetAll`);
             setAllEvents(response.data.data);
         } catch (error) {
-            console.log(error);
+            toast({
+                    variant: "error",
+                    title: error,
+                });
         }
     };
 
@@ -94,9 +118,16 @@ const Adminpanel = () => {
             </div>
         );
     }
+    if (!forbidden) {
+        return (
+            <div>
+                <Forbidden />
+            </div>
+        );
+    }
 
     return (
-        <div className="flex mt-[250px] flex-col">
+        <div className="flex mt-[210px] flex-col">
             <header
                 className=" border-b bg-gray-100/40 ">
                 <div className="flex items-center justify-center gap-2">

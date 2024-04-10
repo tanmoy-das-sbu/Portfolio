@@ -6,18 +6,22 @@ import { formatDate } from '../../../src/utils/dateFormat';
 import Image from 'next/image'
 import PlaceIcon from '@mui/icons-material/Place';
 import Loading from '@/components/component/loader/loading';
+import { useToast } from "@/components/ui/use-toast"
 
 const EventDetails = ({ params }) => {
     const [data, setData] = useState('');
+    const { toast } = useToast();
 
     useEffect(() => {
         const getEventDetails = async () => {
             try {
                 const response = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/GetById/${params.eventId}`);
-                console.log(response.data.data);
                 setData(response.data.data);
             } catch (error) {
-                console.error('Error fetching event details:', error);
+                toast({
+                    variant: "error",
+                    title: error,
+                });
             }
         };
 
@@ -35,7 +39,7 @@ const EventDetails = ({ params }) => {
     const isImageFromAllowedDomain = data.imageUrl.startsWith('https://res.cloudinary.com/neeleshks/image/upload');
 
     return (
-        <div className='container mt-[250px] pt-12 pb-4'>
+        <div className='container mt-[210px] pt-12 pb-4'>
             <div className="flex flex-col md:flex-row justify-between items-center">
                 <h1 className="font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                     {data.heading}

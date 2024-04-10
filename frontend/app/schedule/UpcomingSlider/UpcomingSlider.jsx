@@ -26,6 +26,7 @@ import Link from "next/link"
 import { Sacramento } from 'next/font/google';
 import { useEffect, useState } from "react"
 import axios from "axios"
+import { useToast } from "@/components/ui/use-toast"
 
 
 const sac = Sacramento({
@@ -47,6 +48,7 @@ const truncateDescription = (description, maxLength) => {
 const UpcomingSlider = ({ data }) => {
     const [ongoing, setOngoing] = useState([]);
     const [upcomingEvent, setUpcomingEvent] = useState([]);
+    const { toast } = useToast();
 
     useEffect(() => {
         async function fetchScheduleUpcoming() {
@@ -57,12 +59,17 @@ const UpcomingSlider = ({ data }) => {
                 setOngoing(ongoingevent.data[`ongoingEvents`]);
             } catch (err) {
                 if (err.error && err.error.message) {
-                    console.error('Error Fetching Schedule Tomorrow:', err.error.message);
+                    toast({
+                        variant: "error",
+                        title: err.error.message,
+                    });
                 } else {
-                    console.error('Error Fetching Schedule Tomorrow:', err.message);
+                    toast({
+                        variant: "error",
+                        title: err.message,
+                    });
                 }
             }
-
         }
 
         fetchScheduleUpcoming();
@@ -83,7 +90,7 @@ const UpcomingSlider = ({ data }) => {
                     {ongoing && ongoing.map((event, index) => {
                         const truncatedDescription = truncateDescription(event.shortDescription, 100);
                         return (
-                            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 flex aspect-square items-center justify-center p-2">
+                            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 flex aspect-square items-center justify-center lg:pt-10">
                                 <>
                                     <div className="overflow-hidden rounded bg-white text-slate-500 w-80 shadow-md shadow-slate-200">
                                         <figure>
@@ -103,7 +110,7 @@ const UpcomingSlider = ({ data }) => {
                                                     <CardTitle>{event.heading}</CardTitle>
                                                 </div>
                                             </div>
-                                            <div className="p-1 mb-4">
+                                            <div className="p-1 mb-4 h-32">
                                                 <p className="text-lg mt-1">{new Date(event.startDate).toLocaleDateString()} - {new Date(event.endDate).toLocaleDateString()}</p>
                                                 <p className="text-sm">
                                                     Start Time: {event.startTime}
@@ -111,10 +118,10 @@ const UpcomingSlider = ({ data }) => {
                                                 <p className="text-sm">
                                                     End Time: {event.endTime}
                                                 </p>
+                                                <p className="text-sm">
+                                                    {truncatedDescription}
+                                                </p>
                                             </div>
-                                            <p className="text-sm">
-                                                {truncatedDescription}
-                                            </p>
                                         </div>
                                         <div className="flex justify-end p-6 pt-0">
                                             <button className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded bg-orange-500 px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-[#d76527] focus:bg-[#f47731] focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-300 disabled:shadow-none">
@@ -139,10 +146,8 @@ const UpcomingSlider = ({ data }) => {
                                                                     </p>
                                                                     <p className="text-sm">
                                                                         {event.shortDescription}
-
                                                                     </p>
                                                                 </div>
-
                                                             </div>
                                                             <AlertDialogCancel>Close</AlertDialogCancel>
                                                             <AlertDialogAction>
@@ -160,8 +165,8 @@ const UpcomingSlider = ({ data }) => {
                     })
                     }
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
+                <CarouselPrevious className="invisible md:visible"/>
+                <CarouselNext className="invisible md:visible"/>
             </Carousel>
             <hr />
             <Carousel className="container relative z-20 noselect m-auto w-4/5 p-2 md:p-10"  >
@@ -194,7 +199,7 @@ const UpcomingSlider = ({ data }) => {
                                                 <CardTitle>{event.heading}</CardTitle>
                                             </div>
                                         </div>
-                                        <div className="p-1 mb-4">
+                                        <div className="p-1 mb-4 h-32">
                                             <p className="text-lg mt-1">{new Date(event.startDate).toLocaleDateString()} - {new Date(event.endDate).toLocaleDateString()}</p>
                                             <p className="text-sm">
                                                 Start Time: {event.startTime}
@@ -202,10 +207,10 @@ const UpcomingSlider = ({ data }) => {
                                             <p className="text-sm">
                                                 End Time: {event.endTime}
                                             </p>
+                                            <p className="text-sm">
+                                                {truncatedDescription}
+                                            </p>
                                         </div>
-                                        <p className="text-sm">
-                                            {truncatedDescription}
-                                        </p>
                                     </div>
                                     <div className="flex justify-end p-6 pt-0">
                                         <button className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded bg-orange-500 px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-[#d76527] focus:bg-[#f47731] focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-300 disabled:shadow-none">
@@ -234,8 +239,8 @@ const UpcomingSlider = ({ data }) => {
                     })
                     }
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
+                <CarouselPrevious className="invisible md:visible"/>
+                <CarouselNext className="invisible md:visible"/>
             </Carousel>
         </section>
     );

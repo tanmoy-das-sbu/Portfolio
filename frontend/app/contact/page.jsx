@@ -7,6 +7,7 @@ import { useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 import LocationIcon from "../../public/images/icons/location.svg"
+import { useToast } from "@/components/ui/use-toast"
 
 const Contact = () => {
 
@@ -14,6 +15,8 @@ const Contact = () => {
         name: "", subject: "", email: "", mobile: "", message: ""
     });
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
+    const { toast } = useToast();
 
     const submit = async (e) => {
         e.preventDefault();
@@ -22,17 +25,30 @@ const Contact = () => {
             return;
         }
         try {
+            setLoading(true);
             const { name, subject, email, mobile, message } = data;
             const payload = { name, subject, email, mobile, message };
             const response = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/contact/Add`, payload);
             if (response.status === 200) {
                 setData({ name: "", subject: "", email: "", mobile: "", message: "" });
                 setError("");
+                toast({
+                    variant: "success",
+                    title: "Message sent successfully",
+                });
             } else {
-                console.log("Error:", response.statusText);
+                toast({
+                    variant: "error",
+                    title: response.statusText,
+                });
             }
         } catch (error) {
-            console.log(error);
+            toast({
+                variant: "error",
+                title: error,
+            });
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -46,7 +62,7 @@ const Contact = () => {
 
     return (
         <div >
-            <section className='container contact-body mx-auto mt-[280px]'>
+            <section className='container contact-body mx-auto mt-[210px]'>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-2'>
                     <div className='contact-form'>
                         <form className="flex flex-col w-full gap-3">
@@ -72,7 +88,9 @@ const Contact = () => {
                                 <Textarea id="message" placeholder="Message" type="text" name="message" value={data.message} onChange={handleChange} />
                             </div>
                             <div className="flex w-full items-center">
-                                <Button type="button" onClick={submit}>Submit</Button>
+                                <Button type="button" onClick={submit} disabled={loading}>
+                                    {loading ? <span>Saving...</span> : <span>Submit</span>}
+                                </Button>
                             </div>
                         </form>
                     </div>

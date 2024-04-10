@@ -9,22 +9,22 @@ const barlow = Barlow({ subsets: ["latin"], weight: "400" });
 const Header = () => {
   const name = "DR. PRADIP VARMA";
   return (
-    <div className="bg-[#F3F0EB] w-full h-[200px]   fixed top-0 z-30">
-      <div className="container h-full flex flex-row justify-around">
-        <div className="flex flex-col justify-center gap-3 ">
+    <div className="bg-[#F3F0EB] w-full h-[120px] fixed top-0 z-30">
+      <div className="container h-full flex flex-row justify-between sm:pl-8 sm:pr-8">
+        <div className="flex flex-col justify-center  ">
           <div className={barlow.className}>
-            <h2 className="font-bold md:text-4xl text-xl text-[#F47621]">
+            <h2 className="font-bold md:text-3xl text-xl text-[#F47621]">
               {name}
             </h2>
           </div>
 
-          <p className=" md:font-bold md:text-lg text-sm text-[#F47621]">
+          <p className=" md:font-bold  text-sm text-[#F47621]">
             Member-Elect, Rajya Sabha
           </p>
-          <p className=" md:font-bold md:text-lg text-sm text-[#F47621]">
+          <p className=" md:font-bold  text-sm text-[#F47621]">
             General Secretary, BJP
           </p>
-          <p className=" md:font-bold md:text-lg text-sm text-[#F47621]">
+          <p className=" md:font-bold  text-sm text-[#F47621]">
             Jharkhand
           </p>
         </div>
@@ -33,7 +33,7 @@ const Header = () => {
             <Image
               src={Logo}
               alt="slide_image"
-              className="w-20 h-20 md:w-32 md:h-32"
+              className="w-20 h-20 md:w-28 md:h-28"
               draggable="false"
             />
           </div>

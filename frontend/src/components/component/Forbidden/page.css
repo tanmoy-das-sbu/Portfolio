@@ -1,0 +1,127 @@
+@keyframes leaf {
+    0% {
+        transform: scaleX(1);
+    }
+
+    5% {
+        transform: scaleX(0.2);
+    }
+
+    70% {
+        transform: scaleX(0.2);
+    }
+
+    75% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes eye {
+    0% {
+        opacity: 0;
+        transform: translateX(0)
+    }
+
+    5% {
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+        transform: translateX(0)
+    }
+
+    20% {
+        transform: translateX(15px)
+    }
+
+    35% {
+        transform: translateX(15px)
+    }
+
+    40% {
+        transform: translateX(-15px)
+    }
+
+    60% {
+        transform: translateX(-15px)
+    }
+
+    65% {
+        transform: translateX(0)
+    }
+}
+
+@keyframes flux {
+
+    0%,
+    100% {
+        text-shadow: 0 0 5px #00FFC6, 0 0 15px #00FFC6, 0 0 50px #00FFC6, 0 0 50px #00FFC6, 0 0 2px #B9FFE8, 2px 2px 3px #12E29C;
+        color: #4BFFEF;
+    }
+
+    50% {
+        text-shadow: 0 0 3px #00B58D, 0 0 7px #00B58D, 0 0 25px #00B58D, 0 0 25px #00B58D, 0 0 2px #00B58D, 2px 2px 3px #006A60;
+        color: #63D3AE;
+    }
+}
+
+.neon {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 90px;
+    text-shadow: 0 0 5px #6EECC1;
+    animation: flux 2s linear infinite;
+}
+
+.door {
+    height: 450px;
+    width: 250px;
+    border-radius: 70px 70px 0 0;
+    background-color: #A0AEC0;
+}
+
+.eye {
+    border-radius: 50%;
+    background-color: white;
+    animation: eye 7s ease-in-out infinite;
+}
+
+.eye2 {
+    left: 65px;
+}
+
+.window {
+    border-radius: 3px;
+    margin: 80px auto;
+    position: relative;
+}
+
+.leaf {
+    height: 40px;
+    width: 130px;
+    background-color: #8594A5;
+    border-radius: 3px;
+    margin: 80px auto;
+    animation: leaf 7s infinite;
+    transform-origin: right;
+}
+
+.rectangle {
+    height: 70px;
+    width: 25px;
+    background-color: #CBD8E6;
+    border-radius: 4px;
+    position: absolute;
+    margin-top: 220px;
+    margin-left: 20px;
+}
+
+@media (max-width: 480px){
+    .forbidden{
+        margin-top: 50px;
+    }
+}

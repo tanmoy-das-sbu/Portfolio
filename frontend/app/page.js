@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import pkv from "../public/images/pkv/pkv.png";
+import TranslatePage from "./schedule/TranslatePage";
 
 function Home() {
   //https://portfolio-xavu.vercel.app/schedule
   return (
-    <main className="mt-[250px]">
+    <main className="mt-[210px]">
       <div className="container  my-8 p-4 bg-white shadow rounded-lg">
         <div className="flex flex-col lg:flex-row">
           <div className="lg:w-1/4">
@@ -48,8 +49,10 @@ function Home() {
                 2 July 2016 – 11 December 2020
               </p>
             </div>
+            
           </div>
           <div className="lg:w-3/4 lg:pl-8">
+          <TranslatePage/>
             <p className="text-justify">
               Dr. Pradip Varma (24 February 1972) is an Indian politician and
               academician and a member of the MEMBER OF PARLIAMENT RAJYA SABHA
