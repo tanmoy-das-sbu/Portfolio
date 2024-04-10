@@ -18,8 +18,8 @@ const TranslatePage = () => {
     }
   }, []);
   return (
-    <div style={{display:'flex',justifyContent:"center",marginBottom:"1rem"}}>
-      <div id="google_translate_element"></div>
+    <div style={{marginLeft:'auto'}}>
+      <div id="google_translate_element" style={{display:'flex',justifyContent:"center"}}></div>
       
     </div>
   );
