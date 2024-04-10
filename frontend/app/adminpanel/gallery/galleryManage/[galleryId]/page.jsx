@@ -31,10 +31,6 @@ const GalleryEdit = ({ params }) => {
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (!token) {
-            toast({
-                variant: "error",
-                title: "Forbidden",
-            });
             setForbidden(false);
         } else {
             setToken(token);
