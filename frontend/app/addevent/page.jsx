@@ -68,6 +68,7 @@ export default function Addevent() {
     const formData = new FormData();
     formData.append("image", file);
 
+
     try {
       const token = localStorage.getItem('token');
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;

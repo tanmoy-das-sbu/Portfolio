@@ -77,7 +77,7 @@ const scheduleSchema = new mongoose.Schema({
     scheduleVisibility: {
         type: Boolean,
         required: false,
-        default: true,
+        default: false,
     },
     scheduleDate: {
         type: Date,
