@@ -23,6 +23,8 @@ import Image from 'next/image';
 import { useToast } from "@/components/ui/use-toast"
 import RefreshIcon from '@mui/icons-material/Refresh';
 import Forbidden from "@/components/component/Forbidden/page";
+import { ToastAction } from "@/components/ui/toast"
+import { useRouter } from 'next/navigation'
 
 const ITEMS_PER_PAGE = 10;
 
@@ -36,6 +38,7 @@ const GalleryList = () => {
     const [totalPages, setTotalPages] = useState(0);
     const [token, setToken] = useState('');
     const [forbidden, setForbidden] = useState(false);
+    const nav = useRouter();
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -99,14 +102,26 @@ const GalleryList = () => {
 
     const handleDelete = async (eventId) => {
         try {
+            const token = localStorage.getItem('token');
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             await axios.delete(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/deleteById/${eventId}`);
             const updatedGallery = galleryData.filter(event => event._id !== eventId);
             setGalleryData(updatedGallery);
         } catch (error) {
-            toast({
-                variant: "error",
-                title: error,
-            });
+            if (error.response.status === 403) {
+                setForbidden(false);
+                localStorage.clear();
+                toast({
+                    variant: "error",
+                    title: error.message,
+                    action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
+                });
+            } else {
+                toast({
+                    variant: "error",
+                    title: error.message,
+                });
+            }
         }
     };
 

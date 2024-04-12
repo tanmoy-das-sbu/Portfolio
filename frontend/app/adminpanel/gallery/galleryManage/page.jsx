@@ -12,6 +12,8 @@ import { Calendar } from "@/components/ui/calendar"
 import Link from "next/link"
 import { useToast } from "@/components/ui/use-toast"
 import Forbidden from "@/components/component/Forbidden/page";
+import { ToastAction } from "@/components/ui/toast"
+import { useRouter } from 'next/navigation'
 
 const ManageGallery = () => {
     const [data, setData] = useState({
@@ -24,6 +26,7 @@ const ManageGallery = () => {
     const [loading, setLoading] = useState(false);
     const [token, setToken] = useState('');
     const [forbidden, setForbidden] = useState(false);
+    const nav = useRouter();
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -54,6 +57,8 @@ const ManageGallery = () => {
         }
 
         try {
+            const token = localStorage.getItem('token');
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             setLoading(true);
             const formData = new FormData();
             formData.append('image', selectedFile);
@@ -91,10 +96,20 @@ const ManageGallery = () => {
                 });
             }
         } catch (error) {
-            toast({
-                variant: "error",
-                title: error,
-            });
+            if (error.response.status === 403) {
+                setForbidden(false);
+                localStorage.clear();
+                toast({
+                    variant: "error",
+                    title: error.message,
+                    action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
+                });
+            } else {
+                toast({
+                    variant: "error",
+                    title: error.message,
+                });
+            }
         } finally {
             setLoading(false);
         }

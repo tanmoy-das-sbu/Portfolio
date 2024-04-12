@@ -13,6 +13,8 @@ import { cn } from "@/lib/utils";
 import { format } from "date-fns"
 import { Calendar } from "@/components/ui/calendar"
 import Forbidden from "@/components/component/Forbidden/page";
+import { ToastAction } from "@/components/ui/toast"
+import { useRouter } from 'next/navigation'
 
 const GalleryEdit = ({ params }) => {
     const [data, setData] = useState({
@@ -27,6 +29,7 @@ const GalleryEdit = ({ params }) => {
     const { toast } = useToast();
     const [token, setToken] = useState('');
     const [forbidden, setForbidden] = useState(false);
+    const nav = useRouter();
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -70,15 +73,27 @@ const GalleryEdit = ({ params }) => {
 
     const handleImageUpload = async () => {
         try {
+            const token = localStorage.getItem('token');
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             const formData = new FormData();
             formData.append('image', selectedFile);
             const response = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/Upload`, formData);
             return response.data.imageUrl;
         } catch (error) {
-            toast({
-                variant: "warning",
-                title: error,
-            });
+            if (error.response.status === 403) {
+                setForbidden(false);
+                localStorage.clear();
+                toast({
+                    variant: "error",
+                    title: error.message,
+                    action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
+                });
+            } else {
+                toast({
+                    variant: "error",
+                    title: error.message,
+                });
+            }
             return null;
         }
     };
@@ -86,6 +101,8 @@ const GalleryEdit = ({ params }) => {
     const submit = async (e) => {
         e.preventDefault();
         try {
+            const token = localStorage.getItem('token');
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             setLoading(true);
             let imageUrl = data.imageUrl;
             if (selectedFile) {
@@ -106,10 +123,20 @@ const GalleryEdit = ({ params }) => {
             }
 
         } catch (error) {
-            toast({
-                variant: "error",
-                title: error,
-            });
+            if (error.response.status === 403) {
+                setForbidden(false);
+                localStorage.clear();
+                toast({
+                    variant: "error",
+                    title: error.message,
+                    action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
+                });
+            } else {
+                toast({
+                    variant: "error",
+                    title: error.message,
+                });
+            }
         } finally {
             setLoading(false);
         }
