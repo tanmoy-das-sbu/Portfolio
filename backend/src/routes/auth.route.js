@@ -73,11 +73,11 @@ router.post('/login', async (req, res) => {
                 if (loginError) {
                     throw loginError;
                 }
-                if(!process.env.JWT_SECRET){
+                if (!process.env.JWT_SECRET) {
                     res.status(403).json({ message: 'no token' });
                 }
-            const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-            res.status(200).json({ message: 'Login successful', token, email: user.email });
+                const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '3h' });
+                res.status(200).json({ message: 'Login successful', token, email: user.email });
             });
         })(req, res);
     } catch (error) {

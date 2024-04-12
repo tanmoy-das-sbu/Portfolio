@@ -18,6 +18,8 @@ import { useState, useEffect } from "react";
 import { formatDate } from "@/utils/dateFormat";
 import { Badge } from "@/components/ui/badge";
 import Forbidden from "@/components/component/Forbidden/page";
+import { ToastAction } from "@/components/ui/toast"
+import { useRouter } from 'next/navigation'
 
 export default function Addevent() {
   const [formDataArray, setFormDataArray] = useState([]);
@@ -41,24 +43,17 @@ export default function Addevent() {
   const [scheduleVisibility, setScheduleVisibility] = useState(false);
   const [token, setToken] = useState('');
   const [forbidden, setForbidden] = useState(false);
+  const nav = useRouter();
 
   useEffect(() => {
-      const token = localStorage.getItem('token');
-      if (!token) {
-          setForbidden(false);
-      } else {
-          setToken(token);
-          setForbidden(true);
-      }
+    const token = localStorage.getItem('token');
+    if (!token) {
+      setForbidden(false);
+    } else {
+      setToken(token);
+      setForbidden(true);
+    }
   }, []);
-
-  if (!forbidden) {
-      return (
-          <div>
-              <Forbidden />
-          </div>
-      );
-  }
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -75,6 +70,8 @@ export default function Addevent() {
 
 
     try {
+      const token = localStorage.getItem('token');
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       const response = await fetch(
         "https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/Upload",
         {
@@ -94,7 +91,20 @@ export default function Addevent() {
         title: "Image Added Successfully",
       });
     } catch (error) {
-      console.error("Error uploading image:", error.message);
+      if (error.response.status === 403) {
+        setForbidden(false);
+        localStorage.clear();
+        toast({
+          variant: "error",
+          title: error.message,
+          action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
+        });
+      } else {
+        toast({
+          variant: "error",
+          title: error.message,
+        });
+      }
     }
   };
 
@@ -156,6 +166,8 @@ export default function Addevent() {
     e.preventDefault();
 
     try {
+      const token = localStorage.getItem('token');
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       const response = await fetch(
         "https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/AddMultiple",
         {
@@ -196,9 +208,31 @@ export default function Addevent() {
       });
       setFormDataArray([]);
     } catch (error) {
-      console.error("Error adding schedule:", error.message);
+      if (error.response.status === 403) {
+        setForbidden(false);
+        localStorage.clear();
+        toast({
+          variant: "error",
+          title: error.message,
+          action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
+        });
+      } else {
+        toast({
+          variant: "error",
+          title: error.message,
+        });
+      }
     }
   };
+
+  if (!forbidden) {
+    return (
+      <div>
+        <Forbidden />
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="container mt-[210px] flex flex-row  gap-20 md:gap-0 justify-around flex-wrap">
