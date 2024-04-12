@@ -193,17 +193,16 @@ const Footer = () => {
               <p>
                 <span className="font-bold">Office: </span>
                 <span>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Porro, quam?
+                BJP Office, Harmu Housing Colony, Argora, Ranchi, Jharkhand, PIN - 834002
                 </span>
               </p>
               <p>
                 <span className="font-bold">Email: </span>
-                <a href="mailto:example@gmail.com">example@gmail.com</a>
+                <a href="mailto:example@gmail.com"> pkvbjp@gmail.com</a>
               </p>
               <p>
                 <span className="font-bold">Tel.-</span>
-                <a href="tel:1234567890">1234567890</a>
+                <a href="tel:1234567890"> +919450282852</a>
               </p>
             </div>
             <div></div>
