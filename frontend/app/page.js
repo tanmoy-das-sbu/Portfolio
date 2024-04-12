@@ -8,6 +8,7 @@ function Home() {
   //https://portfolio-xavu.vercel.app/schedule
   return (
     <main className="mt-[180px]">
+          <TranslatePage/>
       <div className="container  my-8 p-4 bg-white shadow rounded-lg">
         <div className="flex flex-col lg:flex-row">
           <div className="lg:w-1/4">

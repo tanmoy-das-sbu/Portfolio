@@ -190,7 +190,7 @@ const SecondSection = () => {
             />
           </PopoverContent>
         </Popover>
-        <TranslatePage/>
+    
       </div>
       
         <div className='pb-10'>
