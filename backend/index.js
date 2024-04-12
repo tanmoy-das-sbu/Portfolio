@@ -14,7 +14,7 @@ import Languages from "./src/routes/translate.route.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from "./src/models/user.model.js";
-
+import scheduleUpdater from "./src/utils/trigger.js"
 dotenv.config({
   path: "./env",
 });
@@ -39,6 +39,7 @@ const saltRounds = 10;
 
 connectDB()
   .then(() => {
+    scheduleUpdater.start();
     app.use('/Schedule', Schedule);
     app.use('/Contact', Contact);
     app.use('/Subscribers', Subscribers);
