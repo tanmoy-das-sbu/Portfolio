@@ -147,7 +147,7 @@ const Adminpanel = () => {
                 className=" border-b bg-gray-100/40 ">
                 <div className="flex items-center justify-center gap-2">
                     <CalendarIcon className="h-6 w-6 py-8" />
-                    <h1 className="font-semibold text-lg md:text-2xl">Events</h1>
+                    <h1 className="font-semibold text-lg md:text-2xl text-blue-500">Events</h1> <span>|</span> <span><h1 className="font-semibold text-lg md:text-2xl cursor-pointer" onClick={() => nav.push('/adminpanel/gallery/galleryList')}>Gallery</h1></span>
                 </div>
             </header>
             <main className="container flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
