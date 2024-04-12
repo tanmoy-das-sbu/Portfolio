@@ -25,7 +25,7 @@ const ManageGallery = () => {
     const { toast } = useToast();
     const [loading, setLoading] = useState(false);
     const [token, setToken] = useState('');
-    const [forbidden, setForbidden] = useState(false);
+    const [forbidden, setForbidden] = useState(true);
     const nav = useRouter();
 
     useEffect(() => {

@@ -4,6 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
+import axios from "axios";
 
 import { Switch } from "@/components/ui/switch";
 import {
@@ -42,7 +43,7 @@ export default function Addevent() {
   const [visibility, setVisibility] = useState(true);
   const [scheduleVisibility, setScheduleVisibility] = useState(false);
   const [token, setToken] = useState('');
-  const [forbidden, setForbidden] = useState(false);
+  const [forbidden, setForbidden] = useState(true);
   const nav = useRouter();
 
   useEffect(() => {
@@ -72,13 +73,7 @@ export default function Addevent() {
     try {
       const token = localStorage.getItem('token');
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      const response = await fetch(
-        "https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/Upload",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const response = await axios.post("https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/Upload", formData);
 
       if (!response.ok) {
         throw new Error("Image upload failed");
@@ -91,20 +86,20 @@ export default function Addevent() {
         title: "Image Added Successfully",
       });
     } catch (error) {
-      if (error.response.status === 403) {
-        setForbidden(false);
-        localStorage.clear();
-        toast({
-          variant: "error",
-          title: error.message,
-          action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
-        });
-      } else {
-        toast({
-          variant: "error",
-          title: error.message,
-        });
-      }
+      // if (error.response.status === 403) {
+      //   setForbidden(false);
+      //   localStorage.clear();
+      //   toast({
+      //     variant: "error",
+      //     title: error.message,
+      //     action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
+      //   });
+      // } else {
+      //   toast({
+      //     variant: "error",
+      //     title: error.message,
+      //   });
+      // }
     }
   };
 
@@ -168,16 +163,7 @@ export default function Addevent() {
     try {
       const token = localStorage.getItem('token');
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      const response = await fetch(
-        "https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/AddMultiple",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formDataArray),
-        }
-      );
+      const response = await axios.post("https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/AddMultiple", formDataArray);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -208,20 +194,20 @@ export default function Addevent() {
       });
       setFormDataArray([]);
     } catch (error) {
-      if (error.response.status === 403) {
-        setForbidden(false);
-        localStorage.clear();
-        toast({
-          variant: "error",
-          title: error.message,
-          action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
-        });
-      } else {
-        toast({
-          variant: "error",
-          title: error.message,
-        });
-      }
+      // if (error.response.status === 403) {
+      //   setForbidden(false);
+      //   localStorage.clear();
+      //   toast({
+      //     variant: "error",
+      //     title: error.message,
+      //     action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
+      //   });
+      // } else {
+      //   toast({
+      //     variant: "error",
+      //     title: error.message,
+      //   });
+      // }
     }
   };
 
