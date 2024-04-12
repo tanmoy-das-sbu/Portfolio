@@ -14,6 +14,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { FaSignOutAlt } from 'react-icons/fa';
 
 const Logout = () => {
     const nav = useRouter();
@@ -40,7 +41,7 @@ const Logout = () => {
         <div>
             <AlertDialog>
                 <AlertDialogTrigger className="text-sm tracking-tighter">
-                    <Button>Logout</Button>
+                    <Button className="bg-[#b23b3b]"><FaSignOutAlt className="mr-2" /> Logout</Button>
                 </AlertDialogTrigger>
                 <AlertDialogContent>
                     <AlertDialogHeader>
