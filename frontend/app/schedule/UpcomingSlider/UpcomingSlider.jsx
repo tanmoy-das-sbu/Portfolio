@@ -54,7 +54,12 @@ const UpcomingSlider = ({ data }) => {
         async function fetchScheduleUpcoming() {
             try {
                 const upcomingEvent = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/UpcomingSchedules`);
-                setUpcomingEvent(upcomingEvent.data)
+                const upComing = upcomingEvent.data;
+                if(upComing){
+                    const visibleArr = upComing.filter((item)=>item.visibility === true);
+                    const upcomingEventArr = visibleArr.filter((item)=>item.scheduleVisibility === false);
+                    setUpcomingEvent([...upcomingEventArr]);
+                  }
                 const ongoingevent = await axios.get('https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/OnGoingEvent');
                 setOngoing(ongoingevent.data[`ongoingEvents`]);
             } catch (err) {

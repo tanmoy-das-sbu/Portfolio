@@ -79,7 +79,11 @@ const SecondSection = () => {
         }
         const todayTasks = todayResponse.data;
         setTodaySchedule([...todayTasks]);
-
+        if(todayTasks){
+          const visibleArr = todayTasks.filter((item)=>item.visibility === true);
+          const scheduleVisibility = visibleArr.filter((item)=>item.scheduleVisibility === false);
+          setTodaySchedule([...scheduleVisibility]);
+        }
       } catch (error) {
         setFlag(false)
       }
