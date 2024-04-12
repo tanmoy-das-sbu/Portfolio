@@ -20,7 +20,9 @@ import {
 import Loading from "@/components/component/loader/loading"
 import { useToast } from "@/components/ui/use-toast"
 import Forbidden from "@/components/component/Forbidden/page"
-
+import Logout from "@/components/component/Logout/page"
+import { ToastAction } from "@/components/ui/toast"
+import { useRouter } from 'next/navigation'
 
 const Adminpanel = () => {
     const [todaySchedule, setTodaySchedule] = useState([]);
@@ -31,6 +33,7 @@ const Adminpanel = () => {
     const { toast } = useToast();
     const [token, setToken] = useState('');
     const [forbidden, setForbidden] = useState(false);
+    const nav = useRouter();
 
     useEffect(() => {
         fetchAllEvents();
@@ -45,7 +48,6 @@ const Adminpanel = () => {
             setForbidden(true);
         }
     }, []);
-
 
     useEffect(() => {
         async function fetchScheduleToday() {
@@ -76,7 +78,7 @@ const Adminpanel = () => {
         fetchScheduleToday();
     }, [date]);
 
-    const handleDateChange = async (newDate) => {
+    const handleDateChange = (newDate) => {
         setDate(newDate);
     };
 
@@ -87,9 +89,9 @@ const Adminpanel = () => {
             setTodaySchedule(updatedSchedule);
         } catch (error) {
             toast({
-                    variant: "error",
-                    title: error,
-                });
+                variant: "error",
+                title: error,
+            });
         }
     };
 
@@ -98,10 +100,20 @@ const Adminpanel = () => {
             const response = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/GetAll`);
             setAllEvents(response.data.data);
         } catch (error) {
-            toast({
+            if (error.response.status === 403) {
+                setForbidden(false);
+                localStorage.clear();
+                toast({
                     variant: "error",
-                    title: error,
+                    title: error.message,
+                    action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
                 });
+            } else {
+                toast({
+                    variant: "error",
+                    title: error.message,
+                });
+            }
         }
     };
 
@@ -127,12 +139,15 @@ const Adminpanel = () => {
     }
 
     return (
-        <div className="flex mt-[210px] flex-col">
+        <div className="flex mt-[170px] flex-col">
+            <div className="w-full flex items-center justify-end pr-[2em]">
+                <Logout />
+            </div>
             <header
                 className=" border-b bg-gray-100/40 ">
                 <div className="flex items-center justify-center gap-2">
                     <CalendarIcon className="h-6 w-6 py-8" />
-                    <h1 className="font-semibold text-lg md:text-2xl">Events</h1>
+                    <h1 className="font-semibold text-lg md:text-2xl text-blue-500">Events</h1> <span>|</span> <span><h1 className="font-semibold text-lg md:text-2xl cursor-pointer" onClick={() => nav.push('/adminpanel/gallery/galleryList')}>Gallery</h1></span>
                 </div>
             </header>
             <main className="container flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">

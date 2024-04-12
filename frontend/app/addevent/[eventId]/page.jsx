@@ -10,6 +10,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { Switch } from "@/components/ui/switch";
 import Forbidden from "@/components/component/Forbidden/page";
+import { ToastAction } from "@/components/ui/toast"
+import { useRouter } from 'next/navigation'
 
 const EventEdit = ({ params }) => {
   const [data, setData] = useState(null);
@@ -32,6 +34,7 @@ const EventEdit = ({ params }) => {
   const [scheduleVisibility, setScheduleVisibility] = useState(false);
   const [token, setToken] = useState('');
   const [forbidden, setForbidden] = useState(false);
+  const nav = useRouter();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -118,6 +121,8 @@ const EventEdit = ({ params }) => {
     imageData.append("image", file);
 
     try {
+      const token = localStorage.getItem('token');
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       const response = await fetch(
         "https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/Upload",
         {
@@ -142,7 +147,20 @@ const EventEdit = ({ params }) => {
         title: "Image Updated Successfully",
       });
     } catch (error) {
-      console.error("Error uploading image:", error.message);
+      if (error.response.status === 403) {
+        setForbidden(false);
+        localStorage.clear();
+        toast({
+          variant: "error",
+          title: error.message,
+          action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
+        });
+      } else {
+        toast({
+          variant: "error",
+          title: error.message,
+        });
+      }
     }
   };
 
@@ -151,6 +169,8 @@ const EventEdit = ({ params }) => {
 
     console.log(formData);
     try {
+      const token = localStorage.getItem('token');
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       const response = await axios.put(
         `https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/UpdateById/${params.eventId}`,
         { ...formData, priority, visibility, scheduleVisibility, imageUrl: url }
@@ -166,7 +186,20 @@ const EventEdit = ({ params }) => {
         console.error("Failed to update event details");
       }
     } catch (error) {
-      console.error("Error updating event details:", error.message);
+      if (error.response.status === 403) {
+        setForbidden(false);
+        localStorage.clear();
+        toast({
+          variant: "error",
+          title: error.message,
+          action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
+        });
+      } else {
+        toast({
+          variant: "error",
+          title: error.message,
+        });
+      }
     }
   };
 

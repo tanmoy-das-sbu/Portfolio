@@ -16,9 +16,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-      {/* <script dangerouslySetInnerHTML={{__html: "window.dataSavvyChatbotConfig = {chatbotId: '6610d3af7e39fab94eb5569e'}"}} /><script src='https://datasavvy.chat/js/embed-script.js' defer></script> */}
+        {/* <script dangerouslySetInnerHTML={{__html: "window.dataSavvyChatbotConfig = {chatbotId: '6610d3af7e39fab94eb5569e'}"}} /><script src='https://datasavvy.chat/js/embed-script.js' defer></script> */}
         <Header />
-        
         {children}
         <Toaster />
         <Footer />
