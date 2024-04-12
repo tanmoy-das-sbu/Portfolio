@@ -9,8 +9,10 @@ import Contact from "./src/routes/contact.route.js";
 import Subscribers from "./src/routes/subscribers.route.js";
 import Gallery from "./src/routes/gallery.route.js";
 import Languages from "./src/routes/translate.route.js";
-import Auth from "./src/routes/auth.route.js"
-
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import User from "./src/models/user.model.js";
+import scheduleUpdater from "./src/utils/trigger.js"
 dotenv.config({
   path: "./env",
 });
@@ -30,6 +32,7 @@ app.use(session({
 
 connectDB()
   .then(() => {
+    scheduleUpdater.start();
     app.use('/Schedule', Schedule);
     app.use('/Contact', Contact);
     app.use('/Subscribers', Subscribers);
