@@ -15,6 +15,8 @@ import facebook from "../../../../public/images/icons/facebook.svg";
 import WhatsApp from "../../../../public/images/icons/whatsapp.svg";
 import Link from "next/link";
 
+import TranslatePage from "../../../../app/schedule/TranslatePage";
+
 const barlow = Barlow_Condensed({ subsets: ["latin"], weight: "400" });
 
 const Footer = () => {
@@ -25,27 +27,12 @@ const Footer = () => {
           <div>
             <div className={barlow.className}>
               <h2 className="  text-3xl py-1 text-[#F47621] border-b-2 mb-2">
-                QUICK LINKS
+                Multi Language Translate
               </h2>
             </div>
-            <ul className="text-md flex flex-row flex-wrap p-0 gap-3 ">
-              <Link href={`/schedule`}>
-                <li> Home</li>
-              </Link>
-              <Link href={`/gallery`}>
-                <li> Photo Gallery</li>
-              </Link>
-              <Link href={`/blog`}>
-                <li> Blog</li>
-              </Link>
-              <li> Articles</li>
-              <Link href={`/contact`}>
-                <li> Contact Us</li>
-              </Link>
-              <Link href={`/aboutUs`}>
-                <li> About</li>
-              </Link>
-            </ul>
+          <div>
+        <TranslatePage/>
+        </div>
           </div>
           <div>
             <div className={barlow.className}>
@@ -120,10 +107,10 @@ const Footer = () => {
                 <Tooltip>
                   <TooltipTrigger>
                     <a
-                      href="https://wa.me/2348100000000"
-
-                      target="_blank"
-                      rel="noopener noreferrer"
+                     href="https://wa.me/+919450282852"
+                     
+                     target="_blank"
+                     rel="noopener noreferrer"
                     >
                       <Image
                         src={WhatsApp}
@@ -185,8 +172,9 @@ const Footer = () => {
         <section className="pb-3 pt-3 ">
           <div className={barlow.className}>
             <h2 className="text-3xl py-1 text-[#F47621]  border-b-2 mb-2">
-              CONTACT
+              CONTACT   
             </h2>
+            
           </div>
           <div className=" text-lg">
             <div className="h-fit flex gap-3 flex-col">
@@ -202,12 +190,13 @@ const Footer = () => {
               </p>
               <p>
                 <span className="font-bold">Tel.-</span>
-                <a href="tel:1234567890"> +919450282852</a>
+                <a href="tel:+919450282852"> +919450282852</a>
               </p>
             </div>
             <div></div>
           </div>
         </section>
+        
       </div>
     </div>
   );
