@@ -12,8 +12,8 @@ import twitter from "../../../../public/images/icons/twitter.svg";
 import instagram from "../../../../public/images/icons/instagram.svg";
 import youtube from "../../../../public/images/icons/youtube.svg";
 import facebook from "../../../../public/images/icons/facebook.svg";
+import WhatsApp from "../../../../public/images/icons/whatsapp.svg";
 import Link from "next/link";
-import  WhatsApp  from "../../../../public/images/icons/whatsapp.svg";
 
 const barlow = Barlow_Condensed({ subsets: ["latin"], weight: "400" });
 
@@ -36,7 +36,7 @@ const Footer = () => {
                 <li> Photo Gallery</li>
               </Link>
               <Link href={`/blog`}>
-              <li> Blog</li>
+                <li> Blog</li>
               </Link>
               <li> Articles</li>
               <Link href={`/contact`}>
@@ -120,20 +120,20 @@ const Footer = () => {
                 <Tooltip>
                   <TooltipTrigger>
                     <a
-                     href="https://wa.me/2348100000000"
-                     
-                     target="_blank"
-                     rel="noopener noreferrer"
+                      href="https://wa.me/2348100000000"
+
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <Image
-                        src={WhatsApp }
+                        src={WhatsApp}
                         className="h-10 w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 rounded-full bg-white shadow-lg p-0 lg:p-2"
                         draggable="false" alt="instagram"
                       />
                     </a>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Instagram</p>
+                    <p>Whatsapp</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -193,7 +193,7 @@ const Footer = () => {
               <p>
                 <span className="font-bold">Office: </span>
                 <span>
-                BJP Office, Harmu Housing Colony, Argora, Ranchi, Jharkhand, PIN - 834002
+                  BJP Office, Harmu Housing Colony, Argora, Ranchi, Jharkhand, PIN - 834002
                 </span>
               </p>
               <p>
