@@ -96,12 +96,12 @@ const ManageGallery = () => {
                 });
             }
         } catch (error) {
-            if (error.response.status === 403) {
+            if (error.response.status === 403 || error.response.status === 401) {
                 setForbidden(false);
                 localStorage.clear();
                 toast({
                     variant: "error",
-                    title: error.message,
+                    title: error.response.data,
                     action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
                 });
             } else {
