@@ -25,14 +25,17 @@ const Login = () => {
             localStorage.setItem('token', token);
             localStorage.setItem('email', email);
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-
+            toast({
+                variant: "success",
+                title: "Welcome to Admin Panel!",
+            });
             nav.push('/adminpanel')
            
         } catch (err) {
             setError('Invalid email or password');
             toast({
                 variant: "error",
-                title: "server error",
+                title: err.response.data.message,
             });
         } finally {
             setLoading(false);

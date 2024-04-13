@@ -84,13 +84,20 @@ const Adminpanel = () => {
 
     const handleDelete = async (eventId) => {
         try {
+            const token = localStorage.getItem('token');
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             await axios.delete(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/deleteById/${eventId}`);
             const updatedSchedule = todaySchedule.filter(event => event._id !== eventId);
             setTodaySchedule(updatedSchedule);
+            toast({
+                variant: "success",
+                title: 'Event deleted successfully',
+            });
         } catch (error) {
+            console.log(error)
             toast({
                 variant: "error",
-                title: error,
+                title: error.response.data.message,
             });
         }
     };
