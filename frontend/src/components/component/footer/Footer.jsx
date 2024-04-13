@@ -14,7 +14,7 @@ import youtube from "../../../../public/images/icons/youtube.svg";
 import facebook from "../../../../public/images/icons/facebook.svg";
 import WhatsApp from "../../../../public/images/icons/whatsapp.svg";
 import Link from "next/link";
-import  WhatsApp  from "../../../../public/images/icons/whatsapp.svg";
+
 import TranslatePage from "../../../../app/schedule/TranslatePage";
 
 const barlow = Barlow_Condensed({ subsets: ["latin"], weight: "400" });
