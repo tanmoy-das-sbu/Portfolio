@@ -22,37 +22,17 @@ const barlow = Barlow_Condensed({ subsets: ["latin"], weight: "400" });
 const Footer = () => {
   return (
     <div className="w-full h-fit bg-[#F3F0EB]">
-      <div className="container grid md:grid-cols-4 grid-cols-1 gap-4 text-black ">
+      <div className="container grid md:grid-cols-3 grid-cols-1 gap-4 text-black ">
         <section className="pb-3 pt-3  flex flex-col gap-10  ">
           <div>
             <div className={barlow.className}>
               <h2 className="  text-3xl py-1 text-[#F47621] border-b-2 mb-2">
-                QUICK LINKS
+                Multi Language Translate
               </h2>
             </div>
-            <ul className="text-md flex flex-row flex-wrap p-0 gap-3 ">
-              <Link href={`/`}>
-                <li> Home</li>
-              </Link>
-              <Link href={`/gallery`}>
-                <li> Photo Gallery</li>
-              </Link>
-              <Link href={`/blog`}>
-                <li> Blog</li>
-              </Link>
-              <Link href={`/schedule`}>
-              <li> Schedule</li>
-              </Link>
-              <Link href={`/contact`}>
-                <li> Contact Us</li>
-              </Link>
-              <Link href={`/socials`}>
-                <li>Socials</li>
-              </Link >
-              <Link href={`/aboutUs`}>
-                <li> About</li>
-              </Link>
-            </ul>
+          <div>
+        <TranslatePage/>
+        </div>
           </div>
           <div>
             <div className={barlow.className}>
@@ -216,9 +196,7 @@ const Footer = () => {
             <div></div>
           </div>
         </section>
-        <div className="pb-3 pt-3">
-        <TranslatePage/>
-        </div>
+        
       </div>
     </div>
   );

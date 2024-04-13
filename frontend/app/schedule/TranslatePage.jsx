@@ -19,7 +19,7 @@ const TranslatePage = () => {
   }, []);
   return (
     <div >
-      <div id="google_translate_element" className='flex md:justify-start xs:justify-start lg:ml-[9%] mr-[9%] lg:justify-end'>
+      <div id="google_translate_element" className='flex md:justify-start xs:justify-start lg: mr-[9%] '>
         <style>
         {
           `
