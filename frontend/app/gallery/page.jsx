@@ -1,7 +1,7 @@
 "use client";
 
 import "./page.css";
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -37,7 +37,7 @@ const Gallery = () => {
             } catch (error) {
                 toast({
                     variant: "error",
-                    title: error,
+                    title: error.message,
                 });
             }
         };
@@ -63,7 +63,7 @@ const Gallery = () => {
     }
 
     return (
-        <div className='mt-[210px] pt-12 pb-4 container swipper-div'>
+        <div className='mt-[150px] pt-12 pb-4 container swipper-div'>
             <Swiper
                 style={{
                     '--swiper-navigation-color': '#fff',
