@@ -130,8 +130,8 @@ function Home() {
                   organising and membership-promotional role in the elections of
                   many states since 2019. In his initial two years, the BJP achieved
                   success in state legislative assembly in Jharkhand where it won
-                  the Dhanbad , Nirsa , Baghmara and Sindri but lost ground in
-                  Jharia and tundi in 2019.Pradip Varma is also a 2nd year trained
+                  the Dhanbad, Nirsa, Baghmara and Sindri but lost ground in
+                  Jharia and tundi in 2019. Pradip Varma is also a 2nd year trained
                   Swayamsevak from (RSS) Rashtriya Swayamsevak Sangh and also served
                   as a Joint secretary in Seva Bharti (Prantiya toli ) at zonal
                   level.
@@ -172,7 +172,7 @@ function Home() {
                   his primary education at Subhas Vidya Mandir Muraripukur Kolkata.
                   Later on for further studies he shifted to Sarvodaya School
                   Muchipara in kolkata. From childhood he was interested in playing
-                  chess at the age of 12 and was a state level chess player.Varma
+                  chess at the age of 12 and was a state level chess player. Varma
                   also played cricket for the team Mohan Bagan at the age of 15.
                 </div>
               </AccordionContent>
@@ -206,18 +206,16 @@ function Home() {
                 <div className="text-lg text-slate-600">
                   He has done his intermediate in commerce stream in 1988 and
                   undergraduate degree in commerce, B.Com from Seth Anand Ram
-                  Jaipuriya college of Calcutta University in 1991.He passed his
+                  Jaipuriya college of Calcutta University in 1991. He passed his
                   executive MBA from Vinayaka Mission, and master’s degree of M.A
                   (Hindi) from the same. Later he has done his completed his
-                  doctorate Phd. in Hindi language and literature. . His scholarly
-                  work has been on the topic of Ramcharitmanas : “Parivar aur Samaj
-                  prabadhan ke sutra” .He has also written blog on the several
-                  biographies on freedom fighters like Birsa Munda , Pt. Deen Dayal
+                  doctorate Phd. in Hindi language and literature. His scholarly
+                  work has been on the topic of Ramcharitmanas: “Parivar aur Samaj
+                  prabadhan ke sutra” . He has also written blog on the several
+                  biographies on freedom fighters like Birsa Munda, Pt. Deen Dayal
                   Upadhyaay and topics of national importance like Hul Andolan,
                   Vande matram etc. Apart from Hindi language, Varma is a polyglot
-                  person having full proficiency of English, Awadhi, Bangla
-                  ,Bhojpuri and 4 tribal languages of Jharkhand namely ,Nagpuri
-                  ,Mundari, Santhali ,and Kurmali.
+                  person having full proficiency of English, Awadhi, Bangla, Bhojpuri and 4 tribal languages of Jharkhand namely, Nagpuri, Mundari, Santhali and Kurmali.
                 </div>
               </AccordionContent>
             </AccordionItem>
