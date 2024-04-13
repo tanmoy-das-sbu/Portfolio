@@ -1,7 +1,7 @@
 "use client";
 
 import "./page.css";
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -13,6 +13,7 @@ import Image from "next/image";
 import Modal from "./popup";
 import Loading from "@/components/component/loader/loading";
 import { useToast } from "@/components/ui/use-toast"
+import InternalServerError from "@/components/InternalServerError/page";
 
 const Gallery = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -20,6 +21,7 @@ const Gallery = () => {
     const [selectedImage, setSelectedImage] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
     const [load, setLoad] = useState(false);
+    const [internalError, setInternalError] = useState(false);
     const { toast } = useToast();
 
     useEffect(() => {
@@ -37,8 +39,9 @@ const Gallery = () => {
             } catch (error) {
                 toast({
                     variant: "error",
-                    title: error,
+                    title: error.message,
                 });
+                setInternalError(true);
             }
         };
 
@@ -62,8 +65,16 @@ const Gallery = () => {
         )
     }
 
+    if(internalError){
+        return (
+            <div>
+                <InternalServerError/>
+            </div>
+        )
+    }
+
     return (
-        <div className='mt-[210px] pt-12 pb-4 container swipper-div'>
+        <div className='mt-[150px] pt-12 pb-4 container swipper-div'>
             <Swiper
                 style={{
                     '--swiper-navigation-color': '#fff',
