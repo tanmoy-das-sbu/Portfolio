@@ -19,8 +19,8 @@ import { useState, useEffect } from "react";
 import { formatDate } from "@/utils/dateFormat";
 import { Badge } from "@/components/ui/badge";
 import Forbidden from "@/components/component/Forbidden/page";
-import { ToastAction } from "@/components/ui/toast"
-import { useRouter } from 'next/navigation'
+import { ToastAction } from "@/components/ui/toast";
+import { useRouter } from "next/navigation";
 
 export default function Addevent() {
   const [formDataArray, setFormDataArray] = useState([]);
@@ -42,12 +42,11 @@ export default function Addevent() {
   const [priority, setPriority] = useState(false);
   const [visibility, setVisibility] = useState(true);
   const [scheduleVisibility, setScheduleVisibility] = useState(false);
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState("");
   const [forbidden, setForbidden] = useState(true);
   const nav = useRouter();
-
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     if (!token) {
       setForbidden(false);
     } else {
@@ -69,22 +68,22 @@ export default function Addevent() {
     const formData = new FormData();
     formData.append("image", file);
 
-
     try {
-      const token = localStorage.getItem('token');
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      const response = await axios.post("https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/Upload", formData);
+      const token = localStorage.getItem("token");
+      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      const response = await axios.post(
+        "https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/Upload",
+        formData
+      );
+      setUrl(response.data.imageUrl);
 
-      if (!response.ok) {
-        throw new Error("Image upload failed");
-      }
-
-      const data = await response.json();
-      setUrl(data.imageUrl);
       toast({
         variant: "success",
         title: "Image Added Successfully",
       });
+      if (!response.ok) {
+        throw new Error("Image upload failed");
+      }
     } catch (error) {
       // if (error.response.status === 403) {
       //   setForbidden(false);
@@ -161,10 +160,14 @@ export default function Addevent() {
     e.preventDefault();
 
     try {
-      const token = localStorage.getItem('token');
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      const response = await axios.post("https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/AddMultiple", formDataArray);
-      if (!response.ok) {
+      console.log(formDataArray);
+      const token = localStorage.getItem("token");
+      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      const response = await axios.post(
+        "https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/AddMultiple",
+        formDataArray
+      );
+      if (response.status >= 200 && response.status < 300) {
         throw new Error("Network response was not ok");
       }
 

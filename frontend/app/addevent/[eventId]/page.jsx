@@ -10,8 +10,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { Switch } from "@/components/ui/switch";
 import Forbidden from "@/components/component/Forbidden/page";
-import { ToastAction } from "@/components/ui/toast"
-import { useRouter } from 'next/navigation'
+import { ToastAction } from "@/components/ui/toast";
+import { useRouter } from "next/navigation";
 
 const EventEdit = ({ params }) => {
   const [data, setData] = useState(null);
@@ -32,12 +32,12 @@ const EventEdit = ({ params }) => {
   const [priority, setPriority] = useState(false);
   const [visibility, setVisibility] = useState(true);
   const [scheduleVisibility, setScheduleVisibility] = useState(false);
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState("");
   const [forbidden, setForbidden] = useState(false);
   const nav = useRouter();
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     if (!token) {
       setForbidden(false);
     } else {
@@ -63,14 +63,14 @@ const EventEdit = ({ params }) => {
           location: response.data.data.location,
           visibility: response.data.data.visibility,
           scheduleVisibility: response.data.data.scheduleVisibility,
-          scheduleDate:
-            response.data.data.scheduleDate !== null &&
-              response.data.data.scheduleDate !== undefined
-              ? response.data.data.scheduleDate.slice(0, 10)
-              : "",
+          scheduleDate: response.data.data.scheduleDate,
           scheduleTime: response.data.data.scheduleTime,
         });
 
+        // response.data.data.scheduleDate !== null &&
+        // response.data.data.scheduleDate !== undefined
+        // ? response.data.data.scheduleDate.slice(0, 10)
+        // : "",
         setUrl(
           response.data.data.imageUrl !== null &&
             response.data.data.imageUrl !== ""
@@ -121,25 +121,20 @@ const EventEdit = ({ params }) => {
     imageData.append("image", file);
 
     try {
-      const token = localStorage.getItem('token');
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      const response = await fetch(
+      const token = localStorage.getItem("token");
+      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      const response = await axios.post(
         "https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/Upload",
-        {
-          method: "POST",
-          body: imageData,
-        }
+        imageData
       );
-
+      setUrl(response.data.imageUrl);
       if (!response.ok) {
         throw new Error("Image upload failed");
       }
 
-      const data = await response.json();
-      setUrl(data.imageUrl);
       setFormData({
         ...formData,
-        imageUrl: data.imageUrl,
+        imageUrl: url,
       });
       console.log("Message", url);
       toast({
@@ -147,20 +142,24 @@ const EventEdit = ({ params }) => {
         title: "Image Updated Successfully",
       });
     } catch (error) {
-      if (error.response.status === 403) {
-        setForbidden(false);
-        localStorage.clear();
-        toast({
-          variant: "error",
-          title: error.message,
-          action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
-        });
-      } else {
-        toast({
-          variant: "error",
-          title: error.message,
-        });
-      }
+      toast({
+        variant: "error",
+        title: error.message,
+      });
+      // if (error.response.status === 403) {
+      //   setForbidden(false);
+      //   localStorage.clear();
+      //   toast({
+      //     variant: "error",
+      //     title: error.message,
+      //     action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
+      //   });
+      // } else {
+      //   toast({
+      //     variant: "error",
+      //     title: error.message,
+      //   });
+      // }
     }
   };
 
@@ -169,11 +168,17 @@ const EventEdit = ({ params }) => {
 
     console.log(formData);
     try {
-      const token = localStorage.getItem('token');
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      const token = localStorage.getItem("token");
+      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       const response = await axios.put(
         `https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/UpdateById/${params.eventId}`,
-        { ...formData, priority, visibility, scheduleVisibility, imageUrl: url }
+        {
+          ...formData,
+          priority,
+          visibility,
+          scheduleVisibility: scheduleVisibility,
+          imageUrl: url,
+        }
       );
 
       if (response.status === 200) {
@@ -192,7 +197,14 @@ const EventEdit = ({ params }) => {
         toast({
           variant: "error",
           title: error.message,
-          action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
+          action: (
+            <ToastAction
+              altText="Login again"
+              onClick={() => nav.push("/login")}
+            >
+              Login again
+            </ToastAction>
+          ),
         });
       } else {
         toast({
@@ -218,10 +230,6 @@ const EventEdit = ({ params }) => {
       </div>
     );
   }
-
-  const isImageFromAllowedDomain = data.imageUrl.startsWith(
-    "https://res.cloudinary.com/neeleshks/image/upload"
-  );
 
   return (
     <div className="mt-[210px] pb-6">
@@ -364,12 +372,13 @@ const EventEdit = ({ params }) => {
                       onCheckedChange={() => {
                         setVisibility(!visibility);
                         {
-                          visibility ? setScheduleVisibility(false) : "";
+                          visibility == false
+                            ? setScheduleVisibility(false)
+                            : "";
                         }
                       }}
                       defaultChecked
                     />
-
                   </div>
                   {visibility ? (
                     <>
