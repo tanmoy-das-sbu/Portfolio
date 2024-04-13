@@ -123,19 +123,19 @@ const Footer = () => {
           </div>
         </section>
         <section className="pb-3 pt-3 ">
-          <div className={barlow.className}>
-            <h2 className="text-3xl py-1 text-[#F47621]  border-b-2 mb-2 lg:text-center ">
+          <div className={barlow.className} >
+            <h2 className="text-3xl py-1 text-[#F47621] border-b-2 mb-2 lg:ml-14">
               DONATE NOW
             </h2>
           </div>
-          <div className=" text-lg flex flex-col gap-3 ">
+          <div className=" text-lg flex flex-col gap-3 lg:pr-14 lg:pl-14 ">
             <a
               target="blank"
               href="https://pmcares.gov.in/en/web/contribution/donate_india"
             >
               <button
                 type="button"
-                className="w-full text-orange-600 hover:text-white border border-orange-600 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-3xl text-sm px-5 py-2.5 text-center  mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-600 dark:focus:ring-orange-900"
+                className="w-full text-orange-600 hover:text-white border border-orange-600 hover:bg-orange-500  font-medium rounded-3xl text-sm px-5 py-2.5 text-center  mb-2"
               >
                 PM CARES
               </button>

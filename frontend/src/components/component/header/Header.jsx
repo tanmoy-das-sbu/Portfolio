@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <div className="bg-[#F3F0EB] w-full h-[120px] fixed top-0 z-30">
       <div className="container h-full flex flex-row justify-between sm:pl-8 sm:pr-8">
-        <div className="flex flex-col justify-center cursor-pointer" onClick={() => router.push('/schedule')}>
+        <div className="flex flex-col justify-center cursor-pointer" onClick={() => router.push('/')}>
           <div className={barlow.className}>
             <h2 className="font-bold md:text-3xl text-xl text-[#F47621]">
               {name}
