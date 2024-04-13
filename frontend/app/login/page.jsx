@@ -13,11 +13,13 @@ const Login = () => {
     const [data, setData] = useState({ email: "", password: "" });
     const { toast } = useToast();
     const nav = useRouter();
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
+            setLoading(true);
             const response = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/Auth/login`, data);
             const { token, email } = response.data;
             localStorage.setItem('token', token);
@@ -32,6 +34,8 @@ const Login = () => {
                 variant: "error",
                 title: "server error",
             });
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -62,7 +66,9 @@ const Login = () => {
                             </div>
                             {error && <p className="text-red-500">{error}</p>}
                             <div className="mt-[60px]">
-                                <Button type="button" className="w-full bg-[#2DC89D] text-white hover:bg-[#F47825]" onClick={handleSubmit}>Submit</Button>
+                                <Button type="button" className="w-full bg-[#2DC89D] text-white hover:bg-[#F47825]" onClick={handleSubmit} disabled={loading}>
+                                    {loading ? <span>Wait...</span> : <span>Submit</span>}
+                                </Button>
                             </div>
                         </form>
                     </section>
