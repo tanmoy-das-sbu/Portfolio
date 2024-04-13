@@ -22,12 +22,10 @@ const Buttons = () => {
                         <SheetHeader>
                             <SheetDescription>
                                 <div className="flex flex-col space-y-4 items-start w-full text-lg text-black mt-10 " >
-                                    <SheetClose asChild>
-                                        <Link href={"/"} passHref> Home</Link>
-                                    </SheetClose>
+                                    <SheetClose asChild><Link href={"/"} passHref> Home</Link></SheetClose>
+                                    <SheetClose asChild><Link href={"/schedule"} passHref> Schedule</Link></SheetClose>
                                     <SheetClose asChild><Link href={"/gallery"} passHref> Gallery</Link></SheetClose>
                                     <SheetClose asChild><Link href={"/socials"} passHref> Socials</Link></SheetClose>
-                                    <SheetClose asChild><Link href={"/schedule"} passHref> Schedule</Link></SheetClose>
                                     <SheetClose asChild><Link href={"/contact"} passHref> Contact</Link></SheetClose>
                                     <SheetClose asChild><Link href={"/blog"} passHref> Blog</Link></SheetClose>
                                 </div>
@@ -37,11 +35,11 @@ const Buttons = () => {
                 </Sheet>
             </div>
             <div >
-                
+
             </div>
         </div>
     </div>
-        );
+    );
 }
 
 export default Buttons;
