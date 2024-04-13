@@ -124,7 +124,7 @@ const Footer = () => {
         </section>
         <section className="pb-3 pt-3 ">
           <div className={barlow.className}>
-            <h2 className="text-3xl py-1 text-[#F47621]  border-b-2 mb-2">
+            <h2 className="text-3xl py-1 text-[#F47621]  border-b-2 mb-2 lg:text-center ">
               DONATE NOW
             </h2>
           </div>
