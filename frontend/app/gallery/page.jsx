@@ -13,6 +13,7 @@ import Image from "next/image";
 import Modal from "./popup";
 import Loading from "@/components/component/loader/loading";
 import { useToast } from "@/components/ui/use-toast"
+import InternalServerError from "@/components/InternalServerError/page";
 
 const Gallery = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -20,6 +21,7 @@ const Gallery = () => {
     const [selectedImage, setSelectedImage] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
     const [load, setLoad] = useState(false);
+    const [internalError, setInternalError] = useState(false);
     const { toast } = useToast();
 
     useEffect(() => {
@@ -39,6 +41,7 @@ const Gallery = () => {
                     variant: "error",
                     title: error.message,
                 });
+                setInternalError(true);
             }
         };
 
@@ -58,6 +61,14 @@ const Gallery = () => {
         return (
             <div>
                 <Loading />
+            </div>
+        )
+    }
+
+    if(internalError){
+        return (
+            <div>
+                <InternalServerError/>
             </div>
         )
     }
