@@ -21,7 +21,6 @@ const GalleryEdit = ({ params }) => {
         title: "", altText: "", shortDescription: "", date: "", socialTags: [], imageUrl: ""
     });
     const [date, setDate] = useState("");
-    const [error, setError] = useState("");
     const [selectedFile, setSelectedFile] = useState(null);
     const [fileInputValue, setFileInputValue] = useState("");
     const [load, setLoad] = useState(false);
@@ -80,7 +79,7 @@ const GalleryEdit = ({ params }) => {
             const response = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/Upload`, formData);
             return response.data.imageUrl;
         } catch (error) {
-            if (error.response.status === 403) {
+            if (error.response.status === 403 || error.response.status === 401) {
                 setForbidden(false);
                 localStorage.clear();
                 toast({
@@ -123,7 +122,7 @@ const GalleryEdit = ({ params }) => {
             }
 
         } catch (error) {
-            if (error.response.status === 403) {
+            if (error.response.status === 403 || error.response.status === 401) {
                 setForbidden(false);
                 localStorage.clear();
                 toast({

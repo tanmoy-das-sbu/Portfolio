@@ -94,11 +94,20 @@ const Adminpanel = () => {
                 title: 'Event deleted successfully',
             });
         } catch (error) {
-            console.log(error)
-            toast({
-                variant: "error",
-                title: error.response.data.message,
-            });
+            if(error.response.status === 403 || error.response.status === 401) {
+                setForbidden(false);
+                localStorage.clear();
+                toast({
+                    variant: "error",
+                    title: error.response.data,
+                    action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
+                });
+            } else {
+                toast({
+                    variant: "error",
+                    title: error.response.data.message,
+                });
+            } 
         }
     };
 
