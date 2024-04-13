@@ -117,7 +117,25 @@ const Footer = () => {
                     <p>Instagram</p>
                   </TooltipContent>
                 </Tooltip>
-               
+                <Tooltip>
+                  <TooltipTrigger>
+                    <a
+                     href="https://wa.me/2348100000000"
+                     
+                     target="_blank"
+                     rel="noopener noreferrer"
+                    >
+                      <Image
+                        src={WhatsApp }
+                        className="h-10 w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 rounded-full bg-white shadow-lg p-0 lg:p-2"
+                        draggable="false" alt="instagram"
+                      />
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Instagram</p>
+                  </TooltipContent>
+                </Tooltip>
               </TooltipProvider>
             </div>
           </div>
@@ -182,22 +200,9 @@ const Footer = () => {
                 <span className="font-bold">Email: </span>
                 <a href="mailto:example@gmail.com"> pkvbjp@gmail.com</a>
               </p>
-              <p className="flex justify-start items-center">
+              <p>
                 <span className="font-bold">Tel.-</span>
-                
                 <a href="tel:1234567890"> +919450282852</a>
-                <a
-                     href="https://wa.me/+919450282852"
-                     
-                     target="_blank"
-                     rel="noopener noreferrer"
-                    >
-                      <Image
-                        src={WhatsApp }
-                        className="h-10 w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 rounded-full bg-white shadow-lg p-0 lg:p-2 ml-3"
-                        draggable="false" alt="instagram"
-                      />
-                </a>
               </p>
             </div>
             <div></div>
