@@ -1,7 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+ body{
+  position: static !important;
+  top: 0 !important;
+  min-height: 0% !important;
+ }
 @layer base {
   :root {
     --background: 0 0% 100%;

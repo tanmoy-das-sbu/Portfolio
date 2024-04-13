@@ -12,8 +12,10 @@ import twitter from "../../../../public/images/icons/twitter.svg";
 import instagram from "../../../../public/images/icons/instagram.svg";
 import youtube from "../../../../public/images/icons/youtube.svg";
 import facebook from "../../../../public/images/icons/facebook.svg";
+import WhatsApp from "../../../../public/images/icons/whatsapp.svg";
 import Link from "next/link";
-import  WhatsApp  from "../../../../public/images/icons/whatsapp.svg";
+
+import TranslatePage from "../../../../app/schedule/TranslatePage";
 
 const barlow = Barlow_Condensed({ subsets: ["latin"], weight: "400" });
 
@@ -25,27 +27,12 @@ const Footer = () => {
           <div>
             <div className={barlow.className}>
               <h2 className="  text-3xl py-1 text-[#F47621] border-b-2 mb-2">
-                QUICK LINKS
+                Multi Language Translate
               </h2>
             </div>
-            <ul className="text-md flex flex-row flex-wrap p-0 gap-3 ">
-              <Link href={`/schedule`}>
-                <li> Home</li>
-              </Link>
-              <Link href={`/gallery`}>
-                <li> Photo Gallery</li>
-              </Link>
-              <Link href={`/blog`}>
-              <li> Blog</li>
-              </Link>
-              <li> Articles</li>
-              <Link href={`/contact`}>
-                <li> Contact Us</li>
-              </Link>
-              <Link href={`/aboutUs`}>
-                <li> About</li>
-              </Link>
-            </ul>
+          <div>
+        <TranslatePage/>
+        </div>
           </div>
           <div>
             <div className={barlow.className}>
@@ -120,20 +107,20 @@ const Footer = () => {
                 <Tooltip>
                   <TooltipTrigger>
                     <a
-                     href="https://wa.me/2348100000000"
+                     href="https://wa.me/+919450282852"
                      
                      target="_blank"
                      rel="noopener noreferrer"
                     >
                       <Image
-                        src={WhatsApp }
+                        src={WhatsApp}
                         className="h-10 w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 rounded-full bg-white shadow-lg p-0 lg:p-2"
                         draggable="false" alt="instagram"
                       />
                     </a>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Instagram</p>
+                    <p>Whatsapp</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -141,19 +128,19 @@ const Footer = () => {
           </div>
         </section>
         <section className="pb-3 pt-3 ">
-          <div className={barlow.className}>
-            <h2 className="text-3xl py-1 text-[#F47621]  border-b-2 mb-2">
+          <div className={barlow.className} >
+            <h2 className="text-3xl py-1 text-[#F47621] border-b-2 mb-2 lg:ml-14">
               DONATE NOW
             </h2>
           </div>
-          <div className=" text-lg flex flex-col gap-3 ">
+          <div className=" text-lg flex flex-col gap-3 lg:pr-14 lg:pl-14 ">
             <a
               target="blank"
               href="https://pmcares.gov.in/en/web/contribution/donate_india"
             >
               <button
                 type="button"
-                className="w-full text-orange-600 hover:text-white border border-orange-600 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-3xl text-sm px-5 py-2.5 text-center  mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-600 dark:focus:ring-orange-900"
+                className="w-full text-orange-600 hover:text-white border border-orange-600 hover:bg-orange-500  font-medium rounded-3xl text-sm px-5 py-2.5 text-center  mb-2"
               >
                 PM CARES
               </button>
@@ -185,30 +172,31 @@ const Footer = () => {
         <section className="pb-3 pt-3 ">
           <div className={barlow.className}>
             <h2 className="text-3xl py-1 text-[#F47621]  border-b-2 mb-2">
-              CONTACT
+              CONTACT   
             </h2>
+            
           </div>
           <div className=" text-lg">
             <div className="h-fit flex gap-3 flex-col">
               <p>
                 <span className="font-bold">Office: </span>
                 <span>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Porro, quam?
+                  BJP Office, Harmu Housing Colony, Argora, Ranchi, Jharkhand, PIN - 834002
                 </span>
               </p>
               <p>
                 <span className="font-bold">Email: </span>
-                <a href="mailto:example@gmail.com">example@gmail.com</a>
+                <a href="mailto:example@gmail.com"> pkvbjp@gmail.com</a>
               </p>
               <p>
                 <span className="font-bold">Tel.-</span>
-                <a href="tel:1234567890">1234567890</a>
+                <a href="tel:+919450282852"> +919450282852</a>
               </p>
             </div>
             <div></div>
           </div>
         </section>
+        
       </div>
     </div>
   );

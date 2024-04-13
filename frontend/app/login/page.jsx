@@ -13,25 +13,32 @@ const Login = () => {
     const [data, setData] = useState({ email: "", password: "" });
     const { toast } = useToast();
     const nav = useRouter();
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
+            setLoading(true);
             const response = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/Auth/login`, data);
             const { token, email } = response.data;
             localStorage.setItem('token', token);
             localStorage.setItem('email', email);
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-
+            toast({
+                variant: "success",
+                title: "Welcome to Admin Panel!",
+            });
             nav.push('/adminpanel')
            
         } catch (err) {
             setError('Invalid email or password');
             toast({
                 variant: "error",
-                title: "server error",
+                title: err.response.data.message,
             });
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -62,7 +69,9 @@ const Login = () => {
                             </div>
                             {error && <p className="text-red-500">{error}</p>}
                             <div className="mt-[60px]">
-                                <Button type="button" className="w-full bg-[#2DC89D] text-white hover:bg-[#F47825]" onClick={handleSubmit}>Submit</Button>
+                                <Button type="button" className="w-full bg-[#2DC89D] text-white hover:bg-[#F47825]" onClick={handleSubmit} disabled={loading}>
+                                    {loading ? <span>Wait...</span> : <span>Submit</span>}
+                                </Button>
                             </div>
                         </form>
                     </section>

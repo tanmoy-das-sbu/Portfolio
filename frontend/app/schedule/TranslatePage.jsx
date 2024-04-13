@@ -18,8 +18,18 @@ const TranslatePage = () => {
     }
   }, []);
   return (
-    <div style={{marginLeft:'auto'}}>
-      <div id="google_translate_element" style={{display:'flex',justifyContent:"center"}}></div>
+    <div >
+      <div id="google_translate_element" className='flex md:justify-start xs:justify-start lg: mr-[9%] '>
+        <style>
+        {
+          `
+          
+          .VIpgJd-ZVi9od-ORHb-OEVmcd{
+            z-index:0
+          }`
+        }
+        </style>
+      </div>
       
     </div>
   );
