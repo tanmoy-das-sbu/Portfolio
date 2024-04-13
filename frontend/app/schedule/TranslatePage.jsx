@@ -19,7 +19,17 @@ const TranslatePage = () => {
   }, []);
   return (
     <div >
-      <div id="google_translate_element" className='flex justify-end ml-[9%] mr-[9%]'></div>
+      <div id="google_translate_element" className='flex md:justify-start xs:justify-start lg:ml-[9%] mr-[9%] lg:justify-end'>
+        <style>
+        {
+          `
+          
+          .VIpgJd-ZVi9od-ORHb-OEVmcd{
+            z-index:0
+          }`
+        }
+        </style>
+      </div>
       
     </div>
   );
