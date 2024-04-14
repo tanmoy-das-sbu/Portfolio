@@ -195,7 +195,6 @@ const GalleryEdit = ({ params }) => {
                         <div className="flex flex-col w-full gap-1">
                             <label htmlFor="title" className="font-semibold">Title <span className="text-red-500">&#42;</span></label>
                             <Input id="title" placeholder="Enter the Title" type="text" name="title" value={data.title} onChange={handleChange} />
-                            {error && <p className="text-red-500">{error}</p>}
                         </div>
                         <div className="flex flex-col w-full gap-1">
                             <label htmlFor="altText">Alt Text</label>
