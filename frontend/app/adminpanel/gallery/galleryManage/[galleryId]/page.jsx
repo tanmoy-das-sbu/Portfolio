@@ -182,14 +182,14 @@ const GalleryEdit = ({ params }) => {
     }
 
     return (
-        <div className="container mt-[210px] mb-[100px]">
+        <div className="container h-fit mt-[210px] mb-[100px]">
             <section className="w-full h-[5rem] flex items-center justify-between pl-2 gap-4">
                 <h1 className="text-2xl font-bold">Manage Gallery</h1>
                 <Link href="/adminpanel/gallery/galleryList">
                     <Button className="bg-blue-500 text-white" >View Gallery List</Button>
                 </Link>
             </section>
-            <section className="mt-2 w-full h-[500px] p-2">
+            <section className="mt-2 w-full h-fit p-2">
                 <form className="flex flex-col w-full gap-3">
                     <div className="lg:flex md:flex-row gap-4 sm:flex-col">
                         <div className="flex flex-col w-full gap-1">

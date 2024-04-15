@@ -155,7 +155,7 @@ const ManageGallery = () => {
                     <Button className="bg-blue-500 text-white" >View Gallery List</Button>
                 </Link>
             </section>
-            <section className="mt-2 w-full h-[500px] p-2">
+            <section className="mt-2 w-full h-fit p-2">
                 <form className="flex flex-col w-full gap-3">
                     <div className="lg:flex md:flex-row gap-4 sm:flex-col">
                         <div className="flex flex-col w-full gap-1">
