@@ -109,9 +109,9 @@ const Contact = () => {
                             <br />
                             <h5 className="text-2xl font-semibold">Residential:</h5>
                             <hr style={{ borderColor: "black", margin: "8px 0" }} />
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, nihil!</p>
-                            <p>Email: <u><a href="mailto:example@gmail.com" style={{ color: "#FF9500" }}>example@gmail.com</a></u></p>
-                            <p>Tel.- <u><a href="tel:1234567890" style={{ color: "#FF9500" }}>1234567890</a></u></p>
+                            <p>BJP Office, Harmu Housing Colony, Argora, Ranchi, Jharkhand, PIN - 834002</p>
+                            <p>Email: <u><a href="mailto:pkvbjp@gmail.com" style={{ color: "#FF9500" }}>pkvbjp@gmail.com</a></u></p>
+                            <p>Tel.- <u><a href="tel:+919450282852" style={{ color: "#FF9500" }}>+919450282852</a></u></p>
                         </div>
                     </div>
                 </div>
