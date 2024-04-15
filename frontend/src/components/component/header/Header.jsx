@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Logo from "../../../../public/images/pkv/DrPKV.png";
+import Logo from "../../../../public/images/pkv/DrPKV.jpg";
 import Navbar from "../Navbar/Navbar";
 import { Barlow } from "next/font/google";
 import { useRouter } from 'next/navigation'
