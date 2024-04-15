@@ -103,9 +103,9 @@ function Home() {
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="text-lg text-slate-600">
-                    Dr. Pradip Varma (24 February 1972) is an Indian politician
-                    and academician and a member of the MEMBER OF PARLIAMENT
-                    RAJYA SABHA JHARKHAND from Bharatiya Janata Party. Varma
+                    Dr. Pradip Varma ( 24 February 1972) is an Indian politician
+                    and academician and a member of parliament of
+                    RAJYA SABHA, JHARKHAND from Bharatiya Janata Party. He is
                     serving as the State General Secretary BJP Jharkhand unit
                     from 2020 onwards. Erstwhile he served as State Vice
                     President BJP Jharkhand in 2016 and state minister BJP
@@ -142,7 +142,7 @@ function Home() {
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="text-lg text-slate-600">
-                    The first major source of turning point in Varma&apos;s
+                    The first major source of turning point in his
                     career came when he first met Shri Lal Krishna Advani in the
                     Mohrabadi Maidan, Ranchi in the campaign for Ram Mandir
                     Yatra. This meeting start to be foundation stone of his
@@ -150,7 +150,7 @@ function Home() {
                     was the BJP&apos;s election in-charge for India&apos;s
                     tribal state of Jharkhand, during the 2019 Lok Sabha
                     elections. The BJP and its Coalition partner NDA won 12 out
-                    of 14 seats. As a result, Varma rose to state prominence and
+                    of 14 seats. As a result, he rose to state prominence and
                     was appointed as the Party&apos;s State General Secretary in
                     2019. He has played an organising and membership-promotional
                     role in the elections of many states since 2019. In his
@@ -195,11 +195,11 @@ function Home() {
                     Dr. Pradip Varma was born on 24th February 1972 in Kolkata
                     capital city of West Bengal into a Hindu Vaishya family but
                     he is ancestral native of tehsil Barwadih in Latehar
-                    district of Jharkhand. Varma started his primary education
+                    district of Jharkhand. He started his primary education
                     at Subhas Vidya Mandir Muraripukur Kolkata. Later on for
                     further studies he shifted to Sarvodaya School Muchipara in
                     kolkata. From childhood he was interested in playing chess
-                    at the age of 12 and was a state level chess player. Varma
+                    at the age of 12 and was a state level chess player. He
                     also played cricket for the team Mohan Bagan at the age of
                     15. He has done his intermediate in commerce stream in 1988
                     and undergraduate degree in commerce, B.Com from Seth Anand
@@ -244,7 +244,7 @@ function Home() {
                     blog on the several biographies on freedom fighters like
                     Birsa Munda, Pt. Deen Dayal Upadhyaay and topics of national
                     importance like Hul Andolan, Vande matram etc. Apart from
-                    Hindi language, Varma is a polyglot person having full
+                    Hindi language, He is a polyglot person having full
                     proficiency of English, Awadhi, Bangla, Bhojpuri and 4
                     tribal languages of Jharkhand namely, Nagpuri, Mundari,
                     Santhali and Kurmali. He set up think tank named “Public
