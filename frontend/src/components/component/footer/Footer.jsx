@@ -27,7 +27,7 @@ const Footer = () => {
           <div>
             <div className={barlow.className}>
               <h2 className="  text-3xl py-1 text-[#F47621] border-b-2 mb-2">
-                Multi Language Translate
+                MULTI LANGUAGE TRANSLATE
               </h2>
             </div>
           <div>
