@@ -41,6 +41,8 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import Loading from '@/components/component/loader/loading';
+import Thumbnail from '../../public/images/noScheduleImages/Thumbnail.jpg';
+import avatar from '../../public/images/icons/avatar.svg'
 import leftArrow from "../../public/images/sliderArrows/left.svg";
 import rightArrow from "../../public/images/sliderArrows/right.svg";
 
@@ -167,7 +169,7 @@ const SecondSection = () => {
 
   return (
     <div className="md:mt-[100px] mt-[160px] w-full">
-      <div className="container md:relative top-20 flex flex-row justify-space-between md:justify-start pt-4">
+      <div className="container md:relative top-20 flex flex-row justify-center md:justify-start pt-4">
         <Popover className="right-0">
           <PopoverTrigger asChild>
             <Button
@@ -253,8 +255,8 @@ const SecondSection = () => {
                               className="heroImg"
                             />
                           ) : (
-                            <img
-                              src="https://a.cdn-hotels.com/gdcs/production125/d1171/965955d8-0449-40c4-bdbf-7327d49f4014.jpg"
+                            <Image
+                              src={Thumbnail}
                               alt="default image"
                               className="heroImg"
                             />
@@ -266,12 +268,12 @@ const SecondSection = () => {
                               href="#"
                               className="relative inline-flex items-center justify-center w-12 h-12 text-white rounded-full"
                             >
-                              <img
-                                src="https://i.pravatar.cc/48?img=24"
+                              <Image
+                                src={avatar}
                                 alt="user name"
                                 title="user name"
-                                width="48"
-                                height="48"
+                                width="45"
+                                height="45"
                                 className="max-w-full rounded-full"
                               />
                             </a>
@@ -308,18 +310,13 @@ const SecondSection = () => {
                             <b>{truncatedDescription}</b><br />
                           </p>
                           <AlertDialog>
-                            <AlertDialogTrigger className="text-sm tracking-tighter">
+                            <AlertDialogTrigger className="text-sm tracking-tighter text-orange-500 hover:text-blue-600 mt-4">
                               Know More
                             </AlertDialogTrigger>
                             <AlertDialogContent>
                               <AlertDialogHeader>
                                 <AlertDialogDescription>
-                                  Lorem ipsum dolor sit amet consectetur
-                                  adipisicing elit. Voluptatum earum quae
-                                  harum illum! Quae natus minima, inventore,
-                                  ab voluptatum ea praesentium sit fugit
-                                  mollitia voluptates corporis expedita
-                                  facilis nobis facere!
+                                  Read more about this event...
                                 </AlertDialogDescription>
                               </AlertDialogHeader>
                               <AlertDialogFooter>
