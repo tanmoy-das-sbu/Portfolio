@@ -41,7 +41,7 @@ const EventDetails = ({ params }) => {
     return (
         <div className='container mt-[210px] pt-12 pb-4'>
             <div className="flex flex-col md:flex-row justify-between items-center">
-                <h1 className="font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+                <h1 className="font-semibold text-2xl md:text-2xl lg:text-2xl xl:text-4xl">
                     {data.heading}
                 </h1>
                 <div className="flex flex-row gap-6 items-center text-sm md:text-base lg:text-lg xl:text-xl">
