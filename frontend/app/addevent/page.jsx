@@ -82,10 +82,8 @@ export default function Addevent() {
         variant: "success",
         title: "Image Added Successfully",
       });
-      if (!response.ok) {
-        throw new Error("Image upload failed");
-      }
-    } catch (error) {
+    } 
+    catch (error) {
       if (error.response.status === 403 || error.response.status === 401) {
         setForbidden(false);
         localStorage.clear();
@@ -239,7 +237,7 @@ export default function Addevent() {
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="container mt-[210px] flex flex-row   justify-between flex-wrap">
-        <div className="md:w-auto  mx-2 bg-[#F3F0EB] rounded-2xl w-full">
+        <div className="md:w-[40%] bg-[#F3F0EB] rounded-2xl w-full">
           <div className="w-full">
             <form onSubmit={handleSubmit} aria-required>
               <div className="mx-auto max-w-5xl flex flex-col gap-2 md:p-4 p-2 md:gap-4">
@@ -445,7 +443,7 @@ export default function Addevent() {
             </form>
           </div>
         </div>
-        <div className="rounded-lg border md:w-2/4 mx-2  w-full">
+        <div className="rounded-lg border md:w-[55%]  w-full">
           <Table>
             <TableHeader>
               <TableRow>
