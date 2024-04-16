@@ -86,20 +86,20 @@ export default function Addevent() {
         throw new Error("Image upload failed");
       }
     } catch (error) {
-      // if (error.response.status === 403) {
-      //   setForbidden(false);
-      //   localStorage.clear();
-      //   toast({
-      //     variant: "error",
-      //     title: error.message,
-      //     action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
-      //   });
-      // } else {
-      //   toast({
-      //     variant: "error",
-      //     title: error.message,
-      //   });
-      // }
+      if (error.response.status === 403 || error.response.status === 401) {
+        setForbidden(false);
+        localStorage.clear();
+        toast({
+          variant: "error",
+          title: error.message,
+          action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
+        });
+      } else {
+        toast({
+          variant: "error",
+          title: error.message,
+        });
+      }
     }
   };
 
@@ -211,7 +211,7 @@ export default function Addevent() {
       setFormDataArray([]);
     } catch (error) {
 
-      if (error.response.status === 403) {
+      if (error.response.status === 403 || error.response.status === 401) {
         setForbidden(false);
         localStorage.clear();
         toast({
@@ -238,8 +238,8 @@ export default function Addevent() {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="container mt-[210px] flex flex-row  gap-20 md:gap-0 justify-around flex-wrap">
-        <div className="md:w-2/4 bg-[#F3F0EB] rounded-2xl w-full">
+      <div className="container mt-[210px] flex flex-row   justify-between flex-wrap">
+        <div className="md:w-auto  mx-2 bg-[#F3F0EB] rounded-2xl w-full">
           <div className="w-full">
             <form onSubmit={handleSubmit} aria-required>
               <div className="mx-auto max-w-5xl flex flex-col gap-2 md:p-4 p-2 md:gap-4">
@@ -445,7 +445,7 @@ export default function Addevent() {
             </form>
           </div>
         </div>
-        <div className="rounded-lg border md:w-auto w-full">
+        <div className="rounded-lg border md:w-2/4 mx-2  w-full">
           <Table>
             <TableHeader>
               <TableRow>
