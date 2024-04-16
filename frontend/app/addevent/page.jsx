@@ -37,6 +37,7 @@ export default function Addevent() {
     scheduleTime: "",
   });
   const { toast } = useToast();
+  const [err, setErr] = useState("");
 
   const [url, setUrl] = useState("");
   const [priority, setPriority] = useState(false);
@@ -114,6 +115,19 @@ export default function Addevent() {
       "shortDescription",
       "location",
     ];
+
+    if (formData.startDate > formData.endDate) {
+      setErr("End Date cannot be smaller than Start Date!");
+      toast({
+        variant: "error",
+        title: "End Date cannot be smaller than Start Date",
+      });
+      return;
+    }
+    else{
+      setErr("");
+    }
+
     const emptyFields = requiredFields.filter((field) => !formData[field]);
 
     if (emptyFields.length > 0) {
@@ -148,7 +162,7 @@ export default function Addevent() {
     setPriority(false);
     setVisibility(true);
     setScheduleVisibility(false);
-    console.log(formDataArray);
+
     document.getElementById("imageInput").value = "";
     toast({
       variant: "success",
@@ -160,7 +174,7 @@ export default function Addevent() {
     e.preventDefault();
 
     try {
-      console.log(formDataArray);
+
       const token = localStorage.getItem("token");
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       const response = await axios.post(
@@ -172,7 +186,6 @@ export default function Addevent() {
       }
 
       const data = await response.json();
-      console.log("Schedule added successfully:", data);
       setFormData({
         startDate: "",
         endDate: "",
@@ -197,20 +210,21 @@ export default function Addevent() {
       });
       setFormDataArray([]);
     } catch (error) {
-      // if (error.response.status === 403) {
-      //   setForbidden(false);
-      //   localStorage.clear();
-      //   toast({
-      //     variant: "error",
-      //     title: error.message,
-      //     action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
-      //   });
-      // } else {
-      //   toast({
-      //     variant: "error",
-      //     title: error.message,
-      //   });
-      // }
+
+      if (error.response.status === 403) {
+        setForbidden(false);
+        localStorage.clear();
+        toast({
+          variant: "error",
+          title: error.message,
+          action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
+        });
+      } else {
+        toast({
+          variant: "error",
+          title: error.message,
+        });
+      }
     }
   };
 
@@ -234,30 +248,36 @@ export default function Addevent() {
                     Add Event
                   </h1>
                 </div>
-                <div className="flex  flex-col sm:flex-row gap-4 items-center justify-center ">
-                  <div className="flex flex-col w-full md:w-1/2 gap-2 ">
-                    <Label htmlFor="startDate">Start Date</Label>
-                    <Input
-                      id="startDate"
-                      placeholder="Start Date"
-                      type="date"
-                      name="startDate"
-                      value={formData.startDate}
-                      onChange={handleChange}
-                    />
+                <div className="">
+                  <div className="flex  flex-col sm:flex-row gap-4 items-center justify-center ">
+                    <div className="flex flex-col w-full md:w-1/2 gap-2 ">
+                      <Label htmlFor="startDate">Start Date</Label>
+                      <Input
+                        id="startDate"
+                        placeholder="Start Date"
+                        type="date"
+                        name="startDate"
+                        value={formData.startDate}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div className="flex flex-col w-full md:w-1/2 gap-2 ">
+                      <Label htmlFor="endDate">End Date</Label>
+                      <Input
+                        id="endDate"
+                        placeholder="End Date"
+                        type="date"
+                        name="endDate"
+                        value={formData.endDate}
+                        onChange={handleChange}
+                      />
+                    </div>
                   </div>
-                  <div className="flex flex-col w-full md:w-1/2 gap-2 ">
-                    <Label htmlFor="endDate">End Date</Label>
-                    <Input
-                      id="endDate"
-                      placeholder="End Date"
-                      type="date"
-                      name="endDate"
-                      value={formData.endDate}
-                      onChange={handleChange}
-                    />
+                  <div className="w-full flex items-center justify-center mt-2">
+                  {err && <p className="text-[12px] text-red-500">{err}</p>}
                   </div>
                 </div>
+                
                 <div className="flex flex-col sm:flex-row gap-4 items-center justify-center ">
                   <div className="flex flex-col w-full md:w-1/2 gap-2 ">
                     <Label htmlFor="startTime">Start Time</Label>
