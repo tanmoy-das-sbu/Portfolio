@@ -45,6 +45,7 @@ import Thumbnail from '../../public/images/noScheduleImages/Thumbnail.jpg';
 import avatar from '../../public/images/icons/avatar.svg'
 import leftArrow from "../../public/images/sliderArrows/left.svg";
 import rightArrow from "../../public/images/sliderArrows/right.svg";
+import LazyLoad from 'react-lazyload';
 
 const SecondSection = () => {
   const [todaySchedule, setTodaySchedule] = useState([]);
@@ -248,19 +249,21 @@ const SecondSection = () => {
                     <SwiperSlide className="" key={index} >
                       <div className="flex flex-col overflow-hidden bg-stone-100 shadow-lg shadow-stone-500/50 rounded shadow-md text-slate-500 shadow-slate-200 md:flex-row">
                         <figure className="flex-1">
-                          {item.imageUrl !== "" ? (
-                            <img
-                              src={item.imageUrl}
-                              alt="card image"
-                              className="heroImg"
-                            />
-                          ) : (
-                            <Image
-                              src={Thumbnail}
-                              alt="default image"
-                              className="heroImg"
-                            />
-                          )}
+                          <LazyLoad height={200} once>
+                            {item.imageUrl !== "" ? (
+                              <img
+                                src={item.imageUrl}
+                                alt="card image"
+                                className="heroImg"
+                              />
+                            ) : (
+                              <Image
+                                src={Thumbnail}
+                                alt="default image"
+                                className="heroImg"
+                              />
+                            )}
+                          </LazyLoad>
                         </figure>
                         <div className="min-h-60 flex-1 p-6 sm:mx-6 sm:px-0">
                           <header className="flex gap-4 mb-4">
