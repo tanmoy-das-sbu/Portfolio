@@ -62,11 +62,11 @@ const ManageGallery = () => {
             setLoading(true);
             const formData = new FormData();
             formData.append('image', selectedFile);
-            const response = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/Upload`, formData);
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/gallery/Upload`, formData);
             if (response.status === 200) {
                 const imageUrl = response.data.imageUrl;
                 const postData = { ...data, imageUrl };
-                const submitResponse = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/Add`, postData);
+                const submitResponse = await axios.post(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/gallery/Add`, postData);
                 if (submitResponse.status === 200) {
                     setData({
                         title: "",

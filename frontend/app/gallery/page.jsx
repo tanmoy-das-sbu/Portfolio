@@ -27,7 +27,7 @@ const Gallery = () => {
     useEffect(() => {
         const getAllImage = async () => {
             try {
-                const response = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/GetAll`);
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/gallery/GetAll`);
                 if (response) {
                     setLoad(true);
                 }

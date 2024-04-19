@@ -19,14 +19,14 @@ const UpcomingSlider = () => {
     useEffect(() => {
         async function fetchScheduleUpcoming() {
             try {
-                const upcomingEvent = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/UpcomingSchedules`);
+                const upcomingEvent = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/UpcomingSchedules`);
                 const upComing = upcomingEvent.data;
                 if (upComing) {
                     const visibleArr = upComing.filter((item) => item.visibility === true);
                     const upcomingEventArr = visibleArr.filter((item) => item.scheduleVisibility === false);
                     setUpcomingEvent([...upcomingEventArr]);
                 }
-                const ongoingevent = await axios.get('https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/OnGoingEvent');
+                const ongoingevent = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/OnGoingEvent`);
                 setOngoing(ongoingevent.data[`ongoingEvents`]);
             } catch (err) {
                 if (err.error && err.error.message) {

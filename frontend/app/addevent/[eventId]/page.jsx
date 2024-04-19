@@ -36,6 +36,7 @@ const EventEdit = ({ params }) => {
   const [forbidden, setForbidden] = useState(false);
   const nav = useRouter();
 
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -48,40 +49,35 @@ const EventEdit = ({ params }) => {
     const getEventDetails = async () => {
       try {
         const response = await axios.get(
-          `https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/GetById/${params.eventId}`
+          `${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/GetById/${params.eventId}`
         );
-        console.log(response.data.data);
         setData(response.data.data);
+        setPriority(response.data.data.priority);
+        setVisibility(response.data.data.visibility);
+        setScheduleVisibility(response.data.data.scheduleVisibility);
         setFormData({
           startDate: response.data.data.startDate.slice(0, 10),
           endDate: response.data.data.endDate.slice(0, 10),
           startTime: response.data.data.startTime,
           endTime: response.data.data.endTime,
-          priority: response.data.data.priority,
           heading: response.data.data.heading,
           shortDescription: response.data.data.shortDescription,
           location: response.data.data.location,
-          visibility: response.data.data.visibility,
-          scheduleVisibility: response.data.data.scheduleVisibility,
-          scheduleDate: response.data.data.scheduleDate,
-          scheduleTime: response.data.data.scheduleTime,
+          scheduleDate: response.data.data.scheduleDate !== null &&
+            response.data.data.scheduleDate !== undefined
+              ? response.data.data.scheduleDate.slice(0, 10)
+              : "" ,
+          scheduleTime: response.data.data.scheduleTime
         });
 
-        // response.data.data.scheduleDate !== null &&
-        // response.data.data.scheduleDate !== undefined
-        // ? response.data.data.scheduleDate.slice(0, 10)
-        // : "",
+        //
         setUrl(
           response.data.data.imageUrl !== null &&
             response.data.data.imageUrl !== ""
             ? response.data.data.imageUrl
             : url
         );
-        setPriority(response.data.data.priority);
-        setVisibility(response.data.data.visibility);
-        setScheduleVisibility(response.data.data.scheduleVisibility);
       } catch (error) {
-        console.error("Error fetching event details:", error);
       }
     };
 
@@ -124,19 +120,14 @@ const EventEdit = ({ params }) => {
       const token = localStorage.getItem("token");
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       const response = await axios.post(
-        "https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/Upload",
+       `${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/Upload`,
         imageData
       );
       setUrl(response.data.imageUrl);
-      if (!response.ok) {
-        throw new Error("Image upload failed");
-      }
-
       setFormData({
         ...formData,
         imageUrl: url,
       });
-      console.log("Message", url);
       toast({
         variant: "success",
         title: "Image Updated Successfully",
@@ -146,49 +137,45 @@ const EventEdit = ({ params }) => {
         variant: "error",
         title: error.message,
       });
-      // if (error.response.status === 403) {
-      //   setForbidden(false);
-      //   localStorage.clear();
-      //   toast({
-      //     variant: "error",
-      //     title: error.message,
-      //     action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
-      //   });
-      // } else {
-      //   toast({
-      //     variant: "error",
-      //     title: error.message,
-      //   });
-      // }
+      if (error.response.status === 403) {
+        setForbidden(false);
+        localStorage.clear();
+        toast({
+          variant: "error",
+          title: error.message,
+          action: <ToastAction altText="Login again" onClick={() => nav.push('/login')}>Login again</ToastAction>,
+        });
+      } else {
+        toast({
+          variant: "error",
+          title: error.message,
+        });
+      }
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    console.log(formData);
     try {
       const token = localStorage.getItem("token");
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       const response = await axios.put(
-        `https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/UpdateById/${params.eventId}`,
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/UpdateById/${params.eventId}`,
         {
           ...formData,
           priority,
           visibility,
-          scheduleVisibility: scheduleVisibility,
+          scheduleVisibility,
           imageUrl: url,
         }
       );
 
       if (response.status === 200) {
-        console.log("Event details updated successfully:", response.data);
         toast({
           variant: "success",
           title: "Event Updated",
         });
       } else {
-        console.error("Failed to update event details");
       }
     } catch (error) {
       if (error.response.status === 403) {
@@ -324,7 +311,7 @@ const EventEdit = ({ params }) => {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="flex flex-row gap-2">
+                <div className="flex flex-row flex-wrap gap-2">
                   <div className="flex flex-col gap-4">
                     <Label htmlFor="img">Image</Label>
                     <input
@@ -333,19 +320,21 @@ const EventEdit = ({ params }) => {
                       onChange={handleImageUpload}
                     />
                   </div>
-                  {url !== null && url !== "" ? (
-                    <img
-                      src={url}
-                      className="h-20 w-auto rounded-md shadow-2xl "
-                      alt="ThumNail"
-                    />
-                  ) : (
-                    <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
-                      className="h-20 w-auto rounded-md shadow-2xl "
-                      alt="ThumNail"
-                    />
-                  )}
+                  <div>
+                    {url !== null && url !== "" ? (
+                      <img
+                        src={url}
+                        className="h-20 w-auto rounded-xl shadow-2xl "
+                        alt="ThumNail"
+                      />
+                    ) : (
+                      <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+                        className="h-20 w-auto rounded-xl shadow-2xl "
+                        alt="ThumNail"
+                      />
+                    )}
+                  </div>
                 </div>
 
                 <div className="flex flex-col gap-4 ">
@@ -371,11 +360,6 @@ const EventEdit = ({ params }) => {
                       checked={visibility}
                       onCheckedChange={() => {
                         setVisibility(!visibility);
-                        {
-                          visibility == false
-                            ? setScheduleVisibility(false)
-                            : "";
-                        }
                       }}
                       defaultChecked
                     />
@@ -389,7 +373,16 @@ const EventEdit = ({ params }) => {
                           name="priority"
                           checked={scheduleVisibility}
                           onCheckedChange={() => {
-                            setScheduleVisibility(!scheduleVisibility);
+                            if (visibility) {
+                              setScheduleVisibility(
+                                (prevScheduleVisibility) =>
+                                  !prevScheduleVisibility
+                              );
+                          
+                            } else {
+                              setScheduleVisibility(false);
+                            }
+                            
                           }}
                         />
                       </div>
@@ -404,7 +397,7 @@ const EventEdit = ({ params }) => {
                                   placeholder=" Date"
                                   type="date"
                                   name="scheduleDate"
-                                  value={formData.scheduleDate}
+                                  value={formData.scheduleDate !==null ? formData.scheduleDate: "" }
                                   onChange={handleChange}
                                 />
                               </div>

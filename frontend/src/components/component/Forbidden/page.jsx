@@ -1,12 +1,15 @@
 "use client";
 import "./page.css";
+import { useRouter } from 'next/navigation';
 
 const Forbidden = () => {
+    const nav = useRouter();
     return (
         <div className="flex flex-col md:flex-row items-center justify-center w-screen h-screen gap-[5em] py-8 bg-[#1C2127] forbidden">
             <div className="message-div md:order-2 flex flex-col items-center text-center">
                 <div className="message text-white text-lg md:text-xl lg:text-2xl font-poppins font-medium">You are not authorized.</div>
-                <div className="message2 text-white text-sm md:text-base lg:text-lg font-poppins font-normal">You tried to access a page you did not have prior authorization for.</div>
+                <div className="message2 text-white text-sm md:text-base lg:text-lg font-poppins font-normal">You tried to access a page you did not have prior authorization for.</div><br />
+                <button className="message2 text-black text-sm md:text-base lg:text-lg font-poppins font-normal bg-white p-2 rounded-lg" onClick={() => nav.push('/login')}>Go Back...</button>
             </div>
             <div className="forbidden-div flex flex-col items-center justify-center mt-8 md:mt-0 md:order-1 h-[330px] w-[200px] rounded-t-[70px] bg-[#8594A5]">
                 <div className="neon text-4xl md:text-9xl text-[#5BE0B3]-500 animate-flux text-center w-[300px] mt-[30px] mb-[10px] tracking-[3px]">403</div>

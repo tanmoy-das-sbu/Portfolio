@@ -50,7 +50,7 @@ const GalleryEdit = ({ params }) => {
         const getGalleryDetails = async () => {
             try {
                 const response = await axios.get(
-                    `https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/GetById/${params.galleryId}`
+                    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/gallery/GetById/${params.galleryId}`
                 );
                 if (response) {
                     setLoad(true);
@@ -76,7 +76,7 @@ const GalleryEdit = ({ params }) => {
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             const formData = new FormData();
             formData.append('image', selectedFile);
-            const response = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/Upload`, formData);
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/gallery/Upload`, formData);
             return response.data.imageUrl;
         } catch (error) {
             if (error.response.status === 403 || error.response.status === 401) {
@@ -109,7 +109,7 @@ const GalleryEdit = ({ params }) => {
             }
             const updatedData = { ...data, imageUrl };
             if (imageUrl != null) {
-                axios.put(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/UpdateById/${params.galleryId}`, updatedData);
+                axios.put(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/gallery/UpdateById/${params.galleryId}`, updatedData);
                 toast({
                     variant: "success",
                     title: "Successfully Updated",
