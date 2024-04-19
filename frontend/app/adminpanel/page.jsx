@@ -58,7 +58,7 @@ const Adminpanel = () => {
                 const day = today.getDate().toString().padStart(2, '0');
 
                 const todayFormatted = `${year}-${month}-${day}`;
-                const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
+                const todayResponse = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/date/${todayFormatted}`);
                 if (todayResponse) {
                     setLoad(true);
                 } else {
@@ -86,7 +86,7 @@ const Adminpanel = () => {
         try {
             const token = localStorage.getItem('token');
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-            await axios.delete(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/deleteById/${eventId}`);
+            await axios.delete(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/deleteById/${eventId}`);
             const updatedSchedule = todaySchedule.filter(event => event._id !== eventId);
             setTodaySchedule(updatedSchedule);
             toast({
@@ -113,7 +113,7 @@ const Adminpanel = () => {
 
     const fetchAllEvents = async () => {
         try {
-            const response = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/GetAll`);
+            const response = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/GetAll`);
             setAllEvents(response.data.data);
         } catch (error) {
             if (error.response.status === 403) {

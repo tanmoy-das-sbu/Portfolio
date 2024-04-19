@@ -28,7 +28,7 @@ const Contact = () => {
             setLoading(true);
             const { name, subject, email, mobile, message } = data;
             const payload = { name, subject, email, mobile, message };
-            const response = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/contact/Add`, payload);
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/contact/Add`, payload);
             if (response.status === 200) {
                 setData({ name: "", subject: "", email: "", mobile: "", message: "" });
                 setError("");

@@ -15,7 +15,7 @@ const EventDetails = ({ params }) => {
     useEffect(() => {
         const getEventDetails = async () => {
             try {
-                const response = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/GetById/${params.eventId}`);
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/GetById/${params.eventId}`);
                 setData(response.data.data);
             } catch (error) {
                 toast({

@@ -54,7 +54,7 @@ const GalleryList = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const response = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/getAll`);
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/gallery/getAll`);
                 if (response) {
                     const filteredResponse = response.data.data.sort((a, b) => new Date(b.date) - new Date(a.date));
                     setGalleryData(filteredResponse);
@@ -78,7 +78,7 @@ const GalleryList = () => {
     const handleDateChange = async (newDate) => {
         try {
             setDate(newDate);
-            const response = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/getAll`);
+            const response = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/gallery/getAll`);
             if (response && response.data.data) {
                 const allGallery = response.data.data;
 
@@ -105,7 +105,7 @@ const GalleryList = () => {
         try {
             const token = localStorage.getItem('token');
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-            await axios.delete(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/deleteById/${eventId}`);
+            await axios.delete(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/gallery/deleteById/${eventId}`);
             const updatedGallery = galleryData.filter(event => event._id !== eventId);
             setGalleryData(updatedGallery);
         } catch (error) {
@@ -141,7 +141,7 @@ const GalleryList = () => {
 
     const handleRefresh = async () => {
         try {
-            const response = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/getAll`);
+            const response = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/gallery/getAll`);
             if (response && response.data.data) {
                 const filteredResponse = response.data.data.sort((a, b) => new Date(b.date) - new Date(a.date));
                 setGalleryData(filteredResponse);

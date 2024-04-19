@@ -73,7 +73,7 @@ export default function Addevent() {
       const token = localStorage.getItem("token");
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       const response = await axios.post(
-        "https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/Upload",
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/Upload`,
         formData
       );
       setUrl(response.data.imageUrl);
@@ -176,7 +176,7 @@ export default function Addevent() {
       const token = localStorage.getItem("token");
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       const response = await axios.post(
-        "https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/AddMultiple",
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/AddMultiple`,
         formDataArray
       );
       if (response.status >= 200 && response.status < 300) {

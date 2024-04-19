@@ -70,7 +70,7 @@ const SecondSection = () => {
         const day = today.getDate().toString().padStart(2, '0');
 
         const todayFormatted = `${year}-${month}-${day}`;
-        const todayResponse = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/date/${todayFormatted}`);
+        const todayResponse = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/date/${todayFormatted}`);
         if (todayResponse) {
           setLoad(true);
         } else {
