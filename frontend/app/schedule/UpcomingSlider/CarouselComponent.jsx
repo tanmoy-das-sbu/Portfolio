@@ -23,6 +23,8 @@ import {
 } from "@/components/ui/card"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import Image from "next/image";
+import Thumbnail from '../../../public/images/noScheduleImages/Thumbnail.jpg';
 
 const CarouselComponent = (props) => {
 
@@ -63,9 +65,9 @@ const CarouselComponent = (props) => {
                                                 className="aspect-video w-full h-40"
                                             />
                                         ) : (
-                                            <img
-                                                src="https://cdn.cbeditz.com/cbeditz/large/bjp-background-with-logo-hd-images-download-6mepyki1vw.jpg"
-                                                alt="card image"
+                                            <Image
+                                                src={Thumbnail}
+                                                alt="default image"
                                                 className="aspect-video w-full h-40"
                                             />
                                         )}
