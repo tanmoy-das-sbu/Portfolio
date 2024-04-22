@@ -13,7 +13,7 @@ import Image from "next/image";
 import Modal from "./popup";
 import Loading from "@/components/component/loader/loading";
 import { useToast } from "@/components/ui/use-toast"
-import InternalServerError from "@/components/InternalServerError/page";
+import InternalServerError from "@/components/component/InternalServerError/page";
 
 const Gallery = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
