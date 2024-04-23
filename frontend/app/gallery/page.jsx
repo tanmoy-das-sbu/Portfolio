@@ -13,7 +13,7 @@ import Image from "next/image";
 import Modal from "./popup";
 import Loading from "@/components/component/loader/loading";
 import { useToast } from "@/components/ui/use-toast"
-import InternalServerError from "@/components/InternalServerError/page";
+import InternalServerError from "@/components/component/InternalServerError/page";
 
 const Gallery = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -27,7 +27,7 @@ const Gallery = () => {
     useEffect(() => {
         const getAllImage = async () => {
             try {
-                const response = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/gallery/GetAll`);
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/gallery/GetAll`);
                 if (response) {
                     setLoad(true);
                 }

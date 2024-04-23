@@ -20,7 +20,7 @@ const Login = () => {
 
         try {
             setLoading(true);
-            const response = await axios.post(`https://portfolio-git-main-tanmoys-projects.vercel.app/Auth/login`, data);
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/Auth/login`, data);
             const { token, email } = response.data;
             localStorage.setItem('token', token);
             localStorage.setItem('email', email);

@@ -49,7 +49,7 @@ const EventEdit = ({ params }) => {
     const getEventDetails = async () => {
       try {
         const response = await axios.get(
-          `https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/GetById/${params.eventId}`
+          `${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/GetById/${params.eventId}`
         );
         setData(response.data.data);
         setPriority(response.data.data.priority);
@@ -120,7 +120,7 @@ const EventEdit = ({ params }) => {
       const token = localStorage.getItem("token");
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       const response = await axios.post(
-        "https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/Upload",
+       `${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/Upload`,
         imageData
       );
       setUrl(response.data.imageUrl);
@@ -160,7 +160,7 @@ const EventEdit = ({ params }) => {
       const token = localStorage.getItem("token");
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       const response = await axios.put(
-        `https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/UpdateById/${params.eventId}`,
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/UpdateById/${params.eventId}`,
         {
           ...formData,
           priority,

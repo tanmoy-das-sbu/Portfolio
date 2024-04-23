@@ -15,7 +15,7 @@ const EventDetails = ({ params }) => {
     useEffect(() => {
         const getEventDetails = async () => {
             try {
-                const response = await axios.get(`https://portfolio-git-main-tanmoys-projects.vercel.app/schedule/GetById/${params.eventId}`);
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/GetById/${params.eventId}`);
                 setData(response.data.data);
             } catch (error) {
                 toast({
@@ -39,7 +39,7 @@ const EventDetails = ({ params }) => {
     const isImageFromAllowedDomain = data.imageUrl.startsWith('https://res.cloudinary.com/neeleshks/image/upload');
 
     return (
-        <div className='container mt-[210px] pt-12 pb-4'>
+        <div className='container mt-[150px] pt-12 pb-4'>
             <div className="flex flex-col md:flex-row justify-between items-center">
                 <h1 className="font-semibold text-2xl md:text-2xl lg:text-2xl xl:text-4xl">
                     {data.heading}
