@@ -1,5 +1,6 @@
 'use client'
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+
 import {
     AlertDialog,
     AlertDialogAction,
@@ -22,7 +23,7 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { memo, useCallback, useEffect, useState } from "react"
 import Image from "next/image";
 import Thumbnail from '../../../public/images/noScheduleImages/Thumbnail.jpg';
 
@@ -41,7 +42,7 @@ const CarouselComponent = (props) => {
             return description.slice(0, maxLength) + " ...";
         }
     };
-
+  
     return (
 
         <Carousel className="container relative z-20 noselect m-auto w-4/5 p-2 md:p-10"  >
@@ -140,4 +141,4 @@ const CarouselComponent = (props) => {
     )
 }
 
-export default CarouselComponent;
+export default memo(CarouselComponent);

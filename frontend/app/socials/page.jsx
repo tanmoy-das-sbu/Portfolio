@@ -1,6 +1,6 @@
 "use client"
 
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, memo } from 'react';
 
 const LazySocials = lazy(() => import('./../../src/components/social/page.jsx'));
 
@@ -12,4 +12,4 @@ const SocialsLazy = () => {
   );
 };
 
-export default SocialsLazy; 
+export default memo(SocialsLazy); 

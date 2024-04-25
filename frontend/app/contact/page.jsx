@@ -3,9 +3,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import './page.css';
-import { useState } from "react";
+import { memo, useCallback, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
+
 import LocationIcon from "../../public/images/icons/location.svg"
 import { useToast } from "@/components/ui/use-toast"
 
@@ -120,4 +121,4 @@ const Contact = () => {
     )
 }
 
-export default Contact;
+export default memo(Contact);
