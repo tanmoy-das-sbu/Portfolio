@@ -4,6 +4,7 @@ import Link from "next/link";
 import DrPKV from "../public/images/pkv/drpkvSir.jpeg";
 import TranslatePage from "./schedule/TranslatePage";
 import Image from "next/image";
+import { RiFocus2Line } from "rocketicons/ri";
 import {
   Accordion,
   AccordionContent,
@@ -302,15 +303,11 @@ function Home() {
           </div>
         </div>
         <div className="my-4   shadow rounded-3xl">
-        <h2 className="text-5xl bg-[#F3F0EB] md:text-6xl text-center mb-4 p-4 rounded-t-2xl text-orange-500"><span className={GreatVibes.className}>Journey</span></h2>
+        <h2 className="text-4xl bg-[#F3F0EB] md:text-6xl text-center mb-4 p-4 rounded-t-2xl text-orange-500"><span className={GreatVibes.className}>Through the years</span></h2>
           <ol class="relative border-s border-gray-200 dark:border-gray-700">
             <li class="mb-10 ms-6">
               <span class="absolute flex items-center justify-center w-6 h-6 bg-orange-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-orange-600">
-                <Image
-                  width={30}
-                  height={30}
-                  src="/images/icons/lotus.png"
-                ></Image>
+                <RiFocus2Line className="icon-orange"  />
               </span>
               <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                 Born On 24th Feb 1972, Calcutta
@@ -332,11 +329,7 @@ function Home() {
             </li>
             <li class="mb-10 ms-6">
               <span class="absolute flex items-center justify-center w-6 h-6 bg-orange-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-orange-600">
-                <Image
-                  width={30}
-                  height={30}
-                  src="/images/icons/lotus.png"
-                ></Image>
+                <RiFocus2Line className="icon-orange"  />
               </span>
               <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                 In Loving Memory Of My Parents - Late Seth Ram Avatar Prasad and 
@@ -358,11 +351,7 @@ function Home() {
             </li>
             <li class="mb-10 ms-6">
               <span class="absolute flex items-center justify-center w-6 h-6 bg-orange-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-orange-600">
-                <Image
-                  width={30}
-                  height={30}
-                  src="/images/icons/lotus.png"
-                ></Image>
+                <RiFocus2Line className="icon-orange"  />
               </span>
               <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                 With Prime Minister Sri Narendra Modi In His First Tenure.
@@ -383,11 +372,7 @@ function Home() {
             </li>
             <li class=" mb-10 ms-6">
               <span class="absolute flex items-center justify-center w-6 h-6 bg-orange-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-orange-600">
-                <Image
-                  width={30}
-                  height={30}
-                  src="/images/icons/lotus.png"
-                ></Image>
+                <RiFocus2Line className="icon-orange"  />
               </span>
               <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                 With Rss Sangh Sanchalak Sri Mohan Bhagwat Ji.
@@ -408,11 +393,7 @@ function Home() {
             </li>
             <li class="mb-10 ms-6">
               <span class="absolute flex items-center justify-center w-6 h-6 bg-orange-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-orange-600">
-                <Image
-                  width={30}
-                  height={30}
-                  src="/images/icons/lotus.png"
-                ></Image>
+                <RiFocus2Line className="icon-orange"  />
               </span>
               <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                 Congragulating Prime Minister Sri. Narendra Modi On His Second Tenure.
@@ -433,11 +414,7 @@ function Home() {
             </li>
             <li class="mb-10 ms-6">
               <span class="absolute flex items-center justify-center w-6 h-6 bg-orange-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-orange-600">
-                <Image
-                  width={30}
-                  height={30}
-                  src="/images/icons/lotus.png"
-                ></Image>
+                <RiFocus2Line className="icon-orange"  />
               </span>
               <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                 Conducted State&apos;s First Ever Tribal Youth Parliament.
