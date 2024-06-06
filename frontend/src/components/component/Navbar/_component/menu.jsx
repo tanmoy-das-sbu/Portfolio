@@ -15,13 +15,13 @@ export function NavigationMenuBar() {
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
-          <NavigationMenuItem>
+          {/* <NavigationMenuItem>
             <Link href="/schedule" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 <p> Schedule</p>
               </NavigationMenuLink>
             </Link>
-          </NavigationMenuItem>
+          </NavigationMenuItem> */}
           <NavigationMenuItem>
             <Link href="/gallery" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
