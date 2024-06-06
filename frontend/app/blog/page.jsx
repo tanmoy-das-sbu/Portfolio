@@ -1,4 +1,5 @@
 "use client"
+import { memo } from 'react';
 import blog from '/public/images/icons/blog.svg';
 import Image from "next/image";
 
@@ -14,4 +15,4 @@ const Blog = () => {
     )
 }
 
-export default Blog;
+export default memo(Blog);

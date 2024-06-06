@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './page.css'
 import Image from 'next/image';
 import { formatDate } from '@/utils/dateFormat';
+
 
 const Modal = ({ image, onClose }) => {
     return (
@@ -30,4 +31,4 @@ const Modal = ({ image, onClose }) => {
     );
 };
 
-export default Modal;
+export default memo(Modal);

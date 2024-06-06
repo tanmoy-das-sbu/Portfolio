@@ -1,6 +1,6 @@
 'use client'
 import { Sacramento } from 'next/font/google';
-import { useEffect, useState } from "react"
+import { memo, useCallback, useEffect, useState } from "react"
 import axios from "axios"
 import { useToast } from "@/components/ui/use-toast"
 import CarouselComponent from "./CarouselComponent"
@@ -15,18 +15,18 @@ const UpcomingSlider = () => {
     const [ongoing, setOngoing] = useState([]);
     const [upcomingEvent, setUpcomingEvent] = useState([]);
     const { toast } = useToast();
-
+   
     useEffect(() => {
         async function fetchScheduleUpcoming() {
             try {
-                const upcomingEvent = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/UpcomingSchedules`);
+                const upcomingEvent = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/Schedule/UpcomingSchedules`);
                 const upComing = upcomingEvent.data;
                 if (upComing) {
                     const visibleArr = upComing.filter((item) => item.visibility === true);
                     const upcomingEventArr = visibleArr.filter((item) => item.scheduleVisibility === false);
                     setUpcomingEvent([...upcomingEventArr]);
                 }
-                const ongoingevent = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/OnGoingEvent`);
+                const ongoingevent = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/Schedule/OnGoingEvent`);
                 setOngoing(ongoingevent.data[`ongoingEvents`]);
             } catch (err) {
                 if (err.error && err.error.message) {
@@ -42,7 +42,6 @@ const UpcomingSlider = () => {
                 }
             }
         }
-
         fetchScheduleUpcoming();
     }, []);
 
@@ -56,4 +55,4 @@ const UpcomingSlider = () => {
     );
 }
 
-export default UpcomingSlider;
+export default memo(UpcomingSlider);

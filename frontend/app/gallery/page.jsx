@@ -1,7 +1,7 @@
 "use client";
 
 import "./page.css";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect ,useCallback} from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -14,7 +14,7 @@ import Modal from "./popup";
 import Loading from "@/components/component/loader/loading";
 import { useToast } from "@/components/ui/use-toast"
 import InternalServerError from "@/components/component/InternalServerError/page";
-
+import { memo } from "react";
 const Gallery = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [data, setData] = useState([]);
@@ -23,39 +23,35 @@ const Gallery = () => {
     const [load, setLoad] = useState(false);
     const [internalError, setInternalError] = useState(false);
     const { toast } = useToast();
-
-    useEffect(() => {
-        const getAllImage = async () => {
-            try {
-                const response = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/gallery/GetAll`);
-                if (response) {
-                    setLoad(true);
-                }
-                else {
-                    setLoad(false);
-                }
-                const filteredResponse = response.data.data.sort((a, b) => new Date(b.date) - new Date(a.date));
-                setData(filteredResponse);
-            } catch (error) {
-                toast({
-                    variant: "error",
-                    title: error.message,
-                });
-                setInternalError(true);
+      const getAllImages = useCallback(async () => {
+        try {
+            const response = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/gallery/GetAll`);
+            if (response) {
+                setLoad(true);
+                console.log(response)
+                setData(response.data.data);
             }
-        };
-
-        getAllImage();
+        } catch (error) {
+            setLoad(false);
+            setInternalError(true);
+            toast({
+                variant: "error",
+                title: error.message,
+            });
+        }
+    }, [toast]);
+    useEffect(() => {
+        getAllImages();
     }, []);
 
-    const openModal = (image) => {
+    const openModal = useCallback((image) => {
         setSelectedImage(image);
         setModalOpen(true);
-    };
-
-    const closeModal = () => {
+    }, []);
+    
+    const closeModal = useCallback(() => {
         setModalOpen(false);
-    };
+    }, []);
 
     if (!load) {
         return (
@@ -83,6 +79,7 @@ const Gallery = () => {
                     'borderRadius': '25px',
                     'background': '#1F2937'
                 }}
+              
                 loop={true}
                 spaceBetween={10}
                 navigation={true}
@@ -92,7 +89,7 @@ const Gallery = () => {
             >
                 {data.map((image, index) => (
                     <SwiperSlide key={index} onClick={() => openModal(image)}>
-                        <Image src={image.imageUrl} alt={image.altText} width={1280} height={720} className="first-swipper-img object-contain h-[60vh]" />
+                        <Image src={image.imageUrl} alt={image.altText} width={1280} height={720} className="first-swipper-img object-contain h-[60vh]" loading="lazy" />
                     </SwiperSlide>
                 ))}
             </Swiper>
@@ -112,7 +109,7 @@ const Gallery = () => {
             >
                 {data.map((image, index) => (
                     <SwiperSlide key={index}>
-                        <Image src={image.imageUrl} alt={image.altText} width={1280} height={720} className="second-swipper-img" />
+                        <Image src={image.imageUrl} alt={image.altText} width={1280} height={720} className="second-swipper-img" loading="lazy"/>
                     </SwiperSlide>
                 ))}
             </Swiper>
@@ -122,4 +119,4 @@ const Gallery = () => {
     )
 }
 
-export default Gallery;
+export default memo(Gallery);

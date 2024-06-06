@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback ,memo} from 'react';
 import axios from 'axios';
 import Image from "next/image";
 import Link from "next/link"
@@ -28,7 +28,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import UpcomingSlider from "./UpcomingSlider/UpcomingSlider";
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -46,6 +46,8 @@ import avatar from '../../public/images/icons/avatar.svg'
 import leftArrow from "../../public/images/sliderArrows/left.svg";
 import rightArrow from "../../public/images/sliderArrows/right.svg";
 import LazyLoad from 'react-lazyload';
+import UpcomingSlider from './UpcomingSlider/UpcomingSlider';
+
 
 const SecondSection = () => {
   const [todaySchedule, setTodaySchedule] = useState([]);
@@ -54,10 +56,10 @@ const SecondSection = () => {
   const [load, setLoad] = useState(false);
   const [flaghead, setFlaghead] = useState(false)
   const [date, setDate] = useState(new Date())
-
+  
 
   useEffect(() => {
-    async function fetchScheduleToday() {
+    async function fetchScheduleToday(){
       try {
         const today = date;
         if (date.getMonth() + 1 == new Date().getMonth() + 1 && date.getFullYear() == new Date().getFullYear() && date.getDate() == new Date().getDate()) {
@@ -68,9 +70,10 @@ const SecondSection = () => {
         const year = today.getFullYear();
         const month = (today.getMonth() + 1).toString().padStart(2, '0');
         const day = today.getDate().toString().padStart(2, '0');
-
+        console.log('day')
         const todayFormatted = `${year}-${month}-${day}`;
-        const todayResponse = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/schedule/date/${todayFormatted}`);
+       
+        const todayResponse = await axios.get(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/Schedule/date/${todayFormatted}`);  
         if (todayResponse) {
           setLoad(true);
         } else {
@@ -90,9 +93,11 @@ const SecondSection = () => {
       } catch (error) {
         setFlag(false)
       }
-    }
-    fetchScheduleToday();
+     }
+    fetchScheduleToday()
   }, [date]);
+
+
 
   function isCurrentDateWithinSchedule(startDate, endDate, startTime, endTime) {
     const startDateObj = new Date(startDate);
@@ -152,6 +157,7 @@ const SecondSection = () => {
     return false;
 
   }
+  
   const truncateDescription = (description, maxLength) => {
     if (description.length <= maxLength) {
       return description;
@@ -360,4 +366,4 @@ const SecondSection = () => {
   );
 }
 
-export default SecondSection;
+export default memo(SecondSection);
