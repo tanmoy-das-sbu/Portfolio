@@ -21,7 +21,7 @@ const Header = () => {
           </div>
 
           <p className=" md:font-bold  text-sm text-[#F47621]">
-            Member-Elect, Rajya Sabha
+            Member,Jharkhand Rajya Sabha
           </p>
           <p className=" md:font-bold  text-sm text-[#F47621]">
             General Secretary, BJP

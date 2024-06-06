@@ -11,9 +11,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-const GreatVibes = Great_Vibes({ subsets: ["latin"],
-  weight:"400"
- });
+const GreatVibes = Great_Vibes({ subsets: ["latin"], weight: "400" });
 
 function Home() {
   //https://portfolio-xavu.vercel.app/schedule
@@ -38,38 +36,86 @@ function Home() {
             </h2>
 
             <p className="text-sm font-semibold text-center mt-3">
-              MEMBER OF PARLIAMENT RAJYA SABHA (JHARKHAND)
+              MEMBER OF PARLIAMENT <br />
+              JHARKHAND RAJYA SABHA
             </p>
             <div className="mt-4 p-2 border-t border-gray-200">
+              {/* first */}
               <p className="text-sm font-semibold text-center mt-3">
-                BJP Jharkhand State General Secretary
+                BJP Jharkhand State General Secretary (Second Term)
               </p>
-              <p className="text-sm font-semibold text-center mt-3">
-                Additionally headquarters -in-charge BJP Jharkhand
+              <p className="text-sm font-semibold text-center ">
+                Additionally Headquarter In-charge
               </p>
-              <p className="text-xs text-gray-600 text-center">Incumbent</p>
+              <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
               <p className="text-xs text-gray-600 text-center">
-                13 December 2020 - present
-              </p>
-              <p className="text-sm font-semibold text-center mt-3">
-                BJP Jharkhand State Vice President
+                2023 - present
               </p>
 
-              <p className="text-xs text-gray-600 text-center">
-                Assumed office
-              </p>
-              <p className="text-xs text-gray-600 text-center">
-                2 July 2016 – 11 December 2020
-              </p>
+              {/* Second */}
               <p className="text-sm font-semibold text-center mt-3">
-                BJP Jharkhand State secretary
+                BJP Jharkhand State General Secretary (First Term)
+              </p>
+              <p className="text-sm font-semibold text-center ">
+                Additionally Headquarter In-charge
+              </p>
+              <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
+              <p className="text-xs text-gray-600 text-center">2020 - 2023</p>
+              {/* Third */}
+              <p className="text-sm font-semibold text-center mt-3">
+                State Vice President
+              </p>
+
+              <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
+              <p className="text-xs text-gray-600 text-center">2016 - 2020</p>
+              {/* Forth */}
+              <p className="text-sm font-semibold text-center mt-3">
+                Convener, Membership Drive
+              </p>
+              <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
+              <p className="text-xs text-gray-600 text-center">2015</p>
+              {/* Fifth */}
+              <p className="text-sm font-semibold text-center mt-3">
+                State secretary
+              </p>
+              <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
+              <p className="text-xs text-gray-600 text-center">2013</p>
+              {/* Sixth */}
+              <p className="text-sm font-semibold text-center mt-3">
+                Convener, State Training
+              </p>
+              <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
+              <p className="text-xs text-gray-600 text-center">2011</p>
+              {/* Seventh */}
+              <p className="text-sm font-semibold text-center mt-3">
+                Member, State Working Committee
+              </p>
+              <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
+              <p className="text-xs text-gray-600 text-center">2011</p>
+              {/* Eighth */}
+              <p className="text-sm font-semibold text-center mt-3">
+                Convener, Primary Membership Drive
               </p>
               <p className="text-xs text-gray-600 text-center">
-                Assumed office
+                Khijri Mandal, Ranchi Gramin
+              </p>
+              <p className="text-xs text-gray-600 text-center">1997</p>
+              {/* Ninth */}
+              <p className="text-sm font-semibold text-center mt-3">
+                Active Member
               </p>
               <p className="text-xs text-gray-600 text-center">
-                8 December 2013- 2 july 2016
+                Khijri Mandal, Ranchi Gramin
               </p>
+              <p className="text-xs text-gray-600 text-center">1994</p>
+              {/* Tenth */}
+              <p className="text-sm font-semibold text-center mt-3">
+                Primary Member
+              </p>
+              <p className="text-xs text-gray-600 text-center">
+                Khijri Mandal, Ranchi Gramin
+              </p>
+              <p className="text-xs text-gray-600 text-center">1992</p>
             </div>
           </div>
           <div className=" my-4 lg:my-0 mx-0 lg:ml-4 p-4 lg:w-3/4 shadow rounded-lg">
@@ -106,15 +152,20 @@ function Home() {
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="text-lg text-slate-600">
-                    Dr. Pradip Varma ( 24 February 1972) is an Indian politician
-                    and academician and a member of parliament of RAJYA SABHA,
-                    JHARKHAND from Bharatiya Janata Party. He is serving as the
-                    State General Secretary BJP Jharkhand unit from 2020
-                    onwards. Erstwhile he served as State Vice President BJP
-                    Jharkhand in 2016 and state minister BJP Jharkhand in
-                    2013.Earlier he served as BJP membership-in-charge, Khijri
-                    division of Ranchi.
+                  <div className="text-lg text-slate-600 text-justify">
+                    Dr. Pradip Varma is an Indian politician and academician and
+                    a member of parliament of RAJYA SABHA, JHARKHAND from
+                    Bharatiya Janata Party. He is serving as the State General
+                    Secretary BJP Jharkhand unit from 2020 onwards. Erstwhile he
+                    served as State Vice President BJP Jharkhand in 2016 and
+                    state minister BJP Jharkhand in 2013. Earlier he served as
+                    BJP membership-in-charge, Khijri division of Ranchi. He was
+                    born on 24th February 1972 in Kolkata capital city of West
+                    Bengal into a Hindu Vaishya family but he is ancestral
+                    native of tehsil Barwadih in Latehar district of Jharkhand.
+                    From childhood he was interested in playing chess at the age
+                    of 12 and was a state level chess player. He also played
+                    cricket for the team Mohan Bagan at the age of 15.
                   </div>
                 </AccordionContent>
               </AccordionItem>
@@ -145,7 +196,7 @@ function Home() {
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="text-lg text-slate-600">
+                  <div className="text-lg text-slate-600 text-justify">
                     The first major source of turning point in his career came
                     when he first met Shri Lal Krishna Advani in the Mohrabadi
                     Maidan, Ranchi in the campaign for Ram Mandir Yatra. This
@@ -195,23 +246,65 @@ function Home() {
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="text-lg text-slate-600">
-                    Dr. Pradip Varma was born on 24th February 1972 in Kolkata
-                    capital city of West Bengal into a Hindu Vaishya family but
-                    he is ancestral native of tehsil Barwadih in Latehar
-                    district of Jharkhand. He started his primary education at
-                    Subhas Vidya Mandir Muraripukur Kolkata. Later on for
-                    further studies he shifted to Sarvodaya School Muchipara in
-                    kolkata. From childhood he was interested in playing chess
-                    at the age of 12 and was a state level chess player. He also
-                    played cricket for the team Mohan Bagan at the age of 15. He
-                    has done his intermediate in commerce stream in 1988 and
-                    undergraduate degree in commerce, B.Com from Seth Anand Ram
-                    Jaipuriya college of Calcutta University in 1991. He passed
-                    his executive MBA from Vinayaka Mission, and master’s degree
-                    of M.A (Hindi) from the same. Later he has done his
-                    completed his doctorate Phd. in Hindi language and
-                    literature.
+                  <div className="text-lg text-slate-600 text-justify">
+                    <dl className=" text-gray-900 divide-y divide-gray-200">
+                      <div className="flex flex-col py-2">
+                        <dt className="mb-1  font-semibold md:text-md ">
+                          Secondary
+                        </dt>
+                        <dd className="text-sm text-gray-500 ">
+                          Science <br />
+                          <span>West Bengal Board of Secondary Education</span>
+                        </dd>
+                      </div>
+                      <div className="flex flex-col py-2">
+                        <dt className="mb-1  font-semibold md:text-md ">
+                          Higher Secondary
+                        </dt>
+                        <dd className="text-sm text-gray-500 ">
+                          Commerce <br />
+                          <span>
+                            West Bengal Council of Higher Secondary Education
+                          </span>
+                        </dd>
+                      </div>
+                      <div className="flex flex-col py-2">
+                        <dt className="mb-1  font-semibold md:text-md ">
+                          Graduation
+                        </dt>
+                        <dd className="text-sm text-gray-500 ">
+                          B.Com <br />
+                          <span>Calcutta University</span>
+                        </dd>
+                      </div>
+                      <div className="flex flex-col py-2">
+                        <dt className="mb-1  font-semibold md:text-md ">
+                          Post Graduation
+                        </dt>
+                        <dd className="text-sm text-gray-500 ">
+                          MBA <br />
+                          <span>Vinayaka Missions University</span>
+                        </dd>
+                      </div>
+                      <div className="flex flex-col py-2">
+                        <dt className="mb-1  font-semibold md:text-md ">
+                          Post Graduation
+                        </dt>
+                        <dd className="text-sm text-gray-500 ">
+                          MA (Hindi) <br />
+                          <span>Vinayaka Missions University</span>
+                        </dd>
+                      </div>
+                      <div className="flex flex-col py-2">
+                        <dt className="mb-1  font-semibold md:text-md ">
+                          Doctorate
+                        </dt>
+                        <dd className="text-sm text-gray-500 ">
+                          Hindi <br />
+                          <span>Sai Nath University</span>
+                        </dd>
+                      </div>
+                    </dl>
                   </div>
                 </AccordionContent>
               </AccordionItem>
@@ -238,22 +331,50 @@ function Home() {
                       />
                     </svg>
                     &nbsp;&nbsp;
-                    <h2>ACHIEVEMENTS</h2>
+                    <h2>PROFESSIONAL AFFILIATIONS</h2>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="text-lg text-slate-600">
-                    His scholarly work has been on the topic of Ramcharitmanas:
-                    “Parivar aur Samaj prabadhan ke sutra” . He has also written
-                    blog on the several biographies on freedom fighters like
-                    Birsa Munda, Pt. Deen Dayal Upadhyaay and topics of national
-                    importance like Hul Andolan, Vande matram etc. Apart from
-                    Hindi language, He is a polyglot person having full
-                    proficiency of English, Awadhi, Bangla, Bhojpuri and 4
-                    tribal languages of Jharkhand namely, Nagpuri, Mundari,
-                    Santhali and Kurmali. He set up think tank named “Public
-                    Policy For India People” which works in the domain of policy
-                    making awareness and training program.
+                  <div className="text-lg text-slate-600 text-justify">
+                    <dl className="text-gray-900 divide-y divide-gray-200">
+                      <div className="flex flex-col py-2">
+                        <dt className="mb-1 font-semibold md:text-md">
+                          Mahadevi Birla Insititute of Nursing & Clinical Technology
+                        </dt>
+                        <dd className="text-sm text-gray-500">
+                          Position: Founder Member <br />
+                          Period: 2003 - Present
+                        </dd>
+                      </div>
+                      <div className="flex flex-col py-2">
+                        <dt className="mb-1 font-semibold md:text-md">
+                          Sarala Birla Center for Skill Development
+                        </dt>
+                        <dd className="text-sm text-gray-500">
+                          Position: Founder Member <br />
+                          Period: 2009 - present
+                        </dd>
+                      </div>
+                      <div className="flex flex-col py-2">
+                        <dt className="mb-1 font-semibold md:text-md">
+                          Sarala Birla Public School
+                        </dt>
+                        <dd className="text-sm text-gray-500">
+                        Position: Founder Member <br />
+                          Period: 2009 - present
+                        </dd>
+                      </div>
+                      <div className="flex flex-col py-2">
+                        <dt className="mb-1 font-semibold md:text-md">
+                          Sarala Birla University
+                        </dt>
+                        <dd className="text-sm text-gray-500">
+                          Position: Founder Vice-Chancellor <br />
+                          Period: 2017 - 2021
+                        </dd>
+                      </div>
+                      
+                    </dl>
                   </div>
                 </AccordionContent>
               </AccordionItem>
@@ -280,11 +401,11 @@ function Home() {
                       />
                     </svg>
                     &nbsp;&nbsp;
-                    <h2>SOCIAL WORK</h2>
+                    <h2>ACHIEVEMENTS</h2>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="text-lg text-slate-600">
+                  <div className="text-lg text-slate-600 text-justify">
                     His scholarly work has been on the topic of Ramcharitmanas:
                     “Parivar aur Samaj prabadhan ke sutra” . He has also written
                     blog on the several biographies on freedom fighters like
@@ -299,25 +420,126 @@ function Home() {
                   </div>
                 </AccordionContent>
               </AccordionItem>
+              <AccordionItem value="item-6">
+                <AccordionTrigger className="text-xl hover:no-underline">
+                  <div className="flex">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6  shrink-0  stroke-orange-500"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      aria-labelledby="title-ac11 desc-ac11"
+                    >
+                      <title id="title-ac11">Leading icon</title>
+                      <desc id="desc-ac11">
+                        Icon that describes the summary
+                      </desc>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M3 8.25V18a2.25 2.25 0 002.25 2.25h13.5A2.25 2.25 0 0021 18V8.25m-18 0V6a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 6v2.25m-18 0h18M5.25 6h.008v.008H5.25V6zM7.5 6h.008v.008H7.5V6zm2.25 0h.008v.008H9.75V6z"
+                      />
+                    </svg>
+                    &nbsp;&nbsp;
+                    <h2>SOCIAL AFFILIATIONS</h2>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="text-lg text-slate-600 text-justify">
+                    <dl className="text-gray-900 divide-y divide-gray-200">
+                      <div className="flex flex-col py-2">
+                        <dt className="mb-1 font-semibold md:text-md">
+                          Pandit Deendayal Upadhyay Bachat ewam Saakh Swavlambi
+                          Sahkari Samiti Limited
+                        </dt>
+                        <dd className="text-sm text-gray-500">
+                          Position: President <br />
+                          Period: 2012-2023
+                        </dd>
+                      </div>
+                      <div className="flex flex-col py-2">
+                        <dt className="mb-1 font-semibold md:text-md">
+                          All Jharkhand Chess Association
+                        </dt>
+                        <dd className="text-sm text-gray-500">
+                          Position: President <br />
+                          Period: 2013 - present
+                        </dd>
+                      </div>
+                      <div className="flex flex-col py-2">
+                        <dt className="mb-1 font-semibold md:text-md">
+                          Jharkhand Wushu Association
+                        </dt>
+                        <dd className="text-sm text-gray-500">
+                          Position: President <br />
+                          Period: 2023 - present
+                        </dd>
+                      </div>
+                      <div className="flex flex-col py-2">
+                        <dt className="mb-1 font-semibold md:text-md">
+                          Public Policy For Indian People
+                        </dt>
+                        <dd className="text-sm text-gray-500">
+                          Position: President <br />
+                          Period: 2021 - present
+                        </dd>
+                      </div>
+                      <div className="flex flex-col py-2">
+                        <dt className="mb-1 font-semibold md:text-md">
+                          Chotanagpur Sarna Samiti
+                        </dt>
+                        <dd className="text-sm text-gray-500">
+                          Position: Founder & Patron <br />
+                          Period: 2022 - present
+                        </dd>
+                      </div>
+                      <div className="flex flex-col py-2">
+                        <dt className="mb-1 font-semibold md:text-md">
+                          Akhil Bhartiya Baishya Sammelan, Jharkhand
+                        </dt>
+                        <dd className="text-sm text-gray-500">
+                          Position: Patron <br />
+                          Period: 2020 - present
+                        </dd>
+                      </div>
+                      <div className="flex flex-col py-2">
+                        <dt className="mb-1 font-semibold md:text-md">
+                          Hindi Salahkar Samiti, Bharatiya Dak Vibhaag, Sanchar
+                          Mantralaya, Government of India
+                        </dt>
+                        <dd className="text-sm text-gray-500">
+                          Position: Member <br />
+                          Period: 2022 - present
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
             </Accordion>
           </div>
         </div>
         <div className="my-4   shadow rounded-3xl">
-        <h2 className="text-4xl bg-[#F3F0EB] md:text-6xl text-center mb-4 p-4 rounded-t-2xl text-orange-500"><span className={GreatVibes.className}>Through the years</span></h2>
+          <h2 className="text-4xl bg-[#F3F0EB] md:text-6xl text-center mb-4 p-4 rounded-t-2xl text-orange-500">
+            <span className={GreatVibes.className}>Through the years</span>
+          </h2>
           <ol class="relative border-s border-gray-200 dark:border-gray-700">
             <li class="mb-10 ms-6">
               <span class="absolute flex items-center justify-center w-6 h-6 bg-orange-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-orange-600">
-                <RiFocus2Line className="icon-orange"  />
+                <RiFocus2Line className="icon-orange" />
               </span>
               <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                 Born On 24th Feb 1972, Calcutta
-                
               </h3>
               <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on February 24th, 1972
               </time>
-              <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut voluptates corrupti dolorum. Alias mollitia consectetur temporibus cumque numquam in excepturi!
+              <p class="mb-4 text-base font-normal text-gray-500 ">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                voluptates corrupti dolorum. Alias mollitia consectetur
+                temporibus cumque numquam in excepturi!
               </p>
               <div className="flex items-center justify-center mr-6">
                 <img
@@ -329,17 +551,19 @@ function Home() {
             </li>
             <li class="mb-10 ms-6">
               <span class="absolute flex items-center justify-center w-6 h-6 bg-orange-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-orange-600">
-                <RiFocus2Line className="icon-orange"  />
+                <RiFocus2Line className="icon-orange" />
               </span>
               <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
-                In Loving Memory Of My Parents - Late Seth Ram Avatar Prasad and 
+                In Loving Memory Of My Parents - Late Seth Ram Avatar Prasad and
                 Bhagwanti Devi
               </h3>
               <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 7th, 2021
               </time>
-              <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut voluptates corrupti dolorum. Alias mollitia consectetur temporibus cumque numquam in excepturi!
+              <p class="text-base font-normal text-gray-500 ">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                voluptates corrupti dolorum. Alias mollitia consectetur
+                temporibus cumque numquam in excepturi!
               </p>
               <div className="flex items-center justify-center mr-6">
                 <img
@@ -351,7 +575,7 @@ function Home() {
             </li>
             <li class="mb-10 ms-6">
               <span class="absolute flex items-center justify-center w-6 h-6 bg-orange-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-orange-600">
-                <RiFocus2Line className="icon-orange"  />
+                <RiFocus2Line className="icon-orange" />
               </span>
               <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                 With Prime Minister Sri Narendra Modi In His First Tenure.
@@ -359,8 +583,10 @@ function Home() {
               <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 2nd, 2021
               </time>
-              <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut voluptates corrupti dolorum. Alias mollitia consectetur temporibus cumque numquam in excepturi!
+              <p class="text-base font-normal text-gray-500 ">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                voluptates corrupti dolorum. Alias mollitia consectetur
+                temporibus cumque numquam in excepturi!
               </p>
               <div className="flex items-center justify-center mr-6">
                 <img
@@ -372,7 +598,7 @@ function Home() {
             </li>
             <li class=" mb-10 ms-6">
               <span class="absolute flex items-center justify-center w-6 h-6 bg-orange-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-orange-600">
-                <RiFocus2Line className="icon-orange"  />
+                <RiFocus2Line className="icon-orange" />
               </span>
               <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                 With Rss Sangh Sanchalak Sri Mohan Bhagwat Ji.
@@ -380,8 +606,10 @@ function Home() {
               <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 2nd, 2021
               </time>
-              <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut voluptates corrupti dolorum. Alias mollitia consectetur temporibus cumque numquam in excepturi!
+              <p class="text-base font-normal text-gray-500 ">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                voluptates corrupti dolorum. Alias mollitia consectetur
+                temporibus cumque numquam in excepturi!
               </p>
               <div className="flex items-center justify-center mr-6">
                 <img
@@ -393,16 +621,19 @@ function Home() {
             </li>
             <li class="mb-10 ms-6">
               <span class="absolute flex items-center justify-center w-6 h-6 bg-orange-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-orange-600">
-                <RiFocus2Line className="icon-orange"  />
+                <RiFocus2Line className="icon-orange" />
               </span>
               <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
-                Congragulating Prime Minister Sri. Narendra Modi On His Second Tenure.
+                Congragulating Prime Minister Sri. Narendra Modi On His Second
+                Tenure.
               </h3>
               <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 2nd, 2021
               </time>
-              <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut voluptates corrupti dolorum. Alias mollitia consectetur temporibus cumque numquam in excepturi!
+              <p class="text-base font-normal text-gray-500 ">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                voluptates corrupti dolorum. Alias mollitia consectetur
+                temporibus cumque numquam in excepturi!
               </p>
               <div className="flex items-center justify-center mr-6">
                 <img
@@ -414,7 +645,7 @@ function Home() {
             </li>
             <li class="mb-10 ms-6">
               <span class="absolute flex items-center justify-center w-6 h-6 bg-orange-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-orange-600">
-                <RiFocus2Line className="icon-orange"  />
+                <RiFocus2Line className="icon-orange" />
               </span>
               <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                 Conducted State&apos;s First Ever Tribal Youth Parliament.
@@ -425,19 +656,19 @@ function Home() {
               <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 2nd, 2021
               </time>
-              <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut voluptates corrupti dolorum. Alias mollitia consectetur temporibus cumque numquam in excepturi!
+              <p class="text-base font-normal text-gray-500 ">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                voluptates corrupti dolorum. Alias mollitia consectetur
+                temporibus cumque numquam in excepturi!
               </p>
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
                   className="max-h-[400px] shadow-lg "
-                  
                   src="/images/journey/6.jpg"
                   style={{
                     objectFit: "cover",
                   }}
-                  
                 />
               </div>
             </li>
