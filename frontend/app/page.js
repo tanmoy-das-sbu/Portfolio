@@ -11,6 +11,18 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+
 const GreatVibes = Great_Vibes({ subsets: ["latin"], weight: "400" });
 
 function Home() {
@@ -51,71 +63,117 @@ function Home() {
               <p className="text-xs text-gray-600 text-center">
                 2023 - present
               </p>
+              <br/>
+              <hr />
+              <AlertDialog>
+                <AlertDialogTrigger style={{ color: "#FF9933", width: "100%", textAlign: "center", fontWeight: "bold" }}>
+                  Political Career Highlights</AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle style={{ color:"#f47731",}}>Political Career Timeline of Dr. Pradip Varma, BJP Jharkhand</AlertDialogTitle>
+                    <AlertDialogDescription>
+                      <div style={{ display: "grid", gridTemplateColumns: "auto auto auto", gap: "10px" }}>
+                        {/* Second */}
 
-              {/* Second */}
-              <p className="text-sm font-semibold text-center mt-3">
-                BJP Jharkhand State General Secretary (First Term)
-              </p>
-              <p className="text-sm font-semibold text-center ">
-                Additionally Headquarter In-charge
-              </p>
-              <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
-              <p className="text-xs text-gray-600 text-center">2020 - 2023</p>
-              {/* Third */}
-              <p className="text-sm font-semibold text-center mt-3">
-                State Vice President
-              </p>
+                        <div style={{ borderRight: "1px solid lightgrey" }}>
+                        <p className="text-md text-black text-center font-bold mt-3">2020 - 2023</p>
+                          <p className="text-sm font-semibold text-center ">
+                            BJP Jharkhand State General Secretary (First Term)
+                          </p>
+                          <p className="text-sm font-semibold text-center ">
+                            Additionally Headquarter In-charge
+                          </p>
+                          <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
+                          
+                        </div>
 
-              <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
-              <p className="text-xs text-gray-600 text-center">2016 - 2020</p>
-              {/* Forth */}
-              <p className="text-sm font-semibold text-center mt-3">
-                Convener, Membership Drive
-              </p>
-              <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
-              <p className="text-xs text-gray-600 text-center">2015</p>
-              {/* Fifth */}
-              <p className="text-sm font-semibold text-center mt-3">
-                State secretary
-              </p>
-              <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
-              <p className="text-xs text-gray-600 text-center">2013</p>
-              {/* Sixth */}
-              <p className="text-sm font-semibold text-center mt-3">
-                Convener, State Training
-              </p>
-              <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
-              <p className="text-xs text-gray-600 text-center">2011</p>
-              {/* Seventh */}
-              <p className="text-sm font-semibold text-center mt-3">
-                Member, State Working Committee
-              </p>
-              <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
-              <p className="text-xs text-gray-600 text-center">2011</p>
-              {/* Eighth */}
-              <p className="text-sm font-semibold text-center mt-3">
-                Convener, Primary Membership Drive
-              </p>
-              <p className="text-xs text-gray-600 text-center">
-                Khijri Mandal, Ranchi Gramin
-              </p>
-              <p className="text-xs text-gray-600 text-center">1997</p>
-              {/* Ninth */}
-              <p className="text-sm font-semibold text-center mt-3">
-                Active Member
-              </p>
-              <p className="text-xs text-gray-600 text-center">
-                Khijri Mandal, Ranchi Gramin
-              </p>
-              <p className="text-xs text-gray-600 text-center">1994</p>
-              {/* Tenth */}
-              <p className="text-sm font-semibold text-center mt-3">
-                Primary Member
-              </p>
-              <p className="text-xs text-gray-600 text-center">
-                Khijri Mandal, Ranchi Gramin
-              </p>
-              <p className="text-xs text-gray-600 text-center">1992</p>
+                        <div style={{ borderRight: "1px solid lightgrey" }}>
+                          {/* Third */}
+                          <p className="text-md text-black text-center font-bold mt-3">2016 - 2020</p>
+                          <p className="text-sm font-semibold text-center">
+                            State Vice President
+                          </p>
+                          <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
+                          
+                        </div>
+                        {/* Forth */}
+                        <div >
+                        <p className="text-md text-black text-center font-bold mt-3">2015</p>
+                          <p className="text-sm font-semibold text-center">
+                            Convener, Membership Drive
+                          </p>
+                          <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
+                          
+                        </div>
+                        <div style={{ borderRight: "1px solid lightgrey" }}>
+                          {/* Fifth */}
+                          <p className="text-md text-black text-center font-bold mt-3">2013</p>
+                          <p className="text-sm font-semibold text-center">
+                            State secretary
+                          </p>
+                          <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
+                          
+                        </div>
+                        <div style={{ borderRight: "1px solid lightgrey" }}>
+                          {/* Sixth */}
+                          <p className="text-md text-black text-center font-bold mt-3">2011</p>
+                          <p className="text-sm font-semibold text-center">
+                            Convener, State Training
+                          </p>
+                          <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
+                          
+                        </div>
+                        <div >
+                          {/* Seventh */}
+                          <p className="text-md text-black text-center font-bold mt-3">2011</p>
+                          <p className="text-sm font-semibold text-center">
+                            Member, State Working Committee
+                          </p>
+                          <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
+                          
+                        </div>
+                        <div style={{ borderRight: "1px solid lightgrey" }}>
+                          {/* Eighth */}
+                          <p className="text-md text-black text-center font-bold mt-3">1997</p>
+                          <p className="text-sm font-semibold text-center">
+                            Convener, Primary Membership Drive
+                          </p>
+                          <p className="text-xs text-gray-600 text-center">
+                            Khijri Mandal, Ranchi Gramin
+                          </p>
+                          
+                        </div>
+                        <div style={{ borderRight: "1px solid lightgrey" }}>
+                          {/* Ninth */}
+                          <p className="text-md text-black text-center font-bold mt-3">1994</p>
+                          <p className="text-sm font-semibold text-center">
+                            Active Member
+                          </p>
+                          <p className="text-xs text-gray-600 text-center">
+                            Khijri Mandal, Ranchi Gramin
+                          </p>
+                         
+                        </div>
+                        <div>
+                          {/* Tenth */}
+                          <p className="text-md text-black text-center font-bold mt-3">1992</p>
+                          <p className="text-sm font-semibold text-center">
+                            Primary Member
+                          </p>
+                          <p className="text-xs text-gray-600 text-center">
+                            Khijri Mandal, Ranchi Gramin
+                          </p>
+                          
+                        </div>
+                      </div>
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogAction style={{background: "#f47731"}}>Close</AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+             <hr/>
             </div>
           </div>
           <div className=" my-4 lg:my-0 mx-0 lg:ml-4 p-4 lg:w-3/4 shadow rounded-lg">
@@ -533,14 +591,14 @@ function Home() {
               <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                 Born On 24th Feb 1972, Calcutta
               </h3>
-              <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+              {/* <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on February 24th, 1972
               </time>
               <p class="mb-4 text-base font-normal text-gray-500 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 voluptates corrupti dolorum. Alias mollitia consectetur
                 temporibus cumque numquam in excepturi!
-              </p>
+              </p> */}
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
@@ -557,14 +615,14 @@ function Home() {
                 In Loving Memory Of My Parents - Late Seth Ram Avatar Prasad and
                 Bhagwanti Devi
               </h3>
-              <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+              {/* <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 7th, 2021
               </time>
               <p class="text-base font-normal text-gray-500 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 voluptates corrupti dolorum. Alias mollitia consectetur
                 temporibus cumque numquam in excepturi!
-              </p>
+              </p> */}
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
@@ -580,14 +638,14 @@ function Home() {
               <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                 With Prime Minister Sri Narendra Modi In His First Tenure.
               </h3>
-              <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+              {/* <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 2nd, 2021
               </time>
               <p class="text-base font-normal text-gray-500 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 voluptates corrupti dolorum. Alias mollitia consectetur
                 temporibus cumque numquam in excepturi!
-              </p>
+              </p> */}
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
@@ -603,14 +661,14 @@ function Home() {
               <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                 With Rss Sangh Sanchalak Sri Mohan Bhagwat Ji.
               </h3>
-              <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+              {/* <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 2nd, 2021
               </time>
               <p class="text-base font-normal text-gray-500 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 voluptates corrupti dolorum. Alias mollitia consectetur
                 temporibus cumque numquam in excepturi!
-              </p>
+              </p> */}
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
@@ -627,14 +685,14 @@ function Home() {
                 Congragulating Prime Minister Sri. Narendra Modi On His Second
                 Tenure.
               </h3>
-              <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+              {/* <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 2nd, 2021
               </time>
               <p class="text-base font-normal text-gray-500 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 voluptates corrupti dolorum. Alias mollitia consectetur
                 temporibus cumque numquam in excepturi!
-              </p>
+              </p> */}
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
@@ -653,14 +711,14 @@ function Home() {
                   Latest
                 </span>
               </h3>
-              <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+              {/* <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 2nd, 2021
               </time>
               <p class="text-base font-normal text-gray-500 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 voluptates corrupti dolorum. Alias mollitia consectetur
                 temporibus cumque numquam in excepturi!
-              </p>
+              </p> */}
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
