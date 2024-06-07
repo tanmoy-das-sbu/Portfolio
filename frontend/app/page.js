@@ -21,7 +21,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
+} from "@/components/ui/alert-dialog";
 
 const GreatVibes = Great_Vibes({ subsets: ["latin"], weight: "400" });
 
@@ -63,117 +63,161 @@ function Home() {
               <p className="text-xs text-gray-600 text-center">
                 2023 - present
               </p>
-              <br/>
+              <br />
               <hr />
               <AlertDialog>
-                <AlertDialogTrigger style={{ color: "#FF9933", width: "100%", textAlign: "center", fontWeight: "bold" }}>
-                  Political Career Highlights</AlertDialogTrigger>
+                <AlertDialogTrigger
+                  style={{
+                    color: "#FF9933",
+                    width: "100%",
+                    textAlign: "center",
+                    fontWeight: "bold",
+                  }}
+                >
+                  <div
+                    class="text-white bg-[#F47621] hover:bg-[#F47621]/90 focus:outline-none  font-medium rounded-lg text-sm px-5 mt-2 py-2.5 text-center inline-flex items-center me-2 mb-2"
+                  >
+                    Political Career Highlights
+                  </div>
+                </AlertDialogTrigger>
                 <AlertDialogContent>
                   <AlertDialogHeader>
-                    <AlertDialogTitle style={{ color:"#f47731",}}>Political Career Timeline of Dr. Pradip Varma, BJP Jharkhand</AlertDialogTitle>
+                    <AlertDialogTitle style={{ color: "#f47731" }}>
+                      Political Career Timeline of Dr. Pradip Varma, BJP
+                      Jharkhand
+                    </AlertDialogTitle>
                     <AlertDialogDescription>
-                      <div style={{ display: "grid", gridTemplateColumns: "auto auto auto", gap: "10px" }}>
+                      <div
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: "auto auto auto",
+                          gap: "10px",
+                        }}
+                      >
                         {/* Second */}
 
                         <div style={{ borderRight: "1px solid lightgrey" }}>
-                        <p className="text-md text-black text-center font-bold mt-3">2020 - 2023</p>
-                          <p className="text-sm font-semibold text-center ">
+                          <p className="text-sm text-black font-semibold text-center ">
                             BJP Jharkhand State General Secretary (First Term)
                           </p>
-                          <p className="text-sm font-semibold text-center ">
+                          <p className="text-sm text-black font-semibold text-center ">
                             Additionally Headquarter In-charge
                           </p>
-                          <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
-                          
+                          <p className="text-md  text-center font-bold mt-3">
+                            2020 - 2023
+                          </p>
+                          <p className="text-xs text-gray-600 text-center">
+                            BJP Jharkhand
+                          </p>
                         </div>
 
                         <div style={{ borderRight: "1px solid lightgrey" }}>
                           {/* Third */}
-                          <p className="text-md text-black text-center font-bold mt-3">2016 - 2020</p>
-                          <p className="text-sm font-semibold text-center">
+                          <p className="text-sm text-black font-semibold text-center">
                             State Vice President
                           </p>
-                          <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
-                          
+                          <p className="text-md  text-center font-bold mt-3">
+                            2016 - 2020
+                          </p>
+                          <p className="text-xs text-gray-600 text-center">
+                            BJP Jharkhand
+                          </p>
                         </div>
                         {/* Forth */}
-                        <div >
-                        <p className="text-md text-black text-center font-bold mt-3">2015</p>
-                          <p className="text-sm font-semibold text-center">
+                        <div>
+                          <p className="text-sm text-black  font-semibold text-center">
                             Convener, Membership Drive
                           </p>
-                          <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
-                          
+                          <p className="text-md  text-center font-bold mt-3">
+                            2015
+                          </p>
+                          <p className="text-xs text-gray-600 text-center">
+                            BJP Jharkhand
+                          </p>
                         </div>
                         <div style={{ borderRight: "1px solid lightgrey" }}>
                           {/* Fifth */}
-                          <p className="text-md text-black text-center font-bold mt-3">2013</p>
-                          <p className="text-sm font-semibold text-center">
+                          <p className="text-sm text-black font-semibold text-center">
                             State secretary
                           </p>
-                          <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
-                          
+                          <p className="text-md  text-center font-bold mt-3">
+                            2013
+                          </p>
+                          <p className="text-xs text-gray-600 text-center">
+                            BJP Jharkhand
+                          </p>
                         </div>
                         <div style={{ borderRight: "1px solid lightgrey" }}>
                           {/* Sixth */}
-                          <p className="text-md text-black text-center font-bold mt-3">2011</p>
-                          <p className="text-sm font-semibold text-center">
+                          <p className="text-sm text-black font-semibold text-center">
                             Convener, State Training
                           </p>
-                          <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
-                          
+                          <p className="text-md  text-center font-bold mt-3">
+                            2011
+                          </p>
+                          <p className="text-xs text-gray-600 text-center">
+                            BJP Jharkhand
+                          </p>
                         </div>
-                        <div >
+                        <div>
                           {/* Seventh */}
-                          <p className="text-md text-black text-center font-bold mt-3">2011</p>
-                          <p className="text-sm font-semibold text-center">
+                          <p className="text-sm text-black font-semibold text-center">
                             Member, State Working Committee
                           </p>
-                          <p className="text-xs text-gray-600 text-center">BJP Jharkhand</p>
-                          
+                          <p className="text-md  text-center font-bold mt-3">
+                            2011
+                          </p>
+                          <p className="text-xs text-gray-600 text-center">
+                            BJP Jharkhand
+                          </p>
                         </div>
                         <div style={{ borderRight: "1px solid lightgrey" }}>
                           {/* Eighth */}
-                          <p className="text-md text-black text-center font-bold mt-3">1997</p>
-                          <p className="text-sm font-semibold text-center">
+                          <p className="text-sm text-black font-semibold text-center">
                             Convener, Primary Membership Drive
+                          </p>
+                          <p className="text-md  text-center font-bold mt-3">
+                            1997
                           </p>
                           <p className="text-xs text-gray-600 text-center">
                             Khijri Mandal, Ranchi Gramin
                           </p>
-                          
                         </div>
                         <div style={{ borderRight: "1px solid lightgrey" }}>
                           {/* Ninth */}
-                          <p className="text-md text-black text-center font-bold mt-3">1994</p>
-                          <p className="text-sm font-semibold text-center">
+                          <p className="text-sm text-black  font-semibold text-center">
                             Active Member
+                          </p>
+                          <p className="text-md text-center font-bold mt-3">
+                            1994
                           </p>
                           <p className="text-xs text-gray-600 text-center">
                             Khijri Mandal, Ranchi Gramin
                           </p>
-                         
                         </div>
                         <div>
                           {/* Tenth */}
-                          <p className="text-md text-black text-center font-bold mt-3">1992</p>
-                          <p className="text-sm font-semibold text-center">
+                          <p className="text-sm text-black font-semibold text-center">
                             Primary Member
+                          </p>
+                          <p className="text-md  text-center font-bold mt-3">
+                            1992
                           </p>
                           <p className="text-xs text-gray-600 text-center">
                             Khijri Mandal, Ranchi Gramin
                           </p>
-                          
                         </div>
                       </div>
                     </AlertDialogDescription>
                   </AlertDialogHeader>
                   <AlertDialogFooter>
-                    <AlertDialogAction style={{background: "#f47731"}}>Close</AlertDialogAction>
+                    <AlertDialogAction style={{ background: "#f47731" }}>
+                      Close
+                    </AlertDialogAction>
                   </AlertDialogFooter>
                 </AlertDialogContent>
               </AlertDialog>
-             <hr/>
+              <hr />
             </div>
           </div>
           <div className=" my-4 lg:my-0 mx-0 lg:ml-4 p-4 lg:w-3/4 shadow rounded-lg">
@@ -327,19 +371,37 @@ function Home() {
                   <div className="text-lg text-slate-600 text-justify">
                     <dl className=" text-gray-900 divide-y divide-gray-200">
                       <div className="flex flex-col py-2">
-                        <dt className="mb-1  font-semibold md:text-md ">
-                          Secondary
+                        <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md ">
+                          <div className="w-fit">
+                            <svg
+                              height="20"
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle r="5" cx="13" cy="13" fill="black" />
+                            </svg>
+                          </div>
+                          <p>Secondary</p>
                         </dt>
-                        <dd className="text-sm text-gray-500 ">
+                        <dd className=" ml-7 text-sm text-gray-500 ">
                           Science <br />
                           <span>West Bengal Board of Secondary Education</span>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
-                        <dt className="mb-1  font-semibold md:text-md ">
-                          Higher Secondary
+                        <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md ">
+                          <div className="w-fit">
+                            <svg
+                              height="20"
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle r="5" cx="13" cy="13" fill="black" />
+                            </svg>
+                          </div>
+                          <p>Higher Secondary</p>
                         </dt>
-                        <dd className="text-sm text-gray-500 ">
+                        <dd className=" ml-7 text-sm text-gray-500 ">
                           Commerce <br />
                           <span>
                             West Bengal Council of Higher Secondary Education
@@ -347,37 +409,73 @@ function Home() {
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
-                        <dt className="mb-1  font-semibold md:text-md ">
-                          Graduation
+                        <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md ">
+                          <div className="w-fit">
+                            <svg
+                              height="20"
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle r="5" cx="13" cy="13" fill="black" />
+                            </svg>
+                          </div>
+                          <p>Graduation</p>
                         </dt>
-                        <dd className="text-sm text-gray-500 ">
+                        <dd className=" ml-7 text-sm text-gray-500 ">
                           B.Com <br />
                           <span>Calcutta University</span>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
-                        <dt className="mb-1  font-semibold md:text-md ">
-                          Post Graduation
+                        <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md ">
+                          <div className="w-fit">
+                            <svg
+                              height="20"
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle r="5" cx="13" cy="13" fill="black" />
+                            </svg>
+                          </div>
+                          <p>Post Graduation</p>
                         </dt>
-                        <dd className="text-sm text-gray-500 ">
+                        <dd className=" ml-7 text-sm text-gray-500 ">
                           MBA <br />
                           <span>Vinayaka Missions University</span>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
-                        <dt className="mb-1  font-semibold md:text-md ">
-                          Post Graduation
+                        <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md ">
+                          <div className="w-fit">
+                            <svg
+                              height="20"
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle r="5" cx="13" cy="13" fill="black" />
+                            </svg>
+                          </div>
+                          <p>Post Graduation</p>
                         </dt>
-                        <dd className="text-sm text-gray-500 ">
+                        <dd className=" ml-7 text-sm text-gray-500 ">
                           MA (Hindi) <br />
                           <span>Vinayaka Missions University</span>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
-                        <dt className="mb-1  font-semibold md:text-md ">
-                          Doctorate
+                        <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md ">
+                          <div className="w-fit">
+                            <svg
+                              height="20"
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle r="5" cx="13" cy="13" fill="black" />
+                            </svg>
+                          </div>
+                          <p>Doctorate</p>
                         </dt>
-                        <dd className="text-sm text-gray-500 ">
+                        <dd className=" ml-7 text-sm text-gray-500 ">
                           Hindi <br />
                           <span>Sai Nath University</span>
                         </dd>
@@ -416,42 +514,95 @@ function Home() {
                   <div className="text-lg text-slate-600 text-justify">
                     <dl className="text-gray-900 divide-y divide-gray-200">
                       <div className="flex flex-col py-2">
-                        <dt className="mb-1 font-semibold md:text-md">
-                          Mahadevi Birla Insititute of Nursing & Clinical Technology
+                        <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
+                          <div className="w-fit">
+                            <svg
+                              height="20"
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle r="5" cx="13" cy="13" fill="black" />
+                            </svg>
+                          </div>
+                          <p>
+                            Mahadevi Birla Insititute of Nursing & Clinical
+                            Technology
+                          </p>
                         </dt>
-                        <dd className="text-sm text-gray-500">
-                          Position: Founder Member <br />
-                          Period: 2003 - Present
+                        <dd className=" ml-7 flex items-center justify-between flex-wrap text-sm text-gray-500">
+                          <div className="w-fit">
+                            {" "}
+                            Position: Founder Member <br />
+                            Period: 2003 - Present
+                          </div>
+                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
-                        <dt className="mb-1 font-semibold md:text-md">
-                          Sarala Birla Center for Skill Development
+                        <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
+                          <div className="w-fit">
+                            <svg
+                              height="20"
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle r="5" cx="13" cy="13" fill="black" />
+                            </svg>
+                          </div>
+                          <p>Sarala Birla Center for Skill Development</p>
                         </dt>
-                        <dd className="text-sm text-gray-500">
-                          Position: Founder Member <br />
-                          Period: 2009 - present
+                        <dd className=" ml-7 flex items-center justify-between flex-wrap text-sm text-gray-500">
+                          <div className="w-fit">
+                            {" "}
+                            Position: Founder Member <br />
+                            Period: 2009 - present
+                          </div>
+                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
-                        <dt className="mb-1 font-semibold md:text-md">
-                          Sarala Birla Public School
+                        <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
+                          <div className="w-fit">
+                            <svg
+                              height="20"
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle r="5" cx="13" cy="13" fill="black" />
+                            </svg>
+                          </div>
+                          <p>Sarala Birla Public School</p>
                         </dt>
-                        <dd className="text-sm text-gray-500">
-                        Position: Founder Member <br />
-                          Period: 2009 - present
+                        <dd className=" ml-7 flex items-center justify-between flex-wrap text-sm text-gray-500">
+                          <div className="w-fit">
+                            Position: Founder Member <br />
+                            Period: 2009 - present
+                          </div>
+                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
-                        <dt className="mb-1 font-semibold md:text-md">
-                          Sarala Birla University
+                        <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
+                          <div className="w-fit">
+                            <svg
+                              height="20"
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle r="5" cx="13" cy="13" fill="black" />
+                            </svg>
+                          </div>
+                          <p>Sarala Birla University</p>
                         </dt>
-                        <dd className="text-sm text-gray-500">
-                          Position: Founder Vice-Chancellor <br />
-                          Period: 2017 - 2021
+                        <dd className=" ml-7 flex items-center justify-between flex-wrap text-sm text-gray-500">
+                          <div className="w-fit">
+                            {" "}
+                            Position: Founder Vice-Chancellor <br />
+                            Period: 2017 - 2021
+                          </div>
+                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
                         </dd>
                       </div>
-                      
                     </dl>
                   </div>
                 </AccordionContent>
@@ -528,68 +679,165 @@ function Home() {
                   <div className="text-lg text-slate-600 text-justify">
                     <dl className="text-gray-900 divide-y divide-gray-200">
                       <div className="flex flex-col py-2">
-                        <dt className="mb-1 font-semibold md:text-md">
-                          Pandit Deendayal Upadhyay Bachat ewam Saakh Swavlambi
+                        <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
+                          <div className="w-fit">
+                            <svg
+                              height="20"
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle r="5" cx="13" cy="13" fill="black" />
+                            </svg>
+                          </div>
+                          <p>
+                            Pandit Deendayal Upadhyay Bachat ewam Saakh
+                            Swavlambi
+                          </p>{" "}
                           Sahkari Samiti Limited
                         </dt>
-                        <dd className="text-sm text-gray-500">
-                          Position: President <br />
-                          Period: 2012-2023
+                        <dd className=" ml-7 flex items-center justify-between flex-wrap text-sm text-gray-500">
+                          <div className="w-fit">
+                            {" "}
+                            Position: President <br />
+                            Period: 2012-2023
+                          </div>
+                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
-                        <dt className="mb-1 font-semibold md:text-md">
-                          All Jharkhand Chess Association
+                        <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
+                          <div className="w-fit">
+                            <svg
+                              height="20"
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle r="5" cx="13" cy="13" fill="black" />
+                            </svg>
+                          </div>
+                          <p>All Jharkhand Chess Association</p>
                         </dt>
-                        <dd className="text-sm text-gray-500">
-                          Position: President <br />
-                          Period: 2013 - present
+                        <dd className=" ml-7 flex items-center justify-between flex-wrap text-sm text-gray-500">
+                          <div className="w-fit">
+                            {" "}
+                            Position: President <br />
+                            Period: 2013 - present
+                          </div>
+                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
-                        <dt className="mb-1 font-semibold md:text-md">
-                          Jharkhand Wushu Association
+                        <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
+                          <div className="w-fit">
+                            <svg
+                              height="20"
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle r="5" cx="13" cy="13" fill="black" />
+                            </svg>
+                          </div>
+                          <p>Jharkhand Wushu Association</p>
                         </dt>
-                        <dd className="text-sm text-gray-500">
-                          Position: President <br />
-                          Period: 2023 - present
+                        <dd className=" ml-7 flex items-center justify-between flex-wrap text-sm text-gray-500">
+                          <div className="w-fit">
+                            {" "}
+                            Position: President <br />
+                            Period: 2023 - present
+                          </div>
+                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
-                        <dt className="mb-1 font-semibold md:text-md">
-                          Public Policy For Indian People
+                        <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
+                          <div className="w-fit">
+                            <svg
+                              height="20"
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle r="5" cx="13" cy="13" fill="black" />
+                            </svg>
+                          </div>
+                          <p>Public Policy For Indian People</p>
                         </dt>
-                        <dd className="text-sm text-gray-500">
-                          Position: President <br />
-                          Period: 2021 - present
+                        <dd className=" ml-7 flex items-center justify-between flex-wrap text-sm text-gray-500">
+                          <div className="w-fit">
+                            {" "}
+                            Position: President <br />
+                            Period: 2021 - present
+                          </div>
+                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
-                        <dt className="mb-1 font-semibold md:text-md">
-                          Chotanagpur Sarna Samiti
+                        <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
+                          <div className="w-fit">
+                            <svg
+                              height="20"
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle r="5" cx="13" cy="13" fill="black" />
+                            </svg>
+                          </div>
+                          <p>Chotanagpur Sarna Samiti</p>
                         </dt>
-                        <dd className="text-sm text-gray-500">
-                          Position: Founder & Patron <br />
-                          Period: 2022 - present
+                        <dd className=" ml-7 flex items-center justify-between flex-wrap text-sm text-gray-500">
+                          <div className="w-fit">
+                            {" "}
+                            Position: Founder & Patron <br />
+                            Period: 2022 - present
+                          </div>
+                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
-                        <dt className="mb-1 font-semibold md:text-md">
-                          Akhil Bhartiya Baishya Sammelan, Jharkhand
+                        <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
+                          <div className="w-fit">
+                            <svg
+                              height="20"
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle r="5" cx="13" cy="13" fill="black" />
+                            </svg>
+                          </div>
+                          <p>Akhil Bhartiya Baishya Sammelan, Jharkhand</p>
                         </dt>
-                        <dd className="text-sm text-gray-500">
-                          Position: Patron <br />
-                          Period: 2020 - present
+                        <dd className=" ml-7 flex items-center justify-between flex-wrap text-sm text-gray-500">
+                          <div className="w-fit">
+                            {" "}
+                            Position: Patron <br />
+                            Period: 2020 - present
+                          </div>
+                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
-                        <dt className="mb-1 font-semibold md:text-md">
-                          Hindi Salahkar Samiti, Bharatiya Dak Vibhaag, Sanchar
+                        <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
+                          <div className="w-fit">
+                            <svg
+                              height="20"
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle r="5" cx="13" cy="13" fill="black" />
+                            </svg>
+                          </div>
+                          <p>
+                            Hindi Salahkar Samiti, Bharatiya Dak Vibhaag,
+                            Sanchar
+                          </p>{" "}
                           Mantralaya, Government of India
                         </dt>
-                        <dd className="text-sm text-gray-500">
-                          Position: Member <br />
-                          Period: 2022 - present
+                        <dd className=" ml-7 flex items-center justify-between flex-wrap text-sm text-gray-500">
+                          <div className="w-fit">
+                            {" "}
+                            Position: Member <br />
+                            Period: 2022 - present
+                          </div>
+                          <div className="w-fit">Area: India</div>
                         </dd>
                       </div>
                     </dl>
@@ -611,14 +859,14 @@ function Home() {
               <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                 Born On 24th Feb 1972, Calcutta
               </h3>
-              {/* <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+              <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on February 24th, 1972
               </time>
               <p class="mb-4 text-base font-normal text-gray-500 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 voluptates corrupti dolorum. Alias mollitia consectetur
                 temporibus cumque numquam in excepturi!
-              </p> */}
+              </p>
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
@@ -635,14 +883,14 @@ function Home() {
                 In Loving Memory Of My Parents - Late Seth Ram Avatar Prasad and
                 Bhagwanti Devi
               </h3>
-              {/* <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+              <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 7th, 2021
               </time>
               <p class="text-base font-normal text-gray-500 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 voluptates corrupti dolorum. Alias mollitia consectetur
                 temporibus cumque numquam in excepturi!
-              </p> */}
+              </p>
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
@@ -658,14 +906,14 @@ function Home() {
               <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                 With Prime Minister Sri Narendra Modi In His First Tenure.
               </h3>
-              {/* <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+              <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 2nd, 2021
               </time>
               <p class="text-base font-normal text-gray-500 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 voluptates corrupti dolorum. Alias mollitia consectetur
                 temporibus cumque numquam in excepturi!
-              </p> */}
+              </p>
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
@@ -681,14 +929,14 @@ function Home() {
               <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                 With Rss Sangh Sanchalak Sri Mohan Bhagwat Ji.
               </h3>
-              {/* <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+              <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 2nd, 2021
               </time>
               <p class="text-base font-normal text-gray-500 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 voluptates corrupti dolorum. Alias mollitia consectetur
                 temporibus cumque numquam in excepturi!
-              </p> */}
+              </p>
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
@@ -705,14 +953,14 @@ function Home() {
                 Congragulating Prime Minister Sri. Narendra Modi On His Second
                 Tenure.
               </h3>
-              {/* <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+              <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 2nd, 2021
               </time>
               <p class="text-base font-normal text-gray-500 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 voluptates corrupti dolorum. Alias mollitia consectetur
                 temporibus cumque numquam in excepturi!
-              </p> */}
+              </p>
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
@@ -731,14 +979,14 @@ function Home() {
                   Latest
                 </span>
               </h3>
-              {/* <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+              <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 2nd, 2021
               </time>
               <p class="text-base font-normal text-gray-500 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 voluptates corrupti dolorum. Alias mollitia consectetur
                 temporibus cumque numquam in excepturi!
-              </p> */}
+              </p>
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
