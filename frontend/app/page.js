@@ -73,13 +73,33 @@ function Home() {
             </div>
           </div>
           <div className=" my-4 lg:my-0 mx-0 lg:ml-4 p-4 lg:w-3/4 shadow rounded-lg">
+            <div className="bg-gradient-to-r from-orange-500 to-rose-100 text-white rounded-md p-1 flex items-center -mt-3">
+              <h2 className=" text-2xl font-medium ">A Political Luminary, Dr. Pradip Varma's Political Voyage</h2>
+            </div>
+          <div className="text-lg text-slate-600 text-justify mt-3">
+                    Dr. Pradip Varma is an Indian politician and academician and
+                    a member of parliament of RAJYA SABHA, JHARKHAND from
+                    Bharatiya Janata Party. He is serving as the State General
+                    Secretary BJP Jharkhand unit from 2020 onwards. Erstwhile he
+                    served as State Vice President BJP Jharkhand in 2016 and
+                    state minister BJP Jharkhand in 2013. Earlier he served as
+                    BJP membership-in-charge, Khijri division of Ranchi. He was
+                    born on 24th February 1972 in Kolkata capital city of West
+                    Bengal into a Hindu Vaishya family but he is ancestral
+                    native of tehsil Barwadih in Latehar district of Jharkhand.
+                    From childhood he was interested in playing chess at the age
+                    of 12 and was a state level chess player. He also played
+                    cricket for the team Mohan Bagan at the age of 15.
+                  </div>
             <Accordion
               type="single"
               collapsible
               className="w-full"
               defaultValue="item-1"
             >
-              <AccordionItem value="item-1">
+              <br/>
+              <hr/>
+              {/* <AccordionItem value="item-1">
                 <AccordionTrigger className="text-xl hover:no-underline">
                   <div className="flex">
                     <svg
@@ -117,7 +137,7 @@ function Home() {
                     division of Ranchi.
                   </div>
                 </AccordionContent>
-              </AccordionItem>
+              </AccordionItem> */}
               <AccordionItem value="item-2">
                 <AccordionTrigger className="text-xl hover:no-underline">
                   <div className="flex">
