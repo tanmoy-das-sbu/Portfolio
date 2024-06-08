@@ -98,10 +98,10 @@ function Home() {
 
                         <div style={{ borderRight: "1px solid lightgrey" }}>
                           <p className="text-sm text-black font-semibold text-center ">
-                            BJP Jharkhand State General Secretary (First Term)
+                           State General Secretary (First Term)
                           </p>
                           <p className="text-sm text-black font-semibold text-center ">
-                            Additionally Headquarter In-charge
+                            Additionally HQ In-charge
                           </p>
                           <p className="text-md  text-center font-bold mt-3">
                             2020 - 2023
@@ -372,13 +372,14 @@ function Home() {
                     <dl className=" text-gray-900 divide-y divide-gray-200">
                       <div className="flex flex-col py-2">
                         <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md ">
-                          <div className="w-fit">
+                          <div className="w-fit mt-1">
                             <svg
                               height="20"
                               width="20"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <circle r="5" cx="13" cy="13" fill="black" />
+                              {/* <circle r="5" cx="13" cy="13" fill="black" /> */}
+                              <RiFocus2Line className="icon-orange" />
                             </svg>
                           </div>
                           <p>Secondary</p>
@@ -390,13 +391,14 @@ function Home() {
                       </div>
                       <div className="flex flex-col py-2">
                         <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md ">
-                          <div className="w-fit">
+                          <div className="w-fit mt-1">
                             <svg
                               height="20"
                               width="20"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <circle r="5" cx="13" cy="13" fill="black" />
+                              {/* <circle r="5" cx="13" cy="13" fill="black" /> */}
+                              <RiFocus2Line className="icon-orange" />
                             </svg>
                           </div>
                           <p>Higher Secondary</p>
@@ -410,13 +412,14 @@ function Home() {
                       </div>
                       <div className="flex flex-col py-2">
                         <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md ">
-                          <div className="w-fit">
+                          <div className="w-fit mt-1">
                             <svg
                               height="20"
                               width="20"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <circle r="5" cx="13" cy="13" fill="black" />
+                              {/* <circle r="5" cx="13" cy="13" fill="black" /> */}
+                              <RiFocus2Line className="icon-orange" />
                             </svg>
                           </div>
                           <p>Graduation</p>
@@ -428,13 +431,14 @@ function Home() {
                       </div>
                       <div className="flex flex-col py-2">
                         <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md ">
-                          <div className="w-fit">
+                          <div className="w-fit mt-1">
                             <svg
                               height="20"
                               width="20"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <circle r="5" cx="13" cy="13" fill="black" />
+                              {/* <circle r="5" cx="13" cy="13" fill="black" /> */}
+                              <RiFocus2Line className="icon-orange" />
                             </svg>
                           </div>
                           <p>Post Graduation</p>
@@ -446,13 +450,14 @@ function Home() {
                       </div>
                       <div className="flex flex-col py-2">
                         <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md ">
-                          <div className="w-fit">
+                          <div className="w-fit mt-1">
                             <svg
                               height="20"
                               width="20"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <circle r="5" cx="13" cy="13" fill="black" />
+                              {/* <circle r="5" cx="13" cy="13" fill="black" /> */}
+                              <RiFocus2Line className="icon-orange" />
                             </svg>
                           </div>
                           <p>Post Graduation</p>
@@ -464,13 +469,14 @@ function Home() {
                       </div>
                       <div className="flex flex-col py-2">
                         <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md ">
-                          <div className="w-fit">
+                          <div className="w-fit mt-1">
                             <svg
                               height="20"
                               width="20"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <circle r="5" cx="13" cy="13" fill="black" />
+                              {/* <circle r="5" cx="13" cy="13" fill="black" /> */}
+                              <RiFocus2Line className="icon-orange" />
                             </svg>
                           </div>
                           <p>Doctorate</p>
@@ -515,13 +521,14 @@ function Home() {
                     <dl className="text-gray-900 divide-y divide-gray-200">
                       <div className="flex flex-col py-2">
                         <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
-                          <div className="w-fit">
+                          <div className="w-fit mt-1">
                             <svg
                               height="20"
                               width="20"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <circle r="5" cx="13" cy="13" fill="black" />
+                              {/* <circle r="5" cx="13" cy="13" fill="black" /> */}
+                              <RiFocus2Line className="icon-orange" />
                             </svg>
                           </div>
                           <p>
@@ -535,18 +542,19 @@ function Home() {
                             Position: Founder Member <br />
                             Period: 2003 - Present
                           </div>
-                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
+                          <div className="w-fit"> Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
                         <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
-                          <div className="w-fit">
+                          <div className="w-fit mt-1">
                             <svg
                               height="20"
                               width="20"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <circle r="5" cx="13" cy="13" fill="black" />
+                              {/* <circle r="5" cx="13" cy="13" fill="black" /> */}
+                              <RiFocus2Line className="icon-orange" />
                             </svg>
                           </div>
                           <p>Sarala Birla Center for Skill Development</p>
@@ -557,18 +565,19 @@ function Home() {
                             Position: Founder Member <br />
                             Period: 2009 - present
                           </div>
-                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
+                          <div className="w-fit"> Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
                         <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
-                          <div className="w-fit">
+                          <div className="w-fit mt-1">
                             <svg
                               height="20"
                               width="20"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <circle r="5" cx="13" cy="13" fill="black" />
+                              {/* <circle r="5" cx="13" cy="13" fill="black" /> */}
+                              <RiFocus2Line className="icon-orange" />
                             </svg>
                           </div>
                           <p>Sarala Birla Public School</p>
@@ -578,18 +587,19 @@ function Home() {
                             Position: Founder Member <br />
                             Period: 2009 - present
                           </div>
-                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
+                          <div className="w-fit"> Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
                         <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
-                          <div className="w-fit">
+                          <div className="w-fit mt-1">
                             <svg
                               height="20"
                               width="20"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <circle r="5" cx="13" cy="13" fill="black" />
+                              {/* <circle r="5" cx="13" cy="13" fill="black" /> */}
+                              <RiFocus2Line className="icon-orange" />
                             </svg>
                           </div>
                           <p>Sarala Birla University</p>
@@ -600,7 +610,7 @@ function Home() {
                             Position: Founder Vice-Chancellor <br />
                             Period: 2017 - 2021
                           </div>
-                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
+                          <div className="w-fit"> Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                     </dl>
@@ -680,13 +690,14 @@ function Home() {
                     <dl className="text-gray-900 divide-y divide-gray-200">
                       <div className="flex flex-col py-2">
                         <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
-                          <div className="w-fit">
+                          <div className="w-fit mt-1">
                             <svg
                               height="20"
                               width="20"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <circle r="5" cx="13" cy="13" fill="black" />
+                              {/* <circle r="5" cx="13" cy="13" fill="black" /> */}
+                              <RiFocus2Line className="icon-orange" />
                             </svg>
                           </div>
                           <p>
@@ -701,18 +712,19 @@ function Home() {
                             Position: President <br />
                             Period: 2012-2023
                           </div>
-                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
+                          <div className="w-fit"> Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
                         <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
-                          <div className="w-fit">
+                          <div className="w-fit mt-1">
                             <svg
                               height="20"
                               width="20"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <circle r="5" cx="13" cy="13" fill="black" />
+                              {/* <circle r="5" cx="13" cy="13" fill="black" /> */}
+                              <RiFocus2Line className="icon-orange" />
                             </svg>
                           </div>
                           <p>All Jharkhand Chess Association</p>
@@ -723,18 +735,19 @@ function Home() {
                             Position: President <br />
                             Period: 2013 - present
                           </div>
-                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
+                          <div className="w-fit"> Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
                         <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
-                          <div className="w-fit">
+                          <div className="w-fit mt-1">
                             <svg
                               height="20"
                               width="20"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <circle r="5" cx="13" cy="13" fill="black" />
+                              {/* <circle r="5" cx="13" cy="13" fill="black" /> */}
+                              <RiFocus2Line className="icon-orange" />
                             </svg>
                           </div>
                           <p>Jharkhand Wushu Association</p>
@@ -745,18 +758,19 @@ function Home() {
                             Position: President <br />
                             Period: 2023 - present
                           </div>
-                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
+                          <div className="w-fit"> Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
                         <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
-                          <div className="w-fit">
+                          <div className="w-fit mt-1">
                             <svg
                               height="20"
                               width="20"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <circle r="5" cx="13" cy="13" fill="black" />
+                              {/* <circle r="5" cx="13" cy="13" fill="black" /> */}
+                              <RiFocus2Line className="icon-orange" />
                             </svg>
                           </div>
                           <p>Public Policy For Indian People</p>
@@ -767,18 +781,19 @@ function Home() {
                             Position: President <br />
                             Period: 2021 - present
                           </div>
-                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
+                          <div className="w-fit"> Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
                         <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
-                          <div className="w-fit">
+                          <div className="w-fit mt-1">
                             <svg
                               height="20"
                               width="20"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <circle r="5" cx="13" cy="13" fill="black" />
+                              {/* <circle r="5" cx="13" cy="13" fill="black" /> */}
+                              <RiFocus2Line className="icon-orange" />
                             </svg>
                           </div>
                           <p>Chotanagpur Sarna Samiti</p>
@@ -789,18 +804,19 @@ function Home() {
                             Position: Founder & Patron <br />
                             Period: 2022 - present
                           </div>
-                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
+                          <div className="w-fit"> Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
                         <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
-                          <div className="w-fit">
+                          <div className="w-fit mt-1">
                             <svg
                               height="20"
                               width="20"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <circle r="5" cx="13" cy="13" fill="black" />
+                              {/* <circle r="5" cx="13" cy="13" fill="black" /> */}
+                              <RiFocus2Line className="icon-orange" />
                             </svg>
                           </div>
                           <p>Akhil Bhartiya Baishya Sammelan, Jharkhand</p>
@@ -811,18 +827,19 @@ function Home() {
                             Position: Patron <br />
                             Period: 2020 - present
                           </div>
-                          <div className="w-fit">Area: Ranchi, Jharkhand</div>
+                          <div className="w-fit"> Ranchi, Jharkhand</div>
                         </dd>
                       </div>
                       <div className="flex flex-col py-2">
                         <dt className="mb-1 flex flex-row gap-1 font-semibold md:text-md">
-                          <div className="w-fit">
+                          <div className="w-fit mt-1">
                             <svg
                               height="20"
                               width="20"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <circle r="5" cx="13" cy="13" fill="black" />
+                              {/* <circle r="5" cx="13" cy="13" fill="black" /> */}
+                              <RiFocus2Line className="icon-orange" />
                             </svg>
                           </div>
                           <p>
@@ -837,7 +854,7 @@ function Home() {
                             Position: Member <br />
                             Period: 2022 - present
                           </div>
-                          <div className="w-fit">Area: India</div>
+                          <div className="w-fit"> India</div>
                         </dd>
                       </div>
                     </dl>
