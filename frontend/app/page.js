@@ -80,7 +80,12 @@ function Home() {
                     Political Career Highlights
                   </div>
                 </AlertDialogTrigger>
-                <AlertDialogContent>
+                <AlertDialogContent
+                  style={{
+                    width: "100%",
+                    maxWidth: "800px", // Adjust this value to increase or decrease the width
+                  }}
+                >
                   <AlertDialogHeader>
                     <AlertDialogTitle style={{ color: "#f47731" }}>
                       Political Career Timeline of Dr. Pradip Varma, BJP
@@ -91,17 +96,18 @@ function Home() {
                         style={{
                           display: "grid",
                           gridTemplateColumns: "auto auto auto",
-                          gap: "10px",
+                          rowGap: "50px",
+                          marginTop:"10px"
                         }}
                       >
                         {/* Second */}
 
                         <div style={{ borderRight: "1px solid lightgrey" }}>
                           <p className="text-sm text-black font-semibold text-center ">
-                           State General Secretary (First Term)
+                          BJP Jharkhand State General Secretary<br/> (First Term)
                           </p>
                           <p className="text-sm text-black font-semibold text-center ">
-                            Additionally HQ In-charge
+                            Additionally Headquarter In-charge
                           </p>
                           <p className="text-md  text-center font-bold mt-3">
                             2020 - 2023
@@ -879,11 +885,11 @@ function Home() {
               <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on February 24th, 1972
               </time>
-              <p class="mb-4 text-base font-normal text-gray-500 ">
+              {/* <p class="text-base font-normal text-gray-500 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 voluptates corrupti dolorum. Alias mollitia consectetur
                 temporibus cumque numquam in excepturi!
-              </p>
+              </p> */}
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
@@ -903,11 +909,11 @@ function Home() {
               <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 7th, 2021
               </time>
-              <p class="text-base font-normal text-gray-500 ">
+              {/* <p class="text-base font-normal text-gray-500 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 voluptates corrupti dolorum. Alias mollitia consectetur
                 temporibus cumque numquam in excepturi!
-              </p>
+              </p> */}
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
@@ -926,11 +932,11 @@ function Home() {
               <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 2nd, 2021
               </time>
-              <p class="text-base font-normal text-gray-500 ">
+              {/* <p class="text-base font-normal text-gray-500 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 voluptates corrupti dolorum. Alias mollitia consectetur
                 temporibus cumque numquam in excepturi!
-              </p>
+              </p> */}
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
@@ -949,11 +955,11 @@ function Home() {
               <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 2nd, 2021
               </time>
-              <p class="text-base font-normal text-gray-500 ">
+              {/* <p class="text-base font-normal text-gray-500 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 voluptates corrupti dolorum. Alias mollitia consectetur
                 temporibus cumque numquam in excepturi!
-              </p>
+              </p> */}
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
@@ -973,11 +979,11 @@ function Home() {
               <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 2nd, 2021
               </time>
-              <p class="text-base font-normal text-gray-500 ">
+              {/* <p class="text-base font-normal text-gray-500 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 voluptates corrupti dolorum. Alias mollitia consectetur
                 temporibus cumque numquam in excepturi!
-              </p>
+              </p> */}
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
@@ -999,11 +1005,11 @@ function Home() {
               <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 Released on December 2nd, 2021
               </time>
-              <p class="text-base font-normal text-gray-500 ">
+              {/* <p class="text-base font-normal text-gray-500 ">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
                 voluptates corrupti dolorum. Alias mollitia consectetur
                 temporibus cumque numquam in excepturi!
-              </p>
+              </p> */}
               <div className="flex items-center justify-center mr-6">
                 <img
                   alt=""
