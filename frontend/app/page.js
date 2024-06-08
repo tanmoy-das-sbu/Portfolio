@@ -228,7 +228,7 @@ function Home() {
           </div>
           <div className=" my-4 lg:my-0 mx-0 lg:ml-4 p-4 lg:w-3/4 shadow rounded-lg">
             <div className="bg-gradient-to-r from-orange-500 to-rose-100 text-white rounded-md p-1 flex items-center -mt-3">
-              <h2 className=" text-2xl font-medium ">A Political Luminary, Dr. Pradip Varma's Political Voyage</h2>
+              <h2 className=" text-2xl font-medium ">A Political Luminary, Dr. Pradip Varma&apos;s Political Voyage</h2>
             </div>
           <div className="text-lg text-slate-600 text-justify mt-3">
                     Dr. Pradip Varma is an Indian politician and academician and
