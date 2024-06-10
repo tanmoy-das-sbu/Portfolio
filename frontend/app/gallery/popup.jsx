@@ -14,7 +14,8 @@ const Modal = ({ image, onClose }) => {
                         <Image src={image.imageUrl} alt={image.altText} width={1336} height={600} className='popup-img' />
                     </section>
                     <section className="md:w-1/2 md:h-full">
-                        <h2 className='font-bold text-lg md:text-2xl'>{image.title}</h2>
+                        <h2 className='font-bold text-lg md:text-2xl'>Photo Title</h2>
+                        {/* <h2 className='font-bold text-lg md:text-2xl'>{image.title}Heading</h2>
                         <div>
                             {image.socialTags.map((tag, index) => (
                                 <span key={index} className="text-blue-500">{index !== 0 && ' '}#{tag}</span>
@@ -23,7 +24,7 @@ const Modal = ({ image, onClose }) => {
                         <br />
                         <p className="text-sm md:text-base">{image.shortDescription}</p>
                         <br />
-                        <div className="absolute bottom-2 right-2 text-xs md:text-sm text-gray-500">{formatDate(image.date)}</div>
+                        <div className="absolute bottom-2 right-2 text-xs md:text-sm text-gray-500">{formatDate(image.date)}</div> */}
                     </section>
                 </div>
             </div>
