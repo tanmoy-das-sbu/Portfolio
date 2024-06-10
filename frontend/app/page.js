@@ -83,7 +83,7 @@ function Home() {
                 <AlertDialogContent
                   style={{
                     width: "100%",
-                    maxWidth: "800px", // Adjust this value to increase or decrease the width
+                    maxWidth: "800px",
                   }}
                 >
                   <AlertDialogHeader>
@@ -97,7 +97,8 @@ function Home() {
                           display: "grid",
                           gridTemplateColumns: "auto auto auto",
                           rowGap: "50px",
-                          marginTop:"10px"
+                          marginTop:"10px",
+                          alignItems: "center",
                         }}
                       >
                         {/* Second */}
@@ -227,7 +228,7 @@ function Home() {
             </div>
           </div>
           <div className=" my-4 lg:my-0 mx-0 lg:ml-4 p-4 lg:w-3/4 shadow rounded-lg">
-            <div className="bg-gradient-to-r from-orange-500 to-rose-100 text-white rounded-md p-1 flex items-center -mt-3">
+            <div className="bg-gradient-to-r from-orange-500 to-orange-500 text-white rounded-md p-1 flex items-center -mt-3">
               <h2 className=" text-2xl font-medium ">A Political Luminary, Dr. Pradip Varma&apos;s Political Voyage</h2>
             </div>
           <div className="text-lg text-slate-600 text-justify mt-3">
