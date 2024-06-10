@@ -56,9 +56,9 @@ export function NavigationMenuBar() {
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}
                 style={{
-                  backgroundColor: activeSection === "/socials" ? "#f3f0eb" : "transparent", 
-                  color: activeSection === "/socials" ?"#f47731":"#f3f0eb",
-                  borderRadius: "0px"
+                  borderBottom: activeSection === "/socials" ? "8px solid #f3f0eb" : "0px", 
+                  // color: activeSection === "/socials" ?"#f47731":"#f3f0eb",
+                  borderRadius: "0px",
                 }}
               >
                 <p>Socials</p>
@@ -70,8 +70,7 @@ export function NavigationMenuBar() {
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}
                 style={{
-                  backgroundColor: activeSection === "/contact" ? "#f3f0eb" : "transparent", 
-                  color: activeSection === "/contact" ?"#f47731":"#f3f0eb",
+                  borderBottom: activeSection === "/contact" ? "8px solid #f3f0eb" : "0px",
                   borderRadius: "0px"
                 }}
               >
@@ -84,9 +83,10 @@ export function NavigationMenuBar() {
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}
                 style={{
-                  backgroundColor: activeSection === "/blog" ? "#f3f0eb" : "transparent", 
-                  color: activeSection === "/blog" ?"#f47731":"#f3f0eb",
-                  borderRadius: "0px"
+                  border: activeSection === "/blog" ? "4px solid #f3f0eb" : "transparent", 
+                  // color: activeSection === "/blog" ?"#f47731":"#f3f0eb",
+                  borderRadius: "0px",
+                  // border: "2px solid orange"
                 }}
               >
                 <p>Blog</p>
