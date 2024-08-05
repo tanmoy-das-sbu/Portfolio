@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+import express from "express";
 import connectDB from "./src/db/index.js";
 import { app } from "./src/app.js";
 import cors from "cors";
@@ -17,8 +18,10 @@ dotenv.config({
 });
 
 app.use(cors());
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 
+app.use(express.json({ limit: '50mb' })); // Increase JSON payload size limit
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 app.use(session({
   secret: 'papri-chat',

@@ -102,7 +102,7 @@ router.delete('/DeleteMultiple', authenticateJWT, async (req, res) => {
 
         const result = await Video.deleteMany({ _id: { $in: ids } });
 
-        res.status(200).json({ message: `${result.deletedCount} galleries deleted successfully` });
+        res.status(200).json({ message: `${result.deletedCount} videos deleted successfully` });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
