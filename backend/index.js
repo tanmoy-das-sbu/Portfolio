@@ -11,6 +11,7 @@ import Gallery from "./src/routes/gallery.route.js";
 import Languages from "./src/routes/translate.route.js";
 import scheduleUpdater from "./src/utils/trigger.js"
 import Auth from "./src/routes/auth.route.js"
+import Video from "./src/routes/video.route.js"
 dotenv.config({
   path: "./env",
 });
@@ -38,6 +39,7 @@ connectDB()
     app.use('/Languages', Languages);
     app.use('/Languages', Languages);
     app.use('/Auth', Auth);
+    app.use('/Attheparliament', Video);
 
     app.listen(process.env.PORT || 8000, () => {
       console.log(`Server is running at port: ${process.env.PORT}`);
