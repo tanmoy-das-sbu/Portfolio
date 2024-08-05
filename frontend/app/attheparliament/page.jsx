@@ -6,6 +6,11 @@ import Loading from "@/components/component/loader/loading"; // Import the Loadi
 
 const GreatVibes = Great_Vibes({ subsets: ["latin"], weight: "400" });
 
+const parseDate = (dateString) => {
+  const [day, month, year] = dateString.split("/");
+  return new Date(year, month - 1, day);
+};
+
 const Attheparliament = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true); // Add loading state
@@ -17,7 +22,8 @@ const Attheparliament = () => {
           "https://portfolio-git-main-tanmoys-projects.vercel.app/attheparliament/GetAll"
         );
         const result = await response.json();
-        setData(result.data);
+        const sortedData = result.data.sort((a, b) => parseDate(a.shortDescription) - parseDate(b.shortDescription));
+        setData(sortedData);
         setLoading(false); // Set loading to false after data is fetched
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -52,7 +58,7 @@ const Attheparliament = () => {
                 {item.title}
               </h3>
               <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                {item.shortDescription}
+                {parseDate(item.shortDescription).toLocaleDateString()}
               </time>
               <div className="flex items-center justify-center mr-6">
                 <video width="750" height="500" controls>
