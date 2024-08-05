@@ -10,7 +10,6 @@ cloudinary.config({
     api_secret: 'l10Tf5FDFNapfC-nDh8vQMEb68w'
 });
 
-
 const upload = multer().single('video');
 
 const compressVideo = (buffer) => {
@@ -38,15 +37,18 @@ const compressVideo = (buffer) => {
     });
 };
 
-const streamUpload = (buffer) => {
+const streamUploadLarge = (buffer) => {
     return new Promise((resolve, reject) => {
-        const stream = cloudinary.uploader.upload_stream((error, result) => {
-            if (result) {
-                resolve(result);
-            } else {
-                reject(error);
+        const stream = cloudinary.uploader.upload_large_stream(
+            { resource_type: 'video' },
+            (error, result) => {
+                if (result) {
+                    resolve(result);
+                } else {
+                    reject(error);
+                }
             }
-        });
+        );
 
         streamifier.createReadStream(buffer).pipe(stream);
     });
@@ -64,7 +66,7 @@ const videoUploadMiddleware = async (req, res, next) => {
             }
 
             const compressedVideo = await compressVideo(req.file.buffer);
-            const result = await streamUpload(compressedVideo);
+            const result = await streamUploadLarge(compressedVideo);
 
             req.videoUrl = result.secure_url;
             next();
