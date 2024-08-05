@@ -52,6 +52,20 @@ export function NavigationMenuBar() {
             </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
+            <Link href="/attheparliament" legacyBehavior passHref>
+              <NavigationMenuLink
+                className={navigationMenuTriggerStyle()}
+                style={{
+                  backgroundColor: activeSection === "/attheparliament" ? "#f3f0eb" : "transparent", 
+                  color: activeSection === "/attheparliament" ?"#f47731":"#f3f0eb",
+                  borderRadius: "0px"
+                }}
+              >
+                <p>At the Parliament</p>
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
             <Link href="/socials" legacyBehavior passHref>
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}

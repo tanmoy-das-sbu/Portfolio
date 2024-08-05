@@ -40,6 +40,11 @@ const Buttons = () => {
                       </Link>
                     </SheetClose>
                     <SheetClose asChild>
+                      <Link href="/attheparliament" passHref>
+                        At the Parliament
+                      </Link>
+                    </SheetClose>
+                    <SheetClose asChild>
                       <Link href="/socials" passHref>
                         Socials
                       </Link>

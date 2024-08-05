@@ -2,11 +2,13 @@
 import React, { useEffect, useState } from "react";
 import { Great_Vibes } from "next/font/google";
 import { RiFocus2Line } from "rocketicons/ri";
+import Loading from "@/components/component/loader/loading"; // Import the Loading component
 
 const GreatVibes = Great_Vibes({ subsets: ["latin"], weight: "400" });
 
 const Attheparliament = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true); // Add loading state
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,13 +18,23 @@ const Attheparliament = () => {
         );
         const result = await response.json();
         setData(result.data);
+        setLoading(false); // Set loading to false after data is fetched
       } catch (error) {
         console.error("Error fetching data:", error);
+        setLoading(false); // Set loading to false even if there's an error
       }
     };
 
     fetchData();
   }, []);
+
+  if (loading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto mt-[180px]">
@@ -43,7 +55,7 @@ const Attheparliament = () => {
                 {item.shortDescription}
               </time>
               <div className="flex items-center justify-center mr-6">
-                <video  width="750" height="500" controls>
+                <video width="750" height="500" controls>
                   <source src={item.videoUrl} type="video/mp4" />
                 </video>
               </div>
