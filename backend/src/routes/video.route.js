@@ -23,9 +23,9 @@ router.get('/GetAll', async (req, res) => {
 
 router.post('/Add', authenticateJWT, async (req, res) => {
     try {
-        const { title,shortDescription, videoUrl } = req.body;
+        const { title, shortDescription, videoUrl } = req.body;
         const galleryData = new Video({
-            title,shortDescription, videoUrl
+            title, shortDescription, videoUrl
         });
 
         const data = await galleryData.save();
@@ -64,10 +64,10 @@ router.get('/GetById/:id', async (req, res) => {
 router.put('/UpdateById/:id', authenticateJWT, async (req, res) => {
     try {
         const { id } = req.params;
-        const { title,shortDescription, videoUrl } = req.body;
+        const { title, shortDescription, videoUrl } = req.body;
 
         const updateGallery = await Video.findByIdAndUpdate(id, {
-            title,shortDescription, videoUrl
+            title, shortDescription, videoUrl
         }, { new: true });
 
         if (!updateGallery) {

@@ -37,7 +37,6 @@ connectDB()
     app.use('/Subscribers', Subscribers);
     app.use('/Gallery', Gallery);
     app.use('/Languages', Languages);
-    app.use('/Languages', Languages);
     app.use('/Auth', Auth);
     app.use('/Attheparliament', Video);
 
