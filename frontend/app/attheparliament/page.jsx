@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Great_Vibes } from "next/font/google";
 import { RiFocus2Line } from "rocketicons/ri";
 import Loading from "@/components/component/loader/loading"; // Import the Loading component
@@ -14,6 +14,7 @@ const parseDate = (dateString) => {
 const Attheparliament = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true); // Add loading state
+  const videoRefs = useRef([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,15 +25,23 @@ const Attheparliament = () => {
         const result = await response.json();
         const sortedData = result.data.sort((a, b) => parseDate(a.shortDescription) - parseDate(b.shortDescription));
         setData(sortedData);
-        setLoading(false); // Set loading to false after data is fetched
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
-        setLoading(false); // Set loading to false even if there's an error
+        setLoading(false); 
       }
     };
 
     fetchData();
   }, []);
+
+  const handlePlay = (index) => {
+    videoRefs.current.forEach((video, i) => {
+      if (i !== index && video) {
+        video.pause();
+      }
+    });
+  };
 
   if (loading) {
     return (
@@ -46,7 +55,7 @@ const Attheparliament = () => {
     <div className="container mx-auto mt-[180px]">
       <div className="my-4 shadow rounded-3xl">
         <h2 className="text-4xl md:text-6xl text-center mb-4 p-4 rounded-t-2xl text-orange-500">
-          <span className={GreatVibes.className}>At the Parliament</span>
+          <span className={GreatVibes.className}>Highlights from the Rajya Sabha</span>
         </h2>
         <ol className="relative border-s border-gray-200 dark:border-gray-700">
           {data.map((item, index) => (
@@ -61,7 +70,13 @@ const Attheparliament = () => {
                 {parseDate(item.shortDescription).toLocaleDateString()}
               </time>
               <div className="flex items-center justify-center mr-6">
-                <video width="750" height="500" controls>
+                <video
+                  ref={(el) => (videoRefs.current[index] = el)}
+                  width="750"
+                  height="500"
+                  controls
+                  onPlay={() => handlePlay(index)}
+                >
                   <source src={item.videoUrl} type="video/mp4" />
                 </video>
               </div>
@@ -74,3 +89,4 @@ const Attheparliament = () => {
 };
 
 export default Attheparliament;
+

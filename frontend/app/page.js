@@ -49,7 +49,8 @@ function Home() {
 
             <p className="text-sm font-semibold text-center mt-3">
               MEMBER OF PARLIAMENT <br />
-              JHARKHAND RAJYA SABHA
+              RAJYA SABHA <br/>
+              JHARKHAND 
             </p>
             <div className="mt-4 p-2 border-t border-gray-200">
               {/* first */}
