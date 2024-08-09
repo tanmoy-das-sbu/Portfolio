@@ -63,11 +63,11 @@ const Attheparliament = () => {
               <span className="absolute flex items-center justify-center w-6 h-6 bg-orange-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-orange-600">
                 <RiFocus2Line className="icon-orange" />
               </span>
-              <div className="flex flex-wrap gap-5">
+              <div className="flex flex-wrap md:gap-5 gap-2 mb-5">
               <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
                 {item.title}
               </h3>
-              {item.videoTag && <span class="bg-[#FFEDD5] text-[#F47621] text-md font-medium me-2 px-4 py-1 rounded-md ">{item.videoTag}</span>}
+              {item.videoTag && <span class="bg-[#FFEDD5] text-[#F47621] md:text-md text-sm font-medium me-2 md:px-4 px-2 md:py-1 py-0.5 rounded-md ">{item.videoTag}</span>}
               </div>
               <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 {parseDate(item.shortDescription).toLocaleDateString()}
