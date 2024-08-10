@@ -23,12 +23,15 @@ const Attheparliament = () => {
           "https://portfolio-git-main-tanmoys-projects.vercel.app/attheparliament/GetAll"
         );
         const result = await response.json();
-        const sortedData = result.data.sort((a, b) => parseDate(a.shortDescription) - parseDate(b.shortDescription));
+        const sortedData = result.data.sort(
+          (a, b) =>
+            parseDate(b.shortDescription) - parseDate(a.shortDescription)
+        ); // Reverse the sorting order
         setData(sortedData);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
@@ -55,7 +58,9 @@ const Attheparliament = () => {
     <div className="container mx-auto mt-[180px]">
       <div className="my-4 shadow rounded-3xl">
         <h2 className="text-4xl md:text-6xl text-center mb-4 p-4 rounded-t-2xl text-orange-500">
-          <span className={GreatVibes.className}>Highlights from the Rajya Sabha</span>
+          <span className={GreatVibes.className}>
+            Highlights from the Rajya Sabha
+          </span>
         </h2>
         <ol className="relative border-s border-gray-200 dark:border-gray-700">
           {data.map((item, index) => (
@@ -64,10 +69,14 @@ const Attheparliament = () => {
                 <RiFocus2Line className="icon-orange" />
               </span>
               <div className="flex flex-wrap md:gap-5 gap-2 mb-5">
-              <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
-                {item.title}
-              </h3>
-              {item.videoTag && <span class="bg-[#FFEDD5] text-[#F47621] md:text-md text-sm font-medium me-2 md:px-4 px-2 md:py-1 py-0.5 rounded-md ">{item.videoTag}</span>}
+                <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+                  {item.title}
+                </h3>
+                {item.videoTag && (
+                  <span className="bg-[#FFEDD5] text-[#F47621] md:text-md text-sm font-medium me-2 md:px-4 px-2 md:py-1 py-0.5 rounded-md ">
+                    {item.videoTag}
+                  </span>
+                )}
               </div>
               <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 {parseDate(item.shortDescription).toLocaleDateString()}
@@ -92,4 +101,3 @@ const Attheparliament = () => {
 };
 
 export default Attheparliament;
-
