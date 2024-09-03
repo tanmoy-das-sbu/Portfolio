@@ -136,15 +136,16 @@ const Footer = () => {
           <div className=" text-lg flex flex-col gap-3 lg:pr-14 lg:pl-14 ">
             <a
               target="blank"
-              href="https://pmcares.gov.in/en/web/contribution/donate_india"
+              href="https://www.narendramodi.in/bjpsadasyata2024/HSC3H1"
             >
               <button
                 type="button"
-                className="w-full text-orange-600 hover:text-white border border-orange-600 hover:bg-orange-500  font-medium rounded-3xl text-sm px-5 py-2.5 text-center  mb-2"
+                className="w-full text-orange-600 hover:text-white border border-orange-600 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-3xl text-sm px-5 py-2.5 text-center  mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-600 dark:focus:ring-orange-900"
               >
-                PM CARES
+                भाजपा सदस्यता अभियान - 2024
               </button>
             </a>
+           
             <a
               target="blank"
               href="https://www.narendramodi.in/donation/G5EC2L-F"
@@ -156,15 +157,16 @@ const Footer = () => {
                 PARTY FUND
               </button>
             </a>
+
             <a
               target="blank"
-              href="https://www.bjp.org/membership/en/home/donation"
+              href="https://pmcares.gov.in/en/web/contribution/donate_india"
             >
               <button
                 type="button"
-                className="w-full text-orange-600 hover:text-white border border-orange-600 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-3xl text-sm px-5 py-2.5 text-center  mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-600 dark:focus:ring-orange-900"
+                className="w-full text-orange-600 hover:text-white border border-orange-600 hover:bg-orange-500  font-medium rounded-3xl text-sm px-5 py-2.5 text-center  mb-2"
               >
-                BJP
+                PM CARES
               </button>
             </a>
           </div>
