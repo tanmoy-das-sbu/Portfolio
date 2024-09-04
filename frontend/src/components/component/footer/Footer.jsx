@@ -16,12 +16,13 @@ import WhatsApp from "../../../../public/images/icons/whatsapp.svg";
 import Link from "next/link";
 
 import TranslatePage from "../../../../app/schedule/TranslatePage";
+import './footer.css';
 
 const barlow = Barlow_Condensed({ subsets: ["latin"], weight: "400" });
 
 const Footer = () => {
   return (
-    <div className="w-full h-fit bg-[#F3F0EB]">
+    <div className="w-full h-fit bg-[#F3F0EB]" id="footer">
       <div className="container grid md:grid-cols-3 grid-cols-1 gap-4 text-black ">
         <section className="pb-3 pt-3  flex flex-col gap-10  ">
           <div>
@@ -140,7 +141,7 @@ const Footer = () => {
             >
               <button
                 type="button"
-                className="w-full text-orange-600 hover:text-white border border-orange-600 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-3xl text-sm px-5 py-2.5 text-center  mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-600 dark:focus:ring-orange-900"
+                className="w-full text-orange-600 hover:text-white border border-orange-600 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-3xl text-sm px-5 py-2.5 text-center mb-2 dark:border-orange-300 dark:text-orange-300 dark:hover:text-white dark:hover:bg-orange-600 dark:focus:ring-orange-900 blinking-button"
               >
                 भाजपा सदस्यता अभियान - 2024
               </button>

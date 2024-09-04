@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "../src/components/component/header/Header";
 import Footer from "../src/components/component/footer/Footer";
 import { Toaster } from "@/components/ui/toaster";
-
+import ScrollDownBtn from "@/components/component/scrollDownBtn/scrollDownBtn";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +19,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Toaster />
+        <ScrollDownBtn />
         <Footer />
       </body>
     </html>
