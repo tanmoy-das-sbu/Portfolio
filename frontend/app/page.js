@@ -669,7 +669,16 @@ function Home() {
               <AccordionItem value="item-6">
                 <AccordionTrigger className="text-xl hover:no-underline">
                   <div className="flex">
-                    <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="rgb(244, 119, 49)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-speaker">
+                    <svg 
+                        viewBox="0 0 24 24" 
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6  shrink-0  stroke-orange-500"
+                        fill="none" 
+                        stroke="currentColor" 
+                        stroke-width="1.5" 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round" 
+                      >
                       <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
                       <circle cx="12" cy="14" r="4"></circle>
                       <line x1="12" y1="6" x2="12.01" y2="6"></line>
