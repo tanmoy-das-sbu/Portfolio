@@ -1,0 +1,24 @@
+.scrollDownBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgb(244, 118, 33);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+  
+  .scrollDownBtn:hover {
+    background-color: #fff;
+    color: rgb(244, 118, 33);
+  }
