@@ -188,7 +188,7 @@ function Home() {
                   }}
                 >
                   <div class="text-white w-2/3 bg-[#F47621] hover:bg-[#F47621]/90 focus:outline-none  font-medium rounded-lg text-sm px-5 mt-2 py-2.5 text-center inline-flex items-center me-2 mb-2">
-                    Political Career Highlights
+                    <p className="w-full">Political Career Highlights</p>
                   </div>
                 </AlertDialogTrigger>
                 <AlertDialogContent
