@@ -31,9 +31,9 @@ const Footer = () => {
                 MULTI LANGUAGE TRANSLATE
               </h2>
             </div>
-          <div>
-        <TranslatePage/>
-        </div>
+            <div>
+              <TranslatePage />
+            </div>
           </div>
           <div>
             <div className={barlow.className}>
@@ -52,7 +52,8 @@ const Footer = () => {
                       <Image
                         src={facebook}
                         className="h-10 w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 rounded-full bg-white shadow-lg p-0 lg:p-2"
-                        draggable="false" alt="facebook"
+                        draggable="false"
+                        alt="facebook"
                       />
                     </a>
                   </TooltipTrigger>
@@ -66,7 +67,8 @@ const Footer = () => {
                       <Image
                         src={twitter}
                         className="h-10 w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 rounded-full bg-white shadow-lg p-0 lg:p-2"
-                        draggable="false" alt="twitter"
+                        draggable="false"
+                        alt="twitter"
                       />
                     </a>
                   </TooltipTrigger>
@@ -80,7 +82,8 @@ const Footer = () => {
                       <Image
                         src={youtube}
                         className="h-10 w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 rounded-full bg-white shadow-lg p-0 lg:p-2"
-                        draggable="false" alt="youtube"
+                        draggable="false"
+                        alt="youtube"
                       />
                     </a>
                   </TooltipTrigger>
@@ -97,7 +100,8 @@ const Footer = () => {
                       <Image
                         src={instagram}
                         className="h-10 w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 rounded-full bg-white shadow-lg p-0 lg:p-2"
-                        draggable="false" alt="instagram"
+                        draggable="false"
+                        alt="instagram"
                       />
                     </a>
                   </TooltipTrigger>
@@ -108,15 +112,15 @@ const Footer = () => {
                 <Tooltip>
                   <TooltipTrigger>
                     <a
-                     href="https://wa.me/+919450282852"
-                     
-                     target="_blank"
-                     rel="noopener noreferrer"
+                      href="https://wa.me/+919450282852"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <Image
                         src={WhatsApp}
                         className="h-10 w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 rounded-full bg-white shadow-lg p-0 lg:p-2"
-                        draggable="false" alt="instagram"
+                        draggable="false"
+                        alt="instagram"
                       />
                     </a>
                   </TooltipTrigger>
@@ -129,7 +133,7 @@ const Footer = () => {
           </div>
         </section>
         <section className="pb-3 pt-3 ">
-          <div className={barlow.className} >
+          <div className={barlow.className}>
             <h2 className="text-3xl py-1 text-[#F47621] border-b-2 mb-2 lg:ml-14">
               DONATE NOW
             </h2>
@@ -146,7 +150,7 @@ const Footer = () => {
                 भाजपा सदस्यता अभियान - 2024
               </button>
             </a>
-           
+
             <a
               target="blank"
               href="https://www.narendramodi.in/donation/G5EC2L-F"
@@ -175,16 +179,23 @@ const Footer = () => {
         <section className="pb-3 pt-3 ">
           <div className={barlow.className}>
             <h2 className="text-3xl py-1 text-[#F47621]  border-b-2 mb-2">
-              CONTACT   
+              CONTACT
             </h2>
-            
           </div>
           <div className=" text-lg">
             <div className="h-fit flex gap-3 flex-col">
               <p>
                 <span className="font-bold">Office: </span>
                 <span>
-                  BJP Office, Harmu Housing Colony, Argora, Ranchi, Jharkhand, PIN - 834002
+                  402, Brahmputra Apartments, Dr. B. D. Marg, New Delhi - 110001
+                  Tel: 011-23312022
+                </span>
+              </p>
+              <p>
+                <span className="font-bold">Residential: </span>
+                <span>
+                  313, Ranchi Puruliya Road, Birla Campus, Ara, Mahilong,
+                  Ranchi, Jharkhand. 83510
                 </span>
               </p>
               <p>
@@ -199,7 +210,6 @@ const Footer = () => {
             <div></div>
           </div>
         </section>
-        
       </div>
     </div>
   );

@@ -49,8 +49,8 @@ function Home() {
 
             <p className="text-sm font-semibold text-center mt-3">
               MEMBER OF PARLIAMENT <br />
-              RAJYA SABHA <br/>
-              JHARKHAND 
+              RAJYA SABHA <br />
+              JHARKHAND
             </p>
             <div className="mt-4 p-2 border-t border-gray-200">
               {/* first */}
@@ -75,9 +75,99 @@ function Home() {
                     fontWeight: "bold",
                   }}
                 >
-                  <div
-                    class="text-white bg-[#F47621] hover:bg-[#F47621]/90 focus:outline-none  font-medium rounded-lg text-sm px-5 mt-2 py-2.5 text-center inline-flex items-center me-2 mb-2"
-                  >
+                  <div class="text-white bg-[#F47621] hover:bg-[#F47621]/90 focus:outline-none  font-medium rounded-lg text-sm px-5 mt-2 py-2.5 text-center inline-flex items-center me-2 mb-2">
+                    Positions Held
+                  </div>
+                </AlertDialogTrigger>
+                <AlertDialogContent
+                  style={{
+                    width: "100%",
+                    maxWidth: "800px",
+                  }}
+                >
+                  <AlertDialogHeader>
+                    <AlertDialogTitle style={{ color: "#f47731" }}>
+                      Positions Held by Dr. Pradip Varma
+                    </AlertDialogTitle>
+                    <AlertDialogDescription>
+                      <div
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: "auto auto auto",
+                          rowGap: "50px",
+                          marginTop: "10px",
+                          alignItems: "center",
+                        }}
+                      >
+                        {/* Second */}
+
+                        <div style={{ borderRight: "1px solid lightgrey", padding: "10px"  }}>
+                          <p className="text-sm text-black font-semibold text-center ">
+                            Member of Insititute Body, AIIMS, Deoghar
+                          </p>
+                          <p className="text-md  text-center font-bold mt-3">
+                            Dec. 2024 onwards
+                          </p>
+                        </div>
+
+                        <div style={{ borderRight: "1px solid lightgrey", padding: "10px"  }}>
+                          {/* Third */}
+                          <p className="text-sm text-black font-semibold text-center">
+                            Member, Consultative Committee for the Ministry of
+                            Electronics and Information Technology
+                          </p>
+                          <p className="text-md  text-center font-bold mt-3">
+                            Oct. 2024 onwards
+                          </p>
+                        </div>
+                        {/* Forth */}
+                        <div>
+                          <p className="text-sm text-black  font-semibold text-center">
+                            Member, Committee on Coal, Mines and Steel
+                          </p>
+                          <p className="text-md  text-center font-bold mt-3">
+                            Sept. 2024 onwards
+                          </p>
+                        </div>
+                        <div style={{ borderRight: "1px solid lightgrey", padding: "10px"  }}>
+                          {/* Fifth */}
+                          <p className="text-sm text-black font-semibold text-center">
+                            Elected to Rajya Sabha
+                          </p>
+                          <p className="text-md  text-center font-bold mt-3">
+                            May 2024
+                          </p>
+                        </div>
+                        <div style={{ borderRight: "1px solid lightgrey", padding: "10px"  }}>
+                          {/* Sixth */}
+                          <p className="text-sm text-black font-semibold text-center">
+                            Member, Hindi Salahkar Samiti, Bharatiya Dak
+                            Vibhaag, Sanchar Mantralaya, Government of India
+                          </p>
+                          <p className="text-md  text-center font-bold mt-3">
+                            2022 onwards
+                          </p>
+                        </div>
+                      </div>
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogAction style={{ background: "#f47731" }}>
+                      Close
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+              <AlertDialog>
+                <AlertDialogTrigger
+                  style={{
+                    color: "#FF9933",
+                    width: "100%",
+                    textAlign: "center",
+                    fontWeight: "bold",
+                  }}
+                >
+                  <div class="text-white bg-[#F47621] hover:bg-[#F47621]/90 focus:outline-none  font-medium rounded-lg text-sm px-5 mt-2 py-2.5 text-center inline-flex items-center me-2 mb-2">
                     Political Career Highlights
                   </div>
                 </AlertDialogTrigger>
@@ -98,15 +188,16 @@ function Home() {
                           display: "grid",
                           gridTemplateColumns: "auto auto auto",
                           rowGap: "50px",
-                          marginTop:"10px",
+                          marginTop: "10px",
                           alignItems: "center",
                         }}
                       >
                         {/* Second */}
 
-                        <div style={{ borderRight: "1px solid lightgrey" }}>
+                        <div style={{ borderRight: "1px solid lightgrey"  }}>
                           <p className="text-sm text-black font-semibold text-center ">
-                          BJP Jharkhand State General Secretary<br/> (First Term)
+                            BJP Jharkhand State General Secretary
+                            <br /> (First Term)
                           </p>
                           <p className="text-sm text-black font-semibold text-center ">
                             Additionally Headquarter In-charge
@@ -119,10 +210,10 @@ function Home() {
                           </p>
                         </div>
 
-                        <div style={{ borderRight: "1px solid lightgrey" }}>
+                        <div style={{ borderRight: "1px solid lightgrey"  }}>
                           {/* Third */}
                           <p className="text-sm text-black font-semibold text-center">
-                            State Vice President
+                            Party State Secretary
                           </p>
                           <p className="text-md  text-center font-bold mt-3">
                             2016 - 2020
@@ -143,10 +234,10 @@ function Home() {
                             BJP Jharkhand
                           </p>
                         </div>
-                        <div style={{ borderRight: "1px solid lightgrey" }}>
+                        <div style={{ borderRight: "1px solid lightgrey"  }}>
                           {/* Fifth */}
                           <p className="text-sm text-black font-semibold text-center">
-                            State secretary
+                            Party State Minister
                           </p>
                           <p className="text-md  text-center font-bold mt-3">
                             2013
@@ -155,7 +246,7 @@ function Home() {
                             BJP Jharkhand
                           </p>
                         </div>
-                        <div style={{ borderRight: "1px solid lightgrey" }}>
+                        <div style={{ borderRight: "1px solid lightgrey"  }}>
                           {/* Sixth */}
                           <p className="text-sm text-black font-semibold text-center">
                             Convener, State Training
@@ -179,7 +270,7 @@ function Home() {
                             BJP Jharkhand
                           </p>
                         </div>
-                        <div style={{ borderRight: "1px solid lightgrey" }}>
+                        <div style={{ borderRight: "1px solid lightgrey"  }}>
                           {/* Eighth */}
                           <p className="text-sm text-black font-semibold text-center">
                             Convener, Primary Membership Drive
@@ -191,7 +282,7 @@ function Home() {
                             Khijri Mandal, Ranchi Gramin
                           </p>
                         </div>
-                        <div style={{ borderRight: "1px solid lightgrey" }}>
+                        <div style={{ borderRight: "1px solid lightgrey"  }}>
                           {/* Ninth */}
                           <p className="text-sm text-black  font-semibold text-center">
                             Active Member
@@ -230,31 +321,40 @@ function Home() {
           </div>
           <div className=" my-4 lg:my-0 mx-0 lg:ml-4 p-4 lg:w-3/4 shadow rounded-lg">
             <div className="bg-gradient-to-r from-orange-500 to-orange-500 text-white rounded-md p-1 flex items-center -mt-3">
-              <h2 className=" text-2xl font-medium ">A Political Luminary, Dr. Pradip Varma&apos;s Political Voyage</h2>
+              <h2 className=" text-2xl font-medium ">
+                A Political Luminary, Dr. Pradip Varma&apos;s Political Voyage
+              </h2>
             </div>
-          <div className="text-lg text-slate-600 text-justify mt-3">
-                    Dr. Pradip Varma is an Indian politician and academician and
-                    a member of parliament of RAJYA SABHA, JHARKHAND from
-                    Bharatiya Janata Party. He is serving as the State General
-                    Secretary BJP Jharkhand unit from 2020 onwards. Erstwhile he
-                    served as State Vice President BJP Jharkhand in 2016 and
-                    state minister BJP Jharkhand in 2013. Earlier he served as
-                    BJP membership-in-charge, Khijri division of Ranchi. He was
-                    born on 24th February 1972 in Kolkata capital city of West
-                    Bengal into a Hindu Vaishya family but he is ancestral
-                    native of tehsil Barwadih in Latehar district of Jharkhand.
-                    From childhood he was interested in playing chess at the age
-                    of 12 and was a state level chess player. He also played
-                    cricket for the team Mohan Bagan at the age of 15.
-                  </div>
+            <div className="text-lg text-slate-600 text-justify mt-3">
+              Pradip Kumar Varma (24 February 1972) is an Indian politician and
+              a member of the Rajya Sabha from Jharkhand. Varma is currently the
+              Party State General Secretary BJP Jharkhand since 2020. Erstwhile
+              he served as the Party State Secretary BJP Jharkhand in 2016 and
+              the Party State minister BJP Jharkhand in 2013. Earlier he served
+              as BJP state co-convener cell in-charge in Jharkhand. Varma has
+              been a member of the institute Body of AIIMS, Deoghar since
+              December 2024. Varma has also been a member of the Consultative
+              Committee for the Ministry of Electronics and Information
+              Technology since October 2024 and a member of the Committee on
+              Coal, Mines and Steel since September 2024.
+              <br /> Dr. Pradip Kumar Varma has founded Sarala Birla Public
+              School (SBPS), Sarala Birla University (SBU), a nursing college
+              (MBINCT), and several other educational and welfare projects.
+              Varma is a second-year OTC-trained Swayamsevak from (RSS)
+              Rashtriya Swayamsevak Sangh and also served as a Joint Secretary
+              in Seva Bharti in Prantiya toli. Varma is also chief patron of
+              Chotanagpur Sarna Samiti (constituted in 147 panchayat blocks of
+              Ranchi district). He is also a chief patron of Akhil Bhartiya
+              Vaishya Samiti Jharkhand.
+            </div>
             <Accordion
               type="single"
               collapsible
               className="w-full"
               defaultValue="item-1"
             >
-              <br/>
-              <hr/>
+              <br />
+              <hr />
               {/* <AccordionItem value="item-1">
                 <AccordionTrigger className="text-xl hover:no-underline">
                   <div className="flex">
@@ -670,17 +770,24 @@ function Home() {
               <AccordionItem value="item-6">
                 <AccordionTrigger className="text-xl hover:no-underline">
                   <div className="flex">
-                    <svg 
-                        viewBox="0 0 24 24" 
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6  shrink-0  stroke-orange-500"
-                        fill="none" 
-                        stroke="currentColor" 
-                        stroke-width="1.5" 
-                        stroke-linecap="round" 
-                        stroke-linejoin="round" 
-                      >
-                      <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                    <svg
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6  shrink-0  stroke-orange-500"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect
+                        x="4"
+                        y="2"
+                        width="16"
+                        height="20"
+                        rx="2"
+                        ry="2"
+                      ></rect>
                       <circle cx="12" cy="14" r="4"></circle>
                       <line x1="12" y1="6" x2="12.01" y2="6"></line>
                     </svg>

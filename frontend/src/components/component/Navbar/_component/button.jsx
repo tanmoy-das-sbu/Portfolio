@@ -41,7 +41,7 @@ const Buttons = () => {
                     </SheetClose>
                     <SheetClose asChild>
                       <Link href="/attheparliament" passHref>
-                        At the Parliament
+                        At Rajya Sabha
                       </Link>
                     </SheetClose>
                     <SheetClose asChild>
@@ -55,8 +55,12 @@ const Buttons = () => {
                       </Link>
                     </SheetClose>
                     <SheetClose asChild>
-                      <Link href="/blog" passHref>
-                        Blog
+                      <Link
+                        href="https://en.wikipedia.org/wiki/Pradip_Kumar_Varma"
+                        passHref
+                        target="_blank"
+                      >
+                        Wiki
                       </Link>
                     </SheetClose>
                   </div>

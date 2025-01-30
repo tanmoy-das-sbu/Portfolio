@@ -28,9 +28,10 @@ export function NavigationMenuBar() {
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}
                 style={{
-                  backgroundColor: activeSection === "/" ? "#f3f0eb" : "transparent",
+                  backgroundColor:
+                    activeSection === "/" ? "#f3f0eb" : "transparent",
                   color: activeSection === "/" ? "#f47731" : "#f3f0eb",
-                  borderRadius: "0px"
+                  borderRadius: "0px",
                 }}
               >
                 <p>Home</p>
@@ -42,9 +43,10 @@ export function NavigationMenuBar() {
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}
                 style={{
-                  backgroundColor: activeSection === "/gallery" ? "#f3f0eb" : "transparent", 
-                  color: activeSection === "/gallery" ?"#f47731":"#f3f0eb",
-                  borderRadius: "0px"
+                  backgroundColor:
+                    activeSection === "/gallery" ? "#f3f0eb" : "transparent",
+                  color: activeSection === "/gallery" ? "#f47731" : "#f3f0eb",
+                  borderRadius: "0px",
                 }}
               >
                 <p>Gallery</p>
@@ -56,12 +58,18 @@ export function NavigationMenuBar() {
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}
                 style={{
-                  backgroundColor: activeSection === "/attheparliament" ? "#f3f0eb" : "transparent", 
-                  color: activeSection === "/attheparliament" ?"#f47731":"#f3f0eb",
-                  borderRadius: "0px"
+                  backgroundColor:
+                    activeSection === "/attheparliament"
+                      ? "#f3f0eb"
+                      : "transparent",
+                  color:
+                    activeSection === "/attheparliament"
+                      ? "#f47731"
+                      : "#f3f0eb",
+                  borderRadius: "0px",
                 }}
               >
-                <p>At the Parliament</p>
+                <p>At Rajya Sabha</p>
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
@@ -70,9 +78,10 @@ export function NavigationMenuBar() {
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}
                 style={{
-                  backgroundColor: activeSection === "/socials" ? "#f3f0eb" : "transparent", 
-                  color: activeSection === "/socials" ?"#f47731":"#f3f0eb",
-                  borderRadius: "0px"
+                  backgroundColor:
+                    activeSection === "/socials" ? "#f3f0eb" : "transparent",
+                  color: activeSection === "/socials" ? "#f47731" : "#f3f0eb",
+                  borderRadius: "0px",
                 }}
               >
                 <p>Socials</p>
@@ -84,9 +93,10 @@ export function NavigationMenuBar() {
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}
                 style={{
-                  backgroundColor: activeSection === "/contact" ? "#f3f0eb" : "transparent", 
-                  color: activeSection === "/contact" ?"#f47731":"#f3f0eb",
-                  borderRadius: "0px"
+                  backgroundColor:
+                    activeSection === "/contact" ? "#f3f0eb" : "transparent",
+                  color: activeSection === "/contact" ? "#f47731" : "#f3f0eb",
+                  borderRadius: "0px",
                 }}
               >
                 <p>Contact</p>
@@ -94,16 +104,25 @@ export function NavigationMenuBar() {
             </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link href="/blog" legacyBehavior passHref>
+            <Link
+              href="https://en.wikipedia.org/wiki/Pradip_Kumar_Varma"
+              legacyBehavior
+              passHref
+              target="_blank"
+            >
               <NavigationMenuLink
+                href="https://en.wikipedia.org/wiki/Pradip_Kumar_Varma"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={navigationMenuTriggerStyle()}
                 style={{
-                  backgroundColor: activeSection === "/blog" ? "#f3f0eb" : "transparent", 
-                  color: activeSection === "/blog" ?"#f47731":"#f3f0eb",
-                  borderRadius: "0px"
+                  backgroundColor:
+                    activeSection === "/blog" ? "#f3f0eb" : "transparent",
+                  color: activeSection === "/blog" ? "#f47731" : "#f3f0eb",
+                  borderRadius: "0px",
                 }}
               >
-                <p>Blog</p>
+                Wiki
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>

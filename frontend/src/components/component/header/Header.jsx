@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Logo from "../../../../public/images/pkv/DrPKV.JPG";
+import Logo from "../../../../public/images/pkv/DrPKV.png";
 import Navbar from "../Navbar/Navbar";
 import { Barlow } from "next/font/google";
 import { useRouter } from "next/navigation";
@@ -23,7 +23,6 @@ const Header = () => {
               {name}
             </h2>
           </div>
-
           <p className="md:font-bold text-sm text-[#F47621]">
             Member, Jharkhand Rajya Sabha
           </p>
