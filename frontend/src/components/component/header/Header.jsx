@@ -25,7 +25,11 @@ const Header = () => {
       href: "https://www.instagram.com/pkvarmaranchi",
       label: "Instagram",
     },
-    { icon: FaYoutube, href: "https://www.youtube.com", label: "YouTube" },
+    {
+      icon: FaYoutube,
+      href: "https://www.youtube.com/@pkvbjp",
+      label: "YouTube",
+    },
     {
       icon: XIcon,
       href: "https://twitter.com/pkvarmaranchi",

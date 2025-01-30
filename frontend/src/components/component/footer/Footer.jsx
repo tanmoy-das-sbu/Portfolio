@@ -78,7 +78,7 @@ const Footer = () => {
                 </Tooltip>
                 <Tooltip>
                   <TooltipTrigger>
-                    <a href="https://www.youtube.com" target="_blank">
+                    <a href="https://www.youtube.com/@pkvbjp" target="_blank">
                       <Image
                         src={youtube}
                         className="h-10 w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14 rounded-full bg-white shadow-lg p-0 lg:p-2"
