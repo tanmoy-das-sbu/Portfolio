@@ -75,8 +75,8 @@ function Home() {
                     fontWeight: "bold",
                   }}
                 >
-                  <div class="text-white bg-[#F47621] hover:bg-[#F47621]/90 focus:outline-none  font-medium rounded-lg text-sm px-5 mt-2 py-2.5 text-center inline-flex items-center me-2 mb-2">
-                    Positions Held
+                  <div class="text-white w-2/3 text-center bg-[#F47621] hover:bg-[#F47621]/90 focus:outline-none  font-medium rounded-lg text-sm px-5 mt-2 py-2.5  inline-flex items-center me-2 mb-2">
+                    <p className="w-full">Positions Held</p>
                   </div>
                 </AlertDialogTrigger>
                 <AlertDialogContent
@@ -101,7 +101,12 @@ function Home() {
                       >
                         {/* Second */}
 
-                        <div style={{ borderRight: "1px solid lightgrey", padding: "10px"  }}>
+                        <div
+                          style={{
+                            borderRight: "1px solid lightgrey",
+                            padding: "10px",
+                          }}
+                        >
                           <p className="text-sm text-black font-semibold text-center ">
                             Member of Insititute Body, AIIMS, Deoghar
                           </p>
@@ -110,7 +115,12 @@ function Home() {
                           </p>
                         </div>
 
-                        <div style={{ borderRight: "1px solid lightgrey", padding: "10px"  }}>
+                        <div
+                          style={{
+                            borderRight: "1px solid lightgrey",
+                            padding: "10px",
+                          }}
+                        >
                           {/* Third */}
                           <p className="text-sm text-black font-semibold text-center">
                             Member, Consultative Committee for the Ministry of
@@ -129,7 +139,12 @@ function Home() {
                             Sept. 2024 onwards
                           </p>
                         </div>
-                        <div style={{ borderRight: "1px solid lightgrey", padding: "10px"  }}>
+                        <div
+                          style={{
+                            borderRight: "1px solid lightgrey",
+                            padding: "10px",
+                          }}
+                        >
                           {/* Fifth */}
                           <p className="text-sm text-black font-semibold text-center">
                             Elected to Rajya Sabha
@@ -138,7 +153,12 @@ function Home() {
                             May 2024
                           </p>
                         </div>
-                        <div style={{ borderRight: "1px solid lightgrey", padding: "10px"  }}>
+                        <div
+                          style={{
+                            borderRight: "1px solid lightgrey",
+                            padding: "10px",
+                          }}
+                        >
                           {/* Sixth */}
                           <p className="text-sm text-black font-semibold text-center">
                             Member, Hindi Salahkar Samiti, Bharatiya Dak
@@ -167,7 +187,7 @@ function Home() {
                     fontWeight: "bold",
                   }}
                 >
-                  <div class="text-white bg-[#F47621] hover:bg-[#F47621]/90 focus:outline-none  font-medium rounded-lg text-sm px-5 mt-2 py-2.5 text-center inline-flex items-center me-2 mb-2">
+                  <div class="text-white w-2/3 bg-[#F47621] hover:bg-[#F47621]/90 focus:outline-none  font-medium rounded-lg text-sm px-5 mt-2 py-2.5 text-center inline-flex items-center me-2 mb-2">
                     Political Career Highlights
                   </div>
                 </AlertDialogTrigger>
@@ -194,7 +214,7 @@ function Home() {
                       >
                         {/* Second */}
 
-                        <div style={{ borderRight: "1px solid lightgrey"  }}>
+                        <div style={{ borderRight: "1px solid lightgrey" }}>
                           <p className="text-sm text-black font-semibold text-center ">
                             BJP Jharkhand State General Secretary
                             <br /> (First Term)
@@ -210,7 +230,7 @@ function Home() {
                           </p>
                         </div>
 
-                        <div style={{ borderRight: "1px solid lightgrey"  }}>
+                        <div style={{ borderRight: "1px solid lightgrey" }}>
                           {/* Third */}
                           <p className="text-sm text-black font-semibold text-center">
                             Party State Secretary
@@ -234,7 +254,7 @@ function Home() {
                             BJP Jharkhand
                           </p>
                         </div>
-                        <div style={{ borderRight: "1px solid lightgrey"  }}>
+                        <div style={{ borderRight: "1px solid lightgrey" }}>
                           {/* Fifth */}
                           <p className="text-sm text-black font-semibold text-center">
                             Party State Minister
@@ -246,7 +266,7 @@ function Home() {
                             BJP Jharkhand
                           </p>
                         </div>
-                        <div style={{ borderRight: "1px solid lightgrey"  }}>
+                        <div style={{ borderRight: "1px solid lightgrey" }}>
                           {/* Sixth */}
                           <p className="text-sm text-black font-semibold text-center">
                             Convener, State Training
@@ -270,7 +290,7 @@ function Home() {
                             BJP Jharkhand
                           </p>
                         </div>
-                        <div style={{ borderRight: "1px solid lightgrey"  }}>
+                        <div style={{ borderRight: "1px solid lightgrey" }}>
                           {/* Eighth */}
                           <p className="text-sm text-black font-semibold text-center">
                             Convener, Primary Membership Drive
@@ -282,7 +302,7 @@ function Home() {
                             Khijri Mandal, Ranchi Gramin
                           </p>
                         </div>
-                        <div style={{ borderRight: "1px solid lightgrey"  }}>
+                        <div style={{ borderRight: "1px solid lightgrey" }}>
                           {/* Ninth */}
                           <p className="text-sm text-black  font-semibold text-center">
                             Active Member
