@@ -233,7 +233,7 @@ function Home() {
                         <div style={{ borderRight: "1px solid lightgrey" }}>
                           {/* Third */}
                           <p className="text-sm text-black font-semibold text-center">
-                            Party State Secretary
+                            State Vice President
                           </p>
                           <p className="text-md  text-center font-bold mt-3">
                             2016 - 2020
@@ -257,7 +257,7 @@ function Home() {
                         <div style={{ borderRight: "1px solid lightgrey" }}>
                           {/* Fifth */}
                           <p className="text-sm text-black font-semibold text-center">
-                            Party State Minister
+                            State secretary
                           </p>
                           <p className="text-md  text-center font-bold mt-3">
                             2013
@@ -349,14 +349,14 @@ function Home() {
               Pradip Kumar Varma (24 February 1972) is an Indian politician and
               a member of the Rajya Sabha from Jharkhand. Varma is currently the
               Party State General Secretary BJP Jharkhand since 2020. Erstwhile
-              he served as the Party State Secretary BJP Jharkhand in 2016 and
-              the Party State minister BJP Jharkhand in 2013. Earlier he served
-              as BJP state co-convener cell in-charge in Jharkhand. Varma has
-              been a member of the institute Body of AIIMS, Deoghar since
-              December 2024. Varma has also been a member of the Consultative
-              Committee for the Ministry of Electronics and Information
-              Technology since October 2024 and a member of the Committee on
-              Coal, Mines and Steel since September 2024.
+              he served as the State Vice President BJP Jharkhand in 2016 and
+              the State secretary BJP Jharkhand in 2013. Earlier he served as
+              BJP state co-convener cell in-charge in Jharkhand. Varma has been
+              a member of the institute Body of AIIMS, Deoghar since December
+              2024. Varma has also been a member of the Consultative Committee
+              for the Ministry of Electronics and Information Technology since
+              October 2024 and a member of the Committee on Coal, Mines and
+              Steel since September 2024.
               <br /> Dr. Pradip Kumar Varma has founded Sarala Birla Public
               School (SBPS), Sarala Birla University (SBU), a nursing college
               (MBINCT), and several other educational and welfare projects.
