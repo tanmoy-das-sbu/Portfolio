@@ -1,7 +1,7 @@
 "use client";
 import { Great_Vibes } from "next/font/google";
 import Link from "next/link";
-import DrPKV from "../public/images/pkv/drpkvSir.jpeg";
+import DrPKV from "../public/images/pkv/drpkvSir.JPG";
 import TranslatePage from "./schedule/TranslatePage";
 import Image from "next/image";
 import { RiFocus2Line } from "rocketicons/ri";
